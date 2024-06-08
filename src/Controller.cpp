@@ -72,7 +72,10 @@ void Controller::changeState(state_t newState)
 	{
 	case MAIN_STATE:
 		this->m_currentState = m_mainState;
+		break;
 	case LEVEL_SELECT_STATE:
 		this->m_currentState = m_levelSelectState;
+		break;
+	
 	}
 }

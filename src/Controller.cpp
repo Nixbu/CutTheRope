@@ -18,11 +18,11 @@ void Controller::run() {
 	window.setFramerateLimit(60);
 	while (window.isOpen())
 	{
-		//this->render(window);
+		this->render(window);
 
 		this->handleInput(window);
 
-		//this->m_currentState->update();
+		this->m_currentState->update();
 	}
 }
 

@@ -4,17 +4,6 @@
 ResourceManager::ResourceManager()
 {
     this->loadImage("PlayButton", "PlayButton.png");
-    this->loadImage("LoadButton", "LoadButton.png");
-    this->loadImage("ExitButton", "ExitButton.png");
-    this->loadImage("Background", "Background.png");
-    this->loadImage("WinImage", "EndScreenWin.png");
-    this->loadImage("LoseImage", "EndScreenLose.png");
-    this->loadImage("HintButton", "HintButton.png");
-    this->loadImage("SaveButton", "SaveButton.png");
-    this->loadImage("GameBackground", "GameBackground.png");
-
-
-
 }
 //=============================================================
 ResourceManager& ResourceManager::getInstance()

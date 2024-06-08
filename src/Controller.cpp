@@ -56,12 +56,13 @@ void Controller::handleInput(sf::RenderWindow& window)
 			mousePos = window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
 			updatedState = m_currentState->handleClicks(mousePos);
 			this->changeState(updatedState);
-
+			break;
 		case sf::Event::MouseMoved:
 
 			sf::Event::MouseMoveEvent mouse = event.mouseMove;
 			mousePos = window.mapPixelToCoords({ mouse.x, mouse.y });
 			this->m_currentState->handleFloating(mousePos);
+			break;
 		}
 	}
 }
@@ -76,6 +77,6 @@ void Controller::changeState(state_t newState)
 	case LEVEL_SELECT_STATE:
 		this->m_currentState = m_levelSelectState;
 		break;
-	
+
 	}
 }

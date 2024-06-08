@@ -24,8 +24,7 @@ void Menu::draw(sf::RenderWindow& window) const
 }
 
 //======================================================
-std::shared_ptr<GameState> Menu::handleClicks(const sf::Vector2f& mousePos,
-	sf::RenderWindow& window) const
+std::shared_ptr<GameState> Menu::handleClicks(const sf::Vector2f& mousePos) const
 {
 	for (const auto& btn : m_buttons)
 	{

@@ -25,4 +25,6 @@ private:
 	//std::shared_ptr<CompletedLevelState> m_completedLevelState;
 
 	void changeState(std::shared_ptr<GameState> newState);
+	void handleInput(sf::RenderWindow& window);
+	void render(sf::RenderWindow& window);
 };

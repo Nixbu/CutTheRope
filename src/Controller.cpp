@@ -1,53 +1,66 @@
 #include "Controller.h"
 
 
-Controller::Controller() {
+Controller::Controller()
+{
+	m_mainState = std::make_shared<MainState>(nullptr);
 
+	m_currentState = m_mainState;
 }
 
 
 void Controller::run() {
 
-	sf::Vector2f mousePos;
 	sf::RenderWindow window(sf::VideoMode(WINDOW_MANAGER_WIDTH,
 		WINDOW_MANAGER_HEIGHT),
 		"Cut The Rope");
 
-	std::shared_ptr<GameState> updatedState; 
-
 	window.setFramerateLimit(60);
 	while (window.isOpen())
 	{
-		window.clear();
+		//this->render(window);
 
-		this->m_currentState->draw(window);
+		this->handleInput(window);
 
-		window.display();
+		//this->m_currentState->update();
+	}
+}
 
+void Controller::render(sf::RenderWindow& window)
+{
+	window.clear();
 
-		for (auto event = sf::Event{}; window.pollEvent(event); )
+	this->m_currentState->draw(window);
+
+	window.display();
+}
+
+void Controller::handleInput(sf::RenderWindow& window)
+{
+	static sf::Vector2f mousePos;
+	std::shared_ptr<GameState> updatedState;
+
+	for (auto event = sf::Event{}; window.pollEvent(event); )
+	{
+		switch (event.type)
 		{
-			switch (event.type)
-			{
-			case sf::Event::Closed:
+		case sf::Event::Closed:
 
-				window.close();
-				break;
+			window.close();
+			break;
 
-			case sf::Event::MouseButtonReleased:
+		case sf::Event::MouseButtonReleased:
 
-				mousePos = window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
-				updatedState = m_currentState->handleClicks(mousePos);
-				this->changeState(updatedState);
+			mousePos = window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
+			updatedState = m_currentState->handleClicks(mousePos);
+			this->changeState(updatedState);
 
-			case sf::Event::MouseMoved:
+		case sf::Event::MouseMoved:
 
-				sf::Event::MouseMoveEvent mouse = event.mouseMove;
-				mousePos = window.mapPixelToCoords({ mouse.x, mouse.y });
-				this->m_currentState->handleFloating(mousePos);
-			}
+			sf::Event::MouseMoveEvent mouse = event.mouseMove;
+			mousePos = window.mapPixelToCoords({ mouse.x, mouse.y });
+			this->m_currentState->handleFloating(mousePos);
 		}
-
 	}
 }
 

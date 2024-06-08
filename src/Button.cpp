@@ -3,8 +3,9 @@
 
 //===================================================================
 // ctor for button 
-Button::Button(sf::Vector2f position, const sf::Texture& texture, sf::Vector2f scale)
-	: m_sprite(), m_defSize(scale)
+Button::Button(sf::Vector2f position, const sf::Texture& texture, sf::Vector2f scale,
+			std::shared_ptr<GameState> state)
+	: m_sprite(), m_defSize(scale), m_nextState(state) //?
 {
 	m_sprite.setPosition(position);
 	m_sprite.setTexture(texture);
@@ -39,6 +40,10 @@ void Button::scale()
 void Button::Dscale()
 {
 	this->m_sprite.setScale(m_defSize);
+}
+std::shared_ptr<GameState> Button::getState() const
+{
+	return m_nextState;
 }
 //===================================================================
 bool Button::isFloatedOn(const sf::Vector2f& mousePosition) const

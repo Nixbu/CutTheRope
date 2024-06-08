@@ -2,9 +2,10 @@
 #include "GameState.h"
 #include "ResourceManager.h"
 #include "PlayButton.h"
-#include "LevelSelectState.h"
+#include "Menu.h"
 
 class HelpState;
+class LevelSelectState;
 
 class MainState : public  GameState {
 public:

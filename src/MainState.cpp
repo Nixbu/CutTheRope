@@ -1,6 +1,5 @@
 #include "MainState.h"
-#include "MainState.h"
-#include "MainState.h"
+#include "LevelSelectState.h"
 
 void MainState::handleFloating(const sf::Vector2f& mousePos)
 {
@@ -9,7 +8,6 @@ void MainState::handleFloating(const sf::Vector2f& mousePos)
 
 void MainState::update()
 {
-	
 }
 
 MainState::MainState(std::shared_ptr<LevelSelectState> levelSelectState)

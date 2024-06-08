@@ -1,19 +1,19 @@
 #include "LevelSelectState.h"
 #include "MainState.h"
 
-LevelSelectState::LevelSelectState(std::shared_ptr<MainState> mainState)
-	: m_mainState(mainState)
+LevelSelectState::LevelSelectState()
 {
 	this->addButtons();
 }
 
 void LevelSelectState::draw(sf::RenderWindow& window)
 {
+	this->m_menu.draw(window);
 }
 
-std::shared_ptr<GameState> LevelSelectState::handleClicks(const sf::Vector2f& mousePos)
+state_t LevelSelectState::handleClicks(const sf::Vector2f& mousePos)
 {
-	return std::shared_ptr<GameState>();
+	return this->m_menu.handleClicks(mousePos);
 }
 
 void LevelSelectState::update()
@@ -28,5 +28,5 @@ void LevelSelectState::addButtons()
 {
 	ResourceManager& manager = ResourceManager::getInstance();
 	this->m_menu.addButton(std::make_unique<PlayButton>(sf::Vector2f(100, 100), manager.getImage("PlayButton"),
-		MENU_BUTTON_DEFA_SIZE, m_mainState));
+		MENU_BUTTON_DEFA_SIZE, MAIN_STATE)); // TODO change button
 }

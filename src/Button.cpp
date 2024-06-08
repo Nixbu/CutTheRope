@@ -4,7 +4,7 @@
 //===================================================================
 // ctor for button 
 Button::Button(sf::Vector2f position, const sf::Texture& texture, sf::Vector2f scale,
-			std::shared_ptr<GameState> state)
+	state_t state)
 	: m_sprite(), m_defSize(scale), m_nextState(state) //?
 {
 	m_sprite.setPosition(position);
@@ -41,7 +41,7 @@ void Button::Dscale()
 {
 	this->m_sprite.setScale(m_defSize);
 }
-std::shared_ptr<GameState> Button::getState() const
+state_t Button::getState() const
 {
 	return m_nextState;
 }

@@ -15,7 +15,7 @@ public:
 
 	void addButton(std::unique_ptr<Button>&& button);
 	void draw(sf::RenderWindow& window) const;
-	std::shared_ptr<GameState> handleClicks(const sf::Vector2f& mousePos) const;
+	state_t handleClicks(const sf::Vector2f& mousePos) const;
 	void handleFloating(const sf::Vector2f& mousePos);
 
 

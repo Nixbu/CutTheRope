@@ -3,7 +3,9 @@
 
 Controller::Controller()
 {
-	m_mainState = std::make_shared<MainState>(nullptr);
+	m_mainState = std::make_shared<MainState>();
+	m_levelSelectState = std::make_shared<LevelSelectState>();
+
 
 	m_currentState = m_mainState;
 }
@@ -38,7 +40,7 @@ void Controller::render(sf::RenderWindow& window)
 void Controller::handleInput(sf::RenderWindow& window)
 {
 	static sf::Vector2f mousePos;
-	std::shared_ptr<GameState> updatedState;
+	state_t updatedState;
 
 	for (auto event = sf::Event{}; window.pollEvent(event); )
 	{
@@ -64,9 +66,13 @@ void Controller::handleInput(sf::RenderWindow& window)
 	}
 }
 
-void Controller::changeState(std::shared_ptr<GameState> newState)
+void Controller::changeState(state_t newState)
 {
-	if (newState) {
-		this->m_currentState = newState;
+	switch(newState)
+	{
+	case MAIN_STATE:
+		this->m_currentState = m_mainState;
+	case LEVEL_SELECT_STATE:
+		this->m_currentState = m_levelSelectState;
 	}
 }

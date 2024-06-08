@@ -10,8 +10,7 @@ void MainState::update()
 {
 }
 
-MainState::MainState(std::shared_ptr<LevelSelectState> levelSelectState)
-	: m_levelSelectState(levelSelectState)
+MainState::MainState()
 {
 	this->addButtons();
 }
@@ -20,7 +19,7 @@ void MainState::addButtons()
 {
 	ResourceManager& manager = ResourceManager::getInstance();
 	this->m_menu.addButton(std::make_unique<PlayButton>(PLAY_BTN_POS, manager.getImage("PlayButton"), 
-		MENU_BUTTON_DEFA_SIZE, m_levelSelectState));
+		MENU_BUTTON_DEFA_SIZE, LEVEL_SELECT_STATE));
 }
 
 void MainState::draw(sf::RenderWindow& window)
@@ -28,7 +27,7 @@ void MainState::draw(sf::RenderWindow& window)
 	this->m_menu.draw(window);
 }
 
-std::shared_ptr<GameState> MainState::handleClicks(const sf::Vector2f& mousePos)
+state_t MainState::handleClicks(const sf::Vector2f& mousePos)
 {
 	return this->m_menu.handleClicks(mousePos);
 }

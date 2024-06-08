@@ -24,7 +24,7 @@ void Menu::draw(sf::RenderWindow& window) const
 }
 
 //======================================================
-std::shared_ptr<GameState> Menu::handleClicks(const sf::Vector2f& mousePos) const
+state_t Menu::handleClicks(const sf::Vector2f& mousePos) const
 {
 	for (const auto& btn : m_buttons)
 	{
@@ -34,7 +34,8 @@ std::shared_ptr<GameState> Menu::handleClicks(const sf::Vector2f& mousePos) cons
 			
 		}
 	}
-	return nullptr;
+	return Null;
+
 	/*catch (const FileException& e) {
 
 		std::cerr << "File error: " << e.what() << std::endl;

@@ -2,6 +2,7 @@
 
 
 #include "MainState.h"
+#include "LevelSelectState.h"
 
 class GameState;
 
@@ -19,12 +20,12 @@ public:
 private:	
 	std::shared_ptr<MainState> m_mainState;
 	std::shared_ptr<GameState> m_currentState;
-	//std::shared_ptr<LevelSelectionState> m_levelSelectiobState;
+	std::shared_ptr<LevelSelectState> m_levelSelectState;
 	//std::shared_ptr<HelpState> m_helpState;
 	//std::shared_ptr<PlayingState> m_playingState;
 	//std::shared_ptr<CompletedLevelState> m_completedLevelState;
 
-	void changeState(std::shared_ptr<GameState> newState);
+	void changeState(state_t newState);
 	void handleInput(sf::RenderWindow& window);
 	void render(sf::RenderWindow& window);
 };

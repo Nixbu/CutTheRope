@@ -5,9 +5,8 @@
 class PlayButton : public Button
 {
 public:
-	PlayButton(sf::Vector2f position, const sf::Texture& texture, sf::Vector2f scale,
-		std::shared_ptr<GameState> state);
+	using Button::Button;
 
-	virtual std::shared_ptr<GameState> action() const override;
+	virtual state_t action() const override;
 private:
 };

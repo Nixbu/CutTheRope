@@ -2,6 +2,7 @@
 
 #include <string>
 #include <fstream>
+#include "World.h"
 
 class Level
 {
@@ -11,6 +12,7 @@ public:
 
 private:
 	std::ifstream m_levelFile;
+	World m_world;
 
 	void readLevel();
 };

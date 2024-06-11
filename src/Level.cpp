@@ -1,6 +1,6 @@
 #include "Level.h"
 
-Level::Level()
+Level::Level() : m_world()
 {
 }
 
@@ -16,4 +16,5 @@ void Level::loadLevel(std::string levelFileName)
 
 void Level::readLevel()
 {
+	
 }

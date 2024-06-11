@@ -15,3 +15,7 @@ void GameObject::setPosition(sf::Vector2f& position)
 {
 	this->m_sprite.setPosition(position.x, position.y);
 }
+
+GameObject::~GameObject()
+{
+}

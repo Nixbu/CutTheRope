@@ -20,4 +20,5 @@ enum state_t{Null = 0, MAIN_STATE, LEVEL_SELECT_STATE, LEVEL1};
 
 struct Data {
 	sf::Vector2f m_pos;
+	sf::Texture m_texture;
 };

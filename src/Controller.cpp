@@ -73,6 +73,8 @@ void Controller::changeState(state_t newState)
 	{
 		switch (newState)
 		{
+		case Null:
+			break;
 		case MAIN_STATE:
 			this->m_currentState = m_mainState;
 			break;
@@ -82,16 +84,11 @@ void Controller::changeState(state_t newState)
 		default:
 			// Level states
 			this->m_playingState->setLevel(newState);
-			
-			if (this->m_playingState == nullptr)
-			{
-				throw LevelNotFoundException();
-			}
 
 			this->m_currentState = this->m_playingState;
 		}
 	}
-	catch (const LevelNotFoundException& e)
+	catch (const  std::out_of_range& e)
 	{
 		std::cout << e.what() << std::endl;
 	}

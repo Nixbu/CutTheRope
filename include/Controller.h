@@ -4,7 +4,6 @@
 #include "MainState.h"
 #include "LevelSelectState.h"
 #include "PlayingState.h"
-#include "LevelNotFoundException.h"
 #include <iostream>
 
 class GameState;

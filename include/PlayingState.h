@@ -6,6 +6,8 @@
 #include "Menu.h"
 #include "MainStateButton.h"
 #include "LevelSelectStateButton.h"
+#include "Level.h"
+#include "LevelButton.h"
 
 class PlayingState : public GameState
 {
@@ -18,6 +20,9 @@ public:
 	void setLevel(state_t levelState);
 private:
 	Menu m_menu;
+	std::unordered_map<state_t, std::string> m_levelMap;
+	Level m_level;
 	void addButtons();
 	
 };
+

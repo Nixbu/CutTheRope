@@ -17,4 +17,3 @@ PLAY_BTN_POS = { WINDOW_MANAGER_WIDTH / 2 - MENU_BUTTON_DEFA_SIZE.x / 2,
 							WINDOW_MANAGER_HEIGHT / 2 + 200 };
 
 enum state_t{Null = 0, MAIN_STATE, LEVEL_SELECT_STATE, LEVEL1};
-const std::unordered_map<state_t, std::string> levelMap = { {LEVEL1, "level1.txt"} };

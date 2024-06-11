@@ -11,10 +11,16 @@ void Level::loadLevel(std::string levelFileName)
 
 	this->readLevel();
 
+	m_levelFile.close();
+
 
 }
 
 void Level::readLevel()
 {
-	
+	std::string line;
+
+	while (std::getline(this->m_levelFile, line)) {
+		this->m_world.addObject(line);
+	}
 }

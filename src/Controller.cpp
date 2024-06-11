@@ -69,14 +69,30 @@ void Controller::handleInput(sf::RenderWindow& window)
 
 void Controller::changeState(state_t newState)
 {
-	switch(newState)
+	try
 	{
-	case MAIN_STATE:
-		this->m_currentState = m_mainState;
-		break;
-	case LEVEL_SELECT_STATE:
-		this->m_currentState = m_levelSelectState;
-		break;
+		switch (newState)
+		{
+		case MAIN_STATE:
+			this->m_currentState = m_mainState;
+			break;
+		case LEVEL_SELECT_STATE:
+			this->m_currentState = m_levelSelectState;
+			break;
+		default:
+			// Level states
+			this->m_playingState->setLevel(newState);
+			
+			if (this->m_playingState == nullptr)
+			{
+				throw LevelNotFoundException();
+			}
 
+			this->m_currentState = this->m_playingState;
+		}
+	}
+	catch (const LevelNotFoundException& e)
+	{
+		std::cout << e.what() << std::endl;
 	}
 }

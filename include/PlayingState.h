@@ -1,21 +1,23 @@
 #pragma once
 
 #include "GameState.h"
+#include "Settings.h"
+#include "ResourceManager.h"
 #include "Menu.h"
 #include "MainStateButton.h"
-#include "LevelButton.h"
+#include "LevelSelectStateButton.h"
 
-class MainState;
-
-class LevelSelectState : public GameState {
+class PlayingState : public GameState
+{
 public:
-	LevelSelectState();
+	PlayingState();
 	virtual void draw(sf::RenderWindow& window) override;
 	virtual state_t handleClicks(const sf::Vector2f& mousePos);
 	virtual void update();
 	virtual void handleFloating(const sf::Vector2f& mousePos);
+	void setLevel(state_t levelState);
 private:
 	Menu m_menu;
-
 	void addButtons();
+	
 };

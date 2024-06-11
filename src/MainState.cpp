@@ -18,7 +18,7 @@ MainState::MainState()
 void MainState::addButtons()
 {
 	ResourceManager& manager = ResourceManager::getInstance();
-	this->m_menu.addButton(std::make_unique<PlayButton>(PLAY_BTN_POS, manager.getImage("PlayButton"), 
+	this->m_menu.addButton(std::make_unique<LevelSelectStateButton>(PLAY_BTN_POS, manager.getImage("PlayButton"), 
 		MENU_BUTTON_DEFA_SIZE, LEVEL_SELECT_STATE));
 }
 

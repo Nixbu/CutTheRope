@@ -22,11 +22,14 @@ void LevelSelectState::update()
 
 void LevelSelectState::handleFloating(const sf::Vector2f& mousePos)
 {
+	this->m_menu.handleFloating(mousePos);
 }
 
 void LevelSelectState::addButtons()
 {
 	ResourceManager& manager = ResourceManager::getInstance();
-	this->m_menu.addButton(std::make_unique<PlayButton>(sf::Vector2f(100, 100), manager.getImage("PlayButton"),
+	this->m_menu.addButton(std::make_unique<MainStateButton>(sf::Vector2f(100, 100), manager.getImage("PlayButton"),
 		MENU_BUTTON_DEFA_SIZE, MAIN_STATE)); // TODO change button
+	this->m_menu.addButton(std::make_unique<LevelButton>(sf::Vector2f(100, 300), manager.getImage("PlayButton"),
+		MENU_BUTTON_DEFA_SIZE, LEVEL1)); // TODO change button
 }

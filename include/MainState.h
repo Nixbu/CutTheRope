@@ -1,7 +1,7 @@
 #pragma once
 #include "GameState.h"
 #include "ResourceManager.h"
-#include "PlayButton.h"
+#include "LevelSelectStateButton.h"
 #include "Menu.h"
 
 class HelpState;

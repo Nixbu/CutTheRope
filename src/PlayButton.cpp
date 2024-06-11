@@ -1,6 +1,6 @@
-#include "PlayButton.h"
+#include "MainStateButton.h"
 
-state_t PlayButton::action() const
+state_t MainStateButton::action() const
 {
 	return this->getState();
 }

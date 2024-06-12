@@ -1,6 +1,8 @@
 #include "FactoryManager.h"
 #include "GameObjectFactories/CandyFactory.h"
 #include "GameObjectFactories/StarFactory.h"
+#include "GameObjectFactories/HatFactory.h"
+
 
 
 // Singleton instance
@@ -14,6 +16,8 @@ FactoryManager::FactoryManager() {
     // Initialize with some predefined factory functions
     registerFactory("Candy", std::make_shared<CandyFactory>());
     registerFactory("Star", std::make_shared<StarFactory>());
+    registerFactory("Hat", std::make_shared<HatFactory>());
+
 
 }
 

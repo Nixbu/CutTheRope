@@ -6,6 +6,8 @@ ResourceManager::ResourceManager()
     this->loadImage("PlayButton", "PlayButton.png");
     this->loadImage("Candy", "Candy.png");
     this->loadImage("Star", "Star.png");
+    this->loadImage("Hat", "Hat.png");
+
 
     
 }

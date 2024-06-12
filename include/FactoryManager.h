@@ -12,6 +12,7 @@
 #include "GameObjectFactories/GameObjectFactory.h"
 
 class CandyFactory;
+class spikeFactory;
 
 class FactoryManager {
 public:

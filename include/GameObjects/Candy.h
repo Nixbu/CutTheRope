@@ -5,7 +5,7 @@
 class Candy : public PhysicalObject
 {
 public:
-	Candy(const Data& data , b2World& world);
+	Candy(const Data& ObjectData, b2World& world, const sf::Texture& texture);
 	
 private:
 	b2BodyDef m_bodyDef;

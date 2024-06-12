@@ -7,7 +7,7 @@
 class PhysicalObject : public GameObject
 {
 public:
-	PhysicalObject(const Data & data);
+	PhysicalObject(const Data& data, const sf::Texture& texture);
 	void initBody(b2World& world, const b2BodyDef& bodyDef); 
 
 	virtual ~PhysicalObject();

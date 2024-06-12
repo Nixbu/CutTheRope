@@ -13,6 +13,7 @@ class World
 public:
 	World();
 	void addObject(std::string& line);
+	void draw(sf::RenderWindow& window) const;
 private:
 	b2World m_physicalWorld;
 	std::vector<std::unique_ptr<GameObject>> m_gameObjects;

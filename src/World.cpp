@@ -15,17 +15,13 @@ void World::addObject(std::string& line)
 		std::istringstream iss(line);
 		Data objectData;
 
-		std::string type;
+		iss >> objectData.m_type >> objectData.m_pos.x >> objectData.m_pos.y;
 
-		iss >> type;
+		sf::Texture texture = resourceManager.getImage(objectData.m_type);
 
-		iss >> objectData.m_pos.x >> objectData.m_pos.y;
+		auto factory = factoryManager.getFactory(objectData.m_type);
 
-		objectData.m_texture = resourceManager.getImage(type);
-
-		auto factory = factoryManager.getFactory(type);
-
-		std::unique_ptr<GameObject> &&object = factory->createObject(objectData, this->m_physicalWorld);
+		std::unique_ptr<GameObject> &&object = factory->createObject(objectData, this->m_physicalWorld, texture);
 
 		this->m_gameObjects.push_back(std::move(object));
 	}
@@ -35,4 +31,12 @@ void World::addObject(std::string& line)
 
 	}
 
+}
+
+void World::draw(sf::RenderWindow& window) const 
+{
+	for (const auto& object : this->m_gameObjects)
+	{
+		object->draw(window);
+	}
 }

@@ -5,7 +5,7 @@ Controller::Controller()
 {
 	m_mainState = std::make_shared<MainState>();
 	m_levelSelectState = std::make_shared<LevelSelectState>();
-
+	m_playingState = std::make_shared<PlayingState>();
 
 	m_currentState = m_mainState;
 }
@@ -83,12 +83,16 @@ void Controller::changeState(state_t newState)
 			break;
 		default:
 			// Level states
-			this->m_playingState->setLevel(newState);
+			//this->m_playingState->setLevel(newState);
 
 			this->m_currentState = this->m_playingState;
 		}
 	}
 	catch (const  std::out_of_range& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	catch (const std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
 	}

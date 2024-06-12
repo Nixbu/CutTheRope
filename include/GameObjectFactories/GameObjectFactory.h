@@ -7,7 +7,7 @@ class GameObject;
 
 class GameObjectFactory {
 public:
-	virtual std::unique_ptr<GameObject> && createObject(const Data& ObjectData , b2World& world) const = 0;
+	virtual std::unique_ptr<GameObject> && createObject(const Data& ObjectData, b2World& world, const sf::Texture& texture) const = 0;
 	virtual ~GameObjectFactory() = default;
 
 private:

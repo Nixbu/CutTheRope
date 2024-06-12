@@ -19,3 +19,8 @@ void GameObject::setPosition(sf::Vector2f& position)
 GameObject::~GameObject()
 {
 }
+
+void GameObject::draw(sf::RenderWindow& window) const
+{
+	window.draw(this->m_sprite);
+}

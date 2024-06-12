@@ -16,6 +16,11 @@ void Level::loadLevel(std::string levelFileName)
 
 }
 
+void Level::draw(sf::RenderWindow& window) const
+{
+	this->m_world.draw(window);
+}
+
 void Level::readLevel()
 {
 	std::string line;

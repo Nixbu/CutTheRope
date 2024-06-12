@@ -4,14 +4,15 @@
 
 PlayingState::PlayingState()
 {
-	m_levelMap = { {LEVEL1, "level1.txt"} };
+	m_levelMap = { {LEVEL1, "Level1.txt"} };
+	this->addButtons();
 }
 
 void PlayingState::draw(sf::RenderWindow& window)
 {
 	// Draw level
 
-	// this->m_level.draw(window);
+	//this->m_level.draw(window);
 
 	// Draw menu
 	this->m_menu.draw(window);

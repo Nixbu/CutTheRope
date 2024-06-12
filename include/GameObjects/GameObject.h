@@ -9,6 +9,7 @@ public:
 	sf::Vector2f getPosition() const;
 	void setPosition(sf::Vector2f& position);
 	virtual ~GameObject() = 0;
+	void draw(sf::RenderWindow& window) const;
 
 private:
 	sf::Sprite m_sprite;

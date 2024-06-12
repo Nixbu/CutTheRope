@@ -1,5 +1,6 @@
 #include "World.h"
 
+
 World::World() : m_physicalWorld(b2Vec2(0.0f, -9.8f))
 {
 }
@@ -7,7 +8,10 @@ World::World() : m_physicalWorld(b2Vec2(0.0f, -9.8f))
 void World::addObject(std::string& line)
 {
 	try {
-		auto& manager = FactoryManager::getInstance();
+		auto& factoryManager = FactoryManager::getInstance();
+
+		auto& resourceManager = ResourceManager::getInstance();
+
 		std::istringstream iss(line);
 		Data objectData;
 
@@ -17,7 +21,9 @@ void World::addObject(std::string& line)
 
 		iss >> objectData.m_pos.x >> objectData.m_pos.y;
 
-		auto factory = manager.getFactory(type);
+		objectData.m_texture = resourceManager.getImage(type);
+
+		auto factory = factoryManager.getFactory(type);
 
 		std::unique_ptr<GameObject> &&object = factory->createObject(objectData, this->m_physicalWorld);
 

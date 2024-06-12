@@ -4,6 +4,7 @@
 ResourceManager::ResourceManager()
 {
     this->loadImage("PlayButton", "PlayButton.png");
+    this->loadImage("Candy", "Candy.png");
 }
 //=============================================================
 ResourceManager& ResourceManager::getInstance()

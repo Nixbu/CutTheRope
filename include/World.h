@@ -6,6 +6,7 @@
 #include "Settings.h"
 #include <iostream>
 #include "FactoryManager.h"
+#include "ResourceManager.h"
 
 class World
 {

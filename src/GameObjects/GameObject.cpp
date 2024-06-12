@@ -22,5 +22,5 @@ GameObject::~GameObject()
 
 void GameObject::draw(sf::RenderWindow& window) const
 {
-	window.draw(this->m_sprite);
+	window.draw(m_sprite);
 }

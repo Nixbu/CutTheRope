@@ -83,7 +83,7 @@ void Controller::changeState(state_t newState)
 			break;
 		default:
 			// Level states
-			//this->m_playingState->setLevel(newState);
+			this->m_playingState->setLevel(newState);
 
 			this->m_currentState = this->m_playingState;
 		}

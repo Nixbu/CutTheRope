@@ -12,7 +12,7 @@ void PlayingState::draw(sf::RenderWindow& window)
 {
 	// Draw level
 
-	//this->m_level.draw(window);
+	this->m_level.draw(window);
 
 	// Draw menu
 	this->m_menu.draw(window);

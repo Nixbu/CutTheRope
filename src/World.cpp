@@ -17,13 +17,15 @@ void World::addObject(std::string& line)
 
 		iss >> objectData.m_type >> objectData.m_pos.x >> objectData.m_pos.y;
 
-		sf::Texture texture = resourceManager.getImage(objectData.m_type);
+		std::cout << objectData.m_type;
+
+		const sf::Texture& texture = resourceManager.getImage(objectData.m_type);
 
 		auto factory = factoryManager.getFactory(objectData.m_type);
 
-		std::unique_ptr<GameObject> &&object = factory->createObject(objectData, this->m_physicalWorld, texture);
+		std::shared_ptr<GameObject>object = factory->createObject(objectData, this->m_physicalWorld, texture);
 
-		this->m_gameObjects.push_back(std::move(object));
+		this->m_gameObjects.push_back(object);
 	}
 	catch(const std::runtime_error& e)
 	{

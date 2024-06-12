@@ -16,6 +16,6 @@ public:
 	void draw(sf::RenderWindow& window) const;
 private:
 	b2World m_physicalWorld;
-	std::vector<std::unique_ptr<GameObject>> m_gameObjects;
+	std::vector<std::shared_ptr<GameObject>> m_gameObjects;
 	
 };

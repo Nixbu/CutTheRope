@@ -3,7 +3,7 @@
 #include "GameObjectFactories/StarFactory.h"
 #include "GameObjectFactories/HatFactory.h"
 #include "GameObjectFactories/BubbleFactory.h"
-
+#include "GameObjectFactories/OmnomFactory.h"
 
 // Singleton instance
 FactoryManager& FactoryManager::getInstance() {
@@ -18,7 +18,7 @@ FactoryManager::FactoryManager() {
     registerFactory("Star", std::make_shared<StarFactory>());
     registerFactory("Hat", std::make_shared<HatFactory>());
     registerFactory("Bubble", std::make_shared<BubbleFactory>());
-
+    registerFactory("Omnom", std::make_shared<OmnomFactory>());
 }
 
 // Register a new factory

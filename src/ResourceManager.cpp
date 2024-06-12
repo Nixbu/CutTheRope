@@ -12,7 +12,7 @@ ResourceManager::ResourceManager()
     this->loadImage("Star", "Star.png");
     this->loadImage("Hat", "Hat.png");
     this->loadImage("Bubble", "Bubble.png");
-
+    this->loadImage("Omnom", "Omnom.png");
     
 }
 //=============================================================

@@ -6,6 +6,9 @@ ResourceManager::ResourceManager()
     this->loadImage("PlayButton", "PlayButton.png");
     this->loadImage("Candy", "Candy.png");
     this->loadImage("HorizonalLongSpikes", "HorizonalLongSpikes.png");
+    this->loadImage("HorizonalShortSpikes", "HorizonalShortSpikes.png");
+    this->loadImage("HorizonalMediumSpikes", "HorizonalMediumSpikes.png");
+
 }
 //=============================================================
 ResourceManager& ResourceManager::getInstance()

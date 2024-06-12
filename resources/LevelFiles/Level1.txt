@@ -1,2 +1,2 @@
 Candy 100 100
-HorizonalLongSpikes 300 300
+HorizonalMediumSpikes 300 300

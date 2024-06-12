@@ -12,8 +12,10 @@ FactoryManager& FactoryManager::getInstance() {
 // Constructor
 FactoryManager::FactoryManager() {
     // Initialize with some predefined factory functions
-    registerFactory("Candy", std::make_shared<CandyFactory>());
-    registerFactory("HorizonalLongSpikes", std::make_shared<SpikesFactory>());
+    this->registerFactory("Candy", std::make_shared<CandyFactory>());
+    this->registerFactory("HorizonalLongSpikes", std::make_shared<SpikesFactory>());
+    this->registerFactory("HorizonalShortSpikes", std::make_shared<SpikesFactory>());
+    this->registerFactory("HorizonalMediumSpikes", std::make_shared<SpikesFactory>());
 
 }
 

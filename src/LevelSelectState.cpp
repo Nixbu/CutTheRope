@@ -32,4 +32,6 @@ void LevelSelectState::addButtons()
 		MENU_BUTTON_DEFA_SIZE, MAIN_STATE)); // TODO change button
 	this->m_menu.addButton(std::make_unique<LevelButton>(sf::Vector2f(100, 300), manager.getImage("PlayButton"),
 		MENU_BUTTON_DEFA_SIZE, LEVEL1)); // TODO change button
+	this->m_menu.addButton(std::make_unique<SandboxButton>(sf::Vector2f(450, 450), manager.getImage("SandboxButton"),
+		MENU_BUTTON_DEFA_SIZE, SANDBOX)); // TODO change button
 }

@@ -6,7 +6,7 @@
 class NonPhysicalObject : public GameObject
 {
 public:
-	virual ~NonPhysicalObject() = default;
+	virual ~NonPhysicalObject() = 0;
 private:
 
 };

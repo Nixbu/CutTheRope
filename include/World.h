@@ -4,7 +4,8 @@
 #include "GameObjects/GameObject.h"
 #include <sstream>
 #include "Settings.h"
-
+#include <iostream>
+#include "FactoryManager.h"
 
 class World
 {
@@ -13,5 +14,6 @@ public:
 	void addObject(std::string& line);
 private:
 	b2World m_physicalWorld;
+	std::vector<std::unique_ptr<GameObject>> m_gameObjects;
 	
 };

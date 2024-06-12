@@ -2,7 +2,6 @@
 #include "Settings.h"
 #include "GameObjects/NonPhysicalObject.h"
 
-class Candy;
 
 class Star : public NonPhysicalObject
 {

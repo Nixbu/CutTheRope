@@ -1,4 +1,6 @@
 #include "GameObjects/GameObject.h"
+#include "GameObjects/NonPhysicalObject.h"
+#include "GameObjects/PhysicalObject.h"
 
 GameObject::GameObject(sf::Vector2f position, const sf::Texture& texture)
 {

@@ -2,7 +2,7 @@
 #include "GameObjectFactories/CandyFactory.h"
 #include "GameObjectFactories/StarFactory.h"
 #include "GameObjectFactories/HatFactory.h"
-
+#include "GameObjectFactories/BubbleFactory.h"
 
 
 // Singleton instance
@@ -17,7 +17,7 @@ FactoryManager::FactoryManager() {
     registerFactory("Candy", std::make_shared<CandyFactory>());
     registerFactory("Star", std::make_shared<StarFactory>());
     registerFactory("Hat", std::make_shared<HatFactory>());
-
+    registerFactory("Bubble", std::make_shared<BubbleFactory>());
 
 }
 

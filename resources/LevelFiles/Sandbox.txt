@@ -3,3 +3,4 @@ Star 200 500
 Star 300 500
 Star 400 500
 Hat 100 300
+Bubble 100 400

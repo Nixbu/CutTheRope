@@ -1,4 +1,4 @@
-Candy 100 100
+Candy 200 100
 Star 200 500
 Star 300 500
 Star 400 500

@@ -6,6 +6,8 @@ Level::Level() : m_world()
 
 void Level::loadLevel(std::string levelFileName)
 {
+
+	this->m_world.reset();
 	// TODO add try catch
 	m_levelFile.open(levelFileName);
 

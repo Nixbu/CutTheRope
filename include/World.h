@@ -14,6 +14,7 @@ public:
 	World();
 	void addObject(std::string& line);
 	void draw(sf::RenderWindow& window) const;
+	void reset();
 private:
 	b2World m_physicalWorld;
 	std::vector<std::shared_ptr<GameObject>> m_gameObjects;

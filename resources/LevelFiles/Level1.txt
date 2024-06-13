@@ -5,3 +5,4 @@ Bubble 100 400
 Omnom 100 700
 Candy 100 100
 HorizonalMediumSpikes 300 300
+AirPillow 100 750

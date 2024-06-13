@@ -5,7 +5,7 @@
 #include "GameObjectFactories/BubbleFactory.h"
 #include "GameObjectFactories/OmnomFactory.h"
 #include "GameObjectFactories/SpikesFactory.h"
-
+#include "GameObjectFactories/AirPillowFactory.h"
 
 // Singleton instance
 FactoryManager& FactoryManager::getInstance() {
@@ -25,7 +25,7 @@ FactoryManager::FactoryManager() {
     this->registerFactory("HorizonalLongSpikes", std::make_shared<SpikesFactory>());
     this->registerFactory("HorizonalShortSpikes", std::make_shared<SpikesFactory>());
     this->registerFactory("HorizonalMediumSpikes", std::make_shared<SpikesFactory>());
-
+    this->registerFactory("AirPillow", std::make_shared<AirPillowFactory>());
 }
 
 // Register a new factory

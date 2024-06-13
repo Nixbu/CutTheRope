@@ -5,3 +5,4 @@ Star 400 500
 Hat 100 300
 Bubble 100 400
 Omnom 100 700
+AirPillow 400 700

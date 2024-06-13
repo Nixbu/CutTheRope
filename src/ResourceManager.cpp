@@ -5,18 +5,16 @@ ResourceManager::ResourceManager()
 {
     this->loadImage("PlayButton", "PlayButton.png");
     this->loadImage("SandboxButton", "Sandbox.png");
-
     this->loadImage("MainWindowBG", "MainWindowBG.png");
-
     this->loadImage("Candy", "Candy.png");
     this->loadImage("Star", "Star.png");
     this->loadImage("Hat", "Hat.png");
     this->loadImage("Bubble", "Bubble.png");
     this->loadImage("Omnom", "Omnom.png");
-
     this->loadImage("HorizonalLongSpikes", "HorizonalLongSpikes.png");
     this->loadImage("HorizonalShortSpikes", "HorizonalShortSpikes.png");
     this->loadImage("HorizonalMediumSpikes", "HorizonalMediumSpikes.png");
+    this->loadImage("AirPillow", "AirPillow.png");
 
 }
 //=============================================================

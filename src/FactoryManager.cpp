@@ -1,5 +1,9 @@
 #include "FactoryManager.h"
 #include "GameObjectFactories/CandyFactory.h"
+#include "GameObjectFactories/StarFactory.h"
+#include "GameObjectFactories/HatFactory.h"
+#include "GameObjectFactories/BubbleFactory.h"
+#include "GameObjectFactories/OmnomFactory.h"
 #include "GameObjectFactories/SpikesFactory.h"
 
 
@@ -12,6 +16,11 @@ FactoryManager& FactoryManager::getInstance() {
 // Constructor
 FactoryManager::FactoryManager() {
     // Initialize with some predefined factory functions
+    registerFactory("Candy", std::make_shared<CandyFactory>());
+    registerFactory("Star", std::make_shared<StarFactory>());
+    registerFactory("Hat", std::make_shared<HatFactory>());
+    registerFactory("Bubble", std::make_shared<BubbleFactory>());
+    registerFactory("Omnom", std::make_shared<OmnomFactory>());
     this->registerFactory("Candy", std::make_shared<CandyFactory>());
     this->registerFactory("HorizonalLongSpikes", std::make_shared<SpikesFactory>());
     this->registerFactory("HorizonalShortSpikes", std::make_shared<SpikesFactory>());

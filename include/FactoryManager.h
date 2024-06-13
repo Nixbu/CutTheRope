@@ -12,6 +12,11 @@
 #include "GameObjectFactories/GameObjectFactory.h"
 
 class CandyFactory;
+class HatFactory;
+class StarFactory;
+class BubbleFactory;
+class OmnomFactory;
+
 class spikeFactory;
 
 class FactoryManager {

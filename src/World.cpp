@@ -42,3 +42,8 @@ void World::draw(sf::RenderWindow& window) const
 		object->draw(window);
 	}
 }
+
+void World::reset()
+{
+	this->m_gameObjects.clear();
+}

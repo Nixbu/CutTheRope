@@ -18,6 +18,7 @@ public:
 
 private:
 	Menu m_menu;
+	sf::Sprite m_bgImage;
 
 	void addButtons();
 };

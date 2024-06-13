@@ -4,7 +4,8 @@
 
 PlayingState::PlayingState()
 {
-	m_levelMap = { {LEVEL1, "Level1.txt"} };
+	m_levelMap = { {SANDBOX, "Sandbox.txt"},
+					{ LEVEL1, "Level1.txt" }};
 	this->addButtons();
 }
 

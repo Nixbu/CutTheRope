@@ -1,6 +1,14 @@
 #include "MainState.h"
 #include "LevelSelectState.h"
 
+
+MainState::MainState()
+{
+	ResourceManager& manager = ResourceManager::getInstance();
+	this->m_bgImage.setTexture(manager.getImage("MainWindowBG"));
+	this->addButtons();
+}
+
 void MainState::handleFloating(const sf::Vector2f& mousePos)
 {
 	this->m_menu.handleFloating(mousePos);
@@ -8,11 +16,6 @@ void MainState::handleFloating(const sf::Vector2f& mousePos)
 
 void MainState::update()
 {
-}
-
-MainState::MainState()
-{
-	this->addButtons();
 }
 
 void MainState::addButtons()
@@ -24,6 +27,7 @@ void MainState::addButtons()
 
 void MainState::draw(sf::RenderWindow& window)
 {
+	window.draw(this->m_bgImage);
 	this->m_menu.draw(window);
 }
 

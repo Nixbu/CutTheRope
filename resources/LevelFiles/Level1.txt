@@ -1,2 +1,7 @@
 Candy 100 100
+Star 200 500
+Hat 100 300
+Bubble 100 400
+Omnom 100 700
+Candy 100 100
 HorizonalMediumSpikes 300 300

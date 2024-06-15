@@ -18,3 +18,6 @@ struct Data {
 	sf::Vector2f m_pos;
 	std::string m_type;
 };
+
+const float SCALE = 30.0f,
+TIME_STEP = 1;

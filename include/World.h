@@ -15,6 +15,7 @@ public:
 	void addObject(std::string& line);
 	void draw(sf::RenderWindow& window) const;
 	void reset();
+	void update(float timeStep);
 private:
 	b2World m_physicalWorld;
 	std::vector<std::shared_ptr<GameObject>> m_gameObjects;

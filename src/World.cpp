@@ -50,3 +50,17 @@ void World::reset()
 {
 	this->m_gameObjects.clear();
 }
+
+void World::update(float timeStep)
+{
+	int32 velocityIterations = 6;
+	int32 positionIterations = 2; // TODO change to constants
+
+	// Step the physics world
+	m_physicalWorld.Step(timeStep, velocityIterations, positionIterations);
+
+	// Update all game objects to match their physics bodies
+	for (auto& object : m_gameObjects) {
+		object->update();
+	}
+}

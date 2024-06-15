@@ -1,6 +1,6 @@
 #include "Level.h"
 
-Level::Level() : m_world()
+Level::Level() : m_world(), m_accumulator(0)
 {
 }
 
@@ -21,6 +21,18 @@ void Level::loadLevel(std::string levelFileName)
 void Level::draw(sf::RenderWindow& window) const
 {
 	this->m_world.draw(window);
+}
+
+void Level::update()
+{
+	float deltaTime = m_clock.restart().asSeconds();
+	m_accumulator += deltaTime;
+
+	// Update the world if the accumulator exceeds the time step
+	while (m_accumulator >= TIME_STEP) {
+		m_world.update(TIME_STEP);
+		m_accumulator -= TIME_STEP;
+	}
 }
 
 void Level::readLevel()

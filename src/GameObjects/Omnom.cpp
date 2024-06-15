@@ -12,9 +12,22 @@ Omnom::Omnom(const Data& ObjectData, b2World& world, const sf::Texture& texture)
     this->m_bodyDef.linearDamping = 0.1f; // Set the linear damping
     this->m_bodyDef.angularDamping = 0.1f; // Set the angular damping
 
-    this->initBody(world, m_bodyDef);
+    b2PolygonShape polygonShape;
+    float width = texture.getSize().x / SCALE;
+    float height = texture.getSize().y / SCALE;
+
+    // Set as a box shape for now, can be modified for other shapes
+    polygonShape.SetAsBox(width / 2.0f, height / 2.0f);
+
+    // Define the fixture
+
+    m_fixtureDef.shape = &polygonShape;
+    m_fixtureDef.density = 1.0f; // Adjust density as needed
+    m_fixtureDef.friction = 0.3f; // Adjust friction as needed
+    m_fixtureDef.restitution = 0.5f; // Adjust restitution (bounciness) as needed
 
 
+    this->initBody(world, m_bodyDef, m_fixtureDef);
 }
 
 bool Omnom::m_registerit = FactoryManager::registerit("Omnom",

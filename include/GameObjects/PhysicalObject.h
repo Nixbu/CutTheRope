@@ -8,7 +8,10 @@ class PhysicalObject : public GameObject
 {
 public:
 	PhysicalObject(const Data& data, const sf::Texture& texture);
-	void initBody(b2World& world, const b2BodyDef& bodyDef); 
+	void initBody(b2World& world, 
+		const b2BodyDef& bodyDef,
+		const b2FixtureDef& fixtureDef);
+	void update();
 
 	virtual ~PhysicalObject();
 private:

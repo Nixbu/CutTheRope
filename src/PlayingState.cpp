@@ -30,6 +30,8 @@ state_t PlayingState::handleClicks(const sf::Vector2f& mousePos)
 
 void PlayingState::update()
 {
+
+	this->m_level.update(); 
 }
 
 void PlayingState::handleFloating(const sf::Vector2f& mousePos)

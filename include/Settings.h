@@ -20,4 +20,4 @@ struct Data {
 };
 
 const float SCALE = 30.0f,
-TIME_STEP = 1;
+TIME_STEP = 1.0 / 60.0f;

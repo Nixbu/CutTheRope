@@ -1,8 +1,7 @@
-Candy 100 100
+Candy 4 1
 Star 200 500
-Hat 100 300
-Bubble 100 400
-Omnom 100 700
-Candy 100 100
-Spikes 300 300
+Hat 4 5
+Bubble 4 3
+Omnom 4 6.5
+Spikes 1 2
 AirPillow 100 750

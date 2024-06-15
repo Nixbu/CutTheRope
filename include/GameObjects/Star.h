@@ -1,5 +1,7 @@
 #pragma once
 #include "Settings.h"
+#include "FactoryManager.h"
+#include "GameObjectFactories/StarFactory.h"
 #include "GameObjects/NonPhysicalObject.h"
 
 
@@ -10,4 +12,5 @@ public:
 	virtual ~Star() = default;
 
 private:
+	static bool m_registerit;
 };

@@ -4,7 +4,7 @@
 
 std::shared_ptr<GameObject> HatFactory::createObject(const Data& ObjectData,
 	b2World& world,
-	const sf::Texture& texture) const
+	const sf::Texture& texture)
 {
 	return std::make_shared<Hat>(ObjectData, texture);
 }

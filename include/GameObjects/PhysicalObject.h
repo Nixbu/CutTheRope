@@ -12,5 +12,5 @@ public:
 
 	virtual ~PhysicalObject();
 private:
-	b2Body* m_body;	
+	b2Body* m_body;
 };

@@ -16,3 +16,6 @@ Candy::Candy(const Data& ObjectData, b2World& world, const sf::Texture& texture)
 
 
 }
+
+bool Candy::m_registerit = FactoryManager::registerit("Candy",
+    &CandyFactory::createObject);

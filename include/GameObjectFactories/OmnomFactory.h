@@ -1,13 +1,13 @@
 #pragma once
-#include "GameObjectFactory.h"
 
+#include "box2d/box2d.h"
+#include <memory>
+#include "GameObjects/Omnom.h"
 
-class Omnom;
-
-class OmnomFactory :public  GameObjectFactory {
+class OmnomFactory{
 public:
 
-	virtual std::shared_ptr<GameObject> createObject(const Data& ObjectData, b2World& world, const sf::Texture& texture) const;
+	static std::shared_ptr<GameObject> createObject(const Data& ObjectData, b2World& world, const sf::Texture& texture);
 
 private:
 

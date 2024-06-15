@@ -1,5 +1,7 @@
 #pragma once
 #include "Settings.h"
+#include "FactoryManager.h"
+#include "GameObjectFactories/HatFactory.h"
 #include "GameObjects/NonPhysicalObject.h"
 
 class Hat : public NonPhysicalObject
@@ -9,4 +11,5 @@ public:
 	virtual ~Hat() = default;
 
 private:
+	static bool m_registerit;
 };

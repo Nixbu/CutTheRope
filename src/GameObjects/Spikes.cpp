@@ -1,6 +1,5 @@
 #include "GameObjects/Spikes.h"
 
-#include "GameObjects/Candy.h"
 
 Spikes::Spikes(const Data& ObjectData, b2World& world, const sf::Texture& texture) :
     PhysicalObject(ObjectData, texture) {
@@ -19,3 +18,7 @@ Spikes::Spikes(const Data& ObjectData, b2World& world, const sf::Texture& textur
 
 
 }
+
+bool Spikes::m_registerit = FactoryManager::registerit("Spikes",
+    &SpikesFactory::createObject);
+

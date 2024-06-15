@@ -16,3 +16,7 @@ Bubble::Bubble(const Data& ObjectData, b2World& world, const sf::Texture& textur
 
 
 }
+
+
+bool Bubble::m_registerit = FactoryManager::registerit("Bubble",
+    &BubbleFactory::createObject);

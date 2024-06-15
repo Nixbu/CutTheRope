@@ -1,15 +1,16 @@
 #pragma once
-#include "GameObjectFactory.h"
 
-class NonPhysicalObject;
-class Hat;
+#include "box2d/box2d.h"
+#include <memory>
+#include "GameObjects/Hat.h"
 
-class HatFactory : public  GameObjectFactory {
+
+class HatFactory{
 public:
 
-	virtual std::shared_ptr<GameObject> createObject(const Data& ObjectData,
+	static std::shared_ptr<GameObject> createObject(const Data& ObjectData,
 		b2World& world,
-		const sf::Texture& texture) const override;
+		const sf::Texture& texture);
 
 private:
 

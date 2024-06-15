@@ -1,16 +1,15 @@
 #pragma once
-#include "GameObjectFactory.h"
 
-class NonPhysicalObject;
-class AirPillow;
+#include "box2d/box2d.h"
+#include <memory>
+#include "GameObjects/AirPillow.h"
 
-class AirPillowFactory : public  GameObjectFactory {
+class AirPillowFactory{
 public:
 
-	virtual std::shared_ptr<GameObject> createObject(const Data& ObjectData,
+	static std::shared_ptr<GameObject> createObject(const Data& ObjectData,
 		b2World& world,
-		const sf::Texture& texture) const override;
+		const sf::Texture& texture);
 
 private:
-
 };

@@ -9,28 +9,22 @@
 #include "GameObjects/GameObject.h"
 #include "Settings.h"
 #include "box2d/box2d.h"
-#include "GameObjectFactories/GameObjectFactory.h"
 
-class CandyFactory;
-class HatFactory;
-class StarFactory;
-class BubbleFactory;
-class OmnomFactory;
 
-class spikeFactory;
-
+typedef std::unordered_map<std::string, std::shared_ptr<GameObject>(*)(const Data&, b2World&, const sf::Texture&)> FactoryMap; //?
+// ================   class Factory   ============================
 class FactoryManager {
 public:
-    static FactoryManager& getInstance();
-
-    void registerFactory(const std::string& typeKey, std::shared_ptr<GameObjectFactory> factory);
-    std::shared_ptr<GameObjectFactory> getFactory(const std::string& typeKey);
-
+	static std::shared_ptr<GameObject> create(const std::string& name,
+		const Data& data, b2World& world, const sf::Texture& texture);
+	static bool registerit(const std::string& name, 
+				std::shared_ptr<GameObject>(*f)(const Data&,
+												b2World&,
+											const sf::Texture&));
 private:
-    FactoryManager();
-    FactoryManager(const FactoryManager&) = delete;
-    FactoryManager& operator=(const FactoryManager&) = delete;
-
-    std::unordered_map<std::string, std::shared_ptr<GameObjectFactory>> factoryMap;
+	static FactoryMap& getMap()
+	{
+		static FactoryMap m_map;
+		return m_map;
+	}
 };
-

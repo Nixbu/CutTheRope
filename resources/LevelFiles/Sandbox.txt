@@ -1,8 +1,2 @@
-Candy 200 100
-Star 200 500
-Star 300 500
-Star 400 500
-Hat 100 300
-Bubble 100 400
-Omnom 100 700
-AirPillow 400 700
+Candy 1 4
+Bubble 8 30

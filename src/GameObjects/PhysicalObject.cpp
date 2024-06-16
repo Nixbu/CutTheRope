@@ -13,9 +13,6 @@ void PhysicalObject::initBody(b2World& world,
 	m_body = world.CreateBody(&bodyDef);
 	this->m_body->CreateFixture(&fixtureDef);
 	
-	m_body->SetUserData(static_cast<void*>(this));
-
-	
 }
 
 void PhysicalObject::update()
@@ -33,4 +30,14 @@ PhysicalObject::~PhysicalObject()
 	if (m_body) {
 		m_body->GetWorld()->DestroyBody(m_body);
 	}
+}
+
+b2Body* PhysicalObject::getBody()
+{
+	return m_body;
+}
+
+void PhysicalObject::SetLinearVelocity(const b2Vec2 linearVelocity)
+{
+	this->m_body->SetLinearVelocity(linearVelocity);
 }

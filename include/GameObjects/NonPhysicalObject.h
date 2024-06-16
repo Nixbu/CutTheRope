@@ -10,6 +10,8 @@ public:
 	NonPhysicalObject(const Data& data, const sf::Texture& texture);
 	virtual ~NonPhysicalObject() = 0;
 	virtual void update(){};
+	b2Body* getBody() { return nullptr; };
+
 private:
 
 };

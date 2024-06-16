@@ -75,32 +75,41 @@ void World::handleCollisions()
 			{
 				continue;
 			}
-			if(checkCollision(m_gameObjects[index1], m_gameObjects[index2]))
+			if(this->checkCollision(m_gameObjects[index1], m_gameObjects[index2]))
 			{
-				auto collisionsFunc = collisionsMap.lookup(typeid(m_gameObjects[index1]), typeid(m_gameObjects[index2]));
+				auto collisionsFunc = lookup(typeid(m_gameObjects[index1]), typeid(m_gameObjects[index2]));
 
 				if (collisionsFunc != nullptr)
 				{
-					collisionsFunc(m_gameObjects[index1], m_gameObjects[index2]);
+					collisionsFunc(m_gameObjects[index1], m_gameObjects[index2], this->m_physicalWorld);
 				}
 			}
 		}
 	}
-	for (b2Contact* contact = this->m_physicalWorld.GetContactList(); contact; contact = contact->GetNext()) {
-		b2Fixture* fixtureA = contact->GetFixtureA();
-		b2Fixture* fixtureB = contact->GetFixtureB();
+}
 
-		b2Body* bodyA = fixtureA->GetBody();
-		b2Body* bodyB = fixtureB->GetBody();
+bool World::checkCollision(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2)
+{
+	b2Body* bodyA = object1->getBody();
+	b2Body* bodyB = object2->getBody();
 
-		// Find the corresponding game objects for the bodies
-		std::shared_ptr<GameObject> objectA = static_cast<GameObject*>(bodyA->GetUserData());
-		std::shared_ptr<GameObject> objectB = static_cast<GameObject*>(bodyB->GetUserData());
 
-		// Check for collisions between objects
-		auto collisionsFunc = collisionsMap.lookup(typeid(*objectA), typeid(*objectB));
-		if (collisionsFunc != nullptr) {
-			collisionsFunc(objectA, objectB);
+	if (bodyA && bodyB)
+	{
+		for (b2ContactEdge* edge = bodyA->GetContactList(); edge; edge = edge->next) {
+			b2Contact* contact = edge->contact;
+			b2Body* contactBodyA = contact->GetFixtureA()->GetBody();
+			b2Body* contactBodyB = contact->GetFixtureB()->GetBody();
+
+			// Use the helper function to check if the bodies are in contact
+			if (isContactBetween(contactBodyA, contactBodyB, bodyA, bodyB)) {
+				return true;
+			}
 		}
 	}
+	return false;
+}
+
+bool World::isContactBetween(b2Body* body1, b2Body* body2, b2Body* checkBodyA, b2Body* checkBodyB) {
+	return (body1 == checkBodyA && body2 == checkBodyB) || (body1 == checkBodyB && body2 == checkBodyA);
 }

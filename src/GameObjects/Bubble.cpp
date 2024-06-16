@@ -9,8 +9,8 @@ Bubble::Bubble(const Data& ObjectData, b2World& world, const sf::Texture& textur
     this->m_bodyDef.angle = 0.0f; // Set the initial angle
     this->m_bodyDef.linearVelocity.Set(2.0f, 0.0f); // Set the initial linear velocity
     this->m_bodyDef.angularVelocity = 0.0f; // Set the initial angular velocity
-    this->m_bodyDef.linearDamping = 0.1f; // Set the linear damping
-    this->m_bodyDef.angularDamping = 0.1f; // Set the angular damping
+    this->m_bodyDef.linearDamping = 0.0f; // Set the linear damping
+    this->m_bodyDef.angularDamping = 0.0f; // Set the angular damping
 
     b2CircleShape circleShape;
     circleShape.m_radius = texture.getSize().x / 2.0f / SCALE; // Set the radius (assuming square texture)
@@ -25,6 +25,12 @@ Bubble::Bubble(const Data& ObjectData, b2World& world, const sf::Texture& textur
 
     this->initBody(world, m_bodyDef, m_fixtureDef);
 
+}
+
+void Bubble::changeToDynamic()
+{
+    this->getBody()->SetType(b2_dynamicBody);
+    this->SetLinearVelocity(BUBBLE_VELOCITY);
 }
 
 

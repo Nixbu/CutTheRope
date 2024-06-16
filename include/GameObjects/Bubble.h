@@ -8,7 +8,7 @@ class Bubble : public PhysicalObject
 {
 public:
 	Bubble(const Data& ObjectData, b2World& world, const sf::Texture& texture);
-
+	void changeToDynamic();
 private:
 	b2BodyDef m_bodyDef;
 	b2FixtureDef m_fixtureDef;

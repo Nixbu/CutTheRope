@@ -2,6 +2,8 @@
 
 #include <SFML/Graphics.hpp>
 #include <memory>
+#include <box2d/box2d.h>
+
 
 class GameObject
 {
@@ -13,6 +15,7 @@ public:
 	virtual ~GameObject() = 0;
 	void draw(sf::RenderWindow& window) const;
 	virtual void update() = 0;
+	virtual b2Body* getBody() = 0;
 
 private:
 	sf::Sprite m_sprite;

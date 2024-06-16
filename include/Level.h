@@ -11,6 +11,7 @@ public:
 	void loadLevel(std::string levelFileName);
 	void draw(sf::RenderWindow& window) const;
 	void update();
+	void handleClicks(const sf::Vector2f& mousePos);
 private:
 	std::ifstream m_levelFile;
 	World m_world;

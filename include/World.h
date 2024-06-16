@@ -18,6 +18,8 @@ public:
 	void reset();
 	void update(float timeStep);
 	void handleCollisions();
+	void handleClicks(const sf::Vector2f& mousePos);
+	void removeObject(GameObject* object);
 
 private:
 	b2World m_physicalWorld;

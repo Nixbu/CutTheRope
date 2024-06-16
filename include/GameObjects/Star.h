@@ -10,6 +10,8 @@ class Star : public NonPhysicalObject
 public:
 	Star(const Data& ObjectData, const sf::Texture& texture);
 	virtual ~Star() = default;
+	virtual void handleClicked(World& world) {};
+
 
 private:
 	static bool m_registerit;

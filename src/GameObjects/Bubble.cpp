@@ -1,4 +1,5 @@
 #include "GameObjects/Bubble.h"
+#include "World.h"
 
 Bubble::Bubble(const Data& ObjectData, b2World& world, const sf::Texture& texture) : PhysicalObject(ObjectData, texture) {
 
@@ -47,6 +48,14 @@ void Bubble::update()
     this->setRotation(angle * 180.0f / b2_pi);
 
   
+}
+
+void Bubble::handleClicked(World& world)
+{
+    if (this->getBody()->GetType() == b2_dynamicBody) {
+        // Directly delete this object from the world
+        world.removeObject(this);
+    }
 }
 
 

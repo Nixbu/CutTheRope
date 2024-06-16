@@ -10,6 +10,8 @@ public:
 	Bubble(const Data& ObjectData, b2World& world, const sf::Texture& texture);
 	void changeToDynamic();
 	virtual void update();
+	virtual void handleClicked(World& world);
+
 private:
 	b2BodyDef m_bodyDef;
 	b2FixtureDef m_fixtureDef;

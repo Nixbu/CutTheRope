@@ -4,6 +4,7 @@
 #include <memory>
 #include <box2d/box2d.h>
 
+class World;
 
 class GameObject
 {
@@ -16,6 +17,8 @@ public:
 	void draw(sf::RenderWindow& window) const;
 	virtual void update() = 0;
 	virtual b2Body* getBody() = 0;
+	virtual bool isClicked(const sf::Vector2f& mousePos) const;
+	virtual void handleClicked(World& world) = 0;
 
 private:
 	sf::Sprite m_sprite;

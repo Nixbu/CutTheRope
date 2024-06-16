@@ -22,7 +22,7 @@ void PlayingState::draw(sf::RenderWindow& window)
 state_t PlayingState::handleClicks(const sf::Vector2f& mousePos)
 {
 	// Handle all level clicks
-	// this->m_level.handleClicks(mousePos);
+	this->m_level.handleClicks(mousePos);
 
 	// Handle menu clicks
 	return this->m_menu.handleClicks(mousePos);

@@ -9,6 +9,8 @@ class Spikes : public PhysicalObject
 public:
 	Spikes(const Data& ObjectData, b2World& world, const sf::Texture& texture);
 	virtual void update();
+	virtual void handleClicked(World& world) {};
+
 private:
 	b2BodyDef m_bodyDef;
 	b2FixtureDef m_fixtureDef;

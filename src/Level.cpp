@@ -38,6 +38,10 @@ void Level::update()
 	}
 }
 
+void Level::handleClicks(const sf::Vector2f& mousePos)
+{
+	this->m_world.handleClicks(mousePos);
+}
 void Level::readLevel()
 {
 	std::string line;

@@ -1,2 +1,2 @@
-Candy 1 4
-Bubble 4 6
+Candy 30 30
+Bubble 30 600

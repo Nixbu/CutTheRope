@@ -15,7 +15,7 @@ sf::Vector2f GameObject::getPosition() const
 
 void GameObject::setPosition(float posX, float posY)
 {
-	this->m_sprite.setPosition(posX, posY);
+	this->m_sprite.setPosition(sf::Vector2f(posX, posY));
 }
 
 void GameObject::setRotation(float angle)

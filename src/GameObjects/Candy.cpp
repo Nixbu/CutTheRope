@@ -5,7 +5,8 @@ Candy::Candy(const Data& ObjectData, b2World& world, const sf::Texture& texture)
     //TODO CHANGE SETTINGS IF NEEDED
 
     this ->m_bodyDef.type = b2_dynamicBody; // Set the body type to dynamic
-    this->m_bodyDef.position.Set(ObjectData.m_pos.x / SCALE, ObjectData.m_pos.y /SCALE); // Set the initial position
+    this->m_bodyDef.position.Set(ObjectData.m_pos.x / SCALE, 
+        (WINDOW_MANAGER_HEIGHT - ObjectData.m_pos.y) /SCALE); // Set the initial position
     this->m_bodyDef.angle = 0.0f; // Set the initial angle
     this->m_bodyDef.linearVelocity.Set(0.0f, 0.0f); // Set the initial linear velocity
     this->m_bodyDef.angularVelocity = 0.0f; // Set the initial angular velocity

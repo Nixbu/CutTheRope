@@ -77,7 +77,7 @@ void World::handleCollisions()
 			}
 			if(this->checkCollision(m_gameObjects[index1], m_gameObjects[index2]))
 			{
-				auto collisionsFunc = lookup(typeid(m_gameObjects[index1]), typeid(m_gameObjects[index2]));
+				auto collisionsFunc = lookup(typeid(*m_gameObjects[index1]), typeid(*m_gameObjects[index2]));
 
 				if (collisionsFunc != nullptr)
 				{
@@ -93,22 +93,38 @@ bool World::checkCollision(std::shared_ptr<GameObject> object1, std::shared_ptr<
 	b2Body* bodyA = object1->getBody();
 	b2Body* bodyB = object2->getBody();
 
-
 	if (bodyA && bodyB)
 	{
-		for (b2ContactEdge* edge = bodyA->GetContactList(); edge; edge = edge->next) {
+		// Check contacts of bodyA
+		for (b2ContactEdge* edge = bodyA->GetContactList(); edge; edge = edge->next)
+		{
 			b2Contact* contact = edge->contact;
 			b2Body* contactBodyA = contact->GetFixtureA()->GetBody();
 			b2Body* contactBodyB = contact->GetFixtureB()->GetBody();
 
-			// Use the helper function to check if the bodies are in contact
-			if (isContactBetween(contactBodyA, contactBodyB, bodyA, bodyB)) {
+			if ((contactBodyA == bodyA && contactBodyB == bodyB) || (contactBodyA == bodyB && contactBodyB == bodyA))
+			{
+				return true;
+			}
+		}
+
+		// Check contacts of bodyB
+		for (b2ContactEdge* edge = bodyB->GetContactList(); edge; edge = edge->next)
+		{
+			b2Contact* contact = edge->contact;
+			b2Body* contactBodyA = contact->GetFixtureA()->GetBody();
+			b2Body* contactBodyB = contact->GetFixtureB()->GetBody();
+
+			if ((contactBodyA == bodyA && contactBodyB == bodyB) || (contactBodyA == bodyB && contactBodyB == bodyA))
+			{
 				return true;
 			}
 		}
 	}
+
 	return false;
 }
+
 
 bool World::isContactBetween(b2Body* body1, b2Body* body2, b2Body* checkBodyA, b2Body* checkBodyB) {
 	return (body1 == checkBodyA && body2 == checkBodyB) || (body1 == checkBodyB && body2 == checkBodyA);

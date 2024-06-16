@@ -64,3 +64,43 @@ void World::update(float timeStep)
 		object->update();
 	}
 }
+
+void World::handleCollisions()
+{
+	for (int index1 = 0; index1 < this->m_gameObjects.size(); index1++)
+	{
+		for (int index2 = 0; index2 < this->m_gameObjects.size(); index2++)
+		{
+			if (index1 == index2)
+			{
+				continue;
+			}
+			if(checkCollision(m_gameObjects[index1], m_gameObjects[index2]))
+			{
+				auto collisionsFunc = collisionsMap.lookup(typeid(m_gameObjects[index1]), typeid(m_gameObjects[index2]));
+
+				if (collisionsFunc != nullptr)
+				{
+					collisionsFunc(m_gameObjects[index1], m_gameObjects[index2]);
+				}
+			}
+		}
+	}
+	for (b2Contact* contact = this->m_physicalWorld.GetContactList(); contact; contact = contact->GetNext()) {
+		b2Fixture* fixtureA = contact->GetFixtureA();
+		b2Fixture* fixtureB = contact->GetFixtureB();
+
+		b2Body* bodyA = fixtureA->GetBody();
+		b2Body* bodyB = fixtureB->GetBody();
+
+		// Find the corresponding game objects for the bodies
+		std::shared_ptr<GameObject> objectA = static_cast<GameObject*>(bodyA->GetUserData());
+		std::shared_ptr<GameObject> objectB = static_cast<GameObject*>(bodyB->GetUserData());
+
+		// Check for collisions between objects
+		auto collisionsFunc = collisionsMap.lookup(typeid(*objectA), typeid(*objectB));
+		if (collisionsFunc != nullptr) {
+			collisionsFunc(objectA, objectB);
+		}
+	}
+}

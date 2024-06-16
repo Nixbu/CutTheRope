@@ -26,6 +26,8 @@ void Level::draw(sf::RenderWindow& window) const
 
 void Level::update()
 {
+	this->m_world.handleCollisions();
+
 	float deltaTime = m_clock.restart().asSeconds();
 	m_accumulator += deltaTime;
 
@@ -44,3 +46,4 @@ void Level::readLevel()
 		this->m_world.addObject(line);
 	}
 }
+

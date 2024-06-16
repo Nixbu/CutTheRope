@@ -3,7 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include <unordered_map>
 #include <string>
-
+#include <box2d/box2d.h>
 
 const unsigned int WINDOW_MANAGER_WIDTH = 869,
 WINDOW_MANAGER_HEIGHT = 867;
@@ -21,3 +21,5 @@ struct Data {
 
 const float SCALE = 30.0f,
 TIME_STEP = 1.0 / 60.0f;
+
+const b2Vec2 BUBBLE_VELOCITY(0.0f, 2.0f);

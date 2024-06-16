@@ -12,6 +12,10 @@ void PhysicalObject::initBody(b2World& world,
 {
 	m_body = world.CreateBody(&bodyDef);
 	this->m_body->CreateFixture(&fixtureDef);
+	
+	m_body->SetUserData(static_cast<void*>(this));
+
+	
 }
 
 void PhysicalObject::update()

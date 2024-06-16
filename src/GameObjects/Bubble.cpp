@@ -4,7 +4,7 @@ Bubble::Bubble(const Data& ObjectData, b2World& world, const sf::Texture& textur
 
     //TODO CHANGE SETTINGS IF NEEDED
 
-    this->m_bodyDef.type = b2_dynamicBody; // Set the body type to dynamic
+    this->m_bodyDef.type = b2_staticBody; // Set the body type to dynamic
     this->m_bodyDef.position.Set(ObjectData.m_pos.x / SCALE , ObjectData.m_pos.y / SCALE); // Set the initial position
     this->m_bodyDef.angle = 0.0f; // Set the initial angle
     this->m_bodyDef.linearVelocity.Set(2.0f, 0.0f); // Set the initial linear velocity
@@ -17,11 +17,11 @@ Bubble::Bubble(const Data& ObjectData, b2World& world, const sf::Texture& textur
 
     // Define the fixture
 
-    m_fixtureDef.shape = &circleShape;
-    m_fixtureDef.density = 1.0f; // Adjust density as needed
-    m_fixtureDef.friction = 0.3f; // Adjust friction as needed
-    m_fixtureDef.restitution = 0.5f; // Adjust restitution (bounciness) as needed
-
+    this->m_fixtureDef.shape = &circleShape;
+    this->m_fixtureDef.density = 1.0f; // Adjust density as needed
+    this->m_fixtureDef.friction = 0.3f; // Adjust friction as needed
+    this->m_fixtureDef.restitution = 0.5f; // Adjust restitution (bounciness) as needed
+    this->m_fixtureDef.isSensor = true;
 
     this->initBody(world, m_bodyDef, m_fixtureDef);
 

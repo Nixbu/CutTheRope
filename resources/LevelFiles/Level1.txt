@@ -1,7 +1,7 @@
 Candy 4 1
 Star 200 500
 Hat 4 5
-Bubble 4 3
+Bubble 4 1
 Omnom 4 6.5
 Spikes 1 2
 AirPillow 100 750

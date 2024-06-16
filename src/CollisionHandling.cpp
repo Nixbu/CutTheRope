@@ -29,12 +29,17 @@ void candyBubble(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject
     bubble->changeToDynamic();
     candy->SetLinearVelocity(BUBBLE_VELOCITY);
 
+
+
     b2WeldJointDef weldJointDef;
     weldJointDef.bodyA = bubble->getBody();
     weldJointDef.bodyB = candy->getBody();
     weldJointDef.localAnchorA.Set(0, 0);
     weldJointDef.localAnchorB.Set(0, 0);
+
+
     world.CreateJoint(&weldJointDef);
+
 
 }
 

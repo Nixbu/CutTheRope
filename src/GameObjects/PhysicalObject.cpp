@@ -17,15 +17,6 @@ void PhysicalObject::initBody(b2World& world,
 	
 }
 
-void PhysicalObject::update()
-{
-	b2Vec2 position = m_body->GetPosition();
-	float angle = m_body->GetAngle();
-
-	// Convert Box2D position (meters) to SFML position (pixels)
-	this->setPosition(position.x * SCALE, WINDOW_MANAGER_HEIGHT - position.y * SCALE);
-	this->setRotation(angle * 180.0f / b2_pi);
-}
 
 PhysicalObject::~PhysicalObject()
 {

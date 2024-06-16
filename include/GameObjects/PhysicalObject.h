@@ -11,7 +11,6 @@ public:
 	void initBody(b2World& world, 
 		const b2BodyDef& bodyDef,
 		const b2FixtureDef& fixtureDef);
-	void update();
 	virtual b2Body* getBody();
 	void SetLinearVelocity(const b2Vec2 linearVelocity);
 

@@ -1,9 +1,9 @@
 #include "GameObjects/GameObject.h"
 #include "GameObjects/NonPhysicalObject.h"
 #include "GameObjects/PhysicalObject.h"
-#include "World.h"
 
-GameObject::GameObject(sf::Vector2f position, const sf::Texture& texture)
+
+GameObject::GameObject(sf::Vector2f position, const sf::Texture& texture) : m_toDelete(false)
 {
 	m_sprite.setPosition(position);
 	m_sprite.setTexture(texture);
@@ -40,4 +40,14 @@ void GameObject::draw(sf::RenderWindow& window) const
 bool GameObject::isClicked(const sf::Vector2f& mousePos) const
 {
 	return this->m_sprite.getGlobalBounds().contains(mousePos);
+}
+
+void GameObject::setDelete()
+{
+	this->m_toDelete = true;
+}
+
+bool GameObject::needToDelete() const
+{
+	return this->m_toDelete;
 }

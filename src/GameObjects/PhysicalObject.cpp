@@ -34,3 +34,8 @@ void PhysicalObject::SetLinearVelocity(const b2Vec2 linearVelocity)
 {
 	this->m_body->SetLinearVelocity(linearVelocity);
 }
+
+void PhysicalObject::setToDynamic()
+{
+	this->m_body->SetType(b2_dynamicBody);
+}

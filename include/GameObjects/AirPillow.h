@@ -9,7 +9,7 @@ class AirPillow : public NonPhysicalObject
 public:
 	AirPillow(const Data& ObjectData, const sf::Texture& texture);
 	virtual ~AirPillow() = default;
-	virtual void handleClicked(World& world) {};
+	virtual void handleClicked() {};
 
 
 private:

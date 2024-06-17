@@ -94,9 +94,11 @@ void World::handleClicks(const sf::Vector2f& mousePos)
 	{
 		if (object->isClicked(mousePos))
 		{
-			object->handleClicked(*this);
+			object->handleClicked();
 		}
 	}
+
+	this->deleteWantedObjects();
 }
 
 void World::removeObject(GameObject* object)
@@ -152,4 +154,14 @@ bool World::checkCollision(std::shared_ptr<GameObject> object1, std::shared_ptr<
 
 bool World::isContactBetween(b2Body* body1, b2Body* body2, b2Body* checkBodyA, b2Body* checkBodyB) {
 	return (body1 == checkBodyA && body2 == checkBodyB) || (body1 == checkBodyB && body2 == checkBodyA);
+}
+
+void World::deleteWantedObjects()
+{
+	for (int i = 0; i < this->m_gameObjects.size(); i++) {
+		if (this->m_gameObjects[i]->needToDelete()) {
+			this->m_gameObjects.erase(m_gameObjects.begin() + i);
+			i--;
+		}
+	}
 }

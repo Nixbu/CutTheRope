@@ -8,7 +8,7 @@ class Omnom : public NonPhysicalObject
 {
 public:
 	Omnom(const Data& ObjectData, b2World& world, const sf::Texture& texture);
-	virtual void handleClicked(World& world) {};
+	virtual void handleClicked() {};
 
 
 private:

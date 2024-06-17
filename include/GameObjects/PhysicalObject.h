@@ -13,6 +13,7 @@ public:
 		const b2FixtureDef& fixtureDef);
 	virtual b2Body* getBody();
 	void SetLinearVelocity(const b2Vec2 linearVelocity);
+	void setToDynamic();
 
 	virtual ~PhysicalObject();
 private:

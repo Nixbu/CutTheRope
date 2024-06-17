@@ -1,5 +1,5 @@
 #include "GameObjects/Bubble.h"
-#include "World.h"
+
 
 Bubble::Bubble(const Data& ObjectData, b2World& world, const sf::Texture& texture) : PhysicalObject(ObjectData, texture) {
 
@@ -30,7 +30,7 @@ Bubble::Bubble(const Data& ObjectData, b2World& world, const sf::Texture& textur
 
 void Bubble::changeToDynamic()
 {
-    this->getBody()->SetType(b2_dynamicBody);
+    this->setToDynamic();
     this->SetLinearVelocity(BUBBLE_VELOCITY);
 }
 
@@ -50,11 +50,10 @@ void Bubble::update()
   
 }
 
-void Bubble::handleClicked(World& world)
+void Bubble::handleClicked()
 {
     if (this->getBody()->GetType() == b2_dynamicBody) {
-        // Directly delete this object from the world
-        world.removeObject(this);
+        this->setDelete();      
     }
 }
 

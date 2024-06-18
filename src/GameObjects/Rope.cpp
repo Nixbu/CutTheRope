@@ -26,7 +26,7 @@ Rope::Rope(const Data& data, World& world, const sf::Texture& texture)
     hookBody->CreateFixture(&hookFixtureDef);
 
     // Define the number of segments
-    int segmentCount = 80; // Replace with desired segment count or parameter
+    int segmentCount = 20; // Replace with desired segment count or parameter
 
     for (int i = 0; i < segmentCount; ++i)
     {
@@ -58,12 +58,25 @@ Rope::Rope(const Data& data, World& world, const sf::Texture& texture)
             world.getWorld().CreateJoint(&hookJointDef);
         }
 
+
         // Add the new segment to the list of segments
         m_segments.push_back(std::move(segment));
 
         // Increment the y position for the next segment
         currentPosition.y -= 0.5f;  // Adjust as necessary for spacing
     }
+    b2Body* lastSegmentBody = m_segments.back()->getBody();
+
+    // Define a revolute joint to connect the last segment to the candy
+    b2RevoluteJointDef jointDef;
+    jointDef.bodyA = lastSegmentBody;
+    jointDef.bodyB = world.getCandy()->getBody();
+    jointDef.localAnchorA.Set(0.0f, -0.1f); // Adjust as needed
+    jointDef.localAnchorB.Set(0.0f, 0.1f);  // Adjust as needed
+    jointDef.collideConnected = false;
+
+    // Create the joint
+    world.getWorld().CreateJoint(&jointDef);
 }
 
 void Rope::update()

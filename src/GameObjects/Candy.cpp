@@ -23,7 +23,7 @@ Candy::Candy(const Data& ObjectData, World& world, const sf::Texture& texture) :
     // Define the fixture
    
     fixtureDef.shape = &circleShape;
-    fixtureDef.density = 1.0f; // Adjust density as needed
+    fixtureDef.density = 5.0f; // Adjust density as needed
     fixtureDef.friction = 0.3f; // Adjust friction as needed
     fixtureDef.restitution = 0.5f; // Adjust restitution (bounciness) as needed
 

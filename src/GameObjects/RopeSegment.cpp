@@ -18,6 +18,7 @@ RopeSegment::RopeSegment(const Data& data, World& world, const sf::Texture& text
     fixtureDef.shape = &box;
     fixtureDef.density = 1.0f;
     fixtureDef.friction = 0.5f;
+    fixtureDef.isSensor = true;
 
     this->initBody(world, bodyDef, fixtureDef);
 }

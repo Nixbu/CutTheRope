@@ -20,6 +20,7 @@ public:
 	void handleCollisions();
 	void handleClicks(const sf::Vector2f& mousePos);
 	b2World& getWorld();
+	std::shared_ptr<GameObject> getCandy() const;
 
 private:
 	b2World m_physicalWorld;

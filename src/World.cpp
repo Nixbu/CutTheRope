@@ -116,6 +116,11 @@ b2World& World::getWorld()
 	return this->m_physicalWorld;
 }
 
+std::shared_ptr<GameObject> World::getCandy()const
+{
+	return this->m_candy;
+}
+
 
 bool World::checkCollision(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2)
 {

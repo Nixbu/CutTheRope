@@ -1,4 +1,6 @@
 #include "CollisionHandling.h"
+#include <thread>
+#include <chrono>
 
 
 HitMap initializeCollisionMap()
@@ -40,6 +42,7 @@ void candyBubble(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject
 
     world.CreateJoint(&weldJointDef);
 
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
 }
 

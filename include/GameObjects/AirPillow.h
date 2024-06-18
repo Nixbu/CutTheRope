@@ -2,14 +2,15 @@
 #include "Settings.h"
 #include "FactoryManager.h"
 #include "GameObjectFactories/AirPillowFactory.h"
-#include "GameObjects/NonClickableObject.h"
+#include "GameObjects/ClickableObject.h"
 
-class AirPillow : public NonClickableObject
+class AirPillow : public ClickableObject
 {
 public:
 	AirPillow(const Data& ObjectData, const sf::Texture& texture);
 	virtual ~AirPillow() = default;
-	virtual void handleClicked() {};
+	virtual void handleClicked() override {}; //TODO
+	virtual void update() override {}; // TODO
 
 
 private:

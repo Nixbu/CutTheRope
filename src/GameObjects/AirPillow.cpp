@@ -1,6 +1,6 @@
 #include "GameObjects/AirPillow.h"
 
-AirPillow::AirPillow(const Data& ObjectData, const sf::Texture& texture) : NonClickableObject(ObjectData, texture)
+AirPillow::AirPillow(const Data& ObjectData, const sf::Texture& texture) : ClickableObject(ObjectData, texture)
 {
 }
 

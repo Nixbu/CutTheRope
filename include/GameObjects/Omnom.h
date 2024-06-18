@@ -12,7 +12,5 @@ public:
 
 
 private:
-	b2BodyDef m_bodyDef;
-	b2FixtureDef m_fixtureDef;
 	static bool m_registerit;
 };

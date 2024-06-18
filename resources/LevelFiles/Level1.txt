@@ -1,3 +1,4 @@
+Rope 600 200
 Candy 120 30
 Bubble 120 600
 Bubble 120 650

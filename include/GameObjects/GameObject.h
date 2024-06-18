@@ -16,12 +16,12 @@ public:
 
 	void setPosition(float posX, float posY);
 	void setRotation(float angle);
-	void draw(sf::RenderWindow& window) const;
+	virtual void draw(sf::RenderWindow& window) const;
 	virtual void update() = 0;
 	void initBody(b2World& world,
 				const b2BodyDef& bodyDef,
 				const b2FixtureDef& fixtureDef);
-	virtual b2Body* getBody();
+	b2Body* getBody();
 	void SetLinearVelocity(const b2Vec2 linearVelocity);
 	void setToDynamic();
 	void setDelete();

@@ -125,19 +125,6 @@ bool World::checkCollision(std::shared_ptr<GameObject> object1, std::shared_ptr<
 				return true;
 			}
 		}
-
-		// Check contacts of bodyB
-		for (b2ContactEdge* edge = bodyB->GetContactList(); edge; edge = edge->next)
-		{
-			b2Contact* contact = edge->contact;
-			b2Body* contactBodyA = contact->GetFixtureA()->GetBody();
-			b2Body* contactBodyB = contact->GetFixtureB()->GetBody();
-
-			if ((contactBodyA == bodyA && contactBodyB == bodyB) || (contactBodyA == bodyB && contactBodyB == bodyA))
-			{
-				return true;
-			}
-		}
 	}
 
 	return false;

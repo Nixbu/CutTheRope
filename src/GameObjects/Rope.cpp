@@ -94,20 +94,7 @@ void Rope::update()
 
 void Rope::handleClicked()
 {
-    // TODO Add fading and delete when clicked
-
-    /*bool startFade = false;
-    for (auto& segment : m_segments)
-    {
-        if (segment->isClicked(mousePos))
-        {
-            startFade = true;
-        }
-        if (startFade)
-        {
-            segment->startFading();
-        }
-    }*/
+    this->setDelete();
 }
 
 void Rope::draw(sf::RenderWindow& window) const
@@ -116,6 +103,16 @@ void Rope::draw(sf::RenderWindow& window) const
     {
         segment->draw(window);
     }
+}
+
+bool Rope::isClicked(const sf::Vector2f& mousePos) const
+{
+    for (const auto& segment : this->m_segments) {
+        if (segment->isClicked(mousePos)) {
+            return true;
+        }
+    }
+    return false;
 }
 
 bool Rope::m_registerit = FactoryManager::registerit("Rope",

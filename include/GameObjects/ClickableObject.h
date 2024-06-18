@@ -8,7 +8,7 @@ class ClickableObject : public GameObject
 {
 public:
 	ClickableObject(const Data& data, const sf::Texture& texture);
-	bool isClicked(const sf::Vector2f& mousePos) const;
+	virtual bool isClicked(const sf::Vector2f& mousePos) const;
 	virtual void handleClicked() = 0;
 
 	virtual ~ClickableObject();

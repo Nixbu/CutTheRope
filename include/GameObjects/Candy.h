@@ -2,9 +2,9 @@
 #include "Settings.h"
 #include "FactoryManager.h"
 #include "GameObjectFactories/CandyFactory.h"
-#include "GameObjects/PhysicalObject.h"
+#include "GameObjects/ClickableObject.h"
 
-class Candy : public PhysicalObject
+class Candy : public ClickableObject
 {
 public:
 	Candy(const Data& ObjectData, b2World& world, const sf::Texture& texture);

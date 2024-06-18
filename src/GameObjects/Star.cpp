@@ -1,6 +1,6 @@
 #include "GameObjects/Star.h"
 
-Star::Star(const Data& ObjectData, const sf::Texture& texture) : NonPhysicalObject(ObjectData, texture)
+Star::Star(const Data& ObjectData, const sf::Texture& texture) : NonClickableObject(ObjectData, texture)
 {
 }
 

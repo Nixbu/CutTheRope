@@ -2,10 +2,10 @@
 #include "Settings.h"
 #include "FactoryManager.h"
 #include "GameObjectFactories/StarFactory.h"
-#include "GameObjects/NonPhysicalObject.h"
+#include "GameObjects/NonClickableObject.h"
 
 
-class Star : public NonPhysicalObject
+class Star : public NonClickableObject
 {
 public:
 	Star(const Data& ObjectData, const sf::Texture& texture);

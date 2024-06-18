@@ -2,9 +2,9 @@
 #include "Settings.h"
 #include "FactoryManager.h"
 #include "GameObjectFactories/HatFactory.h"
-#include "GameObjects/NonPhysicalObject.h"
+#include "GameObjects/NonClickableObject.h"
 
-class Hat : public NonPhysicalObject
+class Hat : public NonClickableObject
 {
 public:
 	Hat(const Data& ObjectData, const sf::Texture& texture);

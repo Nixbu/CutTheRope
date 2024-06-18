@@ -1,6 +1,6 @@
 #include "GameObjects/Omnom.h"
 
-Omnom::Omnom(const Data& ObjectData, b2World& world, const sf::Texture& texture) : NonPhysicalObject(ObjectData, texture) {
+Omnom::Omnom(const Data& ObjectData, b2World& world, const sf::Texture& texture) : NonClickableObject(ObjectData, texture) {
 
 
 }

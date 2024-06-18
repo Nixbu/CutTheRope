@@ -1,11 +1,11 @@
-#include "GameObjects/NonPhysicalObject.h"
+#include "GameObjects/NonClickableObject.h"
 
 
-NonPhysicalObject::NonPhysicalObject(const Data& data, const sf::Texture& texture)
+NonClickableObject::NonClickableObject(const Data& data, const sf::Texture& texture)
 	: GameObject(data.m_pos, texture)
 {
 }
-NonPhysicalObject::~NonPhysicalObject()
+NonClickableObject::~NonClickableObject()
 {
 
 }

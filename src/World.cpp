@@ -92,9 +92,13 @@ void World::handleClicks(const sf::Vector2f& mousePos)
 {
 	for (auto& object : this->m_gameObjects)
 	{
-		if (object->isClicked(mousePos))
+		auto clickable = std::dynamic_pointer_cast<ClickableObject>(object);
+		if(clickable)
 		{
-			object->handleClicked();
+			if (clickable->isClicked(mousePos))
+			{
+				clickable->handleClicked();
+			}
 		}
 	}
 

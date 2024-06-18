@@ -1,7 +1,7 @@
 #include "GameObjects/Bubble.h"
 
 
-Bubble::Bubble(const Data& ObjectData, b2World& world, const sf::Texture& texture) : PhysicalObject(ObjectData, texture) {
+Bubble::Bubble(const Data& ObjectData, b2World& world, const sf::Texture& texture) : ClickableObject(ObjectData, texture) {
 
     //TODO CHANGE SETTINGS IF NEEDED
 

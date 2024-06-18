@@ -2,7 +2,7 @@
 
 
 Spikes::Spikes(const Data& ObjectData, b2World& world, const sf::Texture& texture) :
-    PhysicalObject(ObjectData, texture) {
+    ClickableObject(ObjectData, texture) {
 
     //TODO CHANGE SETTINGS IF NEEDED
 

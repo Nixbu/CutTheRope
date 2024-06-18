@@ -1,6 +1,6 @@
 #include "GameObjects/Candy.h"
 
-Candy::Candy(const Data& ObjectData, b2World& world, const sf::Texture& texture) : PhysicalObject(ObjectData,texture){
+Candy::Candy(const Data& ObjectData, b2World& world, const sf::Texture& texture) : ClickableObject(ObjectData,texture){
 
     //TODO CHANGE SETTINGS IF NEEDED
 

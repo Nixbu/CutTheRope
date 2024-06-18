@@ -2,9 +2,9 @@
 #include "Settings.h"
 #include "FactoryManager.h"
 #include "GameObjectFactories/AirPillowFactory.h"
-#include "GameObjects/NonPhysicalObject.h"
+#include "GameObjects/NonClickableObject.h"
 
-class AirPillow : public NonPhysicalObject
+class AirPillow : public NonClickableObject
 {
 public:
 	AirPillow(const Data& ObjectData, const sf::Texture& texture);

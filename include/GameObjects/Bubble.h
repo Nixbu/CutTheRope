@@ -2,9 +2,9 @@
 #include "Settings.h"
 #include "FactoryManager.h"
 #include "GameObjectFactories/BubbleFactory.h"
-#include "GameObjects/PhysicalObject.h"
+#include "GameObjects/ClickableObject.h"
 
-class Bubble : public PhysicalObject
+class Bubble : public ClickableObject
 {
 public:
 	Bubble(const Data& ObjectData, b2World& world, const sf::Texture& texture);

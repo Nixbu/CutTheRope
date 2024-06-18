@@ -42,7 +42,7 @@ void candyBubble(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject
 
     world.CreateJoint(&weldJointDef);
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    std::this_thread::sleep_for(std::chrono::milliseconds(FRAME_DELAY_MS));
 
 }
 

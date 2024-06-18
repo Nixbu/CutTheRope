@@ -101,18 +101,6 @@ void World::handleClicks(const sf::Vector2f& mousePos)
 	this->deleteWantedObjects();
 }
 
-void World::removeObject(GameObject* object)
-{
-	// Find and remove the object from the vector
-	auto it = std::find_if(m_gameObjects.begin(), m_gameObjects.end(),
-		[object](const std::shared_ptr<GameObject>& ptr) {
-			return ptr.get() == object;
-		});
-	if (it != m_gameObjects.end()) {
-		m_gameObjects.erase(it);
-	}
-	
-}
 
 bool World::checkCollision(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2)
 {

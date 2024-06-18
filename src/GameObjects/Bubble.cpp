@@ -36,9 +36,10 @@ void Bubble::changeToDynamic()
 
 void Bubble::update()
 {
-
-    b2Vec2 force(0.0f, 200.0f);  // Adjust the force vector as needed
-    this->getBody()->ApplyForceToCenter(force, true);
+    if (this->getBody()->GetType() == b2_dynamicBody)
+    {
+        this->getBody()->ApplyForceToCenter(BUBBLE_FORCE, true);
+    }
 
     b2Vec2 position = this->getBody()->GetPosition();
     float angle = this->getBody()->GetAngle();

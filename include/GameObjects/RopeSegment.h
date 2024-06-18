@@ -5,7 +5,7 @@
 class RopeSegment : public ClickableObject
 {
 public:
-    RopeSegment(const Data& data, b2World& world, const sf::Texture& texture, const b2Vec2& position);
+    RopeSegment(const Data& data, World& world, const sf::Texture& texture, const b2Vec2& position);
     virtual void update() override;
     virtual void handleClicked() override;
 

@@ -1,7 +1,7 @@
 #include "World.h"
 
 
-World::World() : m_physicalWorld(b2Vec2(0.0f, -9.8f))
+World::World() : m_physicalWorld(b2Vec2(0.0f, -9.8f)) , m_candy(nullptr)
 {
 }
 
@@ -17,10 +17,16 @@ void World::addObject(std::string& line)
 
 		const sf::Texture& texture = resourceManager.getImage(objectData.m_type);
 
-		std::shared_ptr<GameObject> object = FactoryManager::create(objectData.m_type, objectData, this->m_physicalWorld, texture);
+		std::shared_ptr<GameObject> object = FactoryManager::create(objectData.m_type, objectData,
+			*this, texture);
+
+		
 
 		if (object != nullptr)
 		{
+			if (objectData.m_type == "Candy") {
+				this->m_candy = object;
+			}
 			this->m_gameObjects.push_back(object);
 		}
 		//	else
@@ -103,6 +109,11 @@ void World::handleClicks(const sf::Vector2f& mousePos)
 	}
 
 	this->deleteWantedObjects();
+}
+
+b2World& World::getWorld()
+{
+	return this->m_physicalWorld;
 }
 
 

@@ -1,6 +1,7 @@
 #include "GameObjects/GameObject.h"
 #include "GameObjects/NonClickableObject.h"
 #include "GameObjects/ClickableObject.h"
+#include "World.h"
 
 
 GameObject::GameObject(sf::Vector2f position, const sf::Texture& texture) 
@@ -47,9 +48,9 @@ void GameObject::draw(sf::RenderWindow& window) const
 	window.draw(m_sprite);
 }
 
-void GameObject::initBody(b2World& world, const b2BodyDef& bodyDef, const b2FixtureDef& fixtureDef)
+void GameObject::initBody(World& world, const b2BodyDef& bodyDef, const b2FixtureDef& fixtureDef)
 {
-	m_body = world.CreateBody(&bodyDef);
+	m_body = world.getWorld().CreateBody(&bodyDef);
 	this->m_body->CreateFixture(&fixtureDef);
 	auto& pos = this->m_body->GetPosition();
 	this->setPosition(pos.x *SCALE, pos.y*SCALE);

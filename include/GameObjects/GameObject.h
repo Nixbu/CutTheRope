@@ -4,7 +4,7 @@
 #include <memory>
 #include <box2d/box2d.h>
 
-
+class World;
 
 class GameObject
 {
@@ -18,7 +18,7 @@ public:
 	void setRotation(float angle);
 	virtual void draw(sf::RenderWindow& window) const;
 	virtual void update() = 0;
-	void initBody(b2World& world,
+	void initBody(World& world,
 				const b2BodyDef& bodyDef,
 				const b2FixtureDef& fixtureDef);
 	b2Body* getBody();

@@ -3,11 +3,12 @@
 #include "box2d/box2d.h"
 #include <memory>
 #include "GameObjects/Omnom.h"
+#include "World.h"
 
 class OmnomFactory{
 public:
 
-	static std::shared_ptr<GameObject> createObject(const Data& ObjectData, b2World& world, const sf::Texture& texture);
+	static std::shared_ptr<GameObject> createObject(const Data& ObjectData, World& world, const sf::Texture& texture);
 
 private:
 

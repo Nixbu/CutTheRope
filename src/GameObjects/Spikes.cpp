@@ -1,7 +1,7 @@
 #include "GameObjects/Spikes.h"
 
 
-Spikes::Spikes(const Data& ObjectData, b2World& world, const sf::Texture& texture) :
+Spikes::Spikes(const Data& ObjectData, World& world, const sf::Texture& texture) :
     NonClickableObject(ObjectData, texture) {
 
     //TODO CHANGE SETTINGS IF NEEDED

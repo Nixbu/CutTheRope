@@ -10,16 +10,18 @@
 #include "Settings.h"
 #include "box2d/box2d.h"
 
+class World;
 
-typedef std::unordered_map<std::string, std::shared_ptr<GameObject>(*)(const Data&, b2World&, const sf::Texture&)> FactoryMap; //?
+
+typedef std::unordered_map<std::string, std::shared_ptr<GameObject>(*)(const Data&, World&, const sf::Texture&)> FactoryMap; //?
 // ================   class Factory   ============================
 class FactoryManager {
 public:
 	static std::shared_ptr<GameObject> create(const std::string& name,
-		const Data& data, b2World& world, const sf::Texture& texture);
+		const Data& data, World& world, const sf::Texture& texture);
 	static bool registerit(const std::string& name, 
 				std::shared_ptr<GameObject>(*f)(const Data&,
-												b2World&,
+												World&,
 											const sf::Texture&));
 private:
 	static FactoryMap& getMap()

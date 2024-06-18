@@ -7,7 +7,7 @@
 class Candy : public NonClickableObject
 {
 public:
-	Candy(const Data& ObjectData, b2World& world, const sf::Texture& texture);
+	Candy(const Data& ObjectData, World& world, const sf::Texture& texture);
 	virtual void update();
 
 	

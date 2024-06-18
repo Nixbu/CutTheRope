@@ -10,7 +10,7 @@
 class Rope : public ClickableObject
 {
 public:
-    Rope(const Data& data, b2World& world, const sf::Texture& texture);// TODO add int segmentCount?
+    Rope(const Data& data, World& world, const sf::Texture& texture);// TODO add int segmentCount?
     virtual void update() override;
     void handleClicked();
     virtual void draw(sf::RenderWindow& window) const override;

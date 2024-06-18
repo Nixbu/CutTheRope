@@ -1,6 +1,6 @@
 #include "GameObjects/Rope.h"
 
-Rope::Rope(const Data& data, b2World& world, const sf::Texture& texture)
+Rope::Rope(const Data& data, World& world, const sf::Texture& texture)
     : ClickableObject(data, texture)
 {
     // Convert starting position from pixels to meters
@@ -11,7 +11,7 @@ Rope::Rope(const Data& data, b2World& world, const sf::Texture& texture)
     b2BodyDef hookBodyDef;
     hookBodyDef.position = currentPosition; // Hook position is the same as the start of the rope
     hookBodyDef.type = b2_staticBody;
-    b2Body* hookBody = world.CreateBody(&hookBodyDef);
+    b2Body* hookBody = world.getWorld().CreateBody(&hookBodyDef);
 
     b2PolygonShape hookShape;
     hookShape.SetAsBox(0.1f, 0.1f); // Define hook size
@@ -43,7 +43,7 @@ Rope::Rope(const Data& data, b2World& world, const sf::Texture& texture)
             jointDef.localAnchorB.Set(0.0f, -0.1f);
             jointDef.collideConnected = false;
 
-            world.CreateJoint(&jointDef);
+            world.getWorld().CreateJoint(&jointDef);
         }
         else
         {
@@ -55,7 +55,7 @@ Rope::Rope(const Data& data, b2World& world, const sf::Texture& texture)
             hookJointDef.localAnchorB.Set(0.0f, -0.1f);
             hookJointDef.collideConnected = false;
 
-            world.CreateJoint(&hookJointDef);
+            world.getWorld().CreateJoint(&hookJointDef);
         }
 
         // Add the new segment to the list of segments

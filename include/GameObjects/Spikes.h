@@ -7,7 +7,7 @@
 class Spikes : public NonClickableObject
 {
 public:
-	Spikes(const Data& ObjectData, b2World& world, const sf::Texture& texture);
+	Spikes(const Data& ObjectData, World& world, const sf::Texture& texture);
 	virtual void update();
 
 private:

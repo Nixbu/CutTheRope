@@ -1,6 +1,6 @@
 #include "GameObjects/RopeSegment.h"
 
-RopeSegment::RopeSegment(const Data& data, b2World& world, const sf::Texture& texture, const b2Vec2& position)
+RopeSegment::RopeSegment(const Data& data, World& world, const sf::Texture& texture, const b2Vec2& position)
     : ClickableObject(data, texture)//, m_isFading(false)
 {
 

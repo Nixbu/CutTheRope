@@ -52,7 +52,7 @@ void GameObject::initBody(b2World& world, const b2BodyDef& bodyDef, const b2Fixt
 	m_body = world.CreateBody(&bodyDef);
 	this->m_body->CreateFixture(&fixtureDef);
 	auto& pos = this->m_body->GetPosition();
-	this->setPosition(pos.x, pos.y);
+	this->setPosition(pos.x *SCALE, pos.y*SCALE);
 }
 
 b2Body* GameObject::getBody()

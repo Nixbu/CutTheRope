@@ -12,7 +12,7 @@ RopeSegment::RopeSegment(const Data& data, b2World& world, const sf::Texture& te
     bodyDef.position = position;
 
     
-    box.SetAsBox(0.1f, 0.1f);  // Segment size
+    box.SetAsBox(texture.getSize().x / SCALE, texture.getSize().y/ SCALE);  // Segment size
 
     
     fixtureDef.shape = &box;

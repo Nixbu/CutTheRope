@@ -71,7 +71,8 @@ void candyAir(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> o
     auto air = std::dynamic_pointer_cast<Air>(object2);
 
     candy->getBody()->ApplyForceToCenter(air->getForce(), true);
-    air->setDelete();
+
+    //air->setDelete();
 
 }
 

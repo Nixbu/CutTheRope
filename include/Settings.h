@@ -30,7 +30,8 @@ struct Data {
 
 const float SCALE = 30.0f,
 TIME_STEP = 1.0 / 60.0f,
-AIR_VELOCITY = 10.0f;
+AIR_VELOCITY = 10.0f,
+AIR_FORCE = 500.0f;
 
 
 const b2Vec2 BUBBLE_VELOCITY(0.0f, 2.0f),

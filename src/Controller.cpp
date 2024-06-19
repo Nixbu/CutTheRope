@@ -3,9 +3,15 @@
 
 Controller::Controller()
 {
-	m_mainState = std::make_shared<MainState>(*this);
-	m_levelSelectState = std::make_shared<LevelSelectState>(*this);
-	m_playingState = std::make_shared<PlayingState>(*this);
+	m_mainState = std::make_shared<MainState>();
+	m_levelSelectState = std::make_shared<LevelSelectState>();
+	m_playingState = std::make_shared<PlayingState>();
+
+
+
+	this->m_mainState->addButtons(*this);
+	this->m_levelSelectState->addButtons(*this);
+	this->m_playingState->addButtons(*this);
 
 	m_currentState = m_mainState;
 }

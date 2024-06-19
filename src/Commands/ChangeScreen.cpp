@@ -4,9 +4,15 @@
 ChangeScreen::ChangeScreen(Controller& controller, std::shared_ptr<GameState> newState)
 	:m_controller(controller) , m_newState(newState)
 {
+	
 }
 
 void ChangeScreen::execute()
 {
-	this->m_controller.setCurrentState(this->m_newState);
+    if (this->m_newState) {
+        this->m_controller.setCurrentState(this->m_newState);
+    }
+    else {
+        std::cerr << "Error: newState is null." << std::endl;
+    }
 }

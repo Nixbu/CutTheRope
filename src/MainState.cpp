@@ -4,11 +4,10 @@
 
 
 
-MainState::MainState(Controller& controller)
+MainState::MainState()
 {
 	ResourceManager& manager = ResourceManager::getInstance();
 	this->m_bgImage.setTexture(manager.getImage("MainWindowBG"));
-	this->addButtons(controller);
 }
 
 void MainState::handleFloating(const sf::Vector2f& mousePos)

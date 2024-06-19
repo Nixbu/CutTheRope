@@ -4,9 +4,8 @@
 
 
 
-PlayingState::PlayingState(Controller & controller)
+PlayingState::PlayingState()
 {
-	this->addButtons(controller);
 }
 
 void PlayingState::draw(sf::RenderWindow& window)

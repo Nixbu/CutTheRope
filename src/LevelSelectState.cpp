@@ -5,9 +5,9 @@
 #include "Commands/PlayLevel.h"
 
 
-LevelSelectState::LevelSelectState(Controller& controller)
+LevelSelectState::LevelSelectState()
 {
-	this->addButtons(controller);
+	
 }
 
 void LevelSelectState::draw(sf::RenderWindow& window)

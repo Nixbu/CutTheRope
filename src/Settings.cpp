@@ -2,8 +2,8 @@
 
 b2Vec2 angleToDirection(float angle)
 {
-	float radians = angle * DEG2RAD;
-	return b2Vec2(cos(radians), sin(radians));
+	float angleRadians = angle * DEG2RAD;
+	return b2Vec2(std::sin(angleRadians), std::cos(angleRadians));
 }
 
 float angleToRadians(float angle) {

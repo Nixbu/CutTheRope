@@ -12,7 +12,7 @@ Air::Air(const Data& ObjectData, World& world, const sf::Texture& texture)
     bodyDef.type = b2_dynamicBody; // Set the body type to dynamic
     bodyDef.position.Set(ObjectData.m_pos.x / SCALE,
         (WINDOW_MANAGER_HEIGHT - ObjectData.m_pos.y) / SCALE); // Set the initial position
-    bodyDef.angle = angleToRadians(ObjectData.m_angle); // Set the initial angle // TODO
+    bodyDef.angle = angleToRadians(ObjectData.m_angle); // Set the initial angle
     bodyDef.linearVelocity.Set(m_direction.x * AIR_VELOCITY, m_direction.y * AIR_VELOCITY); // Set the initial linear velocity
     bodyDef.angularVelocity = 0.0f; // Set the initial angular velocity
     bodyDef.linearDamping = 0.0f; // Set the linear damping

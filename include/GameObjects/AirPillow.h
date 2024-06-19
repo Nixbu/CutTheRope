@@ -17,5 +17,5 @@ public:
 private:
 	static bool m_registerit;
 	World& m_world;
-	const Data& m_data;
+	const Data m_data;
 };

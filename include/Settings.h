@@ -7,7 +7,7 @@
 #include <cmath>
 
 // Convert degrees to radians
-constexpr float DEG2RAD = b2_pi / 180.0f;
+constexpr float DEG2RAD = 0.0174532925f;
 
 b2Vec2 angleToDirection(float angle);
 float angleToRadians(float angle);

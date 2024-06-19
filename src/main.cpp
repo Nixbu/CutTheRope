@@ -6,8 +6,15 @@
 #include "box2d/box2d.h"
 #include "Controller.h"
 
+
 int main()
 {
-	Controller controller;
-	controller.run();
+	try {
+		Controller controller;
+		controller.run();
+	}
+	catch (const std::exception& e) {
+		std::cerr << "Standard exception: " << e.what() << std::endl;
+	}
+	
 }

@@ -1,12 +1,15 @@
 #include "Button.h"
 
 
+
 //===================================================================
 // ctor for button 
 Button::Button(sf::Vector2f position, const sf::Texture& texture, sf::Vector2f scale,
-	state_t state)
-	: m_sprite(), m_defSize(scale), m_nextState(state) //?
+	std::unique_ptr<Command> command)
+	: m_sprite(), m_defSize(scale)
 {
+	m_command = std::move(command);
+
 	m_sprite.setPosition(position);
 	m_sprite.setTexture(texture);
 	m_sprite.setOrigin(sf::Vector2f(m_sprite.getLocalBounds().width / 2,
@@ -41,13 +44,15 @@ void Button::Dscale()
 {
 	this->m_sprite.setScale(m_defSize);
 }
-state_t Button::getState() const
-{
-	return m_nextState;
-}
+
 //===================================================================
 bool Button::isFloatedOn(const sf::Vector2f& mousePosition) const
 {
 	return this->m_sprite.getGlobalBounds().contains(mousePosition);
+}
+
+void Button::action() const 
+{
+	this->m_command->execute();
 }
 

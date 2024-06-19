@@ -1,12 +1,13 @@
 #include "MainState.h"
 #include "LevelSelectState.h"
+#include "controller.h"
+
 
 
 MainState::MainState()
 {
 	ResourceManager& manager = ResourceManager::getInstance();
 	this->m_bgImage.setTexture(manager.getImage("MainWindowBG"));
-	this->addButtons();
 }
 
 void MainState::handleFloating(const sf::Vector2f& mousePos)
@@ -18,11 +19,13 @@ void MainState::update()
 {
 }
 
-void MainState::addButtons()
+void MainState::addButtons(Controller& controller)
 {
 	ResourceManager& manager = ResourceManager::getInstance();
-	this->m_menu.addButton(std::make_unique<LevelSelectStateButton>(PLAY_BTN_POS, manager.getImage("PlayButton"), 
-		MENU_BUTTON_DEFA_SIZE, LEVEL_SELECT_STATE));
+ 
+	this->m_menu.addButton(std::make_unique<Button>(PLAY_BTN_POS, manager.getImage("PlayButton"), 
+		MENU_BUTTON_DEFA_SIZE, 
+		std::make_unique<ChangeScreen>(controller , controller.getLevelSelectionState())));
 }
 
 void MainState::draw(sf::RenderWindow& window)
@@ -31,7 +34,7 @@ void MainState::draw(sf::RenderWindow& window)
 	this->m_menu.draw(window);
 }
 
-state_t MainState::handleClicks(const sf::Vector2f& mousePos)
+void MainState::handleClicks(const sf::Vector2f& mousePos)
 {
-	return this->m_menu.handleClicks(mousePos);
+	this->m_menu.handleClicks(mousePos);
 }

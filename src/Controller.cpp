@@ -3,9 +3,9 @@
 
 Controller::Controller()
 {
-	m_mainState = std::make_shared<MainState>();
-	m_levelSelectState = std::make_shared<LevelSelectState>();
-	m_playingState = std::make_shared<PlayingState>();
+	m_mainState = std::make_shared<MainState>(*this);
+	m_levelSelectState = std::make_shared<LevelSelectState>(*this);
+	m_playingState = std::make_shared<PlayingState>(*this);
 
 	m_currentState = m_mainState;
 }
@@ -28,6 +28,26 @@ void Controller::run() {
 	}
 }
 
+std::shared_ptr<MainState> Controller::getMainState()
+{
+	return this->m_mainState;
+}
+
+std::shared_ptr<LevelSelectState> Controller::getLevelSelectionState()
+{
+	return this->m_levelSelectState;
+}
+
+std::shared_ptr<PlayingState> Controller::getPlayingState()
+{
+	return this->m_playingState;
+}
+
+void Controller::setCurrentState(std::shared_ptr<GameState> next)
+{
+	this->m_currentState = next;
+}
+
 void Controller::render(sf::RenderWindow& window)
 {
 	window.clear();
@@ -40,7 +60,6 @@ void Controller::render(sf::RenderWindow& window)
 void Controller::handleInput(sf::RenderWindow& window)
 {
 	static sf::Vector2f mousePos;
-	state_t updatedState;
 
 	for (auto event = sf::Event{}; window.pollEvent(event); )
 	{
@@ -54,8 +73,7 @@ void Controller::handleInput(sf::RenderWindow& window)
 		case sf::Event::MouseButtonReleased:
 
 			mousePos = window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
-			updatedState = m_currentState->handleClicks(mousePos);
-			this->changeState(updatedState);
+			m_currentState->handleClicks(mousePos);
 			break;
 		case sf::Event::MouseMoved:
 
@@ -67,33 +85,4 @@ void Controller::handleInput(sf::RenderWindow& window)
 	}
 }
 
-void Controller::changeState(state_t newState)
-{
-	try
-	{
-		switch (newState)
-		{
-		case Null:
-			break;
-		case MAIN_STATE:
-			this->m_currentState = m_mainState;
-			break;
-		case LEVEL_SELECT_STATE:
-			this->m_currentState = m_levelSelectState;
-			break;
-		default:
-			// Level states
-			this->m_playingState->setLevel(newState);
 
-			this->m_currentState = this->m_playingState;
-		}
-	}
-	catch (const  std::out_of_range& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	catch (const std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-}

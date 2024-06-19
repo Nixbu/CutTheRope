@@ -24,19 +24,18 @@ void Menu::draw(sf::RenderWindow& window) const
 }
 
 //======================================================
-state_t Menu::handleClicks(const sf::Vector2f& mousePos) const
+void Menu::handleClicks(const sf::Vector2f& mousePos) const
 {
 	for (const auto& btn : m_buttons)
 	{
 		if (btn->isClicked(mousePos))
 		{
-			return btn->action();
+			btn->action();
 			
 		}
 	}
-	return Null;
 
-	/*catch (const FileException& e) {
+	/*catch (const FileException& e) { TODO
 
 		std::cerr << "File error: " << e.what() << std::endl;
 	}

@@ -4,25 +4,29 @@
 #include "Settings.h"
 #include "ResourceManager.h"
 #include "Menu.h"
-#include "MainStateButton.h"
-#include "LevelSelectStateButton.h"
+#include <string>
 #include "Level.h"
-#include "LevelButton.h"
+#include "Commands/changeScreen.h"
+#include "Commands/PlayLevel.h"
+#include "Button.h"
+
+class Controller;
+
 
 class PlayingState : public GameState
 {
 public:
-	PlayingState();
+	PlayingState(Controller & controller);
 	virtual void draw(sf::RenderWindow& window) override;
-	virtual state_t handleClicks(const sf::Vector2f& mousePos);
+	virtual void handleClicks(const sf::Vector2f& mousePos);
 	virtual void update();
 	virtual void handleFloating(const sf::Vector2f& mousePos);
-	void setLevel(state_t levelState);
+	void setLevel(const std::string & levelName);
+
 private:
 	Menu m_menu;
-	std::unordered_map<state_t, std::string> m_levelMap;
 	Level m_level;
-	void addButtons();
+	void addButtons(Controller& controller);
 	
 };
 

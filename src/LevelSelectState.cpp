@@ -1,9 +1,13 @@
 #include "LevelSelectState.h"
 #include "MainState.h"
+#include "Controller.h"
+#include "Commands/changeScreen.h"
+#include "Commands/PlayLevel.h"
 
-LevelSelectState::LevelSelectState()
+
+LevelSelectState::LevelSelectState(Controller& controller)
 {
-	this->addButtons();
+	this->addButtons(controller);
 }
 
 void LevelSelectState::draw(sf::RenderWindow& window)
@@ -11,9 +15,9 @@ void LevelSelectState::draw(sf::RenderWindow& window)
 	this->m_menu.draw(window);
 }
 
-state_t LevelSelectState::handleClicks(const sf::Vector2f& mousePos)
+void LevelSelectState::handleClicks(const sf::Vector2f& mousePos)
 {
-	return this->m_menu.handleClicks(mousePos);
+	 this->m_menu.handleClicks(mousePos);
 }
 
 void LevelSelectState::update()
@@ -25,13 +29,20 @@ void LevelSelectState::handleFloating(const sf::Vector2f& mousePos)
 	this->m_menu.handleFloating(mousePos);
 }
 
-void LevelSelectState::addButtons()
+void LevelSelectState::addButtons(Controller &controller)
 {
 	ResourceManager& manager = ResourceManager::getInstance();
-	this->m_menu.addButton(std::make_unique<MainStateButton>(sf::Vector2f(100, 100), manager.getImage("PlayButton"),
-		MENU_BUTTON_DEFA_SIZE, MAIN_STATE)); // TODO change button
-	this->m_menu.addButton(std::make_unique<LevelButton>(sf::Vector2f(100, 300), manager.getImage("PlayButton"),
-		MENU_BUTTON_DEFA_SIZE, LEVEL1)); // TODO change button
-	this->m_menu.addButton(std::make_unique<SandboxButton>(sf::Vector2f(450, 450), manager.getImage("SandboxButton"),
-		MENU_BUTTON_DEFA_SIZE, SANDBOX)); // TODO change button
+
+	// mainstate button
+	this->m_menu.addButton(std::make_unique<Button>(sf::Vector2f(100, 100), manager.getImage("PlayButton"),
+		MENU_BUTTON_DEFA_SIZE, 
+		std::make_unique<ChangeScreen>(controller, controller.getMainState()))); // TODO change button
+
+	//level1 button
+	this->m_menu.addButton(std::make_unique<Button>(sf::Vector2f(100, 300), manager.getImage("PlayButton"),
+		MENU_BUTTON_DEFA_SIZE,
+		std::make_unique<PlayLevel>(controller, controller.getPlayingState() ,"level1.txt"))); // TODO change button
+
+	//this->m_menu.addButton(std::make_unique<SandboxButton>(sf::Vector2f(450, 450), manager.getImage("SandboxButton"),
+		//MENU_BUTTON_DEFA_SIZE, SANDBOX)); // TODO change button
 }

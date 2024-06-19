@@ -18,6 +18,10 @@ class Controller
 public:
 	Controller();
 	void run();
+	std::shared_ptr<MainState> getMainState();
+	std::shared_ptr<LevelSelectState>  getLevelSelectionState();
+	std::shared_ptr<PlayingState>  getPlayingState();
+	void setCurrentState(std::shared_ptr<GameState> next);
 
 private:	
 	std::shared_ptr<MainState> m_mainState;
@@ -27,7 +31,6 @@ private:
 	std::shared_ptr<PlayingState> m_playingState;
 	//std::shared_ptr<CompletedLevelState> m_completedLevelState;
 
-	void changeState(state_t newState);
 	void handleInput(sf::RenderWindow& window);
 	void render(sf::RenderWindow& window);
 };

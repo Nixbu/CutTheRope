@@ -6,6 +6,8 @@
 #include "GameObjects/ClickableObject.h"
 #include "GameObjectFactories/RopeFactory.h"
 #include "Settings.h"
+#include "Hook.h"
+#include "FactoryManager.h"
 
 class Rope : public ClickableObject
 {
@@ -20,6 +22,8 @@ public:
 private:
     std::vector<std::shared_ptr<RopeSegment>> m_segments;
     static bool m_registerit;
+    std::unique_ptr<Hook> m_hook;
+    void connectToCandy(World& world);
 
 };
 

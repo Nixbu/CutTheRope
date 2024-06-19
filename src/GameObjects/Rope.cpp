@@ -3,27 +3,15 @@
 Rope::Rope(const Data& data, World& world, const sf::Texture& texture)
     : ClickableObject(data, texture)
 {
+    auto& manager = ResourceManager::getInstance();
+    sf::Texture  hookTexture = manager.getImage("Hook");
     // Convert starting position from pixels to meters
+
     b2Vec2 currentPosition = b2Vec2(data.m_pos.x / SCALE,
         (WINDOW_MANAGER_HEIGHT - data.m_pos.y) / SCALE);
 
     // Define the hook static body
-    b2BodyDef hookBodyDef;
-    hookBodyDef.position = currentPosition; // Hook position is the same as the start of the rope
-    hookBodyDef.type = b2_staticBody;
-    b2Body* hookBody = world.getWorld().CreateBody(&hookBodyDef);
-
-    b2PolygonShape hookShape;
-    hookShape.SetAsBox(0.1f, 0.1f); // Define hook size
-
-    b2FixtureDef hookFixtureDef;
-    hookFixtureDef.isSensor = true;
-    hookFixtureDef.density = 1.0f; // Adjust density as needed
-    hookFixtureDef.friction = 0.3f; // Adjust friction as needed
-    hookFixtureDef.restitution = 0.5f; // Adjust restitution (bounciness) as needed
-    hookFixtureDef.shape = &hookShape;
-
-    hookBody->CreateFixture(&hookFixtureDef);
+    this->m_hook = std::make_unique<Hook>(data, world, hookTexture); // TODO change texture
 
     // Define the number of segments
     int segmentCount = 20; // Replace with desired segment count or parameter
@@ -49,7 +37,7 @@ Rope::Rope(const Data& data, World& world, const sf::Texture& texture)
         {
             // Connect the first segment to the hook
             b2RevoluteJointDef hookJointDef;
-            hookJointDef.bodyA = hookBody;
+            hookJointDef.bodyA = this->m_hook->getBody();
             hookJointDef.bodyB = segment->getBody();
             hookJointDef.localAnchorA.Set(0.0f, 0.1f);
             hookJointDef.localAnchorB.Set(0.0f, -0.1f);
@@ -65,18 +53,8 @@ Rope::Rope(const Data& data, World& world, const sf::Texture& texture)
         // Increment the y position for the next segment
         currentPosition.y -= 0.5f;  // Adjust as necessary for spacing
     }
-    b2Body* lastSegmentBody = m_segments.back()->getBody();
 
-    // Define a revolute joint to connect the last segment to the candy
-    b2RevoluteJointDef jointDef;
-    jointDef.bodyA = lastSegmentBody;
-    jointDef.bodyB = world.getCandy()->getBody();
-    jointDef.localAnchorA.Set(0.0f, -0.1f); // Adjust as needed
-    jointDef.localAnchorB.Set(0.0f, 0.1f);  // Adjust as needed
-    jointDef.collideConnected = false;
-
-    // Create the joint
-    world.getWorld().CreateJoint(&jointDef);
+    this->connectToCandy(world);
 }
 
 void Rope::update()
@@ -85,7 +63,10 @@ void Rope::update()
     {
         segment->update();
     }
-    //// Remove segments marked for deletion
+
+    this->m_hook->update();
+    ////
+    //  Remove segments marked for deletion
     //m_segments.erase(
     //    std::remove_if(m_segments.begin(), m_segments.end(),
     //        [](const std::unique_ptr<RopeSegment>& segment) { return segment->needToDelete(); }),
@@ -103,6 +84,7 @@ void Rope::draw(sf::RenderWindow& window) const
     {
         segment->draw(window);
     }
+    this->m_hook->draw(window);
 }
 
 bool Rope::isClicked(const sf::Vector2f& mousePos) const
@@ -113,6 +95,22 @@ bool Rope::isClicked(const sf::Vector2f& mousePos) const
         }
     }
     return false;
+}
+
+void Rope::connectToCandy(World& world)
+{
+    b2Body* lastSegmentBody = this->m_segments.back()->getBody();
+
+    // Define a revolute joint to connect the last segment to the candy
+    b2RevoluteJointDef jointDef;
+    jointDef.bodyA = lastSegmentBody;
+    jointDef.bodyB = world.getCandy()->getBody();
+    jointDef.localAnchorA.Set(0.0f, -0.1f); // Adjust as needed
+    jointDef.localAnchorB.Set(0.0f, 0.1f);  // Adjust as needed
+    jointDef.collideConnected = false;
+
+    // Create the joint
+    world.getWorld().CreateJoint(&jointDef);
 }
 
 bool Rope::m_registerit = FactoryManager::registerit("Rope",

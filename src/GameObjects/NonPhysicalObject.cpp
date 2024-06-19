@@ -5,7 +5,3 @@ NonClickableObject::NonClickableObject(const Data& data, const sf::Texture& text
 	: GameObject(data.m_pos, texture)
 {
 }
-NonClickableObject::~NonClickableObject()
-{
-
-}

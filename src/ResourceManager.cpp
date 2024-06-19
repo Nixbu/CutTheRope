@@ -16,7 +16,7 @@ ResourceManager::ResourceManager()
     this->loadImage("HorizonalMediumSpikes", "HorizonalMediumSpikes.png");
     this->loadImage("AirPillow", "AirPillow.png");
     this->loadImage("Rope", "RopeSegment.png");
-
+    this->loadImage("Hook", "Hook.png");
 
 }
 //=============================================================

@@ -8,11 +8,7 @@ class Hat : public NonClickableObject
 {
 public:
 	Hat(const Data& ObjectData, const sf::Texture& texture);
-	virtual ~Hat() = default;
-
-	virtual void handleClicked() {};
-
-
+	virtual void update() {};
 private:
 	static bool m_registerit;
 };

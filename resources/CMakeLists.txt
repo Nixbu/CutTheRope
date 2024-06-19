@@ -14,3 +14,5 @@ configure_file ("HorizonalShortSpikes.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("HorizonalMediumSpikes.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("AirPillow.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("RopeSegment.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("Hook.png" ${CMAKE_BINARY_DIR} COPYONLY)
+

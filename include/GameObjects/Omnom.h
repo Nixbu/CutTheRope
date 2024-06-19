@@ -8,7 +8,7 @@ class Omnom : public NonClickableObject
 {
 public:
 	Omnom(const Data& ObjectData, World& world, const sf::Texture& texture);
-	virtual void handleClicked() {};
+	virtual void update() {};
 
 
 private:

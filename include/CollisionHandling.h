@@ -6,6 +6,7 @@
 #include <map>
 #include "GameObjects/Candy.h"
 #include "GameObjects/Bubble.h"
+#include "GameObjects/Omnom.h"
 
 //TODO create this exception class
 // Sample struct for exception throwing
@@ -28,3 +29,4 @@ HitFunctionPtr lookup(const std::type_index& class1, const std::type_index& clas
 
 void candyBubble(std::shared_ptr<GameObject>candy, std::shared_ptr<GameObject> bubble, b2World& world);
 //void bubbleCandy(std::shared_ptr<Bubble> bubble, std::shared_ptr<Candy> candy);
+void candyOmnom(std::shared_ptr<GameObject>candy, std::shared_ptr<GameObject> Omnom, b2World& world);

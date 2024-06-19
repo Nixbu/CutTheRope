@@ -7,7 +7,7 @@ HitMap initializeCollisionMap()
 {
     HitMap collisionMap;
     collisionMap[Key(typeid(Candy), typeid(Bubble))] = &candyBubble;
-   // collisionMap[Key(typeid(Bubble), typeid(Candy))] = &bubbleCandy;
+    collisionMap[Key(typeid(Candy), typeid(Air))] = &candyAir;
 
     return collisionMap;
 }
@@ -46,5 +46,14 @@ void candyBubble(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject
 
 }
 
+void candyAir(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, b2World& world)
+{
+    auto candy = std::dynamic_pointer_cast<Candy>(object1);
+    auto air = std::dynamic_pointer_cast<Air>(object2);
+
+    candy->getBody()->ApplyForceToCenter(air->getForce(), true);
+    air->setDelete();
+
+}
 
 

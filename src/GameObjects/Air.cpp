@@ -2,7 +2,8 @@
 
 Air::Air(const Data& ObjectData, World& world, const sf::Texture& texture) 
     : NonClickableObject(ObjectData, texture),
-       m_direction(angleToDirection(ObjectData.m_angle))
+       m_direction(angleToDirection(ObjectData.m_angle)),
+        m_force(b2Vec2(m_direction.x * AIR_VELOCITY, m_direction.y * AIR_VELOCITY))
 {
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
@@ -38,6 +39,11 @@ void Air::update()
     this->setPosition(position.x * SCALE, WINDOW_MANAGER_HEIGHT - position.y * SCALE);
     this->setRotation(angle * 180.0f / b2_pi);
 
+}
+
+const b2Vec2 Air::getForce() const
+{
+    return m_force;
 }
 
 bool Air::m_registerit = FactoryManager::registerit("Air",

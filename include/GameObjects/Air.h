@@ -10,10 +10,12 @@ public:
 	Air(const Data& ObjectData, World& world, const sf::Texture& texture);
 	virtual void update();
 	const b2Vec2 getForce() const;
+	void  checkTime();
 
 
 private:
 	static bool m_registerit;
 	b2Vec2 m_direction,
 			m_force;
+	sf::Clock m_clock;
 };

@@ -14,6 +14,7 @@ Rope::Rope(const Data& data, World& world, const sf::Texture& texture)
     this->m_hook = std::make_unique<Hook>(data, world, hookTexture); // TODO change texture
 
     // Define the number of segments
+    // TODO add int segmentCount - different lengths LONG MEDIUM SHORT
     int segmentCount = 20; // Replace with desired segment count or parameter
 
     for (int i = 0; i < segmentCount; ++i)

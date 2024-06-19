@@ -3,16 +3,21 @@
 #include "FactoryManager.h"
 #include "GameObjectFactories/AirPillowFactory.h"
 #include "GameObjects/ClickableObject.h"
+#include "GameObjectFactories/AirFactory.h"
+#include <thread>
+#include <chrono>
 
 class AirPillow : public ClickableObject
 {
 public:
-	AirPillow(const Data& ObjectData, const sf::Texture& texture);
+	AirPillow(const Data& ObjectData, World& world, const sf::Texture& texture);
 	virtual ~AirPillow() = default;
-	virtual void handleClicked() override {}; //TODO
-	virtual void update() override {}; // TODO
+	virtual void handleClicked() override; //TODO
+	virtual void update() override; // TODO animations
 
 
 private:
 	static bool m_registerit;
+	World& m_world;
+	const Data m_data;
 };

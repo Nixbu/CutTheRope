@@ -3,6 +3,7 @@
 
 World::World() : m_physicalWorld(b2Vec2(0.0f, -9.8f)) , m_candy(nullptr)
 {
+	m_gameObjects.reserve(MAX_SIZE);
 }
 
 void World::addObject(std::string& line)
@@ -13,7 +14,7 @@ void World::addObject(std::string& line)
 		std::istringstream iss(line);
 		Data objectData;
 
-		iss >> objectData.m_type >> objectData.m_pos.x >> objectData.m_pos.y;
+		iss >> objectData.m_type >> objectData.m_pos.x >> objectData.m_pos.y >> objectData.m_angle;
 
 		const sf::Texture& texture = resourceManager.getImage(objectData.m_type);
 
@@ -44,6 +45,11 @@ void World::addObject(std::string& line)
 
 }
 
+void World::addToGameObjects(std::shared_ptr<GameObject> object)
+{
+	this->m_gameObjects.emplace_back(object);
+}
+
 void World::draw(sf::RenderWindow& window) const 
 {
 	for (const auto& object : this->m_gameObjects)
@@ -69,6 +75,8 @@ void World::update(float timeStep)
 	for (auto& object : m_gameObjects) {
 		object->update();
 	}
+
+	this->deleteWantedObjects();
 }
 
 void World::handleCollisions()

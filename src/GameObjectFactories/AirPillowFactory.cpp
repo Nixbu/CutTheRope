@@ -3,5 +3,5 @@
 
 std::shared_ptr<GameObject> AirPillowFactory::createObject(const Data& ObjectData, World& world, const sf::Texture& texture)
 {
-	return std::make_shared<AirPillow>(ObjectData, texture);
+	return std::make_shared<AirPillow>(ObjectData, world, texture);
 }

@@ -3,13 +3,14 @@
 #include <SFML/Graphics.hpp>
 #include <memory>
 #include <box2d/box2d.h>
+#include "Settings.h"
 
 class World;
 
 class GameObject
 {
 public:
-	GameObject(sf::Vector2f position, const sf::Texture& texture);
+	GameObject(const Data& objectData, const sf::Texture& texture);
 	virtual ~GameObject();
 	sf::Vector2f getPosition() const;
 	const sf::Sprite& getSprite() const;

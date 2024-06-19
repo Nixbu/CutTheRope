@@ -1,6 +1,2 @@
 Candy 610 30
-Omnom 600 100
-Rope 600 200
-Rope 750 200
-Bubble 610 600
-Bubble 120 650
+Omnom 600 600

@@ -25,3 +25,14 @@ Omnom::Omnom(const Data& ObjectData, World& world, const sf::Texture& texture) :
 
 bool Omnom::m_registerit = FactoryManager::registerit("Omnom",
     &OmnomFactory::createObject);
+
+void Omnom::update()
+{
+
+    b2Vec2 position = this->getBody()->GetPosition();
+    float angle = this->getBody()->GetAngle();
+
+    // Convert Box2D position (meters) to SFML position (pixels)
+    this->setPosition(position.x * SCALE, WINDOW_MANAGER_HEIGHT - position.y * SCALE);
+    this->setRotation(angle * 180.0f / b2_pi);
+}

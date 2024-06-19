@@ -69,6 +69,8 @@ void World::update(float timeStep)
 	for (auto& object : m_gameObjects) {
 		object->update();
 	}
+
+	this->deleteWantedObjects();
 }
 
 void World::handleCollisions()

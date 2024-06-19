@@ -47,10 +47,12 @@ void candyBubble(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject
 }
 void candyOmnom(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, b2World& world)
 {
+    std::shared_ptr<Candy> candy = std::dynamic_pointer_cast<Candy>(object1);
+    std::shared_ptr<Omnom> omnom = std::dynamic_pointer_cast<Omnom>(object2);
 
 
-
-
+    candy->setDelete();
+    //TODO add omnom collition animation
 
 }
 

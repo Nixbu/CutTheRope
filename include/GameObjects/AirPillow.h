@@ -7,9 +7,9 @@
 class AirPillow : public ClickableObject
 {
 public:
-	AirPillow(const Data& ObjectData, const sf::Texture& texture);
+	AirPillow(const Data& ObjectData, World& world, const sf::Texture& texture);
 	virtual ~AirPillow() = default;
-	virtual void handleClicked() override {}; //TODO
+	virtual void handleClicked() override; //TODO
 	virtual void update() override {}; // TODO
 
 

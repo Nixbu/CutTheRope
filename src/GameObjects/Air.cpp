@@ -3,7 +3,7 @@
 Air::Air(const Data& ObjectData, World& world, const sf::Texture& texture) 
     : NonClickableObject(ObjectData, texture),
        m_direction(angleToDirection(ObjectData.m_angle)),
-        m_force(b2Vec2(m_direction.x * 500, m_direction.y * 500)),
+        m_force(b2Vec2(m_direction.x * AIR_FORCE, m_direction.y * AIR_FORCE)),
     m_clock()
 {
     b2BodyDef bodyDef;
@@ -15,9 +15,9 @@ Air::Air(const Data& ObjectData, World& world, const sf::Texture& texture)
     bodyDef.position.Set(ObjectData.m_pos.x / SCALE,
         (WINDOW_MANAGER_HEIGHT - ObjectData.m_pos.y) / SCALE); // Set the initial position
     bodyDef.angle = angleToRadians(ObjectData.m_angle); // Set the initial angle
-    bodyDef.linearVelocity.Set(m_direction.x * AIR_VELOCITY, m_direction.y * AIR_VELOCITY); // Set the initial linear velocity
+    bodyDef.linearVelocity.Set(m_direction.x * 6, m_direction.y * 6); // Set the initial linear velocity
     bodyDef.angularVelocity = 0.0f; // Set the initial angular velocity
-    bodyDef.linearDamping = 2.5f; // Set the linear damping
+    bodyDef.linearDamping = 0.0f; // Set the linear damping
     bodyDef.angularDamping = 0.0f; // Set the angular damping
     
     shape.SetAsBox(0.1f, 0.1f);

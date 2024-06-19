@@ -9,7 +9,7 @@ AirPillow::AirPillow(const Data& ObjectData,
     bodyDef.type = b2_staticBody; // Set the body type to dynamic
     bodyDef.position.Set(ObjectData.m_pos.x / SCALE,
         (WINDOW_MANAGER_HEIGHT - ObjectData.m_pos.y) / SCALE); // Set the initial position
-    bodyDef.angle = 0.0f; // Set the initial angle
+    bodyDef.angle = angleToRadians(ObjectData.m_angle); // Set the initial angle
     bodyDef.linearVelocity.Set(0.0f, 0.0f); // Set the initial linear velocity
     bodyDef.angularVelocity = 0.0f; // Set the initial angular velocity
     bodyDef.linearDamping = 0.0f; // Set the linear damping
@@ -29,6 +29,11 @@ AirPillow::AirPillow(const Data& ObjectData,
 
     this->initBody(world, bodyDef, fixtureDef);
 
+}
+
+void AirPillow::handleClicked()
+{
+    //auto airBullet = AirFactory::createObject()
 }
 
 bool AirPillow::m_registerit = FactoryManager::registerit("AirPillow",

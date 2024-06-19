@@ -4,10 +4,11 @@
 #include "World.h"
 
 
-GameObject::GameObject(sf::Vector2f position, const sf::Texture& texture) 
+GameObject::GameObject(const Data& objectData, const sf::Texture& texture)
 	: m_toDelete(false), m_body(nullptr)
 {
-	m_sprite.setPosition(position);
+	m_sprite.setPosition(objectData.m_pos);
+	m_sprite.setRotation(objectData.m_angle);
 	m_sprite.setTexture(texture);
 	// Calculate the origin based on the texture size
 	sf::Vector2f origin(m_sprite.getLocalBounds().width / 2.0f,

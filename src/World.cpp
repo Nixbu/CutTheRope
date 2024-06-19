@@ -14,14 +14,12 @@ void World::addObject(std::string& line)
 		std::istringstream iss(line);
 		Data objectData;
 
-		iss >> objectData.m_type >> objectData.m_pos.x >> objectData.m_pos.y >> objectData.m_angle;
+		iss >> objectData.m_type >> objectData.m_subType >> objectData.m_pos.x >> objectData.m_pos.y >> objectData.m_angle;
 
-		const sf::Texture& texture = resourceManager.getImage(objectData.m_type);
+		const sf::Texture& texture = resourceManager.getImage(objectData.m_subType);
 
 		std::shared_ptr<GameObject> object = FactoryManager::create(objectData.m_type, objectData,
 			*this, texture);
-
-		
 
 		if (object != nullptr)
 		{

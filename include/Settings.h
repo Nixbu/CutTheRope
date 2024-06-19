@@ -27,6 +27,7 @@ struct Data {
 	sf::Vector2f m_pos;
 	float m_angle;
 	std::string m_type;
+	std::string m_subType;
 };
 
 const float SCALE = 30.0f,

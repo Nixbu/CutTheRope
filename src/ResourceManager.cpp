@@ -11,7 +11,7 @@ ResourceManager::ResourceManager()
     this->loadImage("Hat", "Hat.png");
     this->loadImage("Bubble", "Bubble.png");
     this->loadImage("Omnom", "Omnom.png");
-    this->loadImage("Spikes", "HorizonalLongSpikes.png"); // TODO change name
+    this->loadImage("HorizonalLongSpikes", "HorizonalLongSpikes.png"); // TODO change name
     this->loadImage("HorizonalShortSpikes", "HorizonalShortSpikes.png");
     this->loadImage("HorizonalMediumSpikes", "HorizonalMediumSpikes.png");
     this->loadImage("AirPillow", "AirPillow.png");

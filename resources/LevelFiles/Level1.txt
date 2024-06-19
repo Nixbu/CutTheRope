@@ -1,3 +1,8 @@
-Candy 610 200 0
+Candy Candy 610 200 0
+Rope Rope 600 30 0
+Star Star 600 400 0
+Spikes HorizonalLongSpikes 600 600 90
+Spikes HorizonalMediumSpikes 600 500 45
+Spikes HorizonalShortSpikes 600 400 70
 Rope 600 30 0
 AirPillow 600 800 0

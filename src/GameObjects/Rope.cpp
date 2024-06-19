@@ -24,26 +24,11 @@ Rope::Rope(const Data& data, World& world, const sf::Texture& texture)
         // If there are already segments in the rope, join the new one to the previous one
         if (!m_segments.empty())
         {
-            b2RevoluteJointDef jointDef;
-            jointDef.bodyA = m_segments.back()->getBody();
-            jointDef.bodyB = segment->getBody();
-            jointDef.localAnchorA.Set(0.0f, 0.1f);
-            jointDef.localAnchorB.Set(0.0f, -0.1f);
-            jointDef.collideConnected = false;
-
-            world.getWorld().CreateJoint(&jointDef);
+            addSegment(world, segment);
         }
         else
         {
-            // Connect the first segment to the hook
-            b2RevoluteJointDef hookJointDef;
-            hookJointDef.bodyA = this->m_hook->getBody();
-            hookJointDef.bodyB = segment->getBody();
-            hookJointDef.localAnchorA.Set(0.0f, 0.1f);
-            hookJointDef.localAnchorB.Set(0.0f, -0.1f);
-            hookJointDef.collideConnected = false;
-
-            world.getWorld().CreateJoint(&hookJointDef);
+            connectToHook(world, segment);
         }
 
 
@@ -97,7 +82,7 @@ bool Rope::isClicked(const sf::Vector2f& mousePos) const
     return false;
 }
 
-void Rope::connectToCandy(World& world)
+void Rope::connectToCandy(World& world )
 {
     b2Body* lastSegmentBody = this->m_segments.back()->getBody();
 
@@ -111,6 +96,31 @@ void Rope::connectToCandy(World& world)
 
     // Create the joint
     world.getWorld().CreateJoint(&jointDef);
+}
+
+void Rope::addSegment(World& world, std::shared_ptr<RopeSegment> segment)
+{
+    b2RevoluteJointDef jointDef;
+    jointDef.bodyA = m_segments.back()->getBody();
+    jointDef.bodyB = segment->getBody();
+    jointDef.localAnchorA.Set(0.0f, 0.1f);
+    jointDef.localAnchorB.Set(0.0f, -0.1f);
+    jointDef.collideConnected = false;
+
+    world.getWorld().CreateJoint(&jointDef);
+}
+
+void Rope::connectToHook(World& world , std::shared_ptr<RopeSegment> segment)
+{
+    // Connect the first segment to the hook
+    b2RevoluteJointDef hookJointDef;
+    hookJointDef.bodyA = this->m_hook->getBody();
+    hookJointDef.bodyB = segment->getBody();
+    hookJointDef.localAnchorA.Set(0.0f, 0.1f);
+    hookJointDef.localAnchorB.Set(0.0f, -0.1f);
+    hookJointDef.collideConnected = false;
+
+    world.getWorld().CreateJoint(&hookJointDef);
 }
 
 bool Rope::m_registerit = FactoryManager::registerit("Rope",

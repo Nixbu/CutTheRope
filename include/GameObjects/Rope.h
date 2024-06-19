@@ -24,6 +24,8 @@ private:
     static bool m_registerit;
     std::unique_ptr<Hook> m_hook;
     void connectToCandy(World& world);
+    void addSegment (World& world, std::shared_ptr<RopeSegment> segment);
+    void connectToHook(World& world, std::shared_ptr<RopeSegment> segment);
 
 };
 

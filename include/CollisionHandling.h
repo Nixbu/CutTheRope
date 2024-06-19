@@ -6,6 +6,7 @@
 #include <map>
 #include "GameObjects/Candy.h"
 #include "GameObjects/Bubble.h"
+#include "GameObjects/Air.h"
 
 //TODO create this exception class
 // Sample struct for exception throwing
@@ -26,5 +27,8 @@ using HitMap = std::map<Key, HitFunctionPtr>;
 HitMap initializeCollisionMap();
 HitFunctionPtr lookup(const std::type_index& class1, const std::type_index& class2);
 
-void candyBubble(std::shared_ptr<GameObject>candy, std::shared_ptr<GameObject> bubble, b2World& world);
-//void bubbleCandy(std::shared_ptr<Bubble> bubble, std::shared_ptr<Candy> candy);
+void candyBubble(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, b2World& world);
+
+void candyAir(std::shared_ptr<GameObject>candy, std::shared_ptr<GameObject> bubble, b2World& world);
+
+

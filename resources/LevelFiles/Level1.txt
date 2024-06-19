@@ -1,5 +1,4 @@
-Candy 610 30
-Rope 600 200
-Rope 750 200
-Bubble 610 600
-Bubble 120 650
+Candy 610 200 0
+Rope 600 30 0
+Bubble 600 600 0
+AirPillow 600 400 0

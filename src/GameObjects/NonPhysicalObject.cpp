@@ -2,6 +2,6 @@
 
 
 NonClickableObject::NonClickableObject(const Data& data, const sf::Texture& texture)
-	: GameObject(data.m_pos, texture)
+	: GameObject(data, texture)
 {
 }

@@ -13,7 +13,7 @@ void World::addObject(std::string& line)
 		std::istringstream iss(line);
 		Data objectData;
 
-		iss >> objectData.m_type >> objectData.m_pos.x >> objectData.m_pos.y;
+		iss >> objectData.m_type >> objectData.m_pos.x >> objectData.m_pos.y >> objectData.m_angle;
 
 		const sf::Texture& texture = resourceManager.getImage(objectData.m_type);
 
@@ -42,6 +42,11 @@ void World::addObject(std::string& line)
 
 	}
 
+}
+
+void World::addToGameObjects(std::shared_ptr<GameObject> object)
+{
+	this->m_gameObjects.emplace_back(object);
 }
 
 void World::draw(sf::RenderWindow& window) const 

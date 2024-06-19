@@ -20,6 +20,10 @@ ResourceManager::ResourceManager()
     
     
 
+    this->loadImage("Air", "Bubble.png"); // TODO change to real air
+
+
+
 }
 //=============================================================
 ResourceManager& ResourceManager::getInstance()

@@ -14,6 +14,7 @@ class World
 public:
 	World();
 	void addObject(std::string& line);
+	void addToGameObjects(std::shared_ptr<GameObject> object);
 	void draw(sf::RenderWindow& window) const;
 	void reset();
 	void update(float timeStep);

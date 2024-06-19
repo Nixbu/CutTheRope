@@ -4,7 +4,7 @@ Rope::Rope(const Data& data, World& world, const sf::Texture& texture)
     : ClickableObject(data, texture)
 {
     auto& manager = ResourceManager::getInstance();
-    sf::Texture  hookTexture = manager.getImage("Hook");
+    const sf::Texture&  hookTexture = manager.getImage("Hook");
     // Convert starting position from pixels to meters
 
     b2Vec2 currentPosition = b2Vec2(data.m_pos.x / SCALE,

@@ -44,6 +44,11 @@ void World::addObject(std::string& line)
 
 }
 
+void World::addToGameObjects(std::shared_ptr<GameObject> object)
+{
+	this->m_gameObjects.emplace_back(object);
+}
+
 void World::draw(sf::RenderWindow& window) const 
 {
 	for (const auto& object : this->m_gameObjects)

@@ -1,7 +1,9 @@
 #include "GameObjects/AirPillow.h"
 
 AirPillow::AirPillow(const Data& ObjectData, 
-	World& world, const sf::Texture& texture) : ClickableObject(ObjectData, texture)
+	World& world, const sf::Texture& texture) : 
+    ClickableObject(ObjectData, texture),
+    m_data(ObjectData), m_world(world)
 {
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
@@ -33,7 +35,11 @@ AirPillow::AirPillow(const Data& ObjectData,
 
 void AirPillow::handleClicked()
 {
-    //auto airBullet = AirFactory::createObject()
+    auto& resourceManager = ResourceManager::getInstance();
+    const sf::Texture& texture = resourceManager.getImage("Air");
+    auto airBullet = AirFactory::createObject(m_data, m_world, texture);
+
+    this->m_world.addToGameObjects(airBullet);
 }
 
 bool AirPillow::m_registerit = FactoryManager::registerit("AirPillow",

@@ -8,6 +8,8 @@ HitMap initializeCollisionMap()
     HitMap collisionMap;
     collisionMap[Key(typeid(Candy), typeid(Bubble))] = &candyBubble;
     collisionMap[Key(typeid(Candy), typeid(Air))] = &candyAir;
+    collisionMap[Key(typeid(Candy), typeid(Omnom))] = &candyOmnom;
+    collisionMap[Key(typeid(Candy), typeid(Star))] = &candyStar;
 
     return collisionMap;
 }
@@ -45,7 +47,24 @@ void candyBubble(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject
     std::this_thread::sleep_for(std::chrono::milliseconds(FRAME_DELAY_MS));
 
 }
+void candyOmnom(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, b2World& world)
+{
+    std::shared_ptr<Candy> candy = std::dynamic_pointer_cast<Candy>(object1);
+    std::shared_ptr<Omnom> omnom = std::dynamic_pointer_cast<Omnom>(object2);
 
+
+    candy->setDelete();
+    //TODO add omnom collition animation
+
+}
+
+void candyStar(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, b2World& world)
+{
+    std::shared_ptr<Candy> candy = std::dynamic_pointer_cast<Candy>(object1);
+    std::shared_ptr<Star> star = std::dynamic_pointer_cast<Star>(object2);
+
+    star->setDelete();
+}
 void candyAir(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, b2World& world)
 {
     auto candy = std::dynamic_pointer_cast<Candy>(object1);

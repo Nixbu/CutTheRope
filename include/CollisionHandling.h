@@ -6,6 +6,8 @@
 #include <map>
 #include "GameObjects/Candy.h"
 #include "GameObjects/Bubble.h"
+#include "GameObjects/Omnom.h"
+#include "GameObjects/Star.h"
 #include "GameObjects/Air.h"
 
 //TODO create this exception class
@@ -32,3 +34,6 @@ void candyBubble(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject
 void candyAir(std::shared_ptr<GameObject>candy, std::shared_ptr<GameObject> bubble, b2World& world);
 
 
+void candyBubble(std::shared_ptr<GameObject>candy, std::shared_ptr<GameObject> bubble, b2World& world);
+void candyOmnom(std::shared_ptr<GameObject>candy, std::shared_ptr<GameObject> Omnom, b2World& world);
+void candyStar(std::shared_ptr<GameObject>candy, std::shared_ptr<GameObject> Omnom, b2World& world);

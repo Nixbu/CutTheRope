@@ -10,7 +10,6 @@ public:
 	Candy(const Data& ObjectData, World& world, const sf::Texture& texture);
 	virtual void update();
 
-	
 private:
 	static bool m_registerit;
 };

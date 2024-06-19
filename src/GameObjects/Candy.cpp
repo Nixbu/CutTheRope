@@ -29,8 +29,6 @@ Candy::Candy(const Data& ObjectData, World& world, const sf::Texture& texture) :
 
 
     this->initBody( world , bodyDef, fixtureDef);
-
-
 }
 
 bool Candy::m_registerit = FactoryManager::registerit("Candy",

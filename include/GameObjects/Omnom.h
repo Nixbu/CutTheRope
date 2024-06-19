@@ -12,5 +12,4 @@ public:
 
 private:
 	static bool m_registerit;
-	void handleOmnomCollide();
 };

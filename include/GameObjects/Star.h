@@ -8,8 +8,9 @@
 class Star : public NonClickableObject
 {
 public:
-	Star(const Data& ObjectData, const sf::Texture& texture);
+	Star(const Data& ObjectData, World& world, const sf::Texture& texture);
 	virtual ~Star() = default;
+	virtual void update();
 
 
 private:

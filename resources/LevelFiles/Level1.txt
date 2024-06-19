@@ -1,2 +1,3 @@
 Candy 610 30
 Omnom 600 600
+Star 600 400

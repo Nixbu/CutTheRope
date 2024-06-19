@@ -8,6 +8,7 @@ HitMap initializeCollisionMap()
     HitMap collisionMap;
     collisionMap[Key(typeid(Candy), typeid(Bubble))] = &candyBubble;
     collisionMap[Key(typeid(Candy), typeid(Omnom))] = &candyOmnom;
+    collisionMap[Key(typeid(Candy), typeid(Star))] = &candyStar;
 
     return collisionMap;
 }
@@ -54,6 +55,14 @@ void candyOmnom(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject>
     candy->setDelete();
     //TODO add omnom collition animation
 
+}
+
+void candyStar(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, b2World& world)
+{
+    std::shared_ptr<Candy> candy = std::dynamic_pointer_cast<Candy>(object1);
+    std::shared_ptr<Star> star = std::dynamic_pointer_cast<Star>(object2);
+
+    star->setDelete();
 }
 
 

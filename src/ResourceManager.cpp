@@ -17,10 +17,7 @@ ResourceManager::ResourceManager()
     this->loadImage("AirPillow", "AirPillow.png");
     this->loadImage("Hook", "Hook.png");
     this->loadImage("Rope", "RopeSegment.png");
-    
-    
-
-    this->loadImage("Air", "Bubble.png"); // TODO change to real air
+    this->loadImage("Air", "Air.png");
 
 
 

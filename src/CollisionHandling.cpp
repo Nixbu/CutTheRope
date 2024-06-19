@@ -10,7 +10,7 @@ HitMap initializeCollisionMap()
     collisionMap[Key(typeid(Candy), typeid(Air))] = &candyAir;
     collisionMap[Key(typeid(Candy), typeid(Omnom))] = &candyOmnom;
     collisionMap[Key(typeid(Candy), typeid(Star))] = &candyStar;
-
+    collisionMap[Key(typeid(Candy), typeid(Spikes))] = &candySpikes;
     return collisionMap;
 }
 
@@ -64,6 +64,13 @@ void candyStar(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> 
     std::shared_ptr<Star> star = std::dynamic_pointer_cast<Star>(object2);
 
     star->setDelete();
+}
+void candySpikes(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, b2World& world)
+{
+    auto candy = std::dynamic_pointer_cast<Candy>(object1);
+    auto Spike = std::dynamic_pointer_cast<Spikes>(object2);
+
+    candy->setDelete();
 }
 void candyAir(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, b2World& world)
 {

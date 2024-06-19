@@ -3,6 +3,7 @@
 
 World::World() : m_physicalWorld(b2Vec2(0.0f, -9.8f)) , m_candy(nullptr)
 {
+	m_gameObjects.reserve(MAX_SIZE);
 }
 
 void World::addObject(std::string& line)

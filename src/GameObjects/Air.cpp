@@ -3,7 +3,7 @@
 Air::Air(const Data& ObjectData, World& world, const sf::Texture& texture) 
     : NonClickableObject(ObjectData, texture),
        m_direction(angleToDirection(ObjectData.m_angle)),
-        m_force(b2Vec2(m_direction.x * 500, m_direction.y * 500))
+        m_force(b2Vec2(m_direction.x * AIR_FORCE, m_direction.y * AIR_FORCE))
 {
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
@@ -16,10 +16,10 @@ Air::Air(const Data& ObjectData, World& world, const sf::Texture& texture)
     bodyDef.angle = angleToRadians(ObjectData.m_angle); // Set the initial angle
     bodyDef.linearVelocity.Set(m_direction.x * AIR_VELOCITY, m_direction.y * AIR_VELOCITY); // Set the initial linear velocity
     bodyDef.angularVelocity = 0.0f; // Set the initial angular velocity
-    bodyDef.linearDamping = 0.0f; // Set the linear damping
+    bodyDef.linearDamping = 1.0f; // Set the linear damping
     bodyDef.angularDamping = 0.0f; // Set the angular damping
-
-    shape.SetAsBox(1.0f, 1.0f);
+    
+    shape.SetAsBox(0.1f, 0.1f);
 
     fixtureDef.shape = &shape;
     fixtureDef.isSensor = true; // Set as sensor
@@ -29,9 +29,6 @@ Air::Air(const Data& ObjectData, World& world, const sf::Texture& texture)
 
 void Air::update()
 {
-    //TODO maybe add opeator*(b2Vec2, float) for nicer multiplication
-    //this->SetLinearVelocity(b2Vec2(m_direction.x * AIR_VELOCITY, m_direction.y * AIR_VELOCITY)); 
-
     b2Vec2 position = this->getBody()->GetPosition();
     float angle = this->getBody()->GetAngle();
 

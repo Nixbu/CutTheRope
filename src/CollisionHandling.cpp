@@ -72,7 +72,6 @@ void candyAir(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> o
 
     candy->getBody()->ApplyForceToCenter(air->getForce(), true);
 
-    //air->setDelete();
 
 }
 

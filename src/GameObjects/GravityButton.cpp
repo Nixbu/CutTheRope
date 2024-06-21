@@ -2,7 +2,8 @@
 
 
 GravityButton::GravityButton(const Data& ObjectData, World& world, const sf::Texture& texture)
-    : ClickableObject(ObjectData, texture), m_world(world.getWorld()), m_currentGravity(GravityWorld),m_rotate(false)
+    : ClickableObject(ObjectData, texture), m_world(world.getWorld()), m_currentGravity(GravityWorld),
+        m_degree(ObjectData.m_angle)
 {
 
     //TODO CHANGE SETTINGS IF NEEDED
@@ -30,29 +31,26 @@ GravityButton::GravityButton(const Data& ObjectData, World& world, const sf::Tex
 
     this->initBody(world, bodyDef, fixtureDef);
 
-}
-void GravityButton::update()
-{
     b2Vec2 position = this->getBody()->GetPosition();
     float angle = this->getBody()->GetAngle();
 
     // Convert Box2D position (meters) to SFML position (pixels)
     this->setPosition(position.x * SCALE, WINDOW_MANAGER_HEIGHT - position.y * SCALE);
     this->setRotation(angle * 180.0f / b2_pi);
-    /*if(m_rotate)
-    {
-        this->setRotation(180);
-        m_rotate = false;
-    }*/
-    this->setRotation(180);
+
+}
+void GravityButton::update()
+{
+   
 }
 
 void GravityButton::handleClicked()
 {
     m_currentGravity = -m_currentGravity;
     m_world.SetGravity(b2Vec2(m_currentGravity.x, m_currentGravity.y));
-    //this->setRotation(180);
-    m_rotate = true;
+    m_degree += 180;
+    this->setRotation(m_degree);
+
 }
 
 

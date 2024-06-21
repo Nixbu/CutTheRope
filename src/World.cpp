@@ -81,20 +81,13 @@ void World::handleCollisions()
 {
 	for (int index1 = 0; index1 < this->m_gameObjects.size(); index1++)
 	{
-		for (int index2 = 0; index2 < this->m_gameObjects.size(); index2++)
+		if(this->checkCollision(m_candy, m_gameObjects[index1]))
 		{
-			if (index1 == index2)
-			{
-				continue;
-			}
-			if(this->checkCollision(m_gameObjects[index1], m_gameObjects[index2]))
-			{
-				auto collisionsFunc = lookup(typeid(*m_gameObjects[index1]), typeid(*m_gameObjects[index2]));
+			auto collisionsFunc = lookup(typeid(*m_candy), typeid(*m_gameObjects[index1]));
 
-				if (collisionsFunc != nullptr)
-				{
-					collisionsFunc(m_gameObjects[index1], m_gameObjects[index2], this->m_physicalWorld);
-				}
+			if (collisionsFunc != nullptr)
+			{
+				collisionsFunc(m_candy, m_gameObjects[index1], this->m_physicalWorld);
 			}
 		}
 	}

@@ -2,16 +2,16 @@
 
 #include "box2d/box2d.h"
 #include <memory>
-#include "GameObjects/Hat.h"
+#include "GameObjects/DoubleHat.h"
 #include "World.h"
 
 
-class HatFactory{
+class DoubleHatFactory {
 public:
 
 	static std::shared_ptr<GameObject> createObject(const Data& ObjectData,
-													World& world,
-													const sf::Texture& texture);
+		World& world,
+		const sf::Texture& texture);
 
 private:
 

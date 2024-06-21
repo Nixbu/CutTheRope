@@ -23,10 +23,12 @@ PLAY_BTN_POS = { WINDOW_MANAGER_WIDTH / 2 - MENU_BUTTON_DEFA_SIZE.x / 2,
 
 
 struct Data {
-	sf::Vector2f m_pos;
-	float m_angle;
-	std::string m_type;
-	std::string m_subType;
+    sf::Vector2f m_pos;
+    sf::Vector2f m_pos2;
+    float m_angle;
+    float m_angle2;
+    std::string m_type;
+    std::string m_subType;
 };
 
 const float SCALE = 30.0f,

@@ -13,14 +13,14 @@
 class World;
 
 
-typedef std::unordered_map<std::string, std::shared_ptr<GameObject>(*)(const Data&, World&, const sf::Texture&)> FactoryMap; //?
+typedef std::unordered_map<std::string, std::shared_ptr<GameObject>(*)(const std::string&, World&, const sf::Texture&)> FactoryMap; //?
 // ================   class Factory   ============================
 class FactoryManager {
 public:
 	static std::shared_ptr<GameObject> create(const std::string& name,
-		const Data& data, World& world, const sf::Texture& texture);
+		const std::string& line, World& world, const sf::Texture& texture);
 	static bool registerit(const std::string& name, 
-				std::shared_ptr<GameObject>(*f)(const Data&,
+				std::shared_ptr<GameObject>(*f)(const std::string&,
 												World&,
 											const sf::Texture&));
 private:

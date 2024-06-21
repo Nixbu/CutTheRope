@@ -12,18 +12,18 @@ void World::addObject(std::string& line)
 		auto& resourceManager = ResourceManager::getInstance();
 
 		std::istringstream iss(line);
-		Data objectData;
+		std::string type, subtype;
 
-		iss >> objectData.m_type >> objectData.m_subType >> objectData.m_pos.x >> objectData.m_pos.y >> objectData.m_angle;
+		iss >> type >> subtype;
 
-		const sf::Texture& texture = resourceManager.getImage(objectData.m_subType);
+		const sf::Texture& texture = resourceManager.getImage(subtype);
 
-		std::shared_ptr<GameObject> object = FactoryManager::create(objectData.m_type, objectData,
+		std::shared_ptr<GameObject> object = FactoryManager::create(type, line,
 			*this, texture);
 
 		if (object != nullptr)
 		{
-			if (objectData.m_type == "Candy") {
+			if (type == "Candy") {
 				this->m_candy = object;
 			}
 			this->m_gameObjects.push_back(object);

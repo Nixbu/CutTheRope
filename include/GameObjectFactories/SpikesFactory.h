@@ -8,7 +8,7 @@
 class SpikesFactory{
 public:
 
-	static std::shared_ptr<GameObject> createObject(const Data& ObjectData,
+	static std::shared_ptr<GameObject> createObject(const std::string& line,
 		World& world, const sf::Texture& texture);
 
 private:

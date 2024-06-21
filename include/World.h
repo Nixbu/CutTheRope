@@ -8,6 +8,7 @@
 #include "FactoryManager.h"
 #include "ResourceManager.h"
 #include "CollisionHandling.h"
+#include <string>
 
 class World
 {

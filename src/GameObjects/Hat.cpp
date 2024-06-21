@@ -39,7 +39,3 @@ void Hat::update()
     this->setPosition(position.x * SCALE, WINDOW_MANAGER_HEIGHT - position.y * SCALE);
     this->setRotation(angle * 180.0f / b2_pi);
 }
-
-
-bool Hat::m_registerit = FactoryManager::registerit("Hat",
-    &HatFactory::createObject);

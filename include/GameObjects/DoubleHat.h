@@ -12,7 +12,7 @@ public:
 	virtual void update();
 private:
 	static bool m_registerit;
-	std::shared_ptr<Hat> m_hat1,
+	std::unique_ptr<Hat> m_hat1,
 						m_hat2;
 	bool m_whichBody;
 	

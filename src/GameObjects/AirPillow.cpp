@@ -37,7 +37,7 @@ void AirPillow::handleClicked()
 {
     auto& resourceManager = ResourceManager::getInstance();
     const sf::Texture& texture = resourceManager.getImage("Air");
-    auto airBullet = AirFactory::createObject(m_data, m_world, texture);
+    auto airBullet = std::make_shared<Air>(m_data, m_world, texture);
 
     this->m_world.addToGameObjects(airBullet);
 }

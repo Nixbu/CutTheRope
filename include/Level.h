@@ -13,6 +13,8 @@ public:
 	void update();
 	void handleClicks(const sf::Vector2f& mousePos);
 	void setLevelName(const std::string& levelName);
+	levelStatus_t getLevelStatus()const;
+	void setLevelStatus(const levelStatus_t& status);
 private:
 	std::string m_level;
 	std::ifstream m_levelFile;

@@ -29,8 +29,18 @@ void PlayingState::handleClicks(const sf::Vector2f& mousePos)
 
 void PlayingState::update()
 {
-
-	this->m_level.update(); 
+	switch (this->m_level.getLevelStatus()) {
+		case OnGoing:
+			this->m_level.update();
+			break;
+		case Lost:
+			this->m_level.setLevelStatus(OnGoing);
+			this->m_level.loadLevel();
+			break;
+		case Won:
+			;
+			//TODO
+	} 
 }
 
 void PlayingState::handleFloating(const sf::Vector2f& mousePos)

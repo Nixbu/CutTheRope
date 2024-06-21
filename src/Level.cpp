@@ -47,6 +47,16 @@ void Level::setLevelName(const std::string& levelName)
 	this->m_level = levelName;
 }
 
+levelStatus_t Level::getLevelStatus() const
+{
+	return this->m_status;
+}
+
+void Level::setLevelStatus(const levelStatus_t& status)
+{
+	this->m_status = status;
+}
+
 void Level::readLevel()
 {
 	std::string line;

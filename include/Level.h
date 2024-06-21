@@ -15,8 +15,9 @@ public:
 	void setLevelName(const std::string& levelName);
 	levelStatus_t getLevelStatus()const;
 	void setLevelStatus(const levelStatus_t& status);
+	std::string getLevelName()const;
 private:
-	std::string m_level;
+	std::string m_levelName;
 	std::ifstream m_levelFile;
 	World m_world;
 	sf::Clock m_clock;

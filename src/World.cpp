@@ -176,15 +176,22 @@ void World::deleteWantedObjects()
 
 void World::validCandyPos()
 {
-	sf::Vector2f candyPos = this->m_candy->getPosition();
+	if (this->m_candy) {
+		sf::Vector2f candyPos = this->m_candy->getPosition();
 
-	sf::FloatRect localBounds = this->m_candy->getSprite().getLocalBounds();
-	float candyWidth = localBounds.width;
-	float candyHeight = localBounds.height;
+		sf::FloatRect localBounds = this->m_candy->getSprite().getLocalBounds();
+		float candyWidth = localBounds.width;
+		float candyHeight = localBounds.height;
 
-	if (candyPos.y > WINDOW_MANAGER_HEIGHT || candyPos.x < 0 - candyWidth ||
-		candyPos.x > WINDOW_MANAGER_WIDTH + candyWidth ||
-		candyPos.y < 0 - candyHeight) {
+		if (candyPos.y > WINDOW_MANAGER_HEIGHT || candyPos.x < 0 - candyWidth ||
+			candyPos.x > WINDOW_MANAGER_WIDTH + candyWidth ||
+			candyPos.y < 0 - candyHeight) {
+			this->m_status = Lost;
+		}
+	}
+	else
+	{
 		this->m_status = Lost;
 	}
+
 }

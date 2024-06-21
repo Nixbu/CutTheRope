@@ -9,7 +9,7 @@ void Level::loadLevel()
 	
 	this->m_world.reset();
 	// TODO add try catch
-	m_levelFile.open(m_level);
+	m_levelFile.open(m_levelName);
 
 	this->readLevel();
 
@@ -44,7 +44,7 @@ void Level::handleClicks(const sf::Vector2f& mousePos)
 }
 void Level::setLevelName(const std::string& levelName)
 {
-	this->m_level = levelName;
+	this->m_levelName = levelName;
 }
 
 levelStatus_t Level::getLevelStatus() const
@@ -55,6 +55,11 @@ levelStatus_t Level::getLevelStatus() const
 void Level::setLevelStatus(const levelStatus_t& status)
 {
 	this->m_status = status;
+}
+
+std::string Level::getLevelName() const
+{
+	return this->m_levelName;
 }
 
 void Level::readLevel()

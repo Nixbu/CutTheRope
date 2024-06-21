@@ -9,10 +9,5 @@ ChangeScreen::ChangeScreen(Controller& controller, std::shared_ptr<GameState> ne
 
 void ChangeScreen::execute()
 {
-    if (this->m_newState) {
-        this->m_controller.setCurrentState(this->m_newState);
-    }
-    else {
-        std::cerr << "Error: newState is null." << std::endl;
-    }
+	 this->m_controller.setCurrentState(this->m_newState);
 }

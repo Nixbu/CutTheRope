@@ -14,7 +14,7 @@ configure_file ("AirPillow.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("RopeSegment.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("Hook.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("Air.png" ${CMAKE_BINARY_DIR} COPYONLY)
-
+configure_file ("GravityButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
 # Level files
 configure_file ("LevelFiles/Level1.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("LevelFiles/Sandbox.txt" ${CMAKE_BINARY_DIR} COPYONLY)

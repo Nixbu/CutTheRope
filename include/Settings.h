@@ -21,6 +21,7 @@ const sf::Vector2f MENU_BUTTON_DEFA_SIZE = { 1.0f, 1.0f },
 PLAY_BTN_POS = { WINDOW_MANAGER_WIDTH / 2 - MENU_BUTTON_DEFA_SIZE.x / 2,
 							WINDOW_MANAGER_HEIGHT / 2 + 300 };
 
+const sf::Vector2f GravityWorld(0.0f, -9.8f);
 
 struct Data {
 	sf::Vector2f m_pos;

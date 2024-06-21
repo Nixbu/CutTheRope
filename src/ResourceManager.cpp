@@ -18,7 +18,7 @@ ResourceManager::ResourceManager()
     this->loadImage("Hook", "Hook.png");
     this->loadImage("Rope", "RopeSegment.png");
     this->loadImage("Air", "Air.png");
-
+    this->loadImage("GravityButton", "GravityButton.png");
 
 
 }

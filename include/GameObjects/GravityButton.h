@@ -3,7 +3,8 @@
 #include "FactoryManager.h"
 #include "GameObjectFactories/GravityButtonFactory.h"
 #include "GameObjects/ClickableObject.h"
-
+#include <thread> 
+#include <chrono> 
 class GravityButton: public ClickableObject
 {
 public:
@@ -15,4 +16,5 @@ private:
 	static bool m_registerit;
 	b2World& m_world;
 	sf::Vector2f m_currentGravity;
+	bool m_rotate;
 };

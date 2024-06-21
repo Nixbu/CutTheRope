@@ -11,6 +11,7 @@ public:
 	DoubleHat(const Data& ObjectData, World& world, const sf::Texture& texture);
 	virtual void update();
 	virtual void draw(sf::RenderWindow& window) const override;
+	virtual b2Body* getBody() override;
 private:
 	static bool m_registerit;
 	std::unique_ptr<Hat> m_hat1,

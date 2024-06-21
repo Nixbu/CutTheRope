@@ -33,4 +33,21 @@ void DoubleHat::draw(sf::RenderWindow& window) const
 	this->m_hat2->draw(window);
 }
 
+//============================================================
+// The function changes the body that is being returned for
+// the check collision to work on both hats
+b2Body* DoubleHat::getBody()
+{
+	if (m_whichBody)
+	{
+		m_whichBody = false;
+		return this->m_hat1->getBody();
+	}
+	else
+	{
+		m_whichBody = true;
+		return this->m_hat2->getBody();
+	}
+}
+
 

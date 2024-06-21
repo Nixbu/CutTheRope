@@ -16,7 +16,7 @@ Hat::Hat(const Data& ObjectData, World& world, const sf::Texture& texture)
     bodyDef.angularDamping = 0.0f; // Set the angular damping
 
     b2PolygonShape shape;
-    shape.SetAsBox(texture.getSize().x / SCALE, texture.getSize().y / SCALE);
+    shape.SetAsBox(texture.getSize().x / 5.0f / SCALE, texture.getSize().y / 5.0f / SCALE);
 
 
     // Define the fixture

@@ -11,6 +11,8 @@ HitMap initializeCollisionMap()
     collisionMap[Key(typeid(Candy), typeid(Omnom))] = &candyOmnom;
     collisionMap[Key(typeid(Candy), typeid(Star))] = &candyStar;
     collisionMap[Key(typeid(Candy), typeid(Spikes))] = &candySpikes;
+    collisionMap[Key(typeid(Candy), typeid(DoubleHat))] = &candyHat;
+
     return collisionMap;
 }
 
@@ -72,6 +74,48 @@ void candySpikes(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject
 
     candy->setDelete();
 }
+
+void candyHat(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, b2World& world)
+{
+    auto candy = std::dynamic_pointer_cast<Candy>(object1);
+    auto doubleHat = std::dynamic_pointer_cast<DoubleHat>(object2);
+
+    // Get the second body's position and angle
+    auto hatBody = doubleHat->getBody();
+    auto position = hatBody->GetPosition();
+    auto angle = hatBody->GetAngle();
+
+    // Calculate a small offset in the direction the hat is facing
+    float offsetDistance = 5.0f; // Adjust this value as needed
+    b2Vec2 offset(sin(angle) * offsetDistance, cos(angle) * offsetDistance);
+
+    // Set the new position slightly forward from the hat's current position
+    b2Vec2 newPosition = position + offset;
+    candy->getBody()->SetTransform(newPosition, angle);
+
+    // Get the current velocity of the candy
+    b2Vec2 currentVelocity = candy->getBody()->GetLinearVelocity();
+
+    // Calculate the speed (magnitude) of the current velocity
+    float speed = currentVelocity.Length();
+
+    // Calculate the new velocity components using the hat's angle
+    b2Vec2 newVelocity(sin(angle) * speed, cos(angle) * speed);
+
+    // Set the new velocity for the candy
+    candy->getBody()->SetLinearVelocity(newVelocity);
+}
+
+
+
+
+
+
+
+
+
+
+
 void candyAir(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, b2World& world)
 {
     auto candy = std::dynamic_pointer_cast<Candy>(object1);

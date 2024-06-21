@@ -10,6 +10,8 @@
 #include "GameObjects/Star.h"
 #include "GameObjects/Air.h"
 #include "GameObjects/Spikes.h"
+#include "GameObjects/DoubleHat.h"
+
 
 //TODO create this exception class
 // Sample struct for exception throwing
@@ -36,3 +38,4 @@ void candyBubble(std::shared_ptr<GameObject>object1, std::shared_ptr<GameObject>
 void candyOmnom(std::shared_ptr<GameObject>object1, std::shared_ptr<GameObject> object2, b2World& world);
 void candyStar(std::shared_ptr<GameObject>object1, std::shared_ptr<GameObject> object2, b2World& world);
 void candySpikes(std::shared_ptr<GameObject>object1, std::shared_ptr<GameObject> object2, b2World& world);
+void candyHat(std::shared_ptr<GameObject>object1, std::shared_ptr<GameObject> object2, b2World& world);

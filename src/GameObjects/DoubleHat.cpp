@@ -18,11 +18,19 @@ DoubleHat::DoubleHat(const Data& ObjectData, World& world, const sf::Texture& te
 
 
 	m_hat1 = std::make_unique<Hat>(hat1Data, world, texture);
-	m_hat2 = std::make_unique<Hat>(hat1Data, world, texture);
+	m_hat2 = std::make_unique<Hat>(hat2Data, world, texture);
 }
 
 void DoubleHat::update()
 {
+	this->m_hat1->update();
+	this->m_hat2->update();
+}
+
+void DoubleHat::draw(sf::RenderWindow& window) const
+{
+	this->m_hat1->draw(window);
+	this->m_hat2->draw(window);
 }
 
 

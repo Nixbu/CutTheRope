@@ -8,7 +8,7 @@ ResourceManager::ResourceManager()
     this->loadImage("MainWindowBG", "MainWindowBG.png");
     this->loadImage("Candy", "Candy.png");
     this->loadImage("Star", "Star.png");
-    this->loadImage("Hat", "Hat.png");
+    this->loadImage("RedHat", "RedHat.png");
     this->loadImage("Bubble", "Bubble.png");
     this->loadImage("Omnom", "Omnom.png");
     this->loadImage("HorizonalLongSpikes", "HorizonalLongSpikes.png"); // TODO change name

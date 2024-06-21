@@ -1,3 +1,4 @@
 Candy Candy 610 200 0
 Rope Rope 600 30 0
 Star Star 600 400 0
+DoubleHat RedHat 300 400 90 500 600 180

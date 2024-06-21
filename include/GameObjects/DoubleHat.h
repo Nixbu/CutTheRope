@@ -10,6 +10,7 @@ class DoubleHat : public NonClickableObject
 public:
 	DoubleHat(const Data& ObjectData, World& world, const sf::Texture& texture);
 	virtual void update();
+	virtual void draw(sf::RenderWindow& window) const override;
 private:
 	static bool m_registerit;
 	std::unique_ptr<Hat> m_hat1,

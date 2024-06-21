@@ -1,7 +1,7 @@
 #include "World.h"
 
 
-World::World() : m_physicalWorld(b2Vec2(0.0f, -9.8f)) , m_candy(nullptr)
+World::World(levelStatus_t& status) : m_physicalWorld(b2Vec2(0.0f, -9.8f)) , m_candy(nullptr)  , m_status(status)
 {
 	m_gameObjects.reserve(MAX_SIZE);
 }
@@ -59,6 +59,7 @@ void World::draw(sf::RenderWindow& window) const
 void World::reset()
 {
 	this->m_gameObjects.clear();
+	this->m_candy = nullptr;
 }
 
 void World::update(float timeStep)
@@ -74,6 +75,7 @@ void World::update(float timeStep)
 		object->update();
 	}
 
+	this->validCandyPos();
 	this->deleteWantedObjects();
 }
 
@@ -93,7 +95,7 @@ void World::handleCollisions()
 
 				if (collisionsFunc != nullptr)
 				{
-					collisionsFunc(m_gameObjects[index1], m_gameObjects[index2], this->m_physicalWorld);
+					collisionsFunc(m_gameObjects[index1], m_gameObjects[index2], *this);
 				}
 			}
 		}
@@ -125,6 +127,11 @@ b2World& World::getWorld()
 std::shared_ptr<GameObject> World::getCandy()const
 {
 	return this->m_candy;
+}
+
+void World::setLevelStatus(const levelStatus_t& status)
+{
+	this->m_status = status;
 }
 
 
@@ -164,5 +171,20 @@ void World::deleteWantedObjects()
 			this->m_gameObjects.erase(m_gameObjects.begin() + i);
 			i--;
 		}
+	}
+}
+
+void World::validCandyPos()
+{
+	sf::Vector2f candyPos = this->m_candy->getPosition();
+
+	sf::FloatRect localBounds = this->m_candy->getSprite().getLocalBounds();
+	float candyWidth = localBounds.width;
+	float candyHeight = localBounds.height;
+
+	if (candyPos.y > WINDOW_MANAGER_HEIGHT || candyPos.x < 0 - candyWidth ||
+		candyPos.x > WINDOW_MANAGER_WIDTH + candyWidth ||
+		candyPos.y < 0 - candyHeight) {
+		this->m_status = Lost;
 	}
 }

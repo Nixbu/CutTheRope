@@ -10,6 +10,7 @@
 #include "GameObjects/Star.h"
 #include "GameObjects/Air.h"
 #include "GameObjects/Spikes.h"
+#include "World.h"
 
 //TODO create this exception class
 // Sample struct for exception throwing
@@ -21,7 +22,7 @@
 //    }
 //};
 
-using HitFunctionPtr = void (*)(std::shared_ptr<GameObject>, std::shared_ptr<GameObject>, b2World&);
+using HitFunctionPtr = void (*)(std::shared_ptr<GameObject>, std::shared_ptr<GameObject>, World&);
 // typedef void (*HitFunctionPtr)(GameObject&, GameObject&);
 using Key = std::pair<std::type_index, std::type_index>;
 // std::unordered_map is better, but it requires defining good hash function for pair
@@ -31,8 +32,8 @@ HitMap initializeCollisionMap();
 HitFunctionPtr lookup(const std::type_index& class1, const std::type_index& class2);
 
 
-void candyAir(std::shared_ptr<GameObject>object1, std::shared_ptr<GameObject> object2, b2World& world);
-void candyBubble(std::shared_ptr<GameObject>object1, std::shared_ptr<GameObject> object2, b2World& world);
-void candyOmnom(std::shared_ptr<GameObject>object1, std::shared_ptr<GameObject> object2, b2World& world);
-void candyStar(std::shared_ptr<GameObject>object1, std::shared_ptr<GameObject> object2, b2World& world);
-void candySpikes(std::shared_ptr<GameObject>object1, std::shared_ptr<GameObject> object2, b2World& world);
+void candyAir(std::shared_ptr<GameObject>object1, std::shared_ptr<GameObject> object2, World& world);
+void candyBubble(std::shared_ptr<GameObject>object1, std::shared_ptr<GameObject> object2, World& world);
+void candyOmnom(std::shared_ptr<GameObject>object1, std::shared_ptr<GameObject> object2, World& world);
+void candyStar(std::shared_ptr<GameObject>object1, std::shared_ptr<GameObject> object2, World& world);
+void candySpikes(std::shared_ptr<GameObject>object1, std::shared_ptr<GameObject> object2, World& world);

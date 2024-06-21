@@ -37,3 +37,6 @@ AIR_FORCE = 500.0f;
 
 const b2Vec2 BUBBLE_VELOCITY(0.0f, 2.0f),
 BUBBLE_FORCE(0.0f, 300.0f);
+
+
+const enum levelStatus_t { Won, OnGoing, Lost };

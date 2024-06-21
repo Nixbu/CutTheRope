@@ -40,8 +40,8 @@ void PlayingState::handleFloating(const sf::Vector2f& mousePos)
 
 void PlayingState::setLevel(const std::string& levelName)
 {
-
-	m_level.loadLevel(levelName);
+	m_level.setLevelName(levelName);
+	m_level.loadLevel();
 
 
 	// TODO think about the reset level button,

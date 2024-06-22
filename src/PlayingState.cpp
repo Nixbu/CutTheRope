@@ -42,7 +42,7 @@ void PlayingState::update()
 			this->m_level.resetStars();
 
 			if (this->m_levelNum == this->m_controller.getLevelSelectionState()->getNumOfLevels()) {
-				//TODO change to end state
+				this->changeToWinState();
 				break;
 			}
 			else {
@@ -94,6 +94,12 @@ void PlayingState::addButtons()
 void PlayingState::setLevelNum(const int& levelNum)
 {
 	this->m_levelNum = levelNum;
+}
+
+void PlayingState::changeToWinState()
+{
+	std::shared_ptr<WinState> winState = std::make_shared<WinState>(this->m_controller);
+	this->m_controller.setCurrentState(winState);
 }
 
 void PlayingState::changeToInterstital()

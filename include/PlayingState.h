@@ -10,7 +10,7 @@
 #include "Commands/PlayLevel.h"
 #include "Button.h"
 #include "InterstitalState.h"
-
+#include "WinState.h"
 
 class Controller;
 
@@ -26,6 +26,7 @@ public:
 	void setLevel(const std::string & levelName);
 	void addButtons();
 	void setLevelNum(const int& levelNum);
+	void changeToWinState();
 private:
 	int m_levelNum;
 	Menu m_menu;

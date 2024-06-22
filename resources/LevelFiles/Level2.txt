@@ -1,4 +1,3 @@
 Candy Candy 610 200 0
 Rope Rope 600 30 0
-Omnom Omnom 200 600
-DoubleHat RedHat 200 400 180 610 600 0
+Omnom Omnom 610 600

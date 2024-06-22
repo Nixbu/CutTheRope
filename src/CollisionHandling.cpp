@@ -77,7 +77,7 @@ void candySpikes(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject
     candy->setDelete();
 }
 
-void candyHat(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, b2World& world)
+void candyHat(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, World& world)
 {
     auto candy = std::dynamic_pointer_cast<Candy>(object1);
     auto doubleHat = std::dynamic_pointer_cast<DoubleHat>(object2);

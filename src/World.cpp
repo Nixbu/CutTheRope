@@ -87,11 +87,11 @@ void World::handleCollisions()
 		{
 			auto collisionsFunc = lookup(typeid(*m_candy), typeid(*m_gameObjects[index1]));
 
-				if (collisionsFunc != nullptr)
-				{
-					collisionsFunc(m_gameObjects[index1], m_gameObjects[index2], *this);
-				}
+			if (collisionsFunc != nullptr)
+			{
+				collisionsFunc(m_candy, m_gameObjects[index1], *this);
 			}
+		
 		}
 	}
 }

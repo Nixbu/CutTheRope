@@ -1,6 +1,6 @@
 #include "Level.h"
 
-Level::Level() :  m_status(OnGoing) , m_world(m_status), m_accumulator(0) 
+Level::Level() :  m_status(OnGoing) , m_stars(0), m_world(m_status , m_stars), m_accumulator(0) 
 {
 }
 
@@ -60,6 +60,16 @@ void Level::setLevelStatus(const levelStatus_t& status)
 std::string Level::getLevelName() const
 {
 	return this->m_levelName;
+}
+
+void Level::resetStars()
+{
+	this->m_stars = 0;
+}
+
+int Level::getStars() const
+{
+	return this->m_stars;
 }
 
 void Level::readLevel()

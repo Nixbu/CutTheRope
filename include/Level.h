@@ -16,7 +16,10 @@ public:
 	levelStatus_t getLevelStatus()const;
 	void setLevelStatus(const levelStatus_t& status);
 	std::string getLevelName()const;
+	void resetStars();
+	int getStars() const;
 private:
+	int m_stars;
 	std::string m_levelName;
 	std::ifstream m_levelFile;
 	World m_world;

@@ -1,7 +1,8 @@
 #include "World.h"
 
 
-World::World(levelStatus_t& status) : m_physicalWorld(b2Vec2(GravityWorld.x, GravityWorld.y)) , m_candy(nullptr)  , m_status(status)
+World::World(levelStatus_t& status , int& stars) : 
+	m_physicalWorld(b2Vec2(GravityWorld.x, GravityWorld.y)) , m_candy(nullptr)  , m_status(status) , m_stars(stars)
 {
 	m_gameObjects.reserve(MAX_SIZE);
 }
@@ -126,6 +127,11 @@ std::shared_ptr<GameObject> World::getCandy()const
 void World::setLevelStatus(const levelStatus_t& status)
 {
 	this->m_status = status;
+}
+
+void World::addStar()
+{
+	this->m_stars++;
 }
 
 

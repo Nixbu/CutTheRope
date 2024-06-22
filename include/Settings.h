@@ -31,6 +31,7 @@ ROW_NUM_OF_LEVELS = 5;
 
 const sf::Vector2i FIRST_BUTTON_POSITION = { 100, 300 };
 
+
 const sf::Vector2f GravityWorld(0.0f, -9.8f);
 
 struct Data {

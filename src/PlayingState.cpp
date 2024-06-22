@@ -38,9 +38,18 @@ void PlayingState::update()
 			this->m_level.loadLevel();
 			break;
 		case Won:
-			this->changeToInterstital();
+			this->m_controller.getLevelSelectionState()->setLevelButtonImg(this->m_level.getStars(), this->m_levelNum);
+			this->m_level.resetStars();
+
+			if (this->m_levelNum == this->m_controller.getLevelSelectionState()->getNumOfLevels()) {
+				this->changeToWinState();
+				break;
+			}
+			else {
+				this->m_controller.getLevelSelectionState()->setLevelButtonImg(0, this->m_levelNum);
+				this->changeToInterstital();
+			}
 			
-			//TODO
 	} 
 }
 
@@ -85,6 +94,12 @@ void PlayingState::addButtons()
 void PlayingState::setLevelNum(const int& levelNum)
 {
 	this->m_levelNum = levelNum;
+}
+
+void PlayingState::changeToWinState()
+{
+	std::shared_ptr<WinState> winState = std::make_shared<WinState>(this->m_controller);
+	this->m_controller.setCurrentState(winState);
 }
 
 void PlayingState::changeToInterstital()

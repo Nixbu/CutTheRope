@@ -5,8 +5,9 @@
 
 
 PlayLevel::PlayLevel(Controller& controller, std::shared_ptr<PlayingState> playingState,
-	const std::string& levelName , const  int& levelNum)
-	: m_controller(controller), m_playingState(playingState), m_levelName(levelName) , m_levelNum(levelNum) {}
+	const std::string& levelName , const  int& levelNum, bool open)
+	: m_controller(controller), m_playingState(playingState), m_levelName(levelName) , m_levelNum(levelNum),
+		m_open(open){}
 
 void PlayLevel::execute()
 {

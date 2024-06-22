@@ -22,8 +22,10 @@ configure_file ("NextLevelButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
 
 configure_file ("GravityButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
 # Level files
+configure_file ("LevelFiles/levelPlaylist.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("LevelFiles/Level1.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("LevelFiles/Level2.txt" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("LevelFiles/Sandbox.txt" ${CMAKE_BINARY_DIR} COPYONLY)
+
+
 
 

@@ -23,6 +23,12 @@ public:
 private:
 	Menu m_levelButtons;
 	Menu m_options;
+	std::string m_levelPlaylist;
+
+
+	void addLevelButtons();
+
+
 
 	
 };

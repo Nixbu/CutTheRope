@@ -5,7 +5,7 @@
 #include "Commands/PlayLevel.h"
 
 
-LevelSelectState::LevelSelectState()
+LevelSelectState::LevelSelectState() : m_levelPlaylist("levelPlaylist.txt")
 {
 	
 }
@@ -50,15 +50,37 @@ void LevelSelectState::addButtons(Controller &controller)
 
 
 	// Add level buttons
-	//level1 button
-	this->m_levelButtons.addButton(std::make_unique<Button>(sf::Vector2f(100, 300), manager.getImage("PlayButton"),
-		MENU_BUTTON_DEFA_SIZE,
-		std::make_unique<PlayLevel>(controller, controller.getPlayingState() ,"level1.txt" , 1))); // TODO change button
+	
 
-	//... more levels to come!
+	std::ifstream levelPlaylist(m_levelPlaylist);
+	std::string line;
+	int levelNum = 1;
+	auto position = FIRST_BUTTON_POSITION;
+
+	while (std::getline(levelPlaylist, line))
+	{
+		// Add the level button
+		this->m_levelButtons.addButton(std::make_unique<Button>(sf::Vector2f(position), manager.getImage("PlayButton"),
+			MENU_BUTTON_DEFA_SIZE,
+			std::make_unique<PlayLevel>(controller, controller.getPlayingState(), line, levelNum))); // TODO change button
+
+		// Update locations and level number
+		levelNum++;
+		position.x += LEVEL_BUTTON_SHIFT_X;
+		position.x %= ROW_NUM_OF_LEVELS; // Number of levels on each row
+		position.y = position.x / (ROW_NUM_OF_LEVELS * LEVEL_BUTTON_SHIFT_Y);
+	}
+
 	
 }
 
+void LevelSelectState::addLevelButtons()
+{
+	
+	ResourceManager& manager = ResourceManager::getInstance();
+
+	
+}
 void LevelSelectState::setLevelButtonImg(int stars, int levelNum)
 {
 	auto& resourceManager = ResourceManager::getInstance();

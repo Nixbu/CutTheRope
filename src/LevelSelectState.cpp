@@ -57,6 +57,7 @@ void LevelSelectState::addButtons(Controller &controller)
 	int levelNum = 1;
 	auto position = FIRST_BUTTON_POSITION;
 	const int buttonsPerRow = ROW_NUM_OF_LEVELS;  // Number of buttons per row
+	bool open = false;
 
 	while (std::getline(levelPlaylist, line))
 	{
@@ -67,7 +68,7 @@ void LevelSelectState::addButtons(Controller &controller)
 				sf::Vector2f(position),
 				manager.getImage("0 Stars"),
 				MENU_BUTTON_DEFA_SIZE,
-				std::make_unique<PlayLevel>(controller, controller.getPlayingState(), line, levelNum)
+				std::make_unique<PlayLevel>(controller, controller.getPlayingState(), line, levelNum, open)
 			));
 		}
 		else
@@ -77,7 +78,7 @@ void LevelSelectState::addButtons(Controller &controller)
 				sf::Vector2f(position),
 				manager.getImage("LockedLevel"),
 				MENU_BUTTON_DEFA_SIZE,
-				std::make_unique<PlayLevel>(controller, controller.getPlayingState(), line, levelNum)
+				std::make_unique<PlayLevel>(controller, controller.getPlayingState(), line, levelNum, open)
 			));
 		}
 

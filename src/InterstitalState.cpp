@@ -43,11 +43,11 @@ void InterstitalState::addButtons(Controller& controller , const int& nextLevelN
 	// restart button 
 	this->m_menu.addButton(std::make_unique<Button>(sf::Vector2f(650, 650), manager.getImage("ReplayButton"),
 		MENU_BUTTON_DEFA_SIZE,
-		std::make_unique<PlayLevel>(controller, controller.getPlayingState(), this->m_currentLevel, nextLevelNum - 1))); // TODO change button
+		std::make_unique<PlayLevel>(controller, controller.getPlayingState(), this->m_currentLevel, nextLevelNum - 1, true))); // TODO change button
 
 	// next level button
 	this->m_menu.addButton(std::make_unique<Button>(sf::Vector2f(550, 650), manager.getImage("NextLevelButton"), // texture
 		MENU_BUTTON_DEFA_SIZE,
-		std::make_unique<PlayLevel>(controller, controller.getPlayingState(), this->m_nextLevel, nextLevelNum)));
+		std::make_unique<PlayLevel>(controller, controller.getPlayingState(), this->m_nextLevel, nextLevelNum, true)));
 
 }

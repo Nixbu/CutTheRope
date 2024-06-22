@@ -56,20 +56,29 @@ void LevelSelectState::addButtons(Controller &controller)
 	std::string line;
 	int levelNum = 1;
 	auto position = FIRST_BUTTON_POSITION;
+	const int buttonsPerRow = ROW_NUM_OF_LEVELS;  // Number of buttons per row
 
 	while (std::getline(levelPlaylist, line))
 	{
 		// Add the level button
-		this->m_levelButtons.addButton(std::make_unique<Button>(sf::Vector2f(position), manager.getImage("PlayButton"),
+		this->m_levelButtons.addButton(std::make_unique<Button>(
+			sf::Vector2f(position),
+			manager.getImage("PlayButton"),
 			MENU_BUTTON_DEFA_SIZE,
-			std::make_unique<PlayLevel>(controller, controller.getPlayingState(), line, levelNum))); // TODO change button
+			std::make_unique<PlayLevel>(controller, controller.getPlayingState(), line, levelNum)
+		));
 
-		// Update locations and level number
+		// Update the position for the next button
 		levelNum++;
 		position.x += LEVEL_BUTTON_SHIFT_X;
-		position.x %= ROW_NUM_OF_LEVELS; // Number of levels on each row
-		position.y = position.x / (ROW_NUM_OF_LEVELS * LEVEL_BUTTON_SHIFT_Y);
+
+		// Move to the next row if necessary
+		if (levelNum % buttonsPerRow == 1) { // After buttonsPerRow buttons, move to the next row
+			position.x = FIRST_BUTTON_POSITION.x; // Reset to the first column
+			position.y += LEVEL_BUTTON_SHIFT_Y;   // Move down to the next row
+		}
 	}
+
 
 	
 }

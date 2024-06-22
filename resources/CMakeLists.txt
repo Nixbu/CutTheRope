@@ -18,7 +18,9 @@ configure_file ("betweenLevelBG.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("ReplayButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("ReturnToLevelsButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("NextLevelButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
-
+configure_file ("WinBG.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("ReturnButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("BetweenLevelsBG.png" ${CMAKE_BINARY_DIR} COPYONLY)
 
 configure_file ("GravityButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
 # Level files

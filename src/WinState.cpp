@@ -29,7 +29,7 @@ void WinState::addButtons(Controller& controller)
 {
 	auto& manager = ResourceManager::getInstance();
 
-	this->m_menu.addButton(std::make_unique<Button>(sf::Vector2f(100, 100), manager.getImage("PlayButton"),
+	this->m_menu.addButton(std::make_unique<Button>(sf::Vector2f(100, 100), manager.getImage("ReturnButton"),
 		MENU_BUTTON_DEFA_SIZE,
 		std::make_unique<ChangeScreen>(controller, controller.getMainState())));
 }

@@ -38,9 +38,18 @@ void PlayingState::update()
 			this->m_level.loadLevel();
 			break;
 		case Won:
-			this->changeToInterstital();
+			this->m_controller.getLevelSelectionState()->setLevelButtonImg(this->m_level.getStars(), this->m_levelNum);
+			this->m_level.resetStars();
+
+			if (this->m_levelNum == this->m_controller.getLevelSelectionState()->getNumOfLevels()) {
+				//TODO change to end state
+				break;
+			}
+			else {
+				this->m_controller.getLevelSelectionState()->setLevelButtonImg(0, this->m_levelNum);
+				this->changeToInterstital();
+			}
 			
-			//TODO
 	} 
 }
 

@@ -65,6 +65,7 @@ void candyStar(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> 
 {
     std::shared_ptr<Candy> candy = std::dynamic_pointer_cast<Candy>(object1);
     std::shared_ptr<Star> star = std::dynamic_pointer_cast<Star>(object2);
+    world.addStar();
 
     star->setDelete();
 }

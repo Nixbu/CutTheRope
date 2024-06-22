@@ -13,7 +13,7 @@
 class World
 {
 public:
-	World();
+	World(levelStatus_t& status);
 	void addObject(std::string& line);
 	void addToGameObjects(std::shared_ptr<GameObject> object);
 	void draw(sf::RenderWindow& window) const;
@@ -23,8 +23,9 @@ public:
 	void handleClicks(const sf::Vector2f& mousePos);
 	b2World& getWorld();
 	std::shared_ptr<GameObject> getCandy() const;
-
+	void setLevelStatus(const levelStatus_t& status );
 private:
+	levelStatus_t& m_status;
 	b2World m_physicalWorld;
 	std::vector<std::shared_ptr<GameObject>> m_gameObjects;
 
@@ -33,5 +34,6 @@ private:
 	bool isContactBetween(b2Body* body1, b2Body* body2, b2Body* checkBodyA, b2Body* checkBodyB);
 	void deleteWantedObjects();
 	std::shared_ptr<GameObject> m_candy;
+	void validCandyPos();
 	
 };

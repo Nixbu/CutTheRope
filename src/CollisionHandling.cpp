@@ -27,7 +27,7 @@ HitFunctionPtr lookup(const std::type_index& class1, const std::type_index& clas
     return mapEntry->second;
 }
 
-void candyBubble(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, b2World& world)
+void candyBubble(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, World& world)
 {
      std::shared_ptr<Candy> candy = std::dynamic_pointer_cast<Candy>(object1);
      std::shared_ptr<Bubble> bubble = std::dynamic_pointer_cast<Bubble>(object2);
@@ -44,34 +44,36 @@ void candyBubble(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject
     weldJointDef.localAnchorB.Set(0, 0);
 
 
-    world.CreateJoint(&weldJointDef);
+    world.getWorld().CreateJoint(&weldJointDef);
 
     std::this_thread::sleep_for(std::chrono::milliseconds(FRAME_DELAY_MS));
 
 }
-void candyOmnom(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, b2World& world)
+void candyOmnom(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, World& world)
 {
     std::shared_ptr<Candy> candy = std::dynamic_pointer_cast<Candy>(object1);
     std::shared_ptr<Omnom> omnom = std::dynamic_pointer_cast<Omnom>(object2);
 
 
     candy->setDelete();
+    world.setLevelStatus(Won);
     //TODO add omnom collition animation
 
 }
 
-void candyStar(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, b2World& world)
+void candyStar(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, World& world)
 {
     std::shared_ptr<Candy> candy = std::dynamic_pointer_cast<Candy>(object1);
     std::shared_ptr<Star> star = std::dynamic_pointer_cast<Star>(object2);
 
     star->setDelete();
 }
-void candySpikes(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, b2World& world)
+void candySpikes(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, World& world)
 {
     auto candy = std::dynamic_pointer_cast<Candy>(object1);
     auto Spike = std::dynamic_pointer_cast<Spikes>(object2);
 
+    world.setLevelStatus(Lost);
     candy->setDelete();
 }
 
@@ -116,7 +118,7 @@ void candyHat(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> o
 
 
 
-void candyAir(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, b2World& world)
+void candyAir(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, World& world)
 {
     auto candy = std::dynamic_pointer_cast<Candy>(object1);
     auto air = std::dynamic_pointer_cast<Air>(object2);

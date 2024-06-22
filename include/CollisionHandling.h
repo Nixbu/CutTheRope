@@ -10,6 +10,7 @@
 #include "GameObjects/Star.h"
 #include "GameObjects/Air.h"
 #include "GameObjects/Spikes.h"
+#include "World.h"
 #include "GameObjects/DoubleHat.h"
 
 
@@ -23,7 +24,7 @@
 //    }
 //};
 
-using HitFunctionPtr = void (*)(std::shared_ptr<GameObject>, std::shared_ptr<GameObject>, b2World&);
+using HitFunctionPtr = void (*)(std::shared_ptr<GameObject>, std::shared_ptr<GameObject>, World&);
 // typedef void (*HitFunctionPtr)(GameObject&, GameObject&);
 using Key = std::pair<std::type_index, std::type_index>;
 // std::unordered_map is better, but it requires defining good hash function for pair

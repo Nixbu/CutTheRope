@@ -1,15 +1,15 @@
 #include "Level.h"
 
-Level::Level() : m_world(), m_accumulator(0)
+Level::Level() :  m_status(OnGoing) , m_world(m_status), m_accumulator(0) 
 {
 }
 
-void Level::loadLevel(std::string levelFileName)
+void Level::loadLevel()
 {
 	
 	this->m_world.reset();
 	// TODO add try catch
-	m_levelFile.open(levelFileName);
+	m_levelFile.open(m_levelName);
 
 	this->readLevel();
 
@@ -42,6 +42,26 @@ void Level::handleClicks(const sf::Vector2f& mousePos)
 {
 	this->m_world.handleClicks(mousePos);
 }
+void Level::setLevelName(const std::string& levelName)
+{
+	this->m_levelName = levelName;
+}
+
+levelStatus_t Level::getLevelStatus() const
+{
+	return this->m_status;
+}
+
+void Level::setLevelStatus(const levelStatus_t& status)
+{
+	this->m_status = status;
+}
+
+std::string Level::getLevelName() const
+{
+	return this->m_levelName;
+}
+
 void Level::readLevel()
 {
 	std::string line;

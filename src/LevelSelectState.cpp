@@ -41,7 +41,7 @@ void LevelSelectState::addButtons(Controller &controller)
 	//level1 button
 	this->m_menu.addButton(std::make_unique<Button>(sf::Vector2f(100, 300), manager.getImage("PlayButton"),
 		MENU_BUTTON_DEFA_SIZE,
-		std::make_unique<PlayLevel>(controller, controller.getPlayingState() ,"level1.txt"))); // TODO change button
+		std::make_unique<PlayLevel>(controller, controller.getPlayingState() ,"level1.txt" , 1))); // TODO change button
 
 	//this->m_menu.addButton(std::make_unique<SandboxButton>(sf::Vector2f(450, 450), manager.getImage("SandboxButton"),
 		//MENU_BUTTON_DEFA_SIZE, SANDBOX)); // TODO change button

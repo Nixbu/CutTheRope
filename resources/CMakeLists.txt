@@ -14,9 +14,16 @@ configure_file ("AirPillow.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("RopeSegment.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("Hook.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("Air.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("betweenLevelBG.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("ReplayButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("ReturnToLevelsButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("NextLevelButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
+
+
 configure_file ("GravityButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
 # Level files
 configure_file ("LevelFiles/Level1.txt" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("LevelFiles/Level2.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("LevelFiles/Sandbox.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 
 

@@ -9,6 +9,7 @@
 #include "Commands/changeScreen.h"
 #include "Commands/PlayLevel.h"
 #include "Button.h"
+#include "InterstitalState.h"
 
 class Controller;
 
@@ -16,17 +17,20 @@ class Controller;
 class PlayingState : public GameState
 {
 public:
-	PlayingState();
+	PlayingState(Controller& controller);
 	virtual void draw(sf::RenderWindow& window) override;
 	virtual void handleClicks(const sf::Vector2f& mousePos);
 	virtual void update();
 	virtual void handleFloating(const sf::Vector2f& mousePos);
 	void setLevel(const std::string & levelName);
-	void addButtons(Controller& controller);
+	void addButtons();
+	void setLevelNum(const int& levelNum);
 private:
+	int m_levelNum;
 	Menu m_menu;
 	Level m_level;
-	
+	Controller& m_controller;
+	void changeToInterstital();
 	
 };
 

@@ -31,6 +31,7 @@ void Menu::handleClicks(const sf::Vector2f& mousePos) const
 		if (btn->isClicked(mousePos))
 		{
 			btn->action();
+			break;
 			
 		}
 	}

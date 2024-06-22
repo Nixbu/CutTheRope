@@ -18,6 +18,10 @@ ResourceManager::ResourceManager()
     this->loadImage("Hook", "Hook.png");
     this->loadImage("Rope", "RopeSegment.png");
     this->loadImage("Air", "Air.png");
+    this->loadImage("betweenLevelBG", "betweenLevelBG.png");
+    this->loadImage("ReplayButton", "ReplayButton.png");
+    this->loadImage("ReturnToLevelsButton", "ReturnToLevelsButton.png");
+    this->loadImage("NextLevelButton", "NextLevelButton.png");
     this->loadImage("GravityButton", "GravityButton.png");
 
 

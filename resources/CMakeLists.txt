@@ -19,6 +19,8 @@ configure_file ("ReplayButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("ReturnToLevelsButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("NextLevelButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("Locked.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("ZeroStarsLevel.png" ${CMAKE_BINARY_DIR} COPYONLY)
+
 
 
 

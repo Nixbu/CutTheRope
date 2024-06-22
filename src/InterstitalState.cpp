@@ -9,7 +9,6 @@ InterstitalState::InterstitalState(const std::string& currentLevelName, const in
 
 	this->m_nextLevel = "level" + std::to_string(nextLevelNum) + ".txt";
 	this->m_backGround.setTexture(bgTexture);
-	this->m_backGround.setPosition(BEWEEN_LEVEL_SCREEN_POS);
 
 	this->addButtons(controller , nextLevelNum);
 }
@@ -36,17 +35,18 @@ void InterstitalState::addButtons(Controller& controller , const int& nextLevelN
 
 
 	// level select button
-	this->m_menu.addButton(std::make_unique<Button>(sf::Vector2f(600, 600), manager.getImage("ReturnToLevelsButton"),
+	this->m_menu.addButton(std::make_unique<Button>(sf::Vector2f(WINDOW_MANAGER_WIDTH /2 - 60 , WINDOW_MANAGER_HEIGHT / 2 +100 ),
+		manager.getImage("ReturnToLevelsButton"),
 		MENU_BUTTON_DEFA_SIZE,
 		std::make_unique<ChangeScreen>(controller, controller.getLevelSelectionState())));
 
 	// restart button 
-	this->m_menu.addButton(std::make_unique<Button>(sf::Vector2f(650, 650), manager.getImage("ReplayButton"),
+	this->m_menu.addButton(std::make_unique<Button>(sf::Vector2f(WINDOW_MANAGER_WIDTH / 2 -160 , WINDOW_MANAGER_HEIGHT / 2 - 50), manager.getImage("ReplayButton"),
 		MENU_BUTTON_DEFA_SIZE,
 		std::make_unique<PlayLevel>(controller, controller.getPlayingState(), this->m_currentLevel, nextLevelNum - 1))); // TODO change button
 
 	// next level button
-	this->m_menu.addButton(std::make_unique<Button>(sf::Vector2f(550, 650), manager.getImage("NextLevelButton"), // texture
+	this->m_menu.addButton(std::make_unique<Button>(sf::Vector2f(WINDOW_MANAGER_WIDTH / 2 + 40 , WINDOW_MANAGER_HEIGHT / 2 - 50), manager.getImage("NextLevelButton"), // texture
 		MENU_BUTTON_DEFA_SIZE,
 		std::make_unique<PlayLevel>(controller, controller.getPlayingState(), this->m_nextLevel, nextLevelNum)));
 

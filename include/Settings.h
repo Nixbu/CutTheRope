@@ -12,8 +12,8 @@ constexpr float DEG2RAD = 0.0174532925f;
 b2Vec2 angleToDirection(float angle);
 float angleToRadians(float angle);
 
-const unsigned int WINDOW_MANAGER_WIDTH = 869,
-WINDOW_MANAGER_HEIGHT = 867,
+const unsigned int WINDOW_MANAGER_WIDTH = 1100,
+WINDOW_MANAGER_HEIGHT = 850,
 FRAME_DELAY_MS = 50,
 MAX_SIZE = 100;
 

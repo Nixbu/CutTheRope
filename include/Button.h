@@ -21,6 +21,7 @@ public:
 	bool isFloatedOn(const sf::Vector2f& mousePosition) const;
 	virtual void action() const;
 	void Dscale();
+	void setSprite(const sf::Texture& texture);
 	
 
 private:

@@ -45,6 +45,11 @@ void Button::Dscale()
 	this->m_sprite.setScale(m_defSize);
 }
 
+void Button::setSprite(const sf::Texture& texture)
+{
+	this->m_sprite.setTexture(texture);
+}
+
 //===================================================================
 bool Button::isFloatedOn(const sf::Vector2f& mousePosition) const
 {

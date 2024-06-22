@@ -18,6 +18,7 @@ public:
 	virtual void update();
 	virtual void handleFloating(const sf::Vector2f& mousePos);
 	void addButtons(Controller& controller);
+	void setLevelButtonImg(int stars, int what);
 private:
 	Menu m_levelButtons;
 	Menu m_options;

@@ -68,3 +68,8 @@ void Menu::handleFloating(const sf::Vector2f& mousePos)
 		}
 	}
 }
+
+void Menu::changeSpriteToButton(int idx, const sf::Texture& texture)
+{
+	this->m_buttons[idx - 1]->setSprite(texture);
+}

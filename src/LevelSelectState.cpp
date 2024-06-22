@@ -36,18 +36,35 @@ void LevelSelectState::addButtons(Controller &controller)
 {
 	ResourceManager& manager = ResourceManager::getInstance();
 
-	// mainstate button
-	this->m_levelButtons.addButton(std::make_unique<Button>(sf::Vector2f(100, 100), manager.getImage("PlayButton"),
+	// Add level buttons
+
+	// MainState button
+	this->m_options.addButton(std::make_unique<Button>(sf::Vector2f(100, 100), manager.getImage("PlayButton"),
 		MENU_BUTTON_DEFA_SIZE, 
 		std::make_unique<ChangeScreen>(controller, controller.getMainState()))); // TODO change button
-
-	//level1 button
-	this->m_levelButtons.addButton(std::make_unique<Button>(sf::Vector2f(100, 300), manager.getImage("PlayButton"),
-		MENU_BUTTON_DEFA_SIZE,
-		std::make_unique<PlayLevel>(controller, controller.getPlayingState() ,"level1.txt" , 1))); // TODO change button
 
 	// TODO Add option buttons like Silence game etc
 	/*this->m_options.addButton(std::make_unique<Button>(sf::Vector2f(?, ?), manager.getImage("SilenceButton"),
 		size?,
 		std::make_unique<SilenceGame>(parmeters needed?)));*/
+
+
+	// Add level buttons
+	//level1 button
+	this->m_levelButtons.addButton(std::make_unique<Button>(sf::Vector2f(100, 300), manager.getImage("PlayButton"),
+		MENU_BUTTON_DEFA_SIZE,
+		std::make_unique<PlayLevel>(controller, controller.getPlayingState() ,"level1.txt" , 1))); // TODO change button
+
+	//... more levels to come!
+	
+}
+
+void LevelSelectState::setLevelButtonImg(int stars, int levelNum)
+{
+	auto& resourceManager = ResourceManager::getInstance();
+
+	auto textureName = (char)stars + " Stars";
+	auto& texture = resourceManager.getImage(textureName);
+
+	this->m_levelButtons.changeSpriteToButton(levelNum , texture);
 }

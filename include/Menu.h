@@ -17,8 +17,7 @@ public:
 	void draw(sf::RenderWindow& window) const;
 	void handleClicks(const sf::Vector2f& mousePos) const;
 	void handleFloating(const sf::Vector2f& mousePos);
-
-
+	void changeSpriteToButton(int idx, const sf::Texture& texture);
 private:
 	std::vector<std::unique_ptr<Button>> m_buttons;
 };

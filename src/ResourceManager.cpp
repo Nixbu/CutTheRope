@@ -23,6 +23,8 @@ ResourceManager::ResourceManager()
     this->loadImage("ReturnToLevelsButton", "ReturnToLevelsButton.png");
     this->loadImage("NextLevelButton", "NextLevelButton.png");
     this->loadImage("GravityButton", "GravityButton.png");
+    this->loadImage("LockedLevel", "Locked.png");
+
 
 
 }

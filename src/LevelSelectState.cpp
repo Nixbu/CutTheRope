@@ -63,7 +63,7 @@ void LevelSelectState::addButtons(Controller &controller)
 		// Add the level button
 		this->m_levelButtons.addButton(std::make_unique<Button>(
 			sf::Vector2f(position),
-			manager.getImage("PlayButton"),
+			manager.getImage("LockedLevel"),
 			MENU_BUTTON_DEFA_SIZE,
 			std::make_unique<PlayLevel>(controller, controller.getPlayingState(), line, levelNum)
 		));

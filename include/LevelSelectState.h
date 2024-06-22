@@ -19,7 +19,8 @@ public:
 	virtual void handleFloating(const sf::Vector2f& mousePos);
 	void addButtons(Controller& controller);
 private:
-	Menu m_menu;
+	Menu m_levelButtons;
+	Menu m_options;
 
 	
 };

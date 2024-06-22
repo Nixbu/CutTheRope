@@ -18,6 +18,7 @@ public:
 	void handleClicks(const sf::Vector2f& mousePos) const;
 	void handleFloating(const sf::Vector2f& mousePos);
 	void changeSpriteToButton(int idx, const sf::Texture& texture);
+	int getNumOfButtons() const;
 private:
 	std::vector<std::unique_ptr<Button>> m_buttons;
 };

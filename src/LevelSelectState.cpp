@@ -68,3 +68,8 @@ void LevelSelectState::setLevelButtonImg(int stars, int levelNum)
 
 	this->m_levelButtons.changeSpriteToButton(levelNum , texture);
 }
+
+int LevelSelectState::getNumOfLevels() const
+{
+	return m_levelButtons.getNumOfButtons();
+}

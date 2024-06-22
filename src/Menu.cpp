@@ -73,3 +73,8 @@ void Menu::changeSpriteToButton(int idx, const sf::Texture& texture)
 {
 	this->m_buttons[idx - 1]->setSprite(texture);
 }
+
+int Menu::getNumOfButtons() const
+{
+	return m_buttons.size();
+}

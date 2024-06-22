@@ -5,7 +5,7 @@ InterstitalState::InterstitalState(const std::string& currentLevelName, const in
 	m_currentLevel(currentLevelName) , m_menu()
 {
 	auto& manager = ResourceManager::getInstance();
-	auto& bgTexture = manager.getImage("betweenLevelsBG");
+	auto& bgTexture = manager.getImage("BetweenLevelsBG");
 
 	this->m_nextLevel = "level" + std::to_string(nextLevelNum) + ".txt";
 	this->m_backGround.setTexture(bgTexture);

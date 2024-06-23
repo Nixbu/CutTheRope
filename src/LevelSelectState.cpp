@@ -7,7 +7,6 @@
 
 LevelSelectState::LevelSelectState() : m_levelPlaylist("levelPlaylist.txt")
 {
-	
 }
 
 void LevelSelectState::draw(sf::RenderWindow& window)
@@ -57,7 +56,6 @@ void LevelSelectState::addButtons(Controller &controller)
 	int levelNum = 1;
 	auto position = FIRST_BUTTON_POSITION;
 	const int buttonsPerRow = ROW_NUM_OF_LEVELS;  // Number of buttons per row
-	bool open = false;
 
 	while (std::getline(levelPlaylist, line))
 	{
@@ -69,7 +67,7 @@ void LevelSelectState::addButtons(Controller &controller)
 			sf::Vector2f(position),
 			manager.getImage(status),
 			MENU_BUTTON_DEFA_SIZE,
-			std::make_unique<PlayLevel>(controller, controller.getPlayingState(), levelFileName, levelNum, open)
+			std::make_unique<PlayLevel>(controller, controller.getPlayingState(), levelFileName, levelNum)
 		));
 
 		// Update the position for the next button
@@ -105,3 +103,4 @@ int LevelSelectState::getNumOfLevels() const
 {
 	return m_levelButtons.getNumOfButtons();
 }
+

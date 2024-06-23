@@ -21,6 +21,7 @@ void Level::loadLevel()
 
 void Level::draw(sf::RenderWindow& window) const
 {
+	window.draw(this->m_levelBg);
 	this->m_world.draw(window);
 }
 
@@ -79,10 +80,14 @@ void Level::resetLevelGravity()
 
 void Level::readLevel()
 {
+	auto& manager = ResourceManager::getInstance();
 	std::string line;
+	std::getline(this->m_levelFile, line);
+	this->m_levelBg.setTexture(manager.getImage("LevelBackground" + line));
 
 	while (std::getline(this->m_levelFile, line)) {
 		this->m_world.addObject(line);
 	}
+	
 }
 

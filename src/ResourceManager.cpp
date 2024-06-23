@@ -6,6 +6,7 @@ ResourceManager::ResourceManager()
     this->loadImage("PlayButton", "PlayButton.png");
     this->loadImage("SandboxButton", "Sandbox.png");
     this->loadImage("MainWindowBG", "MainWindowBG.png");
+    this->loadImage("LevelSelectionBg", "LevelSelectionBg.png");
     this->loadImage("Candy", "Candy.png");
     this->loadImage("Star", "Star.png");
     this->loadImage("RedHat", "RedHat.png");
@@ -28,10 +29,11 @@ ResourceManager::ResourceManager()
     this->loadImage("1Stars", "OneStarLevel.png");
     this->loadImage("2Stars", "TwoStarsLevel.png");
     this->loadImage("3Stars", "ThreeStarsLevel.png");
-
-
-
-
+    this->loadImage("LevelBackground1", "LevelBackground1.png");
+    this->loadImage("LevelBackground2", "LevelBackground2.png");
+    this->loadImage("LevelBackground3", "LevelBackground3.png");
+    this->loadImage("LevelBackground4", "LevelBackground4.png");
+    this->loadImage("LevelBackground5", "LevelBackground5.png");
     this->loadImage("WinBG", "WinBG.png");
     this->loadImage("ReturnButton", "ReturnButton.png");
     this->loadImage("BetweenLevelsBG", "BetweenLevelsBG.png");

@@ -27,10 +27,11 @@ configure_file ("OneStarLevel.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("TwoStarsLevel.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("ThreeStarsLevel.png" ${CMAKE_BINARY_DIR} COPYONLY)
 
-
-
-
-
+configure_file ("LevelBackground1.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("LevelBackground2.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("LevelBackground3.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("LevelBackground4.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("LevelBackground5.png" ${CMAKE_BINARY_DIR} COPYONLY)
 
 configure_file ("GravityButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
 # Level files

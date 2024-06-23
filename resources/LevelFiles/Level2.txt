@@ -1,3 +1,4 @@
+2
 Candy Candy 610 200 0
 Rope Rope 600 30 0
 Omnom Omnom 610 600

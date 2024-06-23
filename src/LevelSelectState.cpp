@@ -66,7 +66,7 @@ void LevelSelectState::addButtons(Controller &controller)
 			// Add the level button
 			this->m_levelButtons.addButton(std::make_unique<Button>(
 				sf::Vector2f(position),
-				manager.getImage("0 Stars"),
+				manager.getImage("0Stars"),
 				MENU_BUTTON_DEFA_SIZE,
 				std::make_unique<PlayLevel>(controller, controller.getPlayingState(), line, levelNum, open)
 			));
@@ -108,7 +108,7 @@ void LevelSelectState::setLevelButtonImg(int stars, int levelNum)
 {
 	auto& resourceManager = ResourceManager::getInstance();
 
-	auto textureName = std::to_string(stars) + " Stars";
+	auto textureName = std::to_string(stars) + "Stars";
 	auto& texture = resourceManager.getImage(textureName);
 
 	this->m_levelButtons.changeSpriteToButton(levelNum , texture);

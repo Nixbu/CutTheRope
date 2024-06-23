@@ -1,2 +1,2 @@
-Level1.txt
-Level2.txt
+Level1.txt 0Stars
+Level2.txt LockedLevel

@@ -108,10 +108,10 @@ void LevelSelectState::setLevelButtonImg(int stars, int levelNum)
 {
 	auto& resourceManager = ResourceManager::getInstance();
 
-	//auto textureName = (char)stars + " Stars";
-	//auto& texture = resourceManager.getImage(textureName);
+	auto textureName = std::to_string(stars) + " Stars";
+	auto& texture = resourceManager.getImage(textureName);
 
-	//this->m_levelButtons.changeSpriteToButton(levelNum , texture);
+	this->m_levelButtons.changeSpriteToButton(levelNum , texture);
 }
 
 int LevelSelectState::getNumOfLevels() const

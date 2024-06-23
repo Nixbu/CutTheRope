@@ -23,6 +23,10 @@ configure_file ("ReturnButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("BetweenLevelsBG.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("Locked.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("ZeroStarsLevel.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("OneStarLevel.png" ${CMAKE_BINARY_DIR} COPYONLY)
+
+
+
 
 
 

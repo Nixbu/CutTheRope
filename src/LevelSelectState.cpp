@@ -7,11 +7,13 @@
 
 LevelSelectState::LevelSelectState() : m_levelPlaylist("levelPlaylist.txt")
 {
-	
+	ResourceManager& manager = ResourceManager::getInstance();
+	this->m_bgImage.setTexture(manager.getImage("LevelSelectionBg"));
 }
 
 void LevelSelectState::draw(sf::RenderWindow& window)
 {
+	window.draw(this->m_bgImage);
 	this->m_levelButtons.draw(window);
 	this->m_options.draw(window);
 }

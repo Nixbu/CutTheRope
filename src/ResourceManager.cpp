@@ -37,6 +37,8 @@ ResourceManager::ResourceManager()
     this->loadImage("WinBG", "WinBG.png");
     this->loadImage("ReturnButton", "ReturnButton.png");
     this->loadImage("BetweenLevelsBG", "BetweenLevelsBG.png");
+    this->loadImage("PlayingToLevelSelectButton", "PlayingToLevelSelectButton.png");
+    this->loadImage("ReturnHomeButton", "ReturnHomeButton.png");
 
 
 }

@@ -19,6 +19,10 @@ configure_file ("ButtonAssets/MenuButtons/ReplayButton.png" ${CMAKE_BINARY_DIR} 
 configure_file ("ButtonAssets/MenuButtons/ReturnToLevelsButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("ButtonAssets/MenuButtons/NextLevelButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("ButtonAssets/MenuButtons/ReturnButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("ButtonAssets/MenuButtons/PlayingToLevelSelectButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("ButtonAssets/MenuButtons/ReturnHomeButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
+
+
 
 
 
@@ -61,6 +65,15 @@ configure_file ("GameObjectAssets/HorizonalMediumSpikes.png" ${CMAKE_BINARY_DIR}
 configure_file ("LevelFiles/levelPlaylist.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("LevelFiles/Level1.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("LevelFiles/Level2.txt" ${CMAKE_BINARY_DIR} COPYONLY)
+
+# Fonts
+
+configure_file ("GOODDC__.TTF" ${CMAKE_BINARY_DIR} COPYONLY)
+
+# Icon
+
+configure_file ("Icon.png" ${CMAKE_BINARY_DIR} COPYONLY)
+
 
 
 

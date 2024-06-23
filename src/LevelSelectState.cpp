@@ -41,7 +41,7 @@ void LevelSelectState::addButtons(Controller &controller)
 	// Add level buttons
 
 	// MainState button
-	this->m_options.addButton(std::make_unique<Button>(sf::Vector2f(100, 100), manager.getImage("PlayButton"),
+	this->m_options.addButton(std::make_unique<Button>(sf::Vector2f(100, 100), manager.getImage("ReturnButton"),
 		MENU_BUTTON_DEFA_SIZE, 
 		std::make_unique<ChangeScreen>(controller, controller.getMainState()))); // TODO change button
 

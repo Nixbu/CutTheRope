@@ -6,4 +6,5 @@ AirPillow AirPillow 500 400 225
 Bubble Bubble 850 750 0
 Star Star 840 350 0
 DoubleHat RedHat 550 700 0 350 200 180
-GravityButton GravityButton 1000 450 0
+GravityButton GravityButton 1000 350 0
+Spikes HorizonalLongSpikes 200 700 0

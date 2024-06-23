@@ -77,9 +77,9 @@ void LevelSelectState::addButtons(Controller &controller)
 		position.x += LEVEL_BUTTON_SHIFT_X;
 
 		// Move to the next row if necessary
-		if (levelNum % buttonsPerRow == 1) { // After buttonsPerRow buttons, move to the next row
-			position.x = FIRST_BUTTON_POSITION.x; // Reset to the first column
-			position.y += LEVEL_BUTTON_SHIFT_Y;   // Move down to the next row
+		if (levelNum % buttonsPerRow == 1) { 
+			position.x = FIRST_BUTTON_POSITION.x; 
+			position.y += LEVEL_BUTTON_SHIFT_Y;  
 		}
 	}
 }

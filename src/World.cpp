@@ -142,6 +142,11 @@ void World::addStar()
 	this->m_stars++;
 }
 
+void World::clear()
+{
+	m_levelNum.clear();
+}
+
 
 bool World::checkCollision(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2)
 {

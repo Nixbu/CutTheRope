@@ -79,5 +79,7 @@ void Level::readLevel()
 	while (std::getline(this->m_levelFile, line)) {
 		this->m_world.addObject(line);
 	}
+	
+	this->m_world.clear();
 }
 

@@ -2,7 +2,7 @@
 
 
 World::World(levelStatus_t& status , int& stars) : 
-	m_physicalWorld(b2Vec2(GravityWorld.x, GravityWorld.y)) , m_candy(nullptr)  , m_status(status) , m_stars(stars)
+	m_physicalWorld(b2Vec2(GRAVITY_WORLD.x, GRAVITY_WORLD.y)) , m_candy(nullptr)  , m_status(status) , m_stars(stars)
 {
 	m_gameObjects.reserve(MAX_SIZE);
 }
@@ -134,6 +134,15 @@ void World::addStar()
 	this->m_stars++;
 }
 
+void World::resetGravity()
+{
+	b2Vec2 gravity = this->m_physicalWorld.GetGravity();
+	if (gravity.y > 0) {
+		gravity.y *= -1;
+		this->m_physicalWorld.SetGravity(gravity);
+	}
+}
+
 
 bool World::checkCollision(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2)
 {
@@ -183,7 +192,7 @@ void World::validCandyPos()
 		float candyWidth = localBounds.width;
 		float candyHeight = localBounds.height;
 
-		if (candyPos.y > WINDOW_MANAGER_HEIGHT || candyPos.x < 0 - candyWidth ||
+		if (candyPos.y > WINDOW_MANAGER_HEIGHT + 100 || candyPos.x < 0 - candyWidth ||
 			candyPos.x > WINDOW_MANAGER_WIDTH + candyWidth ||
 			candyPos.y < 0 - candyHeight) {
 			this->m_status = Lost;

@@ -32,7 +32,7 @@ ROW_NUM_OF_LEVELS = 5;
 const sf::Vector2i FIRST_BUTTON_POSITION = { 100, 300 };
 
 
-const sf::Vector2f GravityWorld(0.0f, -9.8f);
+const sf::Vector2f GRAVITY_WORLD(0.0f, -6.8f);
 
 struct Data {
     sf::Vector2f m_pos;
@@ -46,11 +46,12 @@ struct Data {
 const float SCALE = 30.0f,
 TIME_STEP = 1.0 / 60.0f,
 AIR_VELOCITY = 5.0f,
-AIR_FORCE = 500.0f;
+AIR_FORCE = 100.0f,
+LIVING_AIR_TIME = 0.2f;
 
 
 const b2Vec2 BUBBLE_VELOCITY(0.0f, 2.0f),
-BUBBLE_FORCE(0.0f, 300.0f);
+BUBBLE_FORCE(0.0f, 150.0f);
 
 
 const enum levelStatus_t { Won, OnGoing, Lost };

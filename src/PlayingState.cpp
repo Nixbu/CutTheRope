@@ -34,10 +34,12 @@ void PlayingState::update()
 			this->m_level.update();
 			break;
 		case Lost:
+			this->m_level.resetLevelGravity();
 			this->m_level.setLevelStatus(OnGoing);
 			this->m_level.loadLevel();
 			break;
 		case Won:
+			this->m_level.resetLevelGravity();
 			this->m_controller.getLevelSelectionState()->setLevelButtonImg(this->m_level.getStars(), this->m_levelNum);
 			this->m_level.resetStars();
 			this->m_level.setLevelStatus(OnGoing);
@@ -78,12 +80,12 @@ void PlayingState::addButtons()
 	ResourceManager& manager = ResourceManager::getInstance();
 
 	// level select button
-	this->m_menu.addButton(std::make_unique<Button>(sf::Vector2f(200, 200), manager.getImage("PlayButton"),
+	this->m_menu.addButton(std::make_unique<Button>(sf::Vector2f(200,70), manager.getImage("PlayButton"),
 		MENU_BUTTON_DEFA_SIZE,
 		std::make_unique<ChangeScreen>(this->m_controller, this->m_controller.getLevelSelectionState())));
 
 	// main state button
-	this->m_menu.addButton(std::make_unique<Button>(sf::Vector2f(400, 200), manager.getImage("PlayButton"),
+	this->m_menu.addButton(std::make_unique<Button>(sf::Vector2f(400,70), manager.getImage("PlayButton"),
 		MENU_BUTTON_DEFA_SIZE, 
 		std::make_unique<ChangeScreen>(this->m_controller, this->m_controller.getMainState() )));
 

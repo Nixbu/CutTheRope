@@ -3,6 +3,8 @@
 #include "FactoryManager.h"
 #include "GameObjectFactories/StarFactory.h"
 #include "GameObjects/NonClickableObject.h"
+#include <thread>
+#include <chrono>
 
 
 class Star : public NonClickableObject

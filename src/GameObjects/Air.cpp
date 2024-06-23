@@ -15,12 +15,12 @@ Air::Air(const Data& ObjectData, World& world, const sf::Texture& texture)
     bodyDef.position.Set(ObjectData.m_pos.x / SCALE,
         (WINDOW_MANAGER_HEIGHT - ObjectData.m_pos.y) / SCALE); // Set the initial position
     bodyDef.angle = angleToRadians(ObjectData.m_angle); // Set the initial angle
-    bodyDef.linearVelocity.Set(m_direction.x * 6, m_direction.y * 6); // Set the initial linear velocity
+    bodyDef.linearVelocity.Set(m_direction.x * 30, m_direction.y * 30); // Set the initial linear velocity
     bodyDef.angularVelocity = 0.0f; // Set the initial angular velocity
-    bodyDef.linearDamping = 0.0f; // Set the linear damping
+    bodyDef.linearDamping = 0.2f; // Set the linear damping
     bodyDef.angularDamping = 0.0f; // Set the angular damping
     
-    shape.SetAsBox(0.1f, 0.1f);
+    shape.SetAsBox(0.5f, 0.5f);
 
     fixtureDef.shape = &shape;
     fixtureDef.isSensor = true; // Set as sensor
@@ -48,7 +48,7 @@ const b2Vec2 Air::getForce() const
 
 void Air::checkTime()
 {
-    if (this->m_clock.getElapsedTime().asSeconds() >= 1.0)
+    if (this->m_clock.getElapsedTime().asSeconds() >= LIVING_AIR_TIME)
     {
         this->setDelete();
     }

@@ -103,7 +103,7 @@ void candyHat(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> o
     float speed = currentVelocity.Length();
 
     // Calculate the new velocity components using the hat's angle
-    b2Vec2 newVelocity(sin(angle) * speed, cos(angle) * speed);
+    b2Vec2 newVelocity(sin(angle) * speed / 2, cos(angle) * speed / 2 );
 
     // Set the new velocity for the candy
     candy->getBody()->SetLinearVelocity(newVelocity);

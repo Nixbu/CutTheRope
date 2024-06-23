@@ -72,6 +72,11 @@ int Level::getStars() const
 	return this->m_stars;
 }
 
+void Level::resetLevelGravity()
+{
+	this->m_world.resetGravity();
+}
+
 void Level::readLevel()
 {
 	std::string line;

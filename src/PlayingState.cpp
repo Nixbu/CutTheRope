@@ -34,6 +34,7 @@ void PlayingState::update()
 			this->m_level.update();
 			break;
 		case Lost:
+			this->m_level.resetStars();
 			this->m_level.resetLevelGravity();
 			this->m_level.setLevelStatus(OnGoing);
 			this->m_level.loadLevel();

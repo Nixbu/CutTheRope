@@ -4,6 +4,7 @@
 #include "Menu.h"
 #include "Commands/changeScreen.h"
 #include "Commands/PlayLevel.h"
+#include <sstream>
 
 class MainState;
 class Controller;

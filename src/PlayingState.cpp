@@ -42,12 +42,13 @@ void PlayingState::update()
 			this->m_level.resetStars();
 			this->m_level.setLevelStatus(OnGoing);
 
-
+			// End of the levels
 			if (this->m_levelNum == this->m_controller.getLevelSelectionState()->getNumOfLevels()) {
 				this->changeToWinState();
 			}
+			// Another Level
 			else {
-				this->m_controller.getLevelSelectionState()->setLevelButtonImg(0, this->m_levelNum);
+				this->m_controller.getLevelSelectionState()->setLevelButtonImg(0, this->m_levelNum + 1);
 				this->changeToInterstital();
 			}
 			break;

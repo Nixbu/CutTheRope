@@ -55,7 +55,7 @@ void LevelSelectState::addButtons(Controller &controller)
 	
 
 	std::ifstream levelPlaylist(m_levelPlaylist);
-	std::string line;
+	std::string line, levelFileName, status;
 	int levelNum = 1;
 	auto position = FIRST_BUTTON_POSITION;
 	const int buttonsPerRow = ROW_NUM_OF_LEVELS;  // Number of buttons per row
@@ -63,26 +63,16 @@ void LevelSelectState::addButtons(Controller &controller)
 
 	while (std::getline(levelPlaylist, line))
 	{
-		if (levelNum == 1)
-		{
-			// Add the level button
-			this->m_levelButtons.addButton(std::make_unique<Button>(
-				sf::Vector2f(position),
-				manager.getImage("0 Stars"),
-				MENU_BUTTON_DEFA_SIZE,
-				std::make_unique<PlayLevel>(controller, controller.getPlayingState(), line, levelNum, open)
-			));
-		}
-		else
-		{
-			// Add the level button
-			this->m_levelButtons.addButton(std::make_unique<Button>(
-				sf::Vector2f(position),
-				manager.getImage("LockedLevel"),
-				MENU_BUTTON_DEFA_SIZE,
-				std::make_unique<PlayLevel>(controller, controller.getPlayingState(), line, levelNum, open)
-			));
-		}
+		std::istringstream iss(line);
+
+		iss >> levelFileName >> status;
+		// Add the level button
+		this->m_levelButtons.addButton(std::make_unique<Button>(
+			sf::Vector2f(position),
+			manager.getImage(status),
+			MENU_BUTTON_DEFA_SIZE,
+			std::make_unique<PlayLevel>(controller, controller.getPlayingState(), levelFileName, levelNum, open)
+		));
 
 		// Update the position for the next button
 		levelNum++;
@@ -94,9 +84,6 @@ void LevelSelectState::addButtons(Controller &controller)
 			position.y += LEVEL_BUTTON_SHIFT_Y;   // Move down to the next row
 		}
 	}
-
-
-	
 }
 
 void LevelSelectState::addLevelButtons()
@@ -110,10 +97,10 @@ void LevelSelectState::setLevelButtonImg(int stars, int levelNum)
 {
 	auto& resourceManager = ResourceManager::getInstance();
 
-	//auto textureName = (char)stars + " Stars";
-	//auto& texture = resourceManager.getImage(textureName);
+	auto textureName = std::to_string(stars) + "Stars";
+	auto& texture = resourceManager.getImage(textureName);
 
-	//this->m_levelButtons.changeSpriteToButton(levelNum , texture);
+	this->m_levelButtons.changeSpriteToButton(levelNum , texture);
 }
 
 int LevelSelectState::getNumOfLevels() const

@@ -1,39 +1,62 @@
 ﻿# Image resources
-configure_file ("PlayButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("Sandbox.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("Candy.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("Star.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("RedHat.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("Omnom.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("Bubble.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("MainWindowBG.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("HorizonalLongSpikes.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("HorizonalShortSpikes.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("HorizonalMediumSpikes.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("AirPillow.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("RopeSegment.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("Hook.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("Air.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("BetweenLevelsBG.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("ReplayButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("ReturnToLevelsButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("NextLevelButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("WinBG.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("ReturnButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("BetweenLevelsBG.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("Locked.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("ZeroStarsLevel.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("OneStarLevel.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("TwoStarsLevel.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("ThreeStarsLevel.png" ${CMAKE_BINARY_DIR} COPYONLY)
 
-configure_file ("LevelBackground1.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("LevelBackground2.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("LevelBackground3.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("LevelBackground4.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("LevelBackground5.png" ${CMAKE_BINARY_DIR} COPYONLY)
 
-configure_file ("GravityButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
+### Buttons ###
+
+# Level Buttons
+
+configure_file ("ButtonAssets/LevelButtons/Locked.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("ButtonAssets/LevelButtons/ZeroStarsLevel.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("ButtonAssets/LevelButtons/OneStarLevel.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("ButtonAssets/LevelButtons/TwoStarsLevel.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("ButtonAssets/LevelButtons/ThreeStarsLevel.png" ${CMAKE_BINARY_DIR} COPYONLY)
+
+# Menu Buttons
+
+configure_file ("ButtonAssets/MenuButtons/PlayButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("ButtonAssets/MenuButtons/Sandbox.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("ButtonAssets/MenuButtons/ReplayButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("ButtonAssets/MenuButtons/ReturnToLevelsButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("ButtonAssets/MenuButtons/NextLevelButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("ButtonAssets/MenuButtons/ReturnButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
+
+
+
+
+### Backgrounds ###
+
+# Window Backgrounds
+configure_file ("WindowBackgrounds/MainWindowBG.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("WindowBackgrounds/BetweenLevelsBG.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("WindowBackgrounds/LevelSelectionBg.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("WindowBackgrounds/WinBG.png" ${CMAKE_BINARY_DIR} COPYONLY)
+
+
+
+# Level Backgrounds
+configure_file ("LevelBackgrounds/LevelBackground1.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("LevelBackgrounds/LevelBackground2.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("LevelBackgrounds/LevelBackground3.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("LevelBackgrounds/LevelBackground4.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("LevelBackgrounds/LevelBackground5.png" ${CMAKE_BINARY_DIR} COPYONLY)
+
+
+# Game Objects
+configure_file ("GameObjectAssets/GravityButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("GameObjectAssets/Candy.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("GameObjectAssets/Star.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("GameObjectAssets/RedHat.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("GameObjectAssets/Omnom.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("GameObjectAssets/Bubble.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("GameObjectAssets/HorizonalLongSpikes.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("GameObjectAssets/AirPillow.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("GameObjectAssets/RopeSegment.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("GameObjectAssets/Hook.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("GameObjectAssets/Air.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("GameObjectAssets/HorizonalShortSpikes.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("GameObjectAssets/HorizonalMediumSpikes.png" ${CMAKE_BINARY_DIR} COPYONLY)
+
+
 # Level files
 configure_file ("LevelFiles/levelPlaylist.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("LevelFiles/Level1.txt" ${CMAKE_BINARY_DIR} COPYONLY)

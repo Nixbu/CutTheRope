@@ -1,5 +1,12 @@
 1
 Candy Candy 400 200 0
 Rope Rope 600 30 0
-Omnom Omnom 610 600
+Rope Rope 200 30 0
+Rope Rope 200 350 0
+Rope Rope 600 250 0
+Rope Rope 600 350 0
+Omnom Omnom 750 750
+Star Star 600 275 0
 Star Star 610 400 0
+Star Star 675 700 0
+Spikes HorizonalShortSpikes 750 650 0

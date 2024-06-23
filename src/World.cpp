@@ -2,7 +2,7 @@
 
 
 World::World(levelStatus_t& status , int& stars) : 
-	m_physicalWorld(b2Vec2(GravityWorld.x, GravityWorld.y)) , m_candy(nullptr)  , m_status(status) , m_stars(stars)
+	m_physicalWorld(b2Vec2(GravityWorld.x, GravityWorld.y)), m_candy(nullptr), m_status(status), m_stars(stars)
 {
 	m_gameObjects.reserve(MAX_SIZE);
 }
@@ -14,11 +14,12 @@ void World::addObject(std::string& line)
 
 		std::istringstream iss(line);
 		std::string type, subtype;
-		
+
 		if (m_levelNum.empty())
 		{
 			iss >> m_levelNum;
 			this->m_bgImage.setTexture(resourceManager.getImage("LevelBackground" + m_levelNum));
+			return;
 		}
 
 		iss >> type >> subtype;

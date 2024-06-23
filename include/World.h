@@ -38,4 +38,5 @@ private:
 	std::shared_ptr<GameObject> m_candy;
 	void validCandyPos();
 	sf::Sprite m_bgImage;
+	std::string m_levelNum;
 };

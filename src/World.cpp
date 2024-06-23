@@ -14,6 +14,12 @@ void World::addObject(std::string& line)
 
 		std::istringstream iss(line);
 		std::string type, subtype;
+		
+		if (m_levelNum.empty())
+		{
+			iss >> m_levelNum;
+			this->m_bgImage.setTexture(resourceManager.getImage("LevelBackground" + m_levelNum));
+		}
 
 		iss >> type >> subtype;
 
@@ -51,6 +57,8 @@ void World::addToGameObjects(std::shared_ptr<GameObject> object)
 
 void World::draw(sf::RenderWindow& window) const 
 {
+	window.draw(this->m_bgImage);
+
 	for (const auto& object : this->m_gameObjects)
 	{
 		object->draw(window);

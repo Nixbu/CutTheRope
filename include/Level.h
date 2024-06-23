@@ -27,4 +27,5 @@ private:
 	float m_accumulator;
 	void readLevel();
 	levelStatus_t m_status;
+	sf::Sprite m_levelBg;
 };

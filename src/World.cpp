@@ -15,13 +15,6 @@ void World::addObject(std::string& line)
 		std::istringstream iss(line);
 		std::string type, subtype;
 
-		if (m_levelNum.empty())
-		{
-			iss >> m_levelNum;
-			this->m_bgImage.setTexture(resourceManager.getImage("LevelBackground" + m_levelNum));
-			return;
-		}
-
 		iss >> type >> subtype;
 
 		const sf::Texture& texture = resourceManager.getImage(subtype);
@@ -58,8 +51,6 @@ void World::addToGameObjects(std::shared_ptr<GameObject> object)
 
 void World::draw(sf::RenderWindow& window) const 
 {
-	window.draw(this->m_bgImage);
-
 	for (const auto& object : this->m_gameObjects)
 	{
 		object->draw(window);
@@ -143,10 +134,7 @@ void World::addStar()
 	this->m_stars++;
 }
 
-void World::clear()
-{
-	m_levelNum.clear();
-}
+
 
 
 bool World::checkCollision(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2)

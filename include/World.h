@@ -25,7 +25,7 @@ public:
 	std::shared_ptr<GameObject> getCandy() const;
 	void setLevelStatus(const levelStatus_t& status );
 	void addStar();
-	void clear();
+
 private:
 	int& m_stars;
 	levelStatus_t& m_status;
@@ -38,6 +38,4 @@ private:
 	void deleteWantedObjects();
 	std::shared_ptr<GameObject> m_candy;
 	void validCandyPos();
-	sf::Sprite m_bgImage;
-	std::string m_levelNum;
 };

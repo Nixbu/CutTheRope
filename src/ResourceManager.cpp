@@ -39,6 +39,19 @@ ResourceManager::ResourceManager()
     this->loadImage("BetweenLevelsBG", "BetweenLevelsBG.png");
     this->loadImage("PlayingToLevelSelectButton", "PlayingToLevelSelectButton.png");
     this->loadImage("ReturnHomeButton", "ReturnHomeButton.png");
+    this->loadImage("Chair1", "Chair1.png");
+    this->loadImage("Chair2", "Chair2.png");
+    this->loadImage("Chair3", "Chair3.png");
+    this->loadImage("Chair4", "Chair4.png");
+    this->loadImage("Chair5", "Chair5.png");
+    this->loadImage("Chair6", "Chair6.png");
+    this->loadImage("Chair7", "Chair7.png");
+    this->loadImage("Chair8", "Chair8.png");
+    this->loadImage("Chair9", "Chair9.png");
+    this->loadImage("Chair10", "Chair10.png");
+    this->loadImage("Chair11", "Chair11.png");
+
+
 
 
 }

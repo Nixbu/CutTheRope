@@ -60,6 +60,21 @@ configure_file ("GameObjectAssets/Air.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("GameObjectAssets/HorizonalShortSpikes.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("GameObjectAssets/HorizonalMediumSpikes.png" ${CMAKE_BINARY_DIR} COPYONLY)
 
+# Character Chairs
+configure_file ("CharacterChairs/Chair1.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("CharacterChairs/Chair2.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("CharacterChairs/Chair3.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("CharacterChairs/Chair4.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("CharacterChairs/Chair5.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("CharacterChairs/Chair6.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("CharacterChairs/Chair7.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("CharacterChairs/Chair8.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("CharacterChairs/Chair9.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("CharacterChairs/Chair10.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("CharacterChairs/Chair11.png" ${CMAKE_BINARY_DIR} COPYONLY)
+
+
+
 
 # Level files
 configure_file ("LevelFiles/levelPlaylist.txt" ${CMAKE_BINARY_DIR} COPYONLY)

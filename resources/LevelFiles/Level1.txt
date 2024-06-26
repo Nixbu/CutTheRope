@@ -1,7 +1,7 @@
 1
 Candy Candy 850 130 0
 Rope Rope 840 30 0
-Chair Chair9 150 230 0
+Chair Chair6 150 230 0
 Omnom Omnom 150 200
 AirPillow AirPillow 1000 550 290
 AirPillow AirPillow 500 400 225

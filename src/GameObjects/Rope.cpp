@@ -73,12 +73,14 @@ void Rope::draw(sf::RenderWindow& window) const
     this->m_hook->draw(window);
 }
 
-bool Rope::isClicked(const  std::pair<sf::Vector2f, sf::Vector2f>& mousePos) const
+bool Rope::isClicked(const std::pair<sf::Vector2f, sf::Vector2f>& mousePos) const
 {
-    for (int i = 0; i < m_segments.size(); i++)
+    for (const auto& segment : this->m_segments) 
     {
-       sf::Vector2f segmentPos = m_segments[i]->getPosition();
-
+        if (segment->isClicked(mousePos)) 
+        {
+            return true;
+        }
     }
     return false;
 }

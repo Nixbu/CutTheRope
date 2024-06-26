@@ -14,7 +14,8 @@ public:
 	virtual ~GameObject();
 	sf::Vector2f getPosition() const;
 	const sf::Sprite& getSprite() const;
-
+	float getRotationAngle() const;
+	sf::Vector2f getSize() const;
 	void setPosition(float posX, float posY);
 	void setRotation(float angle);
 	virtual void draw(sf::RenderWindow& window) const;

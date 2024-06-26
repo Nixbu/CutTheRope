@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Direction.h"
+#include "Settings.h"
 
 #include <SFML/Graphics.hpp>
 
@@ -9,7 +9,7 @@
 
 struct AnimationData
 {
-    using ListType = std::vector<sf::IntRect>;
-    using DataType = std::unordered_map<Direction, ListType>;
+    using ListOfFrames = std::vector<sf::IntRect>;
+    using AnimationType = std::unordered_map<AnimationType, ListOfFrames>;
     DataType m_data;
 };

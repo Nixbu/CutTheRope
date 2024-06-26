@@ -1,24 +1,12 @@
 #include "Animations/Animation.h"
 
-#include "ResourceManager.h"
 
 const auto AnimationTime = sf::seconds(0.3f);
 
-Animation::Animation(const AnimationData& data, Direction dir, sf::Sprite& sprite)
-    : m_data(data), m_dir(dir), m_sprite(sprite)
+Animation::Animation(const AnimationData& data, sf::Sprite& sprite)
+    : m_data(data), m_sprite(sprite)
 {
     m_sprite.setTexture(Resources::instance().texture());
-    update();
-}
-
-void Animation::direction(Direction dir)
-{
-    if (m_dir == dir || dir == Direction::Stay)
-    {
-        return;
-    }
-
-    m_dir = dir;
     update();
 }
 

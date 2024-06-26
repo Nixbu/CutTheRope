@@ -55,3 +55,7 @@ BUBBLE_FORCE(0.0f, 150.0f);
 
 
 const enum levelStatus_t { Won, OnGoing, Lost };
+
+enum class AnimationType {
+    OmnomEating
+};

@@ -26,6 +26,10 @@ void MainState::addButtons(Controller& controller)
 	this->m_menu.addButton(std::make_unique<Button>(PLAY_BTN_POS, manager.getImage("PlayButton"), 
 		MENU_BUTTON_DEFA_SIZE, 
 		std::make_unique<ChangeScreen>(controller , controller.getLevelSelectionState())));
+
+	this->m_menu.addButton(std::make_unique<Button>(HELP_BUTTON_POS, manager.getImage("PlayButton"),
+		MENU_BUTTON_DEFA_SIZE,
+		std::make_unique<ChangeScreen>(controller, controller.getHelpState())));
 }
 
 void MainState::draw(sf::RenderWindow& window)

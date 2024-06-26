@@ -21,9 +21,12 @@ MAX_SIZE = 100;
 
 const sf::Vector2f MENU_BUTTON_DEFA_SIZE = { 1.0f, 1.0f },
 PLAY_BTN_POS = { WINDOW_MANAGER_WIDTH / 2 - MENU_BUTTON_DEFA_SIZE.x / 2,
-                            WINDOW_MANAGER_HEIGHT / 2 + 300 },
+                            WINDOW_MANAGER_HEIGHT / 2 + 100 },
     BEWEEN_LEVEL_SCREEN_POS = { WINDOW_MANAGER_WIDTH / 2 - MENU_BUTTON_DEFA_SIZE.x / 2,
-                                WINDOW_MANAGER_HEIGHT / 2 + 300 };
+                                WINDOW_MANAGER_HEIGHT / 2 + 300 },
+    HELP_BUTTON_POS = { WINDOW_MANAGER_WIDTH / 2 - MENU_BUTTON_DEFA_SIZE.x / 2,
+                            WINDOW_MANAGER_HEIGHT / 2 + 250 };
+
 
 const unsigned int LEVEL_BUTTON_SHIFT_X = MENU_BUTTON_DEFA_SIZE.x + 125,
 LEVEL_BUTTON_SHIFT_Y = MENU_BUTTON_DEFA_SIZE.y + 200,

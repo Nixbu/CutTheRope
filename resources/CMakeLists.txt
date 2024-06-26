@@ -31,6 +31,7 @@ configure_file ("WindowBackgrounds/MainWindowBG.png" ${CMAKE_BINARY_DIR} COPYONL
 configure_file ("WindowBackgrounds/BetweenLevelsBG.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("WindowBackgrounds/LevelSelectionBg.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("WindowBackgrounds/WinBG.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("ExtraBackgroundAssets/HelpStateBG.png" ${CMAKE_BINARY_DIR} COPYONLY)
 
 
 

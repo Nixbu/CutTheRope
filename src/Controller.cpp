@@ -6,12 +6,13 @@ Controller::Controller()
 	m_mainState = std::make_shared<MainState>();
 	m_levelSelectState = std::make_shared<LevelSelectState>();
 	m_playingState = std::make_shared<PlayingState>(*this);
-
+	m_helpState = std::make_shared<HelpState>();
 
 
 	this->m_mainState->addButtons(*this);
 	this->m_levelSelectState->addButtons(*this);
 	this->m_playingState->addButtons();
+	this->m_helpState->addButtons(*this);
 
 	m_currentState = m_mainState;
 }
@@ -52,6 +53,11 @@ std::shared_ptr<PlayingState> Controller::getPlayingState()
 void Controller::setCurrentState(std::shared_ptr<GameState> next)
 {
 	this->m_currentState = next;
+}
+
+std::shared_ptr<HelpState> Controller::getHelpState()
+{
+	return this->m_helpState;
 }
 
 void Controller::render(sf::RenderWindow& window)

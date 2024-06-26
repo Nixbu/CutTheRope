@@ -3,6 +3,12 @@
 Rope::Rope(const Data& data, World& world, const sf::Texture& texture)
     : ClickableObject(data, texture)
 {
+    std::unordered_map<std::string, unsigned int> ropeLengthsMap = 
+    {
+        {"longRope", 60},
+        {"mediumRope", 40},
+        {"shortRope", 20}
+    };
     auto& manager = ResourceManager::getInstance();
     const sf::Texture&  hookTexture = manager.getImage("Hook");
     // Convert starting position from pixels to meters
@@ -15,7 +21,7 @@ Rope::Rope(const Data& data, World& world, const sf::Texture& texture)
 
     // Define the number of segments
     // TODO add int segmentCount - different lengths LONG MEDIUM SHORT
-    int segmentCount = 20; // Replace with desired segment count or parameter
+    int segmentCount = ropeLengthsMap[data.m_length]; // Replace with desired segment count or parameter
 
     for (int i = 0; i < segmentCount; ++i)
     {
@@ -37,7 +43,7 @@ Rope::Rope(const Data& data, World& world, const sf::Texture& texture)
         m_segments.push_back(std::move(segment));
 
         // Increment the y position for the next segment
-        currentPosition.y -= 0.5f;  // Adjust as necessary for spacing
+        currentPosition.y -= 0.005f;  // Adjust as necessary for spacing
     }
 
     this->connectToCandy(world);
@@ -103,16 +109,22 @@ void Rope::connectToCandy(World& world )
 
 void Rope::addSegment(World& world, std::shared_ptr<RopeSegment> segment)
 {
+    auto lastSegment = m_segments.back();
+    b2Vec2 lastSegmentPosition = lastSegment->getBody()->GetPosition();
+    b2Vec2 newSegmentPosition(lastSegmentPosition.x, lastSegmentPosition.y - 0.005f);
+    segment->getBody()->SetTransform(newSegmentPosition, 0.0f);
+
     b2RevoluteJointDef jointDef;
-    jointDef.bodyA = m_segments.back()->getBody();
+    jointDef.bodyA = lastSegment->getBody();
     jointDef.bodyB = segment->getBody();
     jointDef.localAnchorA.Set(0.0f, 0.1f);
     jointDef.localAnchorB.Set(0.0f, -0.1f);
     jointDef.collideConnected = false;
 
     world.getWorld().CreateJoint(&jointDef);
-}
 
+    m_segments.push_back(segment);
+}
 void Rope::connectToHook(World& world , std::shared_ptr<RopeSegment> segment)
 {
     // Connect the first segment to the hook

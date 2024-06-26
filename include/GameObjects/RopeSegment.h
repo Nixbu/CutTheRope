@@ -11,10 +11,6 @@ public:
     virtual void handleClicked() override;
     virtual bool isClicked(const std::pair<sf::Vector2f, sf::Vector2f>& mousePos)const override;
 
-    // TODO add fading when deleted
-    /*bool isFading() const;
-    void startFading();*/
-
 private:
     bool onSegment(sf::Vector2f p, sf::Vector2f q, sf::Vector2f r) const;
     int orientation(sf::Vector2f p, sf::Vector2f q, sf::Vector2f r) const;

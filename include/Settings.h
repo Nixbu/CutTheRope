@@ -44,6 +44,7 @@ struct Data {
     float m_angle2;
     std::string m_type;
     std::string m_subType;
+    std::string m_length;
 };
 
 const float SCALE = 30.0f,

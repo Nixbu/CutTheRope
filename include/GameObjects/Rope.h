@@ -26,6 +26,6 @@ private:
     void connectToCandy(World& world);
     void addSegment (World& world, std::shared_ptr<RopeSegment> segment);
     void connectToHook(World& world, std::shared_ptr<RopeSegment> segment);
-
+    std::unordered_map < std::string, unsigned int> ropeLengthsMap;
 };
 

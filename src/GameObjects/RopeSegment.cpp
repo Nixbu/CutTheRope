@@ -1,7 +1,7 @@
 #include "GameObjects/RopeSegment.h"
 
 RopeSegment::RopeSegment(const Data& data, World& world, const sf::Texture& texture, const b2Vec2& position)
-    : ClickableObject(data, texture)//, m_isFading(false)
+    : ClickableObject(data, texture)
 {
 
     b2BodyDef bodyDef;
@@ -32,21 +32,6 @@ void RopeSegment::update()
     this->setPosition(position.x * SCALE, WINDOW_MANAGER_HEIGHT - position.y * SCALE);
     this->setRotation(angle * 180.0f / b2_pi);
 
-    //TODO Create new method for chcking fading
-    //if (m_isFading)
-    //{
-    //    float elapsed = m_fadeClock.getElapsedTime().asSeconds();
-    //    if (elapsed >= 1.0f)
-    //    {
-    //        m_shape.setFillColor(sf::Color(255, 255, 255, 0));  // Fully transparent
-    //        m_toDelete = true;  // Mark for deletion
-    //    }
-    //    else
-    //    {
-    //        int alpha = static_cast<int>(255 * (1.0f - elapsed));
-    //        m_shape.setFillColor(sf::Color(255, 255, 255, alpha));
-    //    }
-    //}
 }
 
 void RopeSegment::handleClicked()
@@ -55,16 +40,22 @@ void RopeSegment::handleClicked()
 }
 bool RopeSegment::isClicked(const std::pair<sf::Vector2f, sf::Vector2f>& mousePos) const
 {
-    sf::Vector2f segmentStartPos = this->getPosition(),
-                 sizeSegment = this->getSize();
+    sf::Vector2f segmentStartPos = this->getPosition();
+    sf::Vector2f sizeSegment = this->getSize();
     float angleSegment = this->getRotationAngle();
 
-    sf::Vector2f segmentEndPos = sf::Vector2f(segmentStartPos.x + sizeSegment.y *
-        cos(((90 + angleSegment) * std::numbers::pi) / 180),
-        segmentStartPos.y + sizeSegment.y *
-        sin(((90 + angleSegment) * std::numbers::pi) / 180));
+    // Extend the start and end positions for the clickable area
+    const float extensionLength = 25.0f; // Adjust this value as needed
 
-    if(doIntersect(segmentStartPos, segmentEndPos, mousePos.first, mousePos.second))
+    // Calculate the extended start and end positions
+    sf::Vector2f extensionVector(cos(angleSegment * std::numbers::pi / 180.0f),
+        sin(angleSegment * std::numbers::pi / 180.0f));
+
+    sf::Vector2f extendedStartPos = segmentStartPos - extensionVector * extensionLength;
+    sf::Vector2f extendedEndPos = segmentStartPos + sizeSegment.y * extensionVector + extensionVector * extensionLength;
+
+    // Check if the mouse position intersects with the extended segment
+    if (doIntersect(extendedStartPos, extendedEndPos, mousePos.first, mousePos.second))
     {
         return true;
     }

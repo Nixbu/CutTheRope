@@ -1,16 +1,16 @@
 #pragma once
 
-#include "Direction.h"
-#include "AnimationData.h"
 #include "ResourceManager.h"
 
 
 #include <SFML/Graphics.hpp>
 
+using ListOfFrames = std::vector<sf::IntRect>;
+
 class Animation
 {
 public:
-    Animation(const AnimationData& data, Direction dir, sf::Sprite& sprite);
+    Animation(const ListOfFrames& data, sf::Sprite& sprite, bool& animationFlag);
 
     // Add more time to the elapsed time; if enough time passed, it
     // updates the sprite to show the next frame in the animation
@@ -21,9 +21,9 @@ private:
     // based on current dir and index
     void update();
 
-    const AnimationData& m_data;
+    ListOfFrames m_data;
     sf::Time m_elapsed = {};
-    Direction m_dir = Direction::Up;
     int m_index = 0;
     sf::Sprite& m_sprite;
+    bool& m_animationFlag;
 };

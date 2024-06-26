@@ -25,7 +25,7 @@ Spikes::Spikes(const Data& ObjectData, World& world, const sf::Texture& texture)
     this->initBody(world, bodyDef, fixtureDef);
 }
 
-void Spikes::update()
+void Spikes::update(sf::Time& deltaTime)
 {
     
     b2Vec2 position = this->getBody()->GetPosition();

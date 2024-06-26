@@ -9,7 +9,7 @@ class Bubble : public ClickableObject
 public:
 	Bubble(const Data& ObjectData, World& world, const sf::Texture& texture);
 	void changeToDynamic();
-	virtual void update();
+	virtual void update(sf::Time& deltaTime);
 	virtual void handleClicked();
 
 private:

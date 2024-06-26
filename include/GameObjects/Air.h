@@ -8,7 +8,7 @@ class Air : public NonClickableObject
 {
 public:
 	Air(const Data& ObjectData, World& world, const sf::Texture& texture);
-	virtual void update();
+	virtual void update(sf::Time& deltaTime);
 	const b2Vec2 getForce() const;
 	void  checkTime();
 

@@ -29,12 +29,12 @@ void Level::update()
 {
 	this->m_world.handleCollisions();
 
-	float deltaTime = m_clock.restart().asSeconds();
-	m_accumulator += deltaTime;
+	sf::Time deltaTime = m_clock.restart();
+	m_accumulator += deltaTime.asSeconds();
 
 	// Update the world if the accumulator exceeds the time step
 	while (m_accumulator >= TIME_STEP) {
-		m_world.update(TIME_STEP);
+		m_world.update(TIME_STEP, deltaTime);
 		m_accumulator -= TIME_STEP;
 	}
 }

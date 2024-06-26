@@ -13,12 +13,12 @@ public:
 	GameObject(const Data& objectData, const sf::Texture& texture);
 	virtual ~GameObject();
 	sf::Vector2f getPosition() const;
-	const sf::Sprite& getSprite() const;
+	sf::Sprite& getSprite();
 
 	void setPosition(float posX, float posY);
 	void setRotation(float angle);
 	virtual void draw(sf::RenderWindow& window) const;
-	virtual void update() = 0;
+	virtual void update(sf::Time& deltaTime) = 0;
 	void initBody(World& world,
 				const b2BodyDef& bodyDef,
 				const b2FixtureDef& fixtureDef);

@@ -15,7 +15,7 @@ ResourceManager::ResourceManager()
     this->loadImage("HorizonalLongSpikes", "HorizonalLongSpikes.png"); // TODO change name
     this->loadImage("HorizonalShortSpikes", "HorizonalShortSpikes.png");
     this->loadImage("HorizonalMediumSpikes", "HorizonalMediumSpikes.png");
-    this->loadImage("AirPillow", "AirPillow.png");
+    this->loadImage("AirPillow", "AirPillowAnimations.png");
     this->loadImage("Hook", "Hook.png");
     this->loadImage("Rope", "RopeSegment.png");
     this->loadImage("Air", "Air.png");
@@ -52,6 +52,9 @@ ResourceManager::ResourceManager()
     this->loadImage("Chair11", "Chair11.png");
     this->loadImage("ResetLevelButton", "ResetLevelButton.png");
 
+    this->loadAnimations();
+
+
 
 
 }
@@ -78,4 +81,32 @@ void ResourceManager::loadImage(const std::string& name, const std::string& file
 const sf::Texture& ResourceManager::getImage(const std::string& name) const
 {
     return textures.at(name);
+}
+
+const ListOfFrames& ResourceManager::getAnimation(const std::string& name) const
+{
+    return m_animations.at(name);
+}
+
+void ResourceManager::loadAnimations()
+{
+    this->loadAnimation("AirPillow", 160, 6);
+}
+
+void ResourceManager::loadAnimation(const std::string& type, int pageGap, int framesCount)
+{
+
+    auto texture = this->getImage(type);
+    auto width = static_cast<int>(texture.getSize().x);
+
+    sf::Vector2i currPos = { 0 , 0 },
+        currSize = { width, pageGap };
+
+    
+    for (int idx = 0; idx < framesCount; idx++)
+    {
+        m_animations[type].emplace_back(currPos, currSize);
+        currPos.y += pageGap;
+    }
+
 }

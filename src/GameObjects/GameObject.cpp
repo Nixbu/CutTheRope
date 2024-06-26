@@ -7,9 +7,9 @@
 GameObject::GameObject(const Data& objectData, const sf::Texture& texture)
 	: m_toDelete(false), m_body(nullptr)
 {
+	m_sprite.setTexture(texture);
 	m_sprite.setPosition(objectData.m_pos);
 	m_sprite.setRotation(objectData.m_angle);
-	m_sprite.setTexture(texture);
 	// Calculate the origin based on the texture size
 	sf::Vector2f origin(m_sprite.getLocalBounds().width / 2.0f,
 		m_sprite.getLocalBounds().height / 2.0f);
@@ -22,7 +22,7 @@ sf::Vector2f GameObject::getPosition() const
 	return this->m_sprite.getPosition();
 }
 
-const sf::Sprite& GameObject::getSprite() const
+sf::Sprite& GameObject::getSprite()
 {
 	return m_sprite;
 }

@@ -25,7 +25,7 @@ Star::Star(const Data& ObjectData, World& world, const sf::Texture& texture) : N
 bool Star::m_registerit = FactoryManager::registerit("Star",
     &StarFactory::createObject);
 
-void Star::update()
+void Star::update(sf::Time& deltaTime)
 {
     b2Vec2 position = this->getBody()->GetPosition();
     float angle = this->getBody()->GetAngle();

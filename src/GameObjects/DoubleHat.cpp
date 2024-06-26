@@ -21,10 +21,10 @@ DoubleHat::DoubleHat(const Data& ObjectData, World& world, const sf::Texture& te
 	m_hat2 = std::make_unique<Hat>(hat2Data, world, texture);
 }
 
-void DoubleHat::update()
+void DoubleHat::update(sf::Time& deltaTime)
 {
-	this->m_hat1->update();
-	this->m_hat2->update();
+	this->m_hat1->update(deltaTime);
+	this->m_hat2->update(deltaTime);
 }
 
 void DoubleHat::draw(sf::RenderWindow& window) const

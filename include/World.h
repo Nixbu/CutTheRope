@@ -18,7 +18,7 @@ public:
 	void addToGameObjects(std::shared_ptr<GameObject> object);
 	void draw(sf::RenderWindow& window) const;
 	void reset();
-	void update(float timeStep);
+	void update(float timeStep, sf::Time& deltaTime);
 	void handleCollisions();
 	void handleClicks(const sf::Vector2f& mousePos);
 	b2World& getWorld();

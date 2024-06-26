@@ -43,14 +43,14 @@ Rope::Rope(const Data& data, World& world, const sf::Texture& texture)
     this->connectToCandy(world);
 }
 
-void Rope::update()
+void Rope::update(sf::Time& deltaTime)
 {
     for (auto& segment : m_segments)
     {
-        segment->update();
+        segment->update(deltaTime);
     }
 
-    this->m_hook->update();
+    this->m_hook->update(deltaTime);
     ////
     //  Remove segments marked for deletion
     //m_segments.erase(
@@ -73,7 +73,7 @@ void Rope::draw(sf::RenderWindow& window) const
     this->m_hook->draw(window);
 }
 
-bool Rope::isClicked(const sf::Vector2f& mousePos) const
+bool Rope::isClicked(const sf::Vector2f& mousePos)
 {
     for (const auto& segment : this->m_segments) {
         if (segment->isClicked(mousePos)) {

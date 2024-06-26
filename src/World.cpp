@@ -63,7 +63,7 @@ void World::reset()
 	this->m_candy = nullptr;
 }
 
-void World::update(float timeStep)
+void World::update(float timeStep, sf::Time& deltaTime)
 {
 	int32 velocityIterations = 6;
 	int32 positionIterations = 2; // TODO change to constants
@@ -73,7 +73,7 @@ void World::update(float timeStep)
 
 	// Update all game objects to match their physics bodies
 	for (auto& object : m_gameObjects) {
-		object->update();
+		object->update(deltaTime);
 	}
 
 	this->validCandyPos();

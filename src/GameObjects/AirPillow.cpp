@@ -3,7 +3,9 @@
 AirPillow::AirPillow(const Data& ObjectData, 
 	World& world, const sf::Texture& texture) : 
     ClickableObject(ObjectData, texture),
-    m_data(ObjectData), m_world(world)
+    m_data(ObjectData), m_world(world), 
+    m_animating(false),
+    m_animation(ResourceManager::getInstance().getAnimation(ObjectData.m_type), this->getSprite(), m_animating)
 {
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
@@ -18,7 +20,7 @@ AirPillow::AirPillow(const Data& ObjectData,
     bodyDef.angularDamping = 0.0f; // Set the angular damping
 
     b2PolygonShape shape;
-    shape.SetAsBox(texture.getSize().x / SCALE, texture.getSize().y / SCALE);
+    shape.SetAsBox(AIR_PILLOW_SIZE.x / SCALE, AIR_PILLOW_SIZE.y / SCALE);
 
 
     // Define the fixture
@@ -31,10 +33,16 @@ AirPillow::AirPillow(const Data& ObjectData,
 
     this->initBody(world, bodyDef, fixtureDef);
 
+    // Set Origin
+    sf::Vector2f origin(AIR_PILLOW_SIZE.x / 2.0f,
+        AIR_PILLOW_SIZE.y / 2.0f);
+    this->getSprite().setOrigin(origin);
+
 }
 
 void AirPillow::handleClicked()
 {
+    m_animating = true;
     auto& resourceManager = ResourceManager::getInstance();
     const sf::Texture& texture = resourceManager.getImage("Air");
     auto airBullet = std::make_shared<Air>(m_data, m_world, texture);
@@ -42,7 +50,7 @@ void AirPillow::handleClicked()
     this->m_world.addToGameObjects(airBullet);
 }
 
-void AirPillow::update()
+void AirPillow::update(sf::Time& deltaTime)
 {
     b2Vec2 position = this->getBody()->GetPosition();
     float angle = this->getBody()->GetAngle();
@@ -51,7 +59,10 @@ void AirPillow::update()
     this->setPosition(position.x * SCALE, WINDOW_MANAGER_HEIGHT - position.y * SCALE);
     this->setRotation(angle * 180.0f / b2_pi);
 
+
+    this->m_animation.update(deltaTime);
 }
+
 
 
 bool AirPillow::m_registerit = FactoryManager::registerit("AirPillow",

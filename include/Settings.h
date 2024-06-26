@@ -17,6 +17,8 @@ WINDOW_MANAGER_HEIGHT = 850,
 FRAME_DELAY_MS = 50,
 MAX_SIZE = 100;
 
+// Object Sizes
+const sf::Vector2f AIR_PILLOW_SIZE = { 119 , 127 };
 
 
 const sf::Vector2f MENU_BUTTON_DEFA_SIZE = { 1.0f, 1.0f },
@@ -58,3 +60,7 @@ BUBBLE_FORCE(0.0f, 150.0f);
 
 
 const enum levelStatus_t { Won, OnGoing, Lost };
+
+enum class AnimationType {
+    OmnomEating
+};

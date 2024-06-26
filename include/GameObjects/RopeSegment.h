@@ -6,7 +6,7 @@ class RopeSegment : public ClickableObject
 {
 public:
     RopeSegment(const Data& data, World& world, const sf::Texture& texture, const b2Vec2& position);
-    virtual void update() override;
+    virtual void update(sf::Time& deltaTime) override;
     virtual void handleClicked() override;
 
     // TODO add fading when deleted

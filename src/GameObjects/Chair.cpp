@@ -25,7 +25,7 @@ Chair::Chair(const Data& ObjectData, World& world, const sf::Texture& texture)
     this->initBody(world, bodyDef, fixtureDef);
 }
 
-void Chair::update()
+void Chair::update(sf::Time& deltaTime)
 {
     b2Vec2 position = this->getBody()->GetPosition();
     float angle = this->getBody()->GetAngle();

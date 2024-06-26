@@ -25,6 +25,11 @@ configure_file ("ButtonAssets/MenuButtons/ResetLevelButton.png" ${CMAKE_BINARY_D
 configure_file ("ButtonAssets/MenuButtons/HelpButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
 
 
+
+# Animations
+configure_file ("AnimationFiles/AirPillowAnimations.png" ${CMAKE_BINARY_DIR} COPYONLY)
+
+
 ### Backgrounds ###
 
 # Window Backgrounds

@@ -39,7 +39,7 @@ GravityButton::GravityButton(const Data& ObjectData, World& world, const sf::Tex
     this->setRotation(angle * 180.0f / b2_pi);
 
 }
-void GravityButton::update()
+void GravityButton::update(sf::Time& deltaTime)
 {
    
 }

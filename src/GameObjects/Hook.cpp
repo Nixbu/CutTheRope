@@ -26,7 +26,7 @@ Hook::Hook(const Data& data, World& world, const sf::Texture& texture) : NonClic
 
 }
 
-void Hook::update()
+void Hook::update(sf::Time& deltaTime)
 {
     b2Vec2 position = this->getBody()->GetPosition();
     float angle = this->getBody()->GetAngle();

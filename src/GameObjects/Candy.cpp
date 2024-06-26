@@ -35,7 +35,7 @@ bool Candy::m_registerit = FactoryManager::registerit("Candy",
     &CandyFactory::createObject);
 
 
-void Candy::update()
+void Candy::update(sf::Time& deltaTime)
 {
 
     b2Vec2 position = this->getBody()->GetPosition();

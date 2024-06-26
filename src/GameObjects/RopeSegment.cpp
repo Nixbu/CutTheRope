@@ -23,7 +23,7 @@ RopeSegment::RopeSegment(const Data& data, World& world, const sf::Texture& text
     this->initBody(world, bodyDef, fixtureDef);
 }
 
-void RopeSegment::update()
+void RopeSegment::update(sf::Time& deltaTime)
 {
     b2Vec2 position = this->getBody()->GetPosition();
     float angle = this->getBody()->GetAngle();

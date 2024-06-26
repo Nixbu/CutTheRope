@@ -26,7 +26,7 @@ Omnom::Omnom(const Data& ObjectData, World& world, const sf::Texture& texture) :
 bool Omnom::m_registerit = FactoryManager::registerit("Omnom",
     &OmnomFactory::createObject);
 
-void Omnom::update()
+void Omnom::update(sf::Time& deltaTime)
 {
 
     b2Vec2 position = this->getBody()->GetPosition();

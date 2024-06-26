@@ -13,11 +13,11 @@ class Rope : public ClickableObject
 {
 public:
     Rope(const Data& data, World& world, const sf::Texture& texture);
-    virtual void update() override;
+    virtual void update(sf::Time& deltaTime) override;
     void handleClicked();
     virtual void draw(sf::RenderWindow& window) const override;
     virtual ~Rope() {};
-    virtual bool isClicked(const sf::Vector2f& mousePos)const override;
+    virtual bool isClicked(const sf::Vector2f& mousePos) override;
 
 private:
     std::vector<std::shared_ptr<RopeSegment>> m_segments;

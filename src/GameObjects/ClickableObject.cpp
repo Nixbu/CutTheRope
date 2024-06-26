@@ -13,7 +13,7 @@ ClickableObject::~ClickableObject()
 
 }
 
-bool ClickableObject::isClicked(const sf::Vector2f& mousePos) const
+bool ClickableObject::isClicked(const sf::Vector2f& mousePos)
 {
 	return this->getSprite().getGlobalBounds().contains(mousePos);
 }

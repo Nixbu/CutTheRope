@@ -36,7 +36,7 @@ void Bubble::changeToDynamic()
     this->SetLinearVelocity(BUBBLE_VELOCITY);
 }
 
-void Bubble::update()
+void Bubble::update(sf::Time& deltaTime)
 {
     if (this->getBody()->GetType() == b2_dynamicBody)
     {

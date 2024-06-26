@@ -30,7 +30,7 @@ Hat::Hat(const Data& ObjectData, World& world, const sf::Texture& texture)
     this->initBody(world, bodyDef, fixtureDef);
 }
 
-void Hat::update()
+void Hat::update(sf::Time& deltaTime)
 {
     b2Vec2 position = this->getBody()->GetPosition();
     float angle = this->getBody()->GetAngle();

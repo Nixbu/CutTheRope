@@ -95,13 +95,6 @@ void LevelSelectState::addButtons(Controller &controller)
 	}
 }
 
-void LevelSelectState::addLevelButtons()
-{
-	
-	ResourceManager& manager = ResourceManager::getInstance();
-
-	
-}
 void LevelSelectState::initLevelSelectText() {
 	const sf::Font& font = ResourceManager::getInstance().getFont("GoodDog");
 

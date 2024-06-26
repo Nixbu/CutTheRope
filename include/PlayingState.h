@@ -8,6 +8,7 @@
 #include "Level.h"
 #include "Commands/changeScreen.h"
 #include "Commands/PlayLevel.h"
+#include "Commands/ResetLevel.h"
 #include "Button.h"
 #include "InterstitalState.h"
 #include "WinState.h"
@@ -27,6 +28,7 @@ public:
 	void addButtons();
 	void setLevelNum(const int& levelNum);
 	void changeToWinState();
+	void reloadLevel();
 private:
 	int m_levelNum;
 	Menu m_menu;

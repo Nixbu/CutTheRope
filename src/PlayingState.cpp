@@ -34,16 +34,13 @@ void PlayingState::update()
 			this->m_level.update();
 			break;
 		case Lost:
-			this->m_level.resetStars();
-			this->m_level.resetLevelGravity();
-			this->m_level.setLevelStatus(OnGoing);
+			this->m_level.resetLevel();
 			this->m_level.loadLevel();
 			break;
 		case Won:
-			this->m_level.resetLevelGravity();
 			this->m_controller.getLevelSelectionState()->setLevelButtonImg(this->m_level.getStars(), this->m_levelNum);
-			this->m_level.resetStars();
-			this->m_level.setLevelStatus(OnGoing);
+			this->m_level.resetLevel();
+
 
 			// End of the levels
 			if (this->m_levelNum == this->m_controller.getLevelSelectionState()->getNumOfLevels()) {
@@ -90,9 +87,11 @@ void PlayingState::addButtons()
 		MENU_BUTTON_DEFA_SIZE,
 		std::make_unique<ChangeScreen>(this->m_controller, this->m_controller.getLevelSelectionState())));
 
-	// Reset button here? TODO
-	// this->m_menu.addButton(std::make_unique<LevelButton>(sf::Vector2f(400, 200), manager.getImage("PlayButton"),
-		//MENU_BUTTON_DEFA_SIZE, Null));
+	// Reset button
+	this->m_menu.addButton(std::make_unique<Button>(sf::Vector2f(250, 70), manager.getImage("ResetLevelButton"),
+		MENU_BUTTON_DEFA_SIZE,
+		std::make_unique<ResetLevel>(this->m_controller.getPlayingState())));
+	
 
 
 }
@@ -106,6 +105,12 @@ void PlayingState::changeToWinState()
 {
 	std::shared_ptr<WinState> winState = std::make_shared<WinState>(this->m_controller);
 	this->m_controller.setCurrentState(winState);
+}
+
+void PlayingState::reloadLevel()
+{
+	this->m_level.resetLevel();
+	this->m_level.loadLevel();
 }
 
 void PlayingState::changeToInterstital()

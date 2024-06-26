@@ -50,7 +50,7 @@ ResourceManager::ResourceManager()
     this->loadImage("Chair9", "Chair9.png");
     this->loadImage("Chair10", "Chair10.png");
     this->loadImage("Chair11", "Chair11.png");
-
+    this->loadImage("ResetLevelButton", "ResetLevelButton.png");
 
 
 

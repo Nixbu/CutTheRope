@@ -78,6 +78,13 @@ void Level::resetLevelGravity()
 	this->m_world.resetGravity();
 }
 
+void Level::resetLevel()
+{
+	this->resetStars();
+	this->resetLevelGravity();
+	this->setLevelStatus(OnGoing);
+}
+
 void Level::readLevel()
 {
 	auto& manager = ResourceManager::getInstance();

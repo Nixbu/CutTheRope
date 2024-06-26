@@ -18,8 +18,9 @@ public:
 	std::string getLevelName()const;
 	void resetStars();
 	int getStars() const;
-	void resetLevelGravity()
-;
+	void resetLevelGravity();
+	void resetLevel();
+
 private:
 	int m_stars;
 	std::string m_levelName;

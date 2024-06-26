@@ -26,8 +26,10 @@ private:
 	Menu m_options;
 	std::string m_levelPlaylist;
 	sf::Sprite m_bgImage;
+	std::vector <std::vector<sf::Text>> m_textLevelSelect;
 
 	void addLevelButtons();
+	void initLevelSelectText();
 
 
 

@@ -9,6 +9,7 @@ LevelSelectState::LevelSelectState() : m_levelPlaylist("levelPlaylist.txt")
 {
 	ResourceManager& manager = ResourceManager::getInstance();
 	this->m_bgImage.setTexture(manager.getImage("LevelSelectionBg"));
+	initLevelSelectText();
 }
 
 void LevelSelectState::draw(sf::RenderWindow& window)
@@ -16,6 +17,15 @@ void LevelSelectState::draw(sf::RenderWindow& window)
 	window.draw(this->m_bgImage);
 	this->m_levelButtons.draw(window);
 	this->m_options.draw(window);
+
+	for (const auto& textVector : m_textLevelSelect)
+	{
+		for (const auto& text : textVector)
+		{
+			window.draw(text);
+		}
+	}
+	
 }
 
 void LevelSelectState::handleClicks(const sf::Vector2f& mousePos)
@@ -92,6 +102,41 @@ void LevelSelectState::addLevelButtons()
 
 	
 }
+void LevelSelectState::initLevelSelectText() {
+	const sf::Font& font = ResourceManager::getInstance().getFont("GoodDog");
+
+	m_textLevelSelect.resize(LEVEL_SELECT_ROWS_LEVELS);
+
+	int levelNum = 1,
+		size = LEVELS;
+	float initialX = 90.f,
+		  x = initialX,
+		  y = 230.f;
+
+	for (int row = 0; row < LEVEL_SELECT_ROWS_LEVELS; row++) 
+	{
+		for (int col = 0; col < size; col++) 
+		{
+			sf::Text text;
+			text.setFont(font);
+			text.setString(std::to_string(levelNum));
+			text.setCharacterSize(80);
+			text.setFillColor(sf::Color::White);
+			text.setPosition(x, y);
+
+			m_textLevelSelect[row].push_back(text);
+
+			x += 120.f;
+			levelNum += 1;
+		}
+
+		size -= MAX_LEVELS_ROW_LEVEL_SELECT;
+
+		x = initialX;
+		y += 150.f; 
+	}
+}
+
 void LevelSelectState::setLevelButtonImg(int stars, int levelNum)
 {
 	auto& resourceManager = ResourceManager::getInstance();

@@ -17,7 +17,7 @@ public:
     void handleClicked();
     virtual void draw(sf::RenderWindow& window) const override;
     virtual ~Rope() {};
-    virtual bool isClicked(const sf::Vector2f& mousePos)const override;
+    virtual bool isClicked(const  std::pair<sf::Vector2f, sf::Vector2f>& mousePos)const override;
 
 private:
     std::vector<std::shared_ptr<RopeSegment>> m_segments;

@@ -27,6 +27,7 @@ public:
 	void addButtons();
 	void setLevelNum(const int& levelNum);
 	void changeToWinState();
+	void MousePressPos(const sf::Vector2f& mousePos);
 private:
 	int m_levelNum;
 	Menu m_menu;

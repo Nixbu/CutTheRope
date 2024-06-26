@@ -53,6 +53,10 @@ void RopeSegment::handleClicked()
 {
     //startFading();
 }
+sf::Vector2f RopeSegment::getPosition() const
+{
+    return this->getPosition();
+}
 //
 //bool RopeSegment::isFading() const
 //{

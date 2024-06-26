@@ -8,7 +8,7 @@ public:
     RopeSegment(const Data& data, World& world, const sf::Texture& texture, const b2Vec2& position);
     virtual void update() override;
     virtual void handleClicked() override;
-
+    sf::Vector2f getPosition() const;
     // TODO add fading when deleted
     /*bool isFading() const;
     void startFading();*/

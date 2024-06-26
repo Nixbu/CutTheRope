@@ -97,7 +97,7 @@ void World::handleCollisions()
 	}
 }
 
-void World::handleClicks(const sf::Vector2f& mousePos)
+void World::handleClicks(const std::pair<sf::Vector2f, sf::Vector2f>& mousePos)
 {
 	for (auto& object : this->m_gameObjects)
 	{

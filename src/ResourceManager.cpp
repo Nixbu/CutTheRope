@@ -52,6 +52,7 @@ ResourceManager::ResourceManager()
     this->loadImage("Chair11", "Chair11.png");
     this->loadImage("ResetLevelButton", "ResetLevelButton.png");
     this->loadImage("HelpStateBG", "HelpStateBG.png");
+    this->loadImage("HelpButton", "HelpButton.png");
 
 
 

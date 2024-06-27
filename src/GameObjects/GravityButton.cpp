@@ -3,7 +3,7 @@
 
 GravityButton::GravityButton(const Data& ObjectData, World& world, const sf::Texture& texture)
     : ClickableObject(ObjectData, texture), m_world(world.getWorld()), m_currentGravity(GRAVITY_WORLD),
-        m_degree(0)
+        m_degree(ObjectData.m_angle)
 {
 
     //TODO CHANGE SETTINGS IF NEEDED

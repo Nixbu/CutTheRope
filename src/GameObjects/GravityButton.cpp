@@ -3,7 +3,7 @@
 
 GravityButton::GravityButton(const Data& ObjectData, World& world, const sf::Texture& texture)
     : ClickableObject(ObjectData, texture), m_world(world.getWorld()), m_currentGravity(GRAVITY_WORLD),
-        m_degree(ObjectData.m_angle)
+        m_degree(0)
 {
 
     //TODO CHANGE SETTINGS IF NEEDED
@@ -49,8 +49,11 @@ void GravityButton::handleClicked()
     m_currentGravity = -m_currentGravity;
     m_world.SetGravity(b2Vec2(m_currentGravity.x, m_currentGravity.y));
     m_degree += 180;  //TODO FIX ROTATION
+    if (m_degree >= 360.0f)
+    {
+        m_degree -= 360.0f;
+    }
     this->setRotation(m_degree);
-
 }
 
 

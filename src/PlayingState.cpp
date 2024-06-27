@@ -57,6 +57,7 @@ void PlayingState::update()
 			else
 			{
 				this->m_level.update();
+				break;
 			}
 			
 			

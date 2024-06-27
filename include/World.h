@@ -30,7 +30,7 @@ public:
 	void setStarsToZero();
 	levelStatus_t getLevelStatus()const;
 	void restartClock();
-	int getTime()const;
+	double getTime()const;
 private:
 	int m_stars;
 	levelStatus_t m_status;

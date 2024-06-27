@@ -20,7 +20,7 @@ public:
 	int getStars() const;
 	void resetLevelGravity();
 	void resetLevel();
-	int getWorldTime()const;
+	double getWorldTime()const;
 
 private:
 	std::string m_levelName;

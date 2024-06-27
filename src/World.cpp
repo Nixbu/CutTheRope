@@ -163,7 +163,7 @@ void World::restartClock()
 	this->m_clock.restart();
 }
 
-int World::getTime() const
+double World::getTime() const
 {
 	return this->m_clock.getElapsedTime().asSeconds();
 }

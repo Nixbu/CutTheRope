@@ -85,7 +85,7 @@ void Level::resetLevel()
 	this->setLevelStatus(OnGoing);
 }
 
-int Level::getWorldTime() const
+double Level::getWorldTime() const
 {
 	return this->m_world.getTime();
 }

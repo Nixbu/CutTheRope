@@ -4,8 +4,7 @@ AirPillow::AirPillow(const Data& ObjectData,
 	World& world, const sf::Texture& texture) : 
     ClickableObject(ObjectData, texture),
     m_data(ObjectData), m_world(world), 
-    m_animating(false),
-    m_animation(ResourceManager::getInstance().getAnimation(ObjectData.m_type), this->getSprite(), m_animating)
+    m_animation(ResourceManager::getInstance().getAnimation(ObjectData.m_type), this->getSprite())
 {
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
@@ -42,7 +41,7 @@ AirPillow::AirPillow(const Data& ObjectData,
 
 void AirPillow::handleClicked()
 {
-    m_animating = true;
+    this->m_animation.setAnimationFlag(true);
     auto& resourceManager = ResourceManager::getInstance();
     const sf::Texture& texture = resourceManager.getImage("Air");
     auto airBullet = std::make_shared<Air>(m_data, m_world, texture);

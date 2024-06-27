@@ -22,5 +22,4 @@ private:
 	World& m_world;
 	const Data m_data;
 	Animation m_animation;
-	bool m_animating;
 };

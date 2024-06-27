@@ -3,10 +3,9 @@
 
 const auto AnimationTime = sf::seconds(0.08f);
 
-Animation::Animation(const ListOfFrames& data, sf::Sprite& sprite, bool& animationFlag)
-    : m_data(data), m_sprite(sprite), m_animationFlag(animationFlag)
+Animation::Animation(const ListOfFrames& data, sf::Sprite& sprite)
+    : m_data(data), m_sprite(sprite), m_animationFlag(false)
 {
-    m_sprite.setTexture(ResourceManager::getInstance().getImage("AirPillow"));
     update();
 }
 
@@ -29,6 +28,11 @@ void Animation::update(sf::Time delta)
     }
 
 
+}
+
+void Animation::setAnimationFlag(bool flag)
+{
+    this->m_animationFlag = flag;
 }
 
 void Animation::update()

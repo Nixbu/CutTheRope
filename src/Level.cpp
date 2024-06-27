@@ -1,6 +1,6 @@
 #include "Level.h"
 
-Level::Level() :  m_status(OnGoing) , m_stars(0), m_world(m_status , m_stars), m_accumulator(0) 
+Level::Level() :  m_status(OnGoing) , m_world(), m_accumulator(0) 
 {
 }
 
@@ -50,12 +50,12 @@ void Level::setLevelName(const std::string& levelName)
 
 levelStatus_t Level::getLevelStatus() const
 {
-	return this->m_status;
+	return this->m_world.getLevelStatus();
 }
 
 void Level::setLevelStatus(const levelStatus_t& status)
 {
-	this->m_status = status;
+	this->m_world.setLevelStatus(status);
 }
 
 std::string Level::getLevelName() const
@@ -65,12 +65,12 @@ std::string Level::getLevelName() const
 
 void Level::resetStars()
 {
-	this->m_stars = 0;
+	this->m_world.setStarsToZero();
 }
 
 int Level::getStars() const
 {
-	return this->m_stars;
+	return this->m_world.getStars();
 }
 
 void Level::resetLevelGravity()

@@ -1,8 +1,8 @@
 #include "World.h"
 
 
-World::World(levelStatus_t& status , int& stars) : 
-	m_physicalWorld(b2Vec2(GRAVITY_WORLD.x, GRAVITY_WORLD.y)) , m_candy(nullptr)  , m_status(status) , m_stars(stars)
+World::World() : 
+	m_physicalWorld(b2Vec2(GRAVITY_WORLD.x, GRAVITY_WORLD.y)) , m_candy(nullptr)  , m_status(OnGoing) , m_stars(0)
 {
 	m_gameObjects.reserve(MAX_SIZE);
 }
@@ -141,6 +141,21 @@ void World::resetGravity()
 		gravity.y *= -1;
 		this->m_physicalWorld.SetGravity(gravity);
 	}
+}
+
+int World::getStars()const
+{
+	return this->m_stars;
+}
+
+void World::setStarsToZero()
+{
+	this->m_stars = 0;
+}
+
+levelStatus_t World::getLevelStatus() const
+{
+	return this->m_status;
 }
 
 

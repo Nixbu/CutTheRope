@@ -11,7 +11,7 @@ ResourceManager::ResourceManager()
     this->loadImage("Star", "Star.png");
     this->loadImage("RedHat", "RedHat.png");
     this->loadImage("Bubble", "Bubble.png");
-    this->loadImage("Omnom", "Omnom.png");
+    this->loadImage("Omnom", "EatingAnimation.png");
     this->loadImage("HorizonalLongSpikes", "HorizonalLongSpikes.png"); // TODO change name
     this->loadImage("HorizonalShortSpikes", "HorizonalShortSpikes.png");
     this->loadImage("HorizonalMediumSpikes", "HorizonalMediumSpikes.png");
@@ -93,6 +93,7 @@ const ListOfFrames& ResourceManager::getAnimation(const std::string& name) const
 void ResourceManager::loadAnimations()
 {
     this->loadAnimation("AirPillow", 160, 6);
+    this->loadAnimation("Omnom", 102, 34);
 }
 
 void ResourceManager::loadAnimation(const std::string& type, int pageGap, int framesCount)

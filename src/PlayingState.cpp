@@ -37,21 +37,28 @@ void PlayingState::update()
 			this->m_level.resetLevel();
 			this->m_level.loadLevel();
 			break;
-		case Won:
-			this->m_controller.getLevelSelectionState()->setLevelButtonImg(this->m_level.getStars(), this->m_levelNum);
-			this->m_level.resetLevel();
+		case Won:			
+			if (this->m_level.getWorldTime() > ANIMATION_TIME) {
+				this->m_controller.getLevelSelectionState()->setLevelButtonImg(this->m_level.getStars(), this->m_levelNum);
+				this->m_level.resetLevel();
 
 
-			// End of the levels
-			if (this->m_levelNum == this->m_controller.getLevelSelectionState()->getNumOfLevels()) {
-				this->changeToWinState();
+				// End of the levels
+				if (this->m_levelNum == this->m_controller.getLevelSelectionState()->getNumOfLevels()) {
+					this->changeToWinState();
+				}
+				// Another Level
+				else {
+					this->m_controller.getLevelSelectionState()->setLevelButtonImg(0, this->m_levelNum + 1);
+					this->changeToInterstital();
+				}
+				break;
 			}
-			// Another Level
-			else {
-				this->m_controller.getLevelSelectionState()->setLevelButtonImg(0, this->m_levelNum + 1);
-				this->changeToInterstital();
+			else
+			{
+				this->m_level.update();
 			}
-			break;
+			
 			
 	} 
 }

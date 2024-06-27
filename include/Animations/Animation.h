@@ -15,7 +15,7 @@ public:
     // Add more time to the elapsed time; if enough time passed, it
     // updates the sprite to show the next frame in the animation
     void update(sf::Time delta);
-    void setAnimationFlag(bool flag);
+    void setAnimationFlag(const bool& flag);
 
 private:
     // Update the sprite to take the correct part of the texture,

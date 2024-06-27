@@ -28,7 +28,7 @@ configure_file ("ButtonAssets/MenuButtons/HelpButton.png" ${CMAKE_BINARY_DIR} CO
 
 # Animations
 configure_file ("AnimationFiles/AirPillowAnimations.png" ${CMAKE_BINARY_DIR} COPYONLY)
-
+configure_file ("AnimationFiles/EatingAnimation.png" ${CMAKE_BINARY_DIR} COPYONLY)
 
 ### Backgrounds ###
 

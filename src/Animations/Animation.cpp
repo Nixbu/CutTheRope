@@ -30,7 +30,7 @@ void Animation::update(sf::Time delta)
 
 }
 
-void Animation::setAnimationFlag(bool flag)
+void Animation::setAnimationFlag(const bool& flag)
 {
     this->m_animationFlag = flag;
 }

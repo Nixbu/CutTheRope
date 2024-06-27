@@ -54,7 +54,8 @@ void candyOmnom(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject>
     std::shared_ptr<Candy> candy = std::dynamic_pointer_cast<Candy>(object1);
     std::shared_ptr<Omnom> omnom = std::dynamic_pointer_cast<Omnom>(object2);
 
-
+    omnom->setAnimationFlag(true);
+    world.restartClock();
     candy->setDelete();
     world.setLevelStatus(Won);
     //TODO add omnom collition animation

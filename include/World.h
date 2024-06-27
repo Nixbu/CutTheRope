@@ -29,11 +29,14 @@ public:
 	int getStars()const;
 	void setStarsToZero();
 	levelStatus_t getLevelStatus()const;
+	void restartClock();
+	int getTime()const;
 private:
 	int m_stars;
 	levelStatus_t m_status;
 	b2World m_physicalWorld;
 	std::vector<std::shared_ptr<GameObject>> m_gameObjects;
+	sf::Clock m_clock;
 
 	bool checkCollision(std::shared_ptr<GameObject> object1,
 						std::shared_ptr<GameObject> object2);

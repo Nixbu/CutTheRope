@@ -158,6 +158,16 @@ levelStatus_t World::getLevelStatus() const
 	return this->m_status;
 }
 
+void World::restartClock()
+{
+	this->m_clock.restart();
+}
+
+int World::getTime() const
+{
+	return this->m_clock.getElapsedTime().asSeconds();
+}
+
 
 bool World::checkCollision(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2)
 {

@@ -85,6 +85,11 @@ void Level::resetLevel()
 	this->setLevelStatus(OnGoing);
 }
 
+int Level::getWorldTime() const
+{
+	return this->m_world.getTime();
+}
+
 void Level::readLevel()
 {
 	auto& manager = ResourceManager::getInstance();

@@ -49,8 +49,11 @@ void GravityButton::handleClicked()
     m_currentGravity = -m_currentGravity;
     m_world.SetGravity(b2Vec2(m_currentGravity.x, m_currentGravity.y));
     m_degree += 180;  //TODO FIX ROTATION
+    if (m_degree >= 360.0f)
+    {
+        m_degree -= 360.0f;
+    }
     this->setRotation(m_degree);
-
 }
 
 

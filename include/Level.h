@@ -22,7 +22,6 @@ public:
 	void resetLevel();
 
 private:
-	int m_stars;
 	std::string m_levelName;
 	std::ifstream m_levelFile;
 	World m_world;

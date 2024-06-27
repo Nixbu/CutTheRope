@@ -44,15 +44,12 @@ bool RopeSegment::isClicked(const std::pair<sf::Vector2f, sf::Vector2f>& mousePo
     sf::Vector2f sizeSegment = this->getSize();
     float angleSegment = this->getRotationAngle();
 
-    // Extend the start and end positions for the clickable area
-    const float extensionLength = 25.0f; // Adjust this value as needed
-
     // Calculate the extended start and end positions
     sf::Vector2f extensionVector(cos(angleSegment * std::numbers::pi / 180.0f),
         sin(angleSegment * std::numbers::pi / 180.0f));
 
-    sf::Vector2f extendedStartPos = segmentStartPos - extensionVector * extensionLength;
-    sf::Vector2f extendedEndPos = segmentStartPos + sizeSegment.y * extensionVector + extensionVector * extensionLength;
+    sf::Vector2f extendedStartPos = segmentStartPos - extensionVector * EXTENSION_CUT_LENGTH;
+    sf::Vector2f extendedEndPos = segmentStartPos + sizeSegment.y * extensionVector + extensionVector * EXTENSION_CUT_LENGTH;
 
     // Check if the mouse position intersects with the extended segment
     if (doIntersect(extendedStartPos, extendedEndPos, mousePos.first, mousePos.second))

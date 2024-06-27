@@ -1,14 +1,16 @@
 #include "GameObjects/Rope.h"
 
+
+std::unordered_map<std::string, unsigned int> Rope::m_ropeLengthsMap = {
+    {"longRope", 60},
+    {"mediumRope", 40},
+    {"shortRope", 20}
+};
+
 Rope::Rope(const Data& data, World& world, const sf::Texture& texture)
     : ClickableObject(data, texture)
 {
-    std::unordered_map<std::string, unsigned int> ropeLengthsMap = 
-    {
-        {"longRope", 60},
-        {"mediumRope", 40},
-        {"shortRope", 20}
-    };
+   
     auto& manager = ResourceManager::getInstance();
     const sf::Texture&  hookTexture = manager.getImage("Hook");
     // Convert starting position from pixels to meters
@@ -21,7 +23,7 @@ Rope::Rope(const Data& data, World& world, const sf::Texture& texture)
 
     // Define the number of segments
     // TODO add int segmentCount - different lengths LONG MEDIUM SHORT
-    int segmentCount = ropeLengthsMap[data.m_length]; // Replace with desired segment count or parameter
+    int segmentCount = m_ropeLengthsMap[data.m_length]; // Replace with desired segment count or parameter
 
     for (int i = 0; i < segmentCount; ++i)
     {

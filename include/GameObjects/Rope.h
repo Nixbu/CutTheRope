@@ -23,9 +23,11 @@ private:
     std::vector<std::shared_ptr<RopeSegment>> m_segments;
     static bool m_registerit;
     std::unique_ptr<Hook> m_hook;
+   
+    static std::unordered_map < std::string, unsigned int> m_ropeLengthsMap;
+
     void connectToCandy(World& world);
-    void addSegment (World& world, std::shared_ptr<RopeSegment> segment);
+    void addSegment(World& world, std::shared_ptr<RopeSegment> segment);
     void connectToHook(World& world, std::shared_ptr<RopeSegment> segment);
-    std::unordered_map < std::string, unsigned int> ropeLengthsMap;
 };
 

@@ -9,7 +9,6 @@ LevelSelectState::LevelSelectState() : m_levelPlaylist("levelPlaylist.txt")
 {
 	ResourceManager& manager = ResourceManager::getInstance();
 	this->m_bgImage.setTexture(manager.getImage("LevelSelectionBg"));
-	initLevelSelectText();
 }
 
 void LevelSelectState::draw(sf::RenderWindow& window)
@@ -18,14 +17,10 @@ void LevelSelectState::draw(sf::RenderWindow& window)
 	this->m_levelButtons.draw(window);
 	this->m_options.draw(window);
 
-	for (const auto& textVector : m_textLevelSelect)
+	for (const auto& text : m_textLevelSelect)
 	{
-		for (const auto& text : textVector)
-		{
-			window.draw(text);
-		}
+		window.draw(text);
 	}
-	
 }
 
 void LevelSelectState::handleClicks(const sf::Vector2f& mousePos)
@@ -69,6 +64,7 @@ void LevelSelectState::addButtons(Controller &controller)
 	int levelNum = 1;
 	auto position = FIRST_BUTTON_POSITION;
 	const int buttonsPerRow = ROW_NUM_OF_LEVELS;  // Number of buttons per row
+	const sf::Font& font = ResourceManager::getInstance().getFont("GoodDog");
 
 	while (std::getline(levelPlaylist, line))
 	{
@@ -83,6 +79,14 @@ void LevelSelectState::addButtons(Controller &controller)
 			std::make_unique<PlayLevel>(controller, controller.getPlayingState(), levelFileName, levelNum)
 		));
 
+		sf::Text text;
+		text.setFont(font);
+		text.setString(std::to_string(levelNum));
+		text.setCharacterSize(80);
+		text.setFillColor(sf::Color::White);
+		text.setPosition(position.x - LEVEL_BUTTON_FONT_SHIFT_X,position.y - LEVEL_BUTTON_FONT_SHIFT_Y);
+
+		m_textLevelSelect.push_back(text);
 		// Update the position for the next button
 		levelNum++;
 		position.x += LEVEL_BUTTON_SHIFT_X;
@@ -92,41 +96,6 @@ void LevelSelectState::addButtons(Controller &controller)
 			position.x = FIRST_BUTTON_POSITION.x; 
 			position.y += LEVEL_BUTTON_SHIFT_Y;  
 		}
-	}
-}
-
-void LevelSelectState::initLevelSelectText() {
-	const sf::Font& font = ResourceManager::getInstance().getFont("GoodDog");
-
-	m_textLevelSelect.resize(LEVEL_SELECT_ROWS_LEVELS);
-
-	int levelNum = 1,
-		size = LEVELS;
-	float initialX = 90.f,
-		  x = initialX,
-		  y = 230.f;
-
-	for (int row = 0; row < LEVEL_SELECT_ROWS_LEVELS; row++) 
-	{
-		for (int col = 0; col < size; col++) 
-		{
-			sf::Text text;
-			text.setFont(font);
-			text.setString(std::to_string(levelNum));
-			text.setCharacterSize(80);
-			text.setFillColor(sf::Color::White);
-			text.setPosition(x, y);
-
-			m_textLevelSelect[row].push_back(text);
-
-			x += 120.f;
-			levelNum += 1;
-		}
-
-		size -= MAX_LEVELS_ROW_LEVEL_SELECT;
-
-		x = initialX;
-		y += 150.f; 
 	}
 }
 

@@ -25,7 +25,7 @@ private:
     void loadResource(std::unordered_map<std::string, Resource>& resourceMap, const std::string& name, 
                       const std::string& filename);
 
-    std::unordered_map<std::string, sf::Texture> textures;
+    std::unordered_map<std::string, sf::Texture> m_textures;
     std::unordered_map<std::string, sf::Font> m_fonts;
 
 };

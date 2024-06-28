@@ -12,7 +12,7 @@ ResourceManager::ResourceManager() {
     loadResource<sf::Texture>(m_textures, "RedHat", "RedHat.png");
     loadResource<sf::Texture>(m_textures, "Bubble", "Bubble.png");
     loadResource<sf::Texture>(m_textures, "Omnom", "EatingAnimation.png");
-    loadResource<sf::Texture>(m_textures, "HorizonalLongSpikes", "HorizonalLongSpikes.png"); // TODO change name
+    loadResource<sf::Texture>(m_textures, "HorizonalLongSpikes", "HorizonalLongSpikes.png");
     loadResource<sf::Texture>(m_textures, "HorizonalShortSpikes", "HorizonalShortSpikes.png");
     loadResource<sf::Texture>(m_textures, "HorizonalMediumSpikes", "HorizonalMediumSpikes.png");
     loadResource<sf::Texture>(m_textures, "AirPillow", "AirPillowAnimations.png");

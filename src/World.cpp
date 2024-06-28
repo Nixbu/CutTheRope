@@ -51,9 +51,9 @@ void World::addToGameObjects(std::shared_ptr<GameObject> object)
 
 void World::draw(sf::RenderWindow& window) const 
 {
-	for (const auto& object : this->m_gameObjects)
+	for (auto it = this->m_gameObjects.rbegin(); it != this->m_gameObjects.rend(); ++it)
 	{
-		object->draw(window);
+		(*it)->draw(window);
 	}
 }
 

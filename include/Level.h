@@ -11,7 +11,7 @@ public:
 	void loadLevel();
 	void draw(sf::RenderWindow& window) const;
 	void update();
-	void handleClicks(const sf::Vector2f& mousePos);
+	void handleClicks(const sf::Vector2f& mousePosRelease);
 	void setLevelName(const std::string& levelName);
 	levelStatus_t getLevelStatus()const;
 	void setLevelStatus(const levelStatus_t& status);
@@ -19,6 +19,8 @@ public:
 	void resetStars();
 	int getStars() const;
 	void resetLevelGravity();
+	void setMousePressPos(const sf::Vector2f& mousePos);
+	void setMouseReleasePos(const sf::Vector2f& mousePos);
 	void resetLevel();
 
 private:
@@ -27,7 +29,11 @@ private:
 	World m_world;
 	sf::Clock m_clock;
 	float m_accumulator;
-	void readLevel();
 	levelStatus_t m_status;
 	sf::Sprite m_levelBg;
+	sf::Vector2f m_pressPos,
+				 m_releasePos;
+
+	void readLevel();
+	void initPosPress();
 };

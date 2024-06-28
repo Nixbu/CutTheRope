@@ -15,7 +15,10 @@ float angleToRadians(float angle);
 const unsigned int WINDOW_MANAGER_WIDTH = 1100,
 WINDOW_MANAGER_HEIGHT = 850,
 FRAME_DELAY_MS = 50,
-MAX_SIZE = 100;
+MAX_SIZE = 100,
+LEVELS = 3,
+LEVEL_SELECT_ROWS_LEVELS = 1,
+MAX_LEVELS_ROW_LEVEL_SELECT = 10;
 
 // Object Sizes
 const sf::Vector2f AIR_PILLOW_SIZE = { 119 , 127 };
@@ -48,13 +51,15 @@ struct Data {
     float m_angle2;
     std::string m_type;
     std::string m_subType;
+    std::string m_length;
 };
 
 const float SCALE = 30.0f,
 TIME_STEP = 1.0 / 60.0f,
 AIR_VELOCITY = 5.0f,
 AIR_FORCE = 100.0f,
-LIVING_AIR_TIME = 0.2f;
+LIVING_AIR_TIME = 0.2f,
+EXTENSION_CUT_LENGTH = 25.0f;
 
 
 const b2Vec2 BUBBLE_VELOCITY(0.0f, 2.0f),

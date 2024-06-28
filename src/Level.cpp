@@ -1,6 +1,7 @@
 #include "Level.h"
 
-Level::Level() :  m_status(OnGoing) , m_world(), m_accumulator(0) 
+Level::Level() :  m_status(OnGoing) , m_stars(0), m_world(m_status , m_stars), m_accumulator(0),m_pressPos(-1.f,-1.f)
+					,m_releasePos(-1.f,-1.f)
 {
 }
 
@@ -39,9 +40,15 @@ void Level::update()
 	}
 }
 
-void Level::handleClicks(const sf::Vector2f& mousePos)
+void Level::handleClicks(const sf::Vector2f& mousePosRelease)
 {
+	setMouseReleasePos(mousePosRelease);
+
+	std::pair<sf::Vector2f, sf::Vector2f> mousePos(m_pressPos, m_releasePos);
+
 	this->m_world.handleClicks(mousePos);
+
+	initPosPress();
 }
 void Level::setLevelName(const std::string& levelName)
 {
@@ -78,6 +85,15 @@ void Level::resetLevelGravity()
 	this->m_world.resetGravity();
 }
 
+void Level::setMousePressPos(const sf::Vector2f& mousePos)
+{
+	this->m_pressPos = mousePos;
+}
+void Level::setMouseReleasePos(const sf::Vector2f& mousePos)
+{
+	this->m_releasePos = mousePos;
+}
+
 void Level::resetLevel()
 {
 	this->resetStars();
@@ -97,4 +113,7 @@ void Level::readLevel()
 	}
 	
 }
-
+void Level::initPosPress()
+{
+	this->m_pressPos = sf::Vector2f(-1.f, -1.f);
+}

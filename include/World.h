@@ -20,7 +20,7 @@ public:
 	void reset();
 	void update(float timeStep, sf::Time& deltaTime);
 	void handleCollisions();
-	void handleClicks(const sf::Vector2f& mousePos);
+	void handleClicks(const std::pair<sf::Vector2f, sf::Vector2f>& mousePos);
 	b2World& getWorld();
 	std::shared_ptr<GameObject> getCandy() const;
 	void setLevelStatus(const levelStatus_t& status );

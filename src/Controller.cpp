@@ -82,6 +82,11 @@ void Controller::handleInput(sf::RenderWindow& window)
 			window.close();
 			break;
 
+		case sf::Event::MouseButtonPressed:
+			mousePos = window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
+			m_playingState->MousePressPos(mousePos);
+			break;
+
 		case sf::Event::MouseButtonReleased:
 
 			mousePos = window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });

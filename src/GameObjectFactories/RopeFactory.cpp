@@ -6,6 +6,6 @@ std::shared_ptr<GameObject> RopeFactory::createObject(const std::string& line, W
 	std::istringstream iss(line);
 	Data objectData;
 
-	iss >> objectData.m_type >> objectData.m_subType >> objectData.m_pos.x >> objectData.m_pos.y >> objectData.m_angle;
+	iss >> objectData.m_type >> objectData.m_subType >> objectData.m_length >> objectData.m_pos.x >> objectData.m_pos.y >> objectData.m_angle;
 	return std::make_shared<Rope>(objectData, world, texture);
 }

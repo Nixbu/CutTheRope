@@ -27,6 +27,17 @@ sf::Sprite& GameObject::getSprite()
 	return m_sprite;
 }
 
+float GameObject::getRotationAngle() const
+{
+	return m_sprite.getRotation();
+}
+
+sf::Vector2f GameObject::getSize() const
+{
+	sf::FloatRect bounds = m_sprite.getGlobalBounds();
+	return sf::Vector2f(bounds.width, bounds.height);
+}
+
 void GameObject::setPosition(float posX, float posY)
 {
 	this->m_sprite.setPosition(sf::Vector2f(posX, posY));

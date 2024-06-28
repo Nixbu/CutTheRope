@@ -108,6 +108,11 @@ void PlayingState::changeToWinState()
 	this->m_controller.setCurrentState(winState);
 }
 
+void PlayingState::MousePressPos(const sf::Vector2f& mousePos)
+{
+	this->m_level.setMousePressPos(mousePos);
+}
+
 void PlayingState::reloadLevel()
 {
 	this->m_level.resetLevel();

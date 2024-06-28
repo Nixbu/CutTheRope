@@ -55,6 +55,7 @@ configure_file ("GameObjectAssets/GravityButton.png" ${CMAKE_BINARY_DIR} COPYONL
 configure_file ("GameObjectAssets/Candy.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("GameObjectAssets/Star.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("GameObjectAssets/RedHat.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("GameObjectAssets/GreenHat.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("GameObjectAssets/Omnom.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("GameObjectAssets/Bubble.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("GameObjectAssets/HorizonalLongSpikes.png" ${CMAKE_BINARY_DIR} COPYONLY)
@@ -85,6 +86,8 @@ configure_file ("CharacterChairs/Chair11.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("LevelFiles/levelPlaylist.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("LevelFiles/Level1.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("LevelFiles/Level2.txt" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("LevelFiles/Level3.txt" ${CMAKE_BINARY_DIR} COPYONLY)
+
 
 # Fonts
 

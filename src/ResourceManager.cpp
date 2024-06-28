@@ -10,6 +10,7 @@ ResourceManager::ResourceManager() {
     loadResource<sf::Texture>(m_textures, "Candy", "Candy.png");
     loadResource<sf::Texture>(m_textures, "Star", "Star.png");
     loadResource<sf::Texture>(m_textures, "RedHat", "RedHat.png");
+    loadResource<sf::Texture>(m_textures, "GreenHat", "GreenHat.png");
     loadResource<sf::Texture>(m_textures, "Bubble", "BubbleFloatingAnimation.png");
     loadResource<sf::Texture>(m_textures, "Omnom", "EatingAnimation.png");
     loadResource<sf::Texture>(m_textures, "HorizonalLongSpikes", "HorizonalLongSpikes.png");
@@ -39,7 +40,6 @@ ResourceManager::ResourceManager() {
     loadResource<sf::Texture>(m_textures, "BetweenLevelsBG", "BetweenLevelsBG.png");
     loadResource<sf::Texture>(m_textures, "PlayingToLevelSelectButton", "PlayingToLevelSelectButton.png");
     loadResource<sf::Texture>(m_textures, "ReturnHomeButton", "ReturnHomeButton.png");
-
     loadResource<sf::Texture>(m_textures, "Chair1", "Chair1.png");
     loadResource<sf::Texture>(m_textures, "Chair2", "Chair2.png");
     loadResource<sf::Texture>(m_textures, "Chair3", "Chair3.png");

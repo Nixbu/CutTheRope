@@ -9,7 +9,7 @@ public:
     RopeSegment(const Data& data, World& world, const sf::Texture& texture, const b2Vec2& position);
     virtual void update(sf::Time& deltaTime) override;
     virtual void handleClicked() override;
-    virtual bool isClicked(const std::pair<sf::Vector2f, sf::Vector2f>& mousePos)const override;
+    virtual bool isClicked(const std::pair<sf::Vector2f, sf::Vector2f>& mousePos) override;
 
 private:
     bool onSegment(sf::Vector2f p, sf::Vector2f q, sf::Vector2f r) const;

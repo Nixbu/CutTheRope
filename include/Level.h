@@ -33,6 +33,7 @@ private:
 	sf::Sprite m_levelBg;
 	sf::Vector2f m_pressPos,
 				 m_releasePos;
+	int m_stars;
 
 	void readLevel();
 	void initPosPress();

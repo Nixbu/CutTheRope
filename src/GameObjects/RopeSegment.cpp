@@ -38,7 +38,7 @@ void RopeSegment::handleClicked()
 {
     //startFading();
 }
-bool RopeSegment::isClicked(const std::pair<sf::Vector2f, sf::Vector2f>& mousePos) const
+bool RopeSegment::isClicked(const std::pair<sf::Vector2f, sf::Vector2f>& mousePos)
 {
     sf::Vector2f segmentStartPos = this->getPosition();
     sf::Vector2f sizeSegment = this->getSize();

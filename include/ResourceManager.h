@@ -22,13 +22,18 @@ public:
     const ListOfFrames& getAnimation(const std::string& name) const;
     void loadAnimations();
     void loadAnimation(const std::string& type, int pageGap, int framesCount);
+    const sf::Font& getFont(const std::string& name) const;
 
 private:
-
     ResourceManager();
-    std::unordered_map<std::string, sf::Texture> textures;
+
+    template <typename Resource>
+    void loadResource(std::unordered_map<std::string, Resource>& resourceMap, const std::string& name, 
+                      const std::string& filename);
+
+    std::unordered_map<std::string, sf::Texture> m_textures;
+    std::unordered_map<std::string, sf::Font> m_fonts;
     std::unordered_map<std::string, ListOfFrames> m_animations;
-    void loadImage(const std::string& name, const std::string& filename);
 
 };
 

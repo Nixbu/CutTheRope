@@ -13,7 +13,7 @@
 class World
 {
 public:
-	World();
+	World(levelStatus_t& status, int& stars);
 	void addObject(std::string& line);
 	void addToGameObjects(std::shared_ptr<GameObject> object);
 	void draw(sf::RenderWindow& window) const;
@@ -30,7 +30,7 @@ public:
 	void setStarsToZero();
 	levelStatus_t getLevelStatus()const;
 private:
-	int m_stars;
+	int& m_stars;
 	levelStatus_t m_status;
 	b2World m_physicalWorld;
 	std::vector<std::shared_ptr<GameObject>> m_gameObjects;

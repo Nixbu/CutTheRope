@@ -10,7 +10,7 @@ ResourceManager::ResourceManager() {
     loadResource<sf::Texture>(m_textures, "Candy", "Candy.png");
     loadResource<sf::Texture>(m_textures, "Star", "Star.png");
     loadResource<sf::Texture>(m_textures, "RedHat", "RedHat.png");
-    loadResource<sf::Texture>(m_textures, "Bubble", "Bubble.png");
+    loadResource<sf::Texture>(m_textures, "Bubble", "BubbleFloatingAnimation.png");
     loadResource<sf::Texture>(m_textures, "Omnom", "EatingAnimation.png");
     loadResource<sf::Texture>(m_textures, "HorizonalLongSpikes", "HorizonalLongSpikes.png");
     loadResource<sf::Texture>(m_textures, "HorizonalShortSpikes", "HorizonalShortSpikes.png");
@@ -93,6 +93,8 @@ void ResourceManager::loadAnimations()
 {
     this->loadAnimation("AirPillow", 160, 6);
     this->loadAnimation("Omnom", 102, 34);
+    this->loadAnimation("Bubble", 99, 14);
+
 }
 
 void ResourceManager::loadAnimation(const std::string& type, int pageGap, int framesCount)

@@ -3,6 +3,7 @@
 #include "FactoryManager.h"
 #include "GameObjectFactories/BubbleFactory.h"
 #include "GameObjects/ClickableObject.h"
+#include "Animations/Animation.h"
 
 class Bubble : public ClickableObject
 {
@@ -14,4 +15,6 @@ public:
 
 private:
 	static bool m_registerit;
+	Animation m_animation;
+
 };

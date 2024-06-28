@@ -1,7 +1,10 @@
 #include "GameObjects/Bubble.h"
 
 
-Bubble::Bubble(const Data& ObjectData, World& world, const sf::Texture& texture) : ClickableObject(ObjectData, texture) {
+Bubble::Bubble(const Data& ObjectData, World& world, const sf::Texture& texture) 
+    : ClickableObject(ObjectData, texture),
+    m_animation(ResourceManager::getInstance().getAnimation(ObjectData.m_type), this->getSprite())
+{
 
     //TODO CHANGE SETTINGS IF NEEDED
     b2BodyDef bodyDef;
@@ -27,6 +30,11 @@ Bubble::Bubble(const Data& ObjectData, World& world, const sf::Texture& texture)
     fixtureDef.isSensor = true;
 
     this->initBody(world, bodyDef, fixtureDef);
+
+    // Set Origin
+    sf::Vector2f origin(AIR_PILLOW_SIZE.x / 2.0f,
+        AIR_PILLOW_SIZE.y / 2.0f);
+    this->getSprite().setOrigin(origin);
 
 }
 

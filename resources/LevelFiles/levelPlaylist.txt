@@ -1,3 +1,2 @@
 Level1.txt 0Stars   
 Level2.txt LockedLevel
-Level3.txt LockedLevel

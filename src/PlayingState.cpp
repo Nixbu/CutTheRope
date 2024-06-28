@@ -71,6 +71,7 @@ void PlayingState::handleFloating(const sf::Vector2f& mousePos)
 
 void PlayingState::setLevel(const std::string& levelName)
 {
+	m_level.resetLevel();
 	m_level.setLevelName(levelName);
 	m_level.loadLevel();
 
@@ -113,6 +114,11 @@ void PlayingState::changeToWinState()
 {
 	std::shared_ptr<WinState> winState = std::make_shared<WinState>(this->m_controller);
 	this->m_controller.setCurrentState(winState);
+}
+
+void PlayingState::MousePressPos(const sf::Vector2f& mousePos)
+{
+	this->m_level.setMousePressPos(mousePos);
 }
 
 void PlayingState::reloadLevel()

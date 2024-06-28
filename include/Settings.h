@@ -15,7 +15,10 @@ float angleToRadians(float angle);
 const unsigned int WINDOW_MANAGER_WIDTH = 1100,
 WINDOW_MANAGER_HEIGHT = 850,
 FRAME_DELAY_MS = 50,
-MAX_SIZE = 100;
+MAX_SIZE = 100,
+LEVELS = 3,
+LEVEL_SELECT_ROWS_LEVELS = 1,
+MAX_LEVELS_ROW_LEVEL_SELECT = 10;
 
 // Object Sizes
 const sf::Vector2f AIR_PILLOW_SIZE = { 119 , 127 }, OMNOM_SIZE = { 130 ,146 };
@@ -32,7 +35,9 @@ PLAY_BTN_POS = { WINDOW_MANAGER_WIDTH / 2 - MENU_BUTTON_DEFA_SIZE.x / 2,
 
 const unsigned int LEVEL_BUTTON_SHIFT_X = MENU_BUTTON_DEFA_SIZE.x + 125,
 LEVEL_BUTTON_SHIFT_Y = MENU_BUTTON_DEFA_SIZE.y + 200,
-ROW_NUM_OF_LEVELS = 5, ANIMATION_TIME = 2;
+ROW_NUM_OF_LEVELS = 5, ANIMATION_TIME = 2,
+LEVEL_BUTTON_FONT_SHIFT_X = 10,
+LEVEL_BUTTON_FONT_SHIFT_Y = 60;
 
 const sf::Vector2i FIRST_BUTTON_POSITION = { 100, 300 };
 
@@ -46,13 +51,15 @@ struct Data {
     float m_angle2;
     std::string m_type;
     std::string m_subType;
+    std::string m_length;
 };
 
 const float SCALE = 30.0f,
 TIME_STEP = 1.0 / 60.0f,
 AIR_VELOCITY = 5.0f,
 AIR_FORCE = 100.0f,
-LIVING_AIR_TIME = 0.2f;
+LIVING_AIR_TIME = 0.2f,
+EXTENSION_CUT_LENGTH = 25.0f;
 
 
 const b2Vec2 BUBBLE_VELOCITY(0.0f, 2.0f),

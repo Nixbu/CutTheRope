@@ -1,8 +1,8 @@
 #include "World.h"
 
 
-World::World() : 
-	m_physicalWorld(b2Vec2(GRAVITY_WORLD.x, GRAVITY_WORLD.y)) , m_candy(nullptr)  , m_status(OnGoing) , m_stars(0)
+World::World(levelStatus_t& status, int& stars) :
+	m_physicalWorld(b2Vec2(GRAVITY_WORLD.x, GRAVITY_WORLD.y)), m_candy(nullptr), m_status(status), m_stars(stars)
 {
 	m_gameObjects.reserve(MAX_SIZE);
 }
@@ -97,7 +97,7 @@ void World::handleCollisions()
 	}
 }
 
-void World::handleClicks(const sf::Vector2f& mousePos)
+void World::handleClicks(const std::pair<sf::Vector2f, sf::Vector2f>& mousePos)
 {
 	for (auto& object : this->m_gameObjects)
 	{

@@ -1,88 +1,87 @@
 #include "ResourceManager.h"
+
 //=============================================================
-// ctor
-ResourceManager::ResourceManager()
-{
-    this->loadImage("PlayButton", "PlayButton.png");
-    this->loadImage("SandboxButton", "Sandbox.png");
-    this->loadImage("MainWindowBG", "MainWindowBG.png");
-    this->loadImage("LevelSelectionBg", "LevelSelectionBg.png");
-    this->loadImage("Candy", "Candy.png");
-    this->loadImage("Star", "Star.png");
-    this->loadImage("RedHat", "RedHat.png");
-    this->loadImage("Bubble", "Bubble.png");
-    this->loadImage("Omnom", "EatingAnimation.png");
-    this->loadImage("HorizonalLongSpikes", "HorizonalLongSpikes.png"); // TODO change name
-    this->loadImage("HorizonalShortSpikes", "HorizonalShortSpikes.png");
-    this->loadImage("HorizonalMediumSpikes", "HorizonalMediumSpikes.png");
-    this->loadImage("AirPillow", "AirPillowAnimations.png");
-    this->loadImage("Hook", "Hook.png");
-    this->loadImage("Rope", "RopeSegment.png");
-    this->loadImage("Air", "Air.png");
-    this->loadImage("betweenLevelBG", "betweenLevelBG.png");
-    this->loadImage("ReplayButton", "ReplayButton.png");
-    this->loadImage("ReturnToLevelsButton", "ReturnToLevelsButton.png");
-    this->loadImage("NextLevelButton", "NextLevelButton.png");
-    this->loadImage("GravityButton", "GravityButton.png");
-    this->loadImage("LockedLevel", "Locked.png");
-    this->loadImage("0Stars", "ZeroStarsLevel.png");
-    this->loadImage("1Stars", "OneStarLevel.png");
-    this->loadImage("2Stars", "TwoStarsLevel.png");
-    this->loadImage("3Stars", "ThreeStarsLevel.png");
-    this->loadImage("LevelBackground1", "LevelBackground1.png");
-    this->loadImage("LevelBackground2", "LevelBackground2.png");
-    this->loadImage("LevelBackground3", "LevelBackground3.png");
-    this->loadImage("LevelBackground4", "LevelBackground4.png");
-    this->loadImage("LevelBackground5", "LevelBackground5.png");
-    this->loadImage("WinBG", "WinBG.png");
-    this->loadImage("ReturnButton", "ReturnButton.png");
-    this->loadImage("BetweenLevelsBG", "BetweenLevelsBG.png");
-    this->loadImage("PlayingToLevelSelectButton", "PlayingToLevelSelectButton.png");
-    this->loadImage("ReturnHomeButton", "ReturnHomeButton.png");
-    this->loadImage("Chair1", "Chair1.png");
-    this->loadImage("Chair2", "Chair2.png");
-    this->loadImage("Chair3", "Chair3.png");
-    this->loadImage("Chair4", "Chair4.png");
-    this->loadImage("Chair5", "Chair5.png");
-    this->loadImage("Chair6", "Chair6.png");
-    this->loadImage("Chair7", "Chair7.png");
-    this->loadImage("Chair8", "Chair8.png");
-    this->loadImage("Chair9", "Chair9.png");
-    this->loadImage("Chair10", "Chair10.png");
-    this->loadImage("Chair11", "Chair11.png");
-    this->loadImage("ResetLevelButton", "ResetLevelButton.png");
-    this->loadImage("HelpStateBG", "HelpStateBG.png");
-    this->loadImage("HelpButton", "HelpButton.png");
+// Constructor
+ResourceManager::ResourceManager() {
+    loadResource<sf::Texture>(m_textures, "PlayButton", "PlayButton.png");
+    loadResource<sf::Texture>(m_textures, "SandboxButton", "Sandbox.png");
+    loadResource<sf::Texture>(m_textures, "MainWindowBG", "MainWindowBG.png");
+    loadResource<sf::Texture>(m_textures, "LevelSelectionBg", "LevelSelectionBg.png");
+    loadResource<sf::Texture>(m_textures, "Candy", "Candy.png");
+    loadResource<sf::Texture>(m_textures, "Star", "Star.png");
+    loadResource<sf::Texture>(m_textures, "RedHat", "RedHat.png");
+    loadResource<sf::Texture>(m_textures, "Bubble", "Bubble.png");
+    loadResource<sf::Texture>(m_textures, "Omnom", "Omnom.png");
+    loadResource<sf::Texture>(m_textures, "HorizonalLongSpikes", "HorizonalLongSpikes.png"); // TODO change name
+    loadResource<sf::Texture>(m_textures, "HorizonalShortSpikes", "HorizonalShortSpikes.png");
+    loadResource<sf::Texture>(m_textures, "HorizonalMediumSpikes", "HorizonalMediumSpikes.png");
+    loadResource<sf::Texture>(m_textures, "AirPillow", "AirPillow.png");
+    loadResource<sf::Texture>(m_textures, "Hook", "Hook.png");
+    loadResource<sf::Texture>(m_textures, "Rope", "RopeSegment.png");
+    loadResource<sf::Texture>(m_textures, "Air", "Air.png");
+    loadResource<sf::Texture>(m_textures, "betweenLevelBG", "betweenLevelBG.png");
+    loadResource<sf::Texture>(m_textures, "ReplayButton", "ReplayButton.png");
+    loadResource<sf::Texture>(m_textures, "ReturnToLevelsButton", "ReturnToLevelsButton.png");
+    loadResource<sf::Texture>(m_textures, "NextLevelButton", "NextLevelButton.png");
+    loadResource<sf::Texture>(m_textures, "GravityButton", "GravityButton.png");
+    loadResource<sf::Texture>(m_textures, "LockedLevel", "Locked.png");
+    loadResource<sf::Texture>(m_textures, "0Stars", "ZeroStarsLevel.png");
+    loadResource<sf::Texture>(m_textures, "1Stars", "OneStarLevel.png");
+    loadResource<sf::Texture>(m_textures, "2Stars", "TwoStarsLevel.png");
+    loadResource<sf::Texture>(m_textures, "3Stars", "ThreeStarsLevel.png");
+    loadResource<sf::Texture>(m_textures, "LevelBackground1", "LevelBackground1.png");
+    loadResource<sf::Texture>(m_textures, "LevelBackground2", "LevelBackground2.png");
+    loadResource<sf::Texture>(m_textures, "LevelBackground3", "LevelBackground3.png");
+    loadResource<sf::Texture>(m_textures, "LevelBackground4", "LevelBackground4.png");
+    loadResource<sf::Texture>(m_textures, "LevelBackground5", "LevelBackground5.png");
+    loadResource<sf::Texture>(m_textures, "WinBG", "WinBG.png");
+    loadResource<sf::Texture>(m_textures, "ReturnButton", "ReturnButton.png");
+    loadResource<sf::Texture>(m_textures, "BetweenLevelsBG", "BetweenLevelsBG.png");
+    loadResource<sf::Texture>(m_textures, "PlayingToLevelSelectButton", "PlayingToLevelSelectButton.png");
+    loadResource<sf::Texture>(m_textures, "ReturnHomeButton", "ReturnHomeButton.png");
+
+    loadResource<sf::Texture>(m_textures, "Chair1", "Chair1.png");
+    loadResource<sf::Texture>(m_textures, "Chair2", "Chair2.png");
+    loadResource<sf::Texture>(m_textures, "Chair3", "Chair3.png");
+    loadResource<sf::Texture>(m_textures, "Chair4", "Chair4.png");
+    loadResource<sf::Texture>(m_textures, "Chair5", "Chair5.png");
+    loadResource<sf::Texture>(m_textures, "Chair6", "Chair6.png");
+    loadResource<sf::Texture>(m_textures, "Chair7", "Chair7.png");
+    loadResource<sf::Texture>(m_textures, "Chair8", "Chair8.png");
+    loadResource<sf::Texture>(m_textures, "Chair9", "Chair9.png");
+    loadResource<sf::Texture>(m_textures, "Chair10", "Chair10.png");
+    loadResource<sf::Texture>(m_textures, "Chair11", "Chair11.png");
+    loadResource<sf::Texture>(m_textures, "ResetLevelButton", "ResetLevelButton.png");
+    loadResource<sf::Texture>(m_textures, "HelpStateBG", "HelpStateBG.png");
+    loadResource<sf::Texture>(m_textures, "HelpButton", "HelpButton.png");
+
+    loadResource<sf::Font>(m_fonts, "GoodDog", "GOODDC__.TTF");
+
 
     this->loadAnimations();
 
-
-
-
 }
-//=============================================================
-ResourceManager& ResourceManager::getInstance()
-{
+
+ResourceManager& ResourceManager::getInstance() {
     static ResourceManager instance;
     return instance;
-
 }
-//=============================================================
-// Method to load an image from file
-void ResourceManager::loadImage(const std::string& name, const std::string& filename)
-{
-    sf::Texture texture;
 
-    texture.loadFromFile(filename);   // Exception handling needed
-    textures[name] = std::move(texture);
+template <typename Resource>
+void ResourceManager::loadResource(std::unordered_map<std::string, Resource>& resourceMap, 
+                                    const std::string& name, const std::string& filename) {
+    Resource resource;
 
-
+    resource.loadFromFile(filename);
+    resourceMap[name] = std::move(resource);
 }
-//=============================================================
-// Method to get a reference to a loaded image
-const sf::Texture& ResourceManager::getImage(const std::string& name) const
-{
-    return textures.at(name);
+
+const sf::Texture& ResourceManager::getImage(const std::string& name) const {
+    return m_textures.at(name);
+}
+
+const sf::Font& ResourceManager::getFont(const std::string& name) const {
+    return m_fonts.at(name);
 }
 
 const ListOfFrames& ResourceManager::getAnimation(const std::string& name) const

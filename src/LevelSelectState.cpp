@@ -16,6 +16,11 @@ void LevelSelectState::draw(sf::RenderWindow& window)
 	window.draw(this->m_bgImage);
 	this->m_levelButtons.draw(window);
 	this->m_options.draw(window);
+
+	for (const auto& text : m_textLevelSelect)
+	{
+		window.draw(text);
+	}
 }
 
 void LevelSelectState::handleClicks(const sf::Vector2f& mousePos)
@@ -59,6 +64,7 @@ void LevelSelectState::addButtons(Controller &controller)
 	int levelNum = 1;
 	auto position = FIRST_BUTTON_POSITION;
 	const int buttonsPerRow = ROW_NUM_OF_LEVELS;  // Number of buttons per row
+	const sf::Font& font = ResourceManager::getInstance().getFont("GoodDog");
 
 	while (std::getline(levelPlaylist, line))
 	{
@@ -73,6 +79,14 @@ void LevelSelectState::addButtons(Controller &controller)
 			std::make_unique<PlayLevel>(controller, controller.getPlayingState(), levelFileName, levelNum)
 		));
 
+		sf::Text text;
+		text.setFont(font);
+		text.setString(std::to_string(levelNum));
+		text.setCharacterSize(80);
+		text.setFillColor(sf::Color::White);
+		text.setPosition(position.x - LEVEL_BUTTON_FONT_SHIFT_X,position.y - LEVEL_BUTTON_FONT_SHIFT_Y);
+
+		m_textLevelSelect.push_back(text);
 		// Update the position for the next button
 		levelNum++;
 		position.x += LEVEL_BUTTON_SHIFT_X;
@@ -85,13 +99,6 @@ void LevelSelectState::addButtons(Controller &controller)
 	}
 }
 
-void LevelSelectState::addLevelButtons()
-{
-	
-	ResourceManager& manager = ResourceManager::getInstance();
-
-	
-}
 void LevelSelectState::setLevelButtonImg(int stars, int levelNum)
 {
 	auto& resourceManager = ResourceManager::getInstance();

@@ -21,7 +21,9 @@ LEVEL_SELECT_ROWS_LEVELS = 1,
 MAX_LEVELS_ROW_LEVEL_SELECT = 10;
 
 // Object Sizes
-const sf::Vector2f AIR_PILLOW_SIZE = { 119 , 127 }, OMNOM_SIZE = { 130 ,146 };
+const sf::Vector2f AIR_PILLOW_SIZE = { 119 , 127 },
+                    OMNOM_SIZE = { 130 ,146 },
+                    BUBBLE_SIZE = { 110, 96 };
 
 
 const sf::Vector2f MENU_BUTTON_DEFA_SIZE = { 1.0f, 1.0f },
@@ -67,7 +69,3 @@ BUBBLE_FORCE(0.0f, 150.0f);
 
 
 const enum levelStatus_t { Won, OnGoing, Lost };
-
-enum class AnimationType {
-    OmnomEating
-};

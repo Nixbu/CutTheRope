@@ -93,7 +93,7 @@ void ResourceManager::loadAnimations()
 {
     this->loadAnimation("AirPillow", 160, 6);
     this->loadAnimation("Omnom", 102, 34);
-    this->loadAnimation("Bubble", 99, 14);
+    this->loadAnimation("Bubble", 120, 14);
 
 }
 

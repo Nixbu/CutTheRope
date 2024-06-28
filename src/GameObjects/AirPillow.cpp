@@ -4,7 +4,9 @@ AirPillow::AirPillow(const Data& ObjectData,
 	World& world, const sf::Texture& texture) : 
     ClickableObject(ObjectData, texture),
     m_data(ObjectData), m_world(world), 
-    m_animation(ResourceManager::getInstance().getAnimation(ObjectData.m_type), this->getSprite())
+    m_animation(ResourceManager::getInstance().getAnimation(ObjectData.m_type), \
+                this->getSprite(),
+                   false)
 {
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;

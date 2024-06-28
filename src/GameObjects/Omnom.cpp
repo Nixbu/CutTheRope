@@ -2,7 +2,9 @@
 
 Omnom::Omnom(const Data& ObjectData, World& world, const sf::Texture& texture) : 
     NonClickableObject(ObjectData, texture) ,
-    m_animation(ResourceManager::getInstance().getAnimation(ObjectData.m_type), this->getSprite()) // TODO if have more need to change
+    m_animation(ResourceManager::getInstance().getAnimation(ObjectData.m_type), 
+        this->getSprite(),
+        false) // TODO if have more need to change
 {
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;

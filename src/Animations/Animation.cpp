@@ -3,15 +3,15 @@
 
 const auto AnimationTime = sf::seconds(0.08f);
 
-Animation::Animation(const ListOfFrames& data, sf::Sprite& sprite)
-    : m_data(data), m_sprite(sprite), m_animationFlag(false)
+Animation::Animation(const ListOfFrames& data, sf::Sprite& sprite, bool looping)
+    : m_data(data), m_sprite(sprite), m_showAnimation(false), m_looping(looping)
 {
     update();
 }
 
 void Animation::update(sf::Time delta)
 {
-    if(m_animationFlag)
+    if(m_showAnimation)
     {
         m_elapsed += delta;
         if (m_elapsed >= AnimationTime)
@@ -20,8 +20,12 @@ void Animation::update(sf::Time delta)
             ++m_index;
             if (m_index == m_data.size())
             {
-                m_animationFlag = false;
+                if(!m_looping)
+                {
+                    m_showAnimation = false;
+                }
                 m_index = 0;
+
             }
             update();
         }
@@ -32,7 +36,7 @@ void Animation::update(sf::Time delta)
 
 void Animation::setAnimationFlag(const bool& flag)
 {
-    this->m_animationFlag = flag;
+    this->m_showAnimation = flag;
 }
 
 void Animation::update()

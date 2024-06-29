@@ -94,7 +94,9 @@ configure_file ("GOODDC__.TTF" ${CMAKE_BINARY_DIR} COPYONLY)
 
 configure_file ("Icon.png" ${CMAKE_BINARY_DIR} COPYONLY)
 
+# Sounds
 
+configure_file ("BubbleBreak.wav" ${CMAKE_BINARY_DIR} COPYONLY)
 
 
 

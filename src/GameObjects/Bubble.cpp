@@ -62,7 +62,12 @@ void Bubble::update(sf::Time& deltaTime)
 
 void Bubble::handleClicked()
 {
-    if (this->getBody()->GetType() == b2_dynamicBody) {
+    if (this->getBody()->GetType() == b2_dynamicBody) 
+    {
+       /* sf::Sound sound;
+        const sf::SoundBuffer& buffer = ResourceManager::getInstance().getSound("BubbleBreak");
+        sound.setBuffer(buffer);
+        sound.play();*/
         this->setDelete();      
     }
 }

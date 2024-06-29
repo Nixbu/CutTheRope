@@ -57,6 +57,7 @@ ResourceManager::ResourceManager() {
 
     loadResource<sf::Font>(m_fonts, "GoodDog", "GOODDC__.TTF");
 
+    loadSound("BubbleBreak", "BubbleBreak.wav");
 
     this->loadAnimations();
 
@@ -82,6 +83,19 @@ const sf::Texture& ResourceManager::getImage(const std::string& name) const {
 
 const sf::Font& ResourceManager::getFont(const std::string& name) const {
     return m_fonts.at(name);
+}
+
+const sf::Sound& ResourceManager::getSound(const std::string& name) const {
+    return m_sounds.at(name);
+}
+
+void ResourceManager::loadSound(const std::string& name, const std::string& filename) {
+    auto buffer = std::make_unique<sf::SoundBuffer>();
+    m_soundBuffers[name] = std::move(buffer);
+
+    sf::Sound sound;
+    sound.setBuffer(*m_soundBuffers[name]);
+    m_sounds[name] = std::move(sound);
 }
 
 const ListOfFrames& ResourceManager::getAnimation(const std::string& name) const

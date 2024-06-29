@@ -57,6 +57,8 @@ ResourceManager::ResourceManager() {
 
     loadResource<sf::Font>(m_fonts, "GoodDog", "GOODDC__.TTF");
 
+    loadResource< std::unique_ptr<sf::Sound>>(m_sounds, "BubbleBreak", "BubbleBreak.ogg");
+
     this->loadAnimations();
 
 }
@@ -64,15 +66,6 @@ ResourceManager::ResourceManager() {
 ResourceManager& ResourceManager::getInstance() {
     static ResourceManager instance;
     return instance;
-}
-
-template <typename Resource>
-void ResourceManager::loadResource(std::unordered_map<std::string, Resource>& resourceMap, 
-                                    const std::string& name, const std::string& filename) {
-    Resource resource;
-
-    resource.loadFromFile(filename);
-    resourceMap[name] = std::move(resource);
 }
 
 const sf::Texture& ResourceManager::getImage(const std::string& name) const {
@@ -112,4 +105,35 @@ void ResourceManager::loadAnimation(const std::string& type, int pageGap, int fr
         currPos.y += pageGap;
     }
 
+}
+void ResourceManager::playSound(const std::string& soundName)
+{
+    this->m_sounds.at(soundName)->play();
+}
+template <typename Resource>
+void ResourceManager::loadResource(std::unordered_map<std::string, Resource>& resourceMap,
+    const std::string& name, const std::string& filename)
+{
+    Resource resource;
+
+    resource.loadFromFile(filename);
+    resourceMap[name] = std::move(resource);
+}
+
+template <>
+void ResourceManager::loadResource(std::unordered_map<std::string, std::unique_ptr<sf::Sound>>& resourceMap,
+    const std::string& name, const std::string& filename) {
+    sf::SoundBuffer buffer;
+    if (!buffer.loadFromFile(filename)) {
+        throw std::runtime_error("Failed to load sound buffer from " + filename);
+    }
+
+    // Create a unique_ptr and allocate an sf::Sound object
+    std::unique_ptr<sf::Sound> sound = std::make_unique<sf::Sound>();
+    sound->setBuffer(buffer);
+    // Optionally, set other properties like volume if needed
+    sound->setVolume(100);
+
+    // Move the unique_ptr into the resourceMap
+    resourceMap[name] = std::move(sound);
 }

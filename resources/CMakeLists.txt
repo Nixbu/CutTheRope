@@ -89,6 +89,7 @@ configure_file ("LevelFiles/Level1.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("LevelFiles/Level2.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("LevelFiles/Level3.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 
+configure_file ("LevelFiles/Level5.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 
 # Fonts
 

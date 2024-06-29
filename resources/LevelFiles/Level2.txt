@@ -1,12 +1,14 @@
 1
 Candy Candy 400 200 0
-Rope Rope longRope 600 30 0 
-Rope Rope mediumRope Rope 200 30 0
-Rope Rope shortRope 200 350 0
-Rope Rope longRope 600 250 0
-Rope Rope mediumRope 600 350 0
+Rope Rope shortRope 600 30 0 
+Rope Rope mediumRope 200 30 0
+Rope Rope mediumRope 200 350 0
+Rope Rope shortRope 600 250 0
+Rope Rope mediumRope 600 450 0
 Omnom Omnom 750 750
-Star Star 600 275 0
-Star Star 610 400 0
-Star Star 675 700 0
-Spikes HorizonalShortSpikes 750 650 0
+Star Star 600 325 0
+Star Star 600 600 0
+Star Star 400 700 0
+Spikes HorizonalShortSpikes 750 600 0
+Spikes HorizonalShortSpikes 400 450 90
+Chair Chair6 150 230 0

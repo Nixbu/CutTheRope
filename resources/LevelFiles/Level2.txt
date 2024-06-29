@@ -1,4 +1,4 @@
-1
+2
 Candy Candy 400 200 0
 Rope Rope longRope 600 30 0 
 Rope Rope mediumRope Rope 200 30 0

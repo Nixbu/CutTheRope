@@ -23,7 +23,7 @@ public:
     void loadAnimations();
     void loadAnimation(const std::string& type, int pageGap, int framesCount);
     const sf::Font& getFont(const std::string& name) const;
-    const sf::Sound& getSound(const std::string& name) const;
+   
 
 
 
@@ -33,13 +33,10 @@ private:
     template <typename Resource>
     void loadResource(std::unordered_map<std::string, Resource>& resourceMap, const std::string& name, 
                       const std::string& filename);
-    void loadSound(const std::string& name, const std::string& filename);
 
     std::unordered_map<std::string, sf::Texture> m_textures;
     std::unordered_map<std::string, sf::Font> m_fonts;
     std::unordered_map<std::string, ListOfFrames> m_animations;
-    std::unordered_map<std::string, sf::Sound> m_sounds;
-    std::unordered_map<std::string, std::unique_ptr<sf::SoundBuffer>> m_soundBuffers;
 };
 
 

@@ -87,6 +87,7 @@ bool Rope::isClicked(const std::pair<sf::Vector2f, sf::Vector2f>& mousePos)
     {
         if (segment->isClicked(mousePos)) 
         {
+            ResourceManager::getInstance().playSound("RopeCut");
             return true;
         }
     }

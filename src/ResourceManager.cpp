@@ -58,9 +58,18 @@ ResourceManager::ResourceManager() {
     loadResource<sf::Font>(m_fonts, "GoodDog", "GOODDC__.TTF");
 
     loadResource< std::shared_ptr<sf::Sound>>(m_sounds, "BubbleBreak", "BubbleBreak.ogg");
-
+    loadResource< std::shared_ptr<sf::Sound>>(m_sounds, "CandyBreak", "CandyBreak.ogg");
+    loadResource< std::shared_ptr<sf::Sound>>(m_sounds, "CandyToBubble", "CandyToBubble.ogg");
+    loadResource< std::shared_ptr<sf::Sound>>(m_sounds, "GhostPuff", "GhostPuff.ogg");
+    loadResource< std::shared_ptr<sf::Sound>>(m_sounds, "MonsterChewing", "MonsterChewing.ogg");
+    loadResource< std::shared_ptr<sf::Sound>>(m_sounds, "GravityOn", "GravityOn.ogg");
+    loadResource< std::shared_ptr<sf::Sound>>(m_sounds, "GravityOff", "GravityOff.ogg");
+    loadResource< std::shared_ptr<sf::Sound>>(m_sounds, "Teleport", "Teleport.ogg");
+    loadResource< std::shared_ptr<sf::Sound>>(m_sounds, "RopeCut", "RopeCut.ogg");
+    loadResource< std::shared_ptr<sf::Sound>>(m_sounds, "Star", "Star.ogg");
+    loadResource< std::shared_ptr<sf::Sound>>(m_sounds,"Win","Win.ogg");
+   
     this->loadAnimations();
-
 }
 
 ResourceManager& ResourceManager::getInstance() {

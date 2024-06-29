@@ -11,6 +11,7 @@ ResourceManager::ResourceManager() {
     loadResource<sf::Texture>(m_textures, "Star", "Star.png");
     loadResource<sf::Texture>(m_textures, "RedHat", "RedHat.png");
     loadResource<sf::Texture>(m_textures, "GreenHat", "GreenHat.png");
+    loadResource<sf::Texture>(m_textures, "BlueHat", "BlueHat.png");
     loadResource<sf::Texture>(m_textures, "Bubble", "BubbleFloatingAnimation.png");
     loadResource<sf::Texture>(m_textures, "Omnom", "EatingAnimation.png");
     loadResource<sf::Texture>(m_textures, "HorizonalLongSpikes", "HorizonalLongSpikes.png");

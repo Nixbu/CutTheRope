@@ -49,7 +49,6 @@ void PlayingState::update()
 				}
 				// Another Level
 				else {
-					this->m_controller.getLevelSelectionState()->setLevelButtonImg(0, this->m_levelNum + 1);
 					this->changeToInterstital();
 				}
 				break;

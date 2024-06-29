@@ -57,7 +57,7 @@ ResourceManager::ResourceManager() {
 
     loadResource<sf::Font>(m_fonts, "GoodDog", "GOODDC__.TTF");
 
-    loadResource< std::unique_ptr<sf::Sound>>(m_sounds, "BubbleBreak", "BubbleBreak.ogg");
+    loadResource< std::shared_ptr<sf::Sound>>(m_sounds, "BubbleBreak", "BubbleBreak.ogg");
 
     this->loadAnimations();
 
@@ -121,19 +121,20 @@ void ResourceManager::loadResource(std::unordered_map<std::string, Resource>& re
 }
 
 template <>
-void ResourceManager::loadResource(std::unordered_map<std::string, std::unique_ptr<sf::Sound>>& resourceMap,
+void ResourceManager::loadResource(std::unordered_map<std::string, std::shared_ptr<sf::Sound>>& resourceMap,
     const std::string& name, const std::string& filename) {
     sf::SoundBuffer buffer;
     if (!buffer.loadFromFile(filename)) {
         throw std::runtime_error("Failed to load sound buffer from " + filename);
     }
 
+    m_soundBuffers[name] = buffer;
     // Create a unique_ptr and allocate an sf::Sound object
-    std::unique_ptr<sf::Sound> sound = std::make_unique<sf::Sound>();
-    sound->setBuffer(buffer);
+    std::shared_ptr<sf::Sound> sound = std::make_unique<sf::Sound>();
+    sound->setBuffer(m_soundBuffers[name]);
     // Optionally, set other properties like volume if needed
     sound->setVolume(100);
 
     // Move the unique_ptr into the resourceMap
-    resourceMap[name] = std::move(sound);
+    resourceMap[name] = sound;
 }

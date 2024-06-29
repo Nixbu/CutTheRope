@@ -1,9 +1,8 @@
 #include "GameObjects/Candy.h"
 
 Candy::Candy(const Data& ObjectData, World& world, const sf::Texture& texture) : 
-    NonClickableObject(ObjectData,texture){
-
-    //TODO CHANGE SETTINGS IF NEEDED
+    NonClickableObject(ObjectData,texture)
+{
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
 

@@ -75,10 +75,6 @@ void PlayingState::setLevel(const std::string& levelName)
 	m_level.setLevelName(levelName);
 	m_level.loadLevel();
 
-
-	// TODO think about the reset level button,
-	// return state of level but how?
-
 }
 
 void PlayingState::addButtons()

@@ -29,11 +29,10 @@ void World::addObject(std::string& line)
 			}
 			this->m_gameObjects.push_back(object);
 		}
-		//	else
-		//	{
-		//		throw ObjectNotFoundException; //TODO
-		//	}
-		//}
+		else
+		{
+			throw std::runtime_error("Error: Cannot add object");
+		}
 
 	}
 	catch(const std::runtime_error& e)
@@ -66,8 +65,7 @@ void World::reset()
 void World::update(float timeStep, sf::Time& deltaTime)
 {
 	int32 velocityIterations = 6;
-	int32 positionIterations = 2; // TODO change to constants
-
+	int32 positionIterations = 2; 
 	// Step the physics world
 	m_physicalWorld.Step(timeStep, velocityIterations, positionIterations);
 

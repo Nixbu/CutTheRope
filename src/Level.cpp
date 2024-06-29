@@ -9,8 +9,13 @@ void Level::loadLevel()
 {
 	
 	this->m_world.reset();
-	// TODO add try catch
+	
 	m_levelFile.open(m_levelName);
+
+	if (!m_levelFile)
+	{
+		throw std::runtime_error("Error: File Not Found");
+	}
 
 	this->readLevel();
 

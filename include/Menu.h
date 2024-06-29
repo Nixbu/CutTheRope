@@ -2,6 +2,7 @@
 
 #include "Button.h"
 #include <memory>
+#include <iostream>
 
 /**
  * Represents a menu containing buttons for user interaction.

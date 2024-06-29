@@ -14,7 +14,7 @@ public:
 	AirPillow(const Data& ObjectData, World& world, const sf::Texture& texture);
 	virtual ~AirPillow() = default;
 	virtual void handleClicked() override;
-	virtual void update(sf::Time& deltaTime) override; // TODO animations
+	virtual void update(sf::Time& deltaTime) override; 
 
 
 private:

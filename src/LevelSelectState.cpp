@@ -43,17 +43,12 @@ void LevelSelectState::addButtons(Controller &controller)
 {
 	ResourceManager& manager = ResourceManager::getInstance();
 
-	// Add level buttons
-
 	// MainState button
 	this->m_options.addButton(std::make_unique<Button>(sf::Vector2f(100, 100), manager.getImage("ReturnButton"),
 		MENU_BUTTON_DEFA_SIZE, 
-		std::make_unique<ChangeScreen>(controller, controller.getMainState()))); // TODO change button
+		std::make_unique<ChangeScreen>(controller, controller.getMainState())));
 
 	// TODO Add option buttons like Silence game etc
-	/*this->m_options.addButton(std::make_unique<Button>(sf::Vector2f(?, ?), manager.getImage("SilenceButton"),
-		size?,
-		std::make_unique<SilenceGame>(parmeters needed?)));*/
 
 
 	// Add level buttons

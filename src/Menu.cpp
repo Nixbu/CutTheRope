@@ -26,31 +26,21 @@ void Menu::draw(sf::RenderWindow& window) const
 //======================================================
 void Menu::handleClicks(const sf::Vector2f& mousePos) const
 {
-	for (const auto& btn : m_buttons)
+	try
 	{
-		if (btn->isClicked(mousePos))
+		for (const auto& btn : m_buttons)
 		{
-			btn->action();
-			break;
-			
+			if (btn->isClicked(mousePos))
+			{
+				btn->action();
+				break;
+
+			}
 		}
-	}
-
-	/*catch (const FileException& e) { TODO
-
-		std::cerr << "File error: " << e.what() << std::endl;
-	}
-	catch (const WrongInputException& e) {
-		std::cerr << "File format error: " << e.what() << std::endl;
-	}
-	catch (const TimeException& e) {
-		std::cerr << "Time error: " << e.what() << std::endl;
 	}
 	catch (const std::exception& e) {
 		std::cerr << e.what() << std::endl;
-	}*/
-	//TODO exceptions if needed
-
+	}
 }
 
 //======================================================

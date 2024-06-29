@@ -7,8 +7,6 @@ Bubble::Bubble(const Data& ObjectData, World& world, const sf::Texture& texture)
         this->getSprite(),
         true)
 {
-
-    //TODO CHANGE SETTINGS IF NEEDED
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
 

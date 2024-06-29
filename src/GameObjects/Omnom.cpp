@@ -16,7 +16,7 @@ Omnom::Omnom(const Data& ObjectData, World& world, const sf::Texture& texture) :
     b2PolygonShape polygonShape;
     float width = texture.getSize().x / SCALE;
     float height = texture.getSize().y / SCALE;
-    polygonShape.SetAsBox(width / SCALE, height / SCALE);
+    polygonShape.SetAsBox(0.5, 0.5);
 
     fixtureDef.shape = &polygonShape;
     fixtureDef.density = 1.0f;

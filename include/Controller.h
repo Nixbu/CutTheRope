@@ -31,8 +31,10 @@ private:
 	std::shared_ptr<LevelSelectState> m_levelSelectState;
 	std::shared_ptr<HelpState> m_helpState;
 	std::shared_ptr<PlayingState> m_playingState;
-	//std::shared_ptr<CompletedLevelState> m_completedLevelState;
+	sf::Image m_windowIconImage;
 
 	void handleInput(sf::RenderWindow& window);
 	void render(sf::RenderWindow& window);
+
+
 };

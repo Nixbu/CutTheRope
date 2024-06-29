@@ -15,6 +15,9 @@ Controller::Controller()
 	this->m_helpState->addButtons(*this);
 
 	m_currentState = m_mainState;
+
+	auto& iconTexture = ResourceManager::getInstance().getImage("Icon");
+	m_windowIconImage = iconTexture.copyToImage();
 }
 
 
@@ -23,6 +26,8 @@ void Controller::run() {
 	sf::RenderWindow window(sf::VideoMode(WINDOW_MANAGER_WIDTH,
 		WINDOW_MANAGER_HEIGHT),
 		"Cut The Rope");
+
+	window.setIcon(m_windowIconImage.getSize().x, m_windowIconImage.getSize().y, m_windowIconImage.getPixelsPtr());
 
 	window.setFramerateLimit(60);
 	while (window.isOpen())

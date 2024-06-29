@@ -56,6 +56,9 @@ ResourceManager::ResourceManager() {
     loadResource<sf::Texture>(m_textures, "HelpStateBG", "HelpStateBG.png");
     loadResource<sf::Texture>(m_textures, "HelpButton", "HelpButton.png");
 
+    loadResource<sf::Texture>(m_textures, "Icon", "Icon.png");
+
+
     loadResource<sf::Font>(m_fonts, "GoodDog", "GOODDC__.TTF");
 
 

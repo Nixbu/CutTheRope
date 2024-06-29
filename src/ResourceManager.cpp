@@ -69,6 +69,8 @@ ResourceManager::ResourceManager() {
     loadResource< std::shared_ptr<sf::Sound>>(m_sounds, "Star", "Star.ogg");
     loadResource< std::shared_ptr<sf::Sound>>(m_sounds,"Win","Win.ogg");
    
+
+    loadResource< std::shared_ptr<sf::Music>>(m_musics, "CutTheRope", "CutTheRope.mp3");
     this->loadAnimations();
 }
 
@@ -147,3 +149,18 @@ void ResourceManager::loadResource(std::unordered_map<std::string, std::shared_p
     // Move the unique_ptr into the resourceMap
     resourceMap[name] = sound;
 }
+template <>
+void ResourceManager::loadResource(std::unordered_map<std::string, std::shared_ptr<sf::Music>>& resourceMap,
+    const std::string& name, const std::string& filename) {
+    std::shared_ptr<sf::Music> music = std::make_shared<sf::Music>();
+    if (!music->openFromFile(filename)) 
+    {
+        throw std::runtime_error("Failed to load music from " + filename);
+    }
+    resourceMap[name] = music;
+}
+void ResourceManager::playMusic(const std::string& musicName)
+{
+    this->m_musics.at(musicName)->play();
+}
+    

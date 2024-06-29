@@ -107,4 +107,7 @@ configure_file ("Sounds/Star.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("Sounds/Teleport.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("Sounds/Win.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 
+# Music
+configure_file ("Musics/CutTheRope.mp3" ${CMAKE_BINARY_DIR} COPYONLY)
+
 

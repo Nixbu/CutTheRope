@@ -124,7 +124,7 @@ void ResourceManager::loadAnimations()
 void ResourceManager::loadAnimation(const std::string& type, int pageGap, int framesCount)
 {
 
-    auto texture = this->getImage(type);
+    auto& texture = this->getImage(type);
     auto width = static_cast<int>(texture.getSize().x);
 
     sf::Vector2i currPos = { 0 , 0 },

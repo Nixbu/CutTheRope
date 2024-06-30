@@ -95,13 +95,13 @@ void World::handleCollisions()
 	{
 		if (this->m_candy)
 		{
-			if (this->checkCollision(m_candy, m_gameObjects[index1]))
+			if (this->checkCollision(*m_candy, *m_gameObjects[index1]))
 			{
 				auto collisionsFunc = lookup(typeid(*m_candy), typeid(*m_gameObjects[index1]));
 
 				if (collisionsFunc != nullptr)
 				{
-					collisionsFunc(m_candy, m_gameObjects[index1], *this);
+					collisionsFunc(*m_candy, *m_gameObjects[index1], *this);
 				}
 
 			}
@@ -113,13 +113,15 @@ void World::handleClicks(const std::pair<sf::Vector2f, sf::Vector2f>& mousePos)
 {
 	for (auto& object : this->m_gameObjects)
 	{
-		auto clickable = std::dynamic_pointer_cast<ClickableObject>(object);
-		if(clickable)
-		{
-			if (clickable->isClicked(mousePos))
+		try {
+			auto& clickable = dynamic_cast<ClickableObject&>(*object);
+			if (clickable.isClicked(mousePos))
 			{
-				clickable->handleClicked();
+				clickable.handleClicked();
 			}
+		}
+		catch (const std::bad_cast& e) {
+			// Handle the case where the cast fails, if needed
 		}
 	}
 
@@ -131,7 +133,7 @@ b2World& World::getWorld()
 	return this->m_physicalWorld;
 }
 //======================================================================
-std::unique_ptr<GameObject> World::getCandy()const
+std::unique_ptr<GameObject>& World::getCandy()
 {
 	return this->m_candy;
 }
@@ -185,10 +187,10 @@ double World::getTime() const
 //======================================================================
 // Checks if two game objects are colliding.
 //======================================================================
-bool World::checkCollision(std::unique_ptr<GameObject> object1, std::unique_ptr<GameObject> object2)
+bool World::checkCollision(GameObject& object1, GameObject& object2)
 {
-	b2Body* bodyA = object1->getBody();
-	b2Body* bodyB = object2->getBody();
+	b2Body* bodyA = object1.getBody();
+	b2Body* bodyB = object2.getBody();
 
 	if (bodyA && bodyB)
 	{

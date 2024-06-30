@@ -30,8 +30,8 @@ public:
 	void handleCollisions();
 	void handleClicks(const std::pair<sf::Vector2f, sf::Vector2f>& mousePos);
 	b2World& getWorld();
-	std::unique_ptr<GameObject> getCandy() const;
-	void setLevelStatus(const levelStatus_t& status );
+	std::unique_ptr<GameObject>& getCandy();
+	void setLevelStatus(const levelStatus_t& status);
 	void addStar();
 	void resetGravity();
 	int getStars()const;
@@ -49,8 +49,7 @@ private:
 	sf::Clock m_clock;
 	std::unique_ptr<GameObject> m_candy;
 
-	bool checkCollision(std::unique_ptr<GameObject> object1,
-		std::unique_ptr<GameObject> object2);
+	bool checkCollision(GameObject& object1, GameObject& object2);
 	bool isContactBetween(b2Body* body1, b2Body* body2, b2Body* checkBodyA, b2Body* checkBodyB);
 	void deleteWantedObjects();
 	void validCandyPos();

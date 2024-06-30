@@ -12,6 +12,7 @@
 #include "GameObjects/Spikes.h"
 #include "World.h"
 #include "GameObjects/DoubleHat.h"
+#include <memory>
 
 /*
    The CollisionHandler manages collision functions between different types of GameObjects.

@@ -1,11 +1,15 @@
 #include "Menu.h"
 
-
+//======================================================
+// Default constructor for Menu class.
 Menu::Menu()
 {
 }
 
-
+//======================================================
+// Adds a button to the menu.
+// Parameters:
+// - button: A unique pointer to a Button object to be added.
 void Menu::addButton(std::unique_ptr<Button>&& button)
 
 {
@@ -13,6 +17,7 @@ void Menu::addButton(std::unique_ptr<Button>&& button)
 }
 
 //======================================================
+// Draws all buttons in the menu on the provided window.
 void Menu::draw(sf::RenderWindow& window) const
 {
 
@@ -24,26 +29,21 @@ void Menu::draw(sf::RenderWindow& window) const
 }
 
 //======================================================
+// Handles mouse clicks on buttons within the menu.
 void Menu::handleClicks(const sf::Vector2f& mousePos) const
 {
-	try
+	for (const auto& btn : m_buttons)
 	{
-		for (const auto& btn : m_buttons)
+		if (btn->isClicked(mousePos))
 		{
-			if (btn->isClicked(mousePos))
-			{
-				btn->action();
-				break;
+			btn->action();
+			break;
 
-			}
 		}
 	}
-	catch (const std::exception& e) {
-		std::cerr << e.what() << std::endl;
-	}
 }
-
 //======================================================
+// Handles mouse hovering over buttons within the menu.
 void Menu::handleFloating(const sf::Vector2f& mousePos)
 {
 	for (const auto& btn : this->m_buttons)
@@ -58,12 +58,14 @@ void Menu::handleFloating(const sf::Vector2f& mousePos)
 		}
 	}
 }
-
+//======================================================
+// Changes the sprite texture of a button at a specified index.
 void Menu::changeSpriteToButton(int idx, const sf::Texture& texture)
 {
 	this->m_buttons[idx - 1]->setSprite(texture);
 }
-
+//======================================================
+// Returns the number of buttons currently in the menu.
 int Menu::getNumOfButtons() const
 {
 	return m_buttons.size();

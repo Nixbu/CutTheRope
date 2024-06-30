@@ -50,4 +50,9 @@ void InterstitalState::addButtons(Controller& controller , const int& nextLevelN
 		MENU_BUTTON_DEFA_SIZE,
 		std::make_unique<PlayLevel>(controller, controller.getPlayingState(), this->m_nextLevel, nextLevelNum)));
 
+	this->m_menu.addButton(std::make_unique<Button>(MUTE_BUTTON_POS, manager.getImage("UnmuteMusicButton"),
+		SMALL_MENU_BUTTON_DEFA_SIZE,
+		std::make_unique<MusicCommand>()));
+
+
 }

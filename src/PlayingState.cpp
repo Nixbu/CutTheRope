@@ -96,6 +96,11 @@ void PlayingState::addButtons()
 	this->m_menu.addButton(std::make_unique<Button>(sf::Vector2f(250, 70), manager.getImage("ResetLevelButton"),
 		MENU_BUTTON_DEFA_SIZE,
 		std::make_unique<ResetLevel>(this->m_controller.getPlayingState())));
+
+	// Mute button
+	this->m_menu.addButton(std::make_unique<Button>(LEVEL_MUTE_BUTTON_POS, manager.getImage("UnmuteMusicButton"),
+		SMALL_MENU_BUTTON_DEFA_SIZE,
+		std::make_unique<MusicCommand>()));
 	
 
 

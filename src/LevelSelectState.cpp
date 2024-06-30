@@ -48,7 +48,9 @@ void LevelSelectState::addButtons(Controller &controller)
 		MENU_BUTTON_DEFA_SIZE, 
 		std::make_unique<ChangeScreen>(controller, controller.getMainState())));
 
-	// TODO Add option buttons like Silence game etc
+	this->m_options.addButton(std::make_unique<Button>(MUTE_BUTTON_POS, manager.getImage("UnmuteMusicButton"),
+		SMALL_MENU_BUTTON_DEFA_SIZE,
+		std::make_unique<MusicCommand>()));
 
 
 	// Add level buttons

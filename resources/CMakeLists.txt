@@ -53,6 +53,8 @@ configure_file ("LevelBackgrounds/LevelBackground5.png" ${CMAKE_BINARY_DIR} COPY
 # Game Objects
 configure_file ("GameObjectAssets/GravityButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("GameObjectAssets/Candy.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("GameObjectAssets/DonutCandy.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("GameObjectAssets/IceCreamCandy.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("GameObjectAssets/Star.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("GameObjectAssets/RedHat.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("GameObjectAssets/GreenHat.png" ${CMAKE_BINARY_DIR} COPYONLY)

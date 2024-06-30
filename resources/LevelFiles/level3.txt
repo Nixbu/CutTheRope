@@ -1,5 +1,5 @@
 3
-Candy Candy 910 450 0
+Candy DonutCandy 910 450 0
 Rope Rope shortRope 900 400 0
 Omnom Omnom 920 250
 AirPillow AirPillow 300 450 90

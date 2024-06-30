@@ -35,19 +35,18 @@ private:
     void loadResource(std::unordered_map<std::string, Resource>& resourceMap, const std::string& name, 
                       const std::string& filename);
     template <>
-    void loadResource<std::shared_ptr<sf::Sound>>(std::unordered_map<std::string, std::shared_ptr<sf::Sound>>& resourceMap,
+    void loadResource(std::unordered_map<std::string, std::unique_ptr<sf::Sound>>& resourceMap,
         const std::string& name, const std::string& filename);
 
     template <>
-    void loadResource(std::unordered_map<std::string, std::shared_ptr<sf::Music>>& resourceMap, 
-                        const std::string& name, const std::string& filename);
+    void loadResource(std::unordered_map<std::string, std::unique_ptr<sf::Music>>& resourceMap,
+        const std::string& name, const std::string& filename);
 
     std::unordered_map<std::string, sf::Texture> m_textures;
     std::unordered_map<std::string, sf::Font> m_fonts;
     std::unordered_map<std::string, ListOfFrames> m_animations;
-    std::unordered_map<std::string, std::shared_ptr<sf::Sound>> m_sounds;
-    std::unordered_map<std::string, sf::SoundBuffer> m_soundBuffers;
-    std::unordered_map<std::string, std::shared_ptr<sf::Music>> m_musics;
+    std::unordered_map<std::string, std::unique_ptr<sf::Sound>> m_sounds;
+    std::unordered_map<std::string, std::unique_ptr<sf::Music>> m_musics;
 };
 
 

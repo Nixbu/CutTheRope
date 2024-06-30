@@ -61,20 +61,20 @@ ResourceManager::ResourceManager() {
 
     loadResource<sf::Font>(m_fonts, "GoodDog", "GOODDC__.TTF");
 
-    loadResource< std::shared_ptr<sf::Sound>>(m_sounds, "BubbleBreak", "BubbleBreak.ogg");
-    loadResource< std::shared_ptr<sf::Sound>>(m_sounds, "CandyBreak", "CandyBreak.ogg");
-    loadResource< std::shared_ptr<sf::Sound>>(m_sounds, "CandyToBubble", "CandyToBubble.ogg");
-    loadResource< std::shared_ptr<sf::Sound>>(m_sounds, "GhostPuff", "GhostPuff.ogg");
-    loadResource< std::shared_ptr<sf::Sound>>(m_sounds, "MonsterChewing", "MonsterChewing.ogg");
-    loadResource< std::shared_ptr<sf::Sound>>(m_sounds, "GravityOn", "GravityOn.ogg");
-    loadResource< std::shared_ptr<sf::Sound>>(m_sounds, "GravityOff", "GravityOff.ogg");
-    loadResource< std::shared_ptr<sf::Sound>>(m_sounds, "Teleport", "Teleport.ogg");
-    loadResource< std::shared_ptr<sf::Sound>>(m_sounds, "RopeCut", "RopeCut.ogg");
-    loadResource< std::shared_ptr<sf::Sound>>(m_sounds, "Star", "Star.ogg");
-    loadResource< std::shared_ptr<sf::Sound>>(m_sounds,"Win","Win.ogg");
+    loadResource< std::unique_ptr<sf::Sound>>(m_sounds, "BubbleBreak", "BubbleBreak.ogg");
+    loadResource< std::unique_ptr<sf::Sound>>(m_sounds, "CandyBreak", "CandyBreak.ogg");
+    loadResource< std::unique_ptr<sf::Sound>>(m_sounds, "CandyToBubble", "CandyToBubble.ogg");
+    loadResource< std::unique_ptr<sf::Sound>>(m_sounds, "GhostPuff", "GhostPuff.ogg");
+    loadResource< std::unique_ptr<sf::Sound>>(m_sounds, "MonsterChewing", "MonsterChewing.ogg");
+    loadResource< std::unique_ptr<sf::Sound>>(m_sounds, "GravityOn", "GravityOn.ogg");
+    loadResource< std::unique_ptr<sf::Sound>>(m_sounds, "GravityOff", "GravityOff.ogg");
+    loadResource< std::unique_ptr<sf::Sound>>(m_sounds, "Teleport", "Teleport.ogg");
+    loadResource< std::unique_ptr<sf::Sound>>(m_sounds, "RopeCut", "RopeCut.ogg");
+    loadResource< std::unique_ptr<sf::Sound>>(m_sounds, "Star", "Star.ogg");
+    loadResource< std::unique_ptr<sf::Sound>>(m_sounds,"Win","Win.ogg");
    
 
-    loadResource< std::shared_ptr<sf::Music>>(m_musics, "CutTheRope", "CutTheRope.mp3");
+    loadResource< std::unique_ptr<sf::Music>>(m_musics, "CutTheRope", "CutTheRope.mp3");
     this->loadAnimations();
 }
 
@@ -136,32 +136,20 @@ void ResourceManager::loadResource(std::unordered_map<std::string, Resource>& re
 }
 
 template <>
-void ResourceManager::loadResource(std::unordered_map<std::string, std::shared_ptr<sf::Sound>>& resourceMap,
+void ResourceManager::loadResource(std::unordered_map<std::string, std::unique_ptr<sf::Sound>>& resourceMap,
     const std::string& name, const std::string& filename) {
-    sf::SoundBuffer buffer;
-    if (!buffer.loadFromFile(filename)) {
-        throw std::runtime_error("Failed to load sound buffer from " + filename);
-    }
-
-    m_soundBuffers[name] = buffer;
-    // Create a unique_ptr and allocate an sf::Sound object
-    std::shared_ptr<sf::Sound> sound = std::make_unique<sf::Sound>();
-    sound->setBuffer(m_soundBuffers[name]);
-    // Optionally, set other properties like volume if needed
-    sound->setVolume(100);
-
-    // Move the unique_ptr into the resourceMap
-    resourceMap[name] = sound;
+    std::unique_ptr<sf::Sound> sound = std::make_unique<sf::Sound>();
+    sound->setBuffer(m_soundBuffers[name]); // Assuming m_soundBuffers is defined elsewhere
+    sound->setVolume(100); // Optionally set other properties
+    resourceMap[name] = std::move(sound);
 }
+
 template <>
-void ResourceManager::loadResource(std::unordered_map<std::string, std::shared_ptr<sf::Music>>& resourceMap,
+void ResourceManager::loadResource(std::unordered_map<std::string, std::unique_ptr<sf::Music>>& resourceMap,
     const std::string& name, const std::string& filename) {
-    std::shared_ptr<sf::Music> music = std::make_shared<sf::Music>();
-    if (!music->openFromFile(filename)) 
-    {
-        throw std::runtime_error("Failed to load music from " + filename);
-    }
-    resourceMap[name] = music;
+    std::unique_ptr<sf::Music> music = std::make_unique<sf::Music>();
+    music->openFromFile(filename);
+    resourceMap[name] = std::move(music);
 }
 void ResourceManager::playMusic(const std::string& musicName)
 {

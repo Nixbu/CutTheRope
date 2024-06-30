@@ -1,6 +1,10 @@
 #include "GameObjectFactories/SpikesFactory.h"
 #include "GameObjects/Spikes.h"
 
+
+//===================================================================
+// creats spikes object
+//===================================================================
 std::shared_ptr<GameObject>SpikesFactory::createObject(const std::string& line, 
 	World& world, const sf::Texture& texture)
 {

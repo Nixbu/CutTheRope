@@ -1,6 +1,10 @@
 #include "GameObjectFactories/RopeFactory.h"
 #include "GameObjects/Rope.h"
 
+
+//===================================================================
+// creats rope object
+//===================================================================
 std::shared_ptr<GameObject> RopeFactory::createObject(const std::string& line, World& world, const sf::Texture& texture)
 {
 	std::istringstream iss(line);

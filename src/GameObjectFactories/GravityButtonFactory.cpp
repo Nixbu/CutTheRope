@@ -1,5 +1,9 @@
 #include "GameObjectFactories/GravityButtonFactory.h"
 
+
+//===================================================================
+// creats gravity button object
+//===================================================================
 std::shared_ptr<GameObject> GravityButtonFactory::createObject(const std::string& line, World& world, const sf::Texture& texture)
 {
 

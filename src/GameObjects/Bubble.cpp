@@ -1,6 +1,7 @@
 #include "GameObjects/Bubble.h"
 
-
+//===================================================================
+//===================================================================
 Bubble::Bubble(const Data& ObjectData, World& world, const sf::Texture& texture) 
     : ClickableObject(ObjectData, texture),
     m_animation(ResourceManager::getInstance().getAnimation(ObjectData.m_type), 
@@ -10,18 +11,18 @@ Bubble::Bubble(const Data& ObjectData, World& world, const sf::Texture& texture)
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
 
-    bodyDef.type = b2_staticBody; // Set the body type to dynamic
-    bodyDef.position.Set(ObjectData.m_pos.x / SCALE , (WINDOW_MANAGER_HEIGHT - ObjectData.m_pos.y) / SCALE); // Set the initial position
+    bodyDef.type = b2_staticBody; 
+    bodyDef.position.Set(ObjectData.m_pos.x / SCALE , (WINDOW_MANAGER_HEIGHT - ObjectData.m_pos.y) / SCALE); 
 
     b2CircleShape circleShape;
-    circleShape.m_radius = BUBBLE_SIZE.x / 2.0f / SCALE; // Set the radius (assuming square texture)
+    circleShape.m_radius = BUBBLE_SIZE.x / 2.0f / SCALE; 
 
+    
     // Define the fixture
-
     fixtureDef.shape = &circleShape;
-    fixtureDef.density = 1.0f; // Adjust density as needed
-    fixtureDef.friction = 0.3f; // Adjust friction as needed
-    fixtureDef.restitution = 0.5f; // Adjust restitution (bounciness) as needed
+    fixtureDef.density = 1.0f; 
+    fixtureDef.friction = 0.3f; 
+    fixtureDef.restitution = 0.5f; 
     fixtureDef.isSensor = true;
 
     this->initBody(world, bodyDef, fixtureDef);
@@ -32,14 +33,21 @@ Bubble::Bubble(const Data& ObjectData, World& world, const sf::Texture& texture)
     this->getSprite().setOrigin(origin);
 
 }
-
+//===================================================================
+//Changes the Bubble from a static body to a dynamic body, sets the
+// animation flag to true, and applies an initial velocity.
+//===================================================================
 void Bubble::changeToDynamic()
 {
     this->m_animation.setAnimationFlag(true);
     this->setToDynamic();
     this->SetLinearVelocity(BUBBLE_VELOCITY);
 }
-
+//===================================================================
+// Updates the Bubble's position, rotation, and animation based on the 
+// current Box2D state. Applies a force to the center if the Bubble 
+// is dynamic.
+//===================================================================
 void Bubble::update(sf::Time& deltaTime)
 {
     if (this->getBody()->GetType() == b2_dynamicBody)
@@ -57,7 +65,10 @@ void Bubble::update(sf::Time& deltaTime)
 
   
 }
-
+//===================================================================
+// Handles the click event for the Bubble. If the Bubble is dynamic,
+// plays the "BubbleBreak" sound and marks the Bubble for deletion.
+//===================================================================
 void Bubble::handleClicked()
 {
     if (this->getBody()->GetType() == b2_dynamicBody) 
@@ -66,7 +77,8 @@ void Bubble::handleClicked()
         this->setDelete();   
     }
 }
-
-
+//===================================================================
+// for the factory
+//===================================================================
 bool Bubble::m_registerit = FactoryManager::registerit("Bubble",
     &BubbleFactory::createObject);

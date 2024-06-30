@@ -1,10 +1,11 @@
 #include "GameObjectFactories/DoubleHatFactory.h"
 #include "GameObjects/DoubleHat.h"
 
-
+//===================================================================
+// creats double hat object
+//===================================================================
 std::shared_ptr<GameObject> DoubleHatFactory::createObject(const std::string& line, World& world, const sf::Texture& texture)
 {
-	// TODO add reading logic
 	std::istringstream iss(line);
 	Data objectData;
 

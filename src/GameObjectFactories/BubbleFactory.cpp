@@ -1,5 +1,10 @@
 #include "GameObjectFactories/BubbleFactory.h"
 
+
+
+//===================================================================
+// creats bubble object
+//===================================================================
 std::shared_ptr<GameObject> BubbleFactory::createObject(const std::string& line, World& world, const sf::Texture& texture)
 {
 	std::istringstream iss(line);

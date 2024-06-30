@@ -16,7 +16,7 @@ Hook::Hook(const Data& data, World& world, const sf::Texture& texture) : NonClic
 
 
     b2PolygonShape hookShape;
-    hookShape.SetAsBox(0.1f, 0.1f); // Define hook size
+    hookShape.SetAsBox(0.1f, 0.1f); 
 
     b2FixtureDef hookFixtureDef;
     hookFixtureDef.isSensor = true;

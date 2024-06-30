@@ -1,5 +1,8 @@
 #include "GameObjectFactories/AirFactory.h"
 
+//===================================================================
+// creats Air object
+//===================================================================
 std::shared_ptr<GameObject> AirFactory::createObject(const std::string& line, World& world, const sf::Texture& texture)
 {
 	std::istringstream iss(line);

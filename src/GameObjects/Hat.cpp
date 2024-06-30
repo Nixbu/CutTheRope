@@ -1,30 +1,27 @@
 #include "GameObjects/Hat.h"
 
+//===================================================================
+// Constructs a Hat object using provided data, initializing it as
+// a NonClickableObject with a static body definition and sensor fixture.
+//===================================================================
 Hat::Hat(const Data& ObjectData, World& world, const sf::Texture& texture)
 	: NonClickableObject(ObjectData, texture)
 {
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
 
-    bodyDef.type = b2_staticBody; // Set the body type to dynamic
+    bodyDef.type = b2_staticBody; 
     bodyDef.position.Set(ObjectData.m_pos.x / SCALE,
-        (WINDOW_MANAGER_HEIGHT - ObjectData.m_pos.y) / SCALE); // Set the initial position
-    bodyDef.angle = angleToRadians(ObjectData.m_angle); // Set the initial angle
-    bodyDef.linearVelocity.Set(0.0f, 0.0f); // Set the initial linear velocity
-    bodyDef.angularVelocity = 0.0f; // Set the initial angular velocity
-    bodyDef.linearDamping = 0.0f; // Set the linear damping
-    bodyDef.angularDamping = 0.0f; // Set the angular damping
+        (WINDOW_MANAGER_HEIGHT - ObjectData.m_pos.y) / SCALE); 
+    bodyDef.angle = angleToRadians(ObjectData.m_angle); 
+
 
     b2PolygonShape shape;
     shape.SetAsBox(texture.getSize().x / 5.0f / SCALE, texture.getSize().y / 5.0f / SCALE);
 
 
     // Define the fixture
-
     fixtureDef.shape = &shape;
-    fixtureDef.density = 1.5f; // Adjust density as needed
-    fixtureDef.friction = 0.3f; // Adjust friction as needed
-    fixtureDef.restitution = 0.5f; // Adjust restitution (bounciness) as needed
     fixtureDef.isSensor = true;
 
     this->initBody(world, bodyDef, fixtureDef);

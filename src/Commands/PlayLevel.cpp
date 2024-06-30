@@ -8,10 +8,10 @@ PlayLevel::PlayLevel(Controller& controller, std::shared_ptr<PlayingState> playi
 	const std::string& levelName , const  int& levelNum)
 	: m_controller(controller), m_playingState(playingState), m_levelName(levelName) , m_levelNum(levelNum)
 		{}
-
+//===================================================================
 void PlayLevel::execute()
 {
-
+	//reloading a new level
 	this->m_playingState->setLevel(this->m_levelName);
 	this->m_playingState->setLevelNum(this->m_levelNum);
 	this->m_controller.setCurrentState(this->m_playingState);

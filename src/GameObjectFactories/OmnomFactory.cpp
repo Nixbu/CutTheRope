@@ -1,7 +1,9 @@
 #include "GameObjectFactories/OmnomFactory.h"
 #include "GameObjects/Omnom.h"
 
-
+//===================================================================
+// creats Omnom object
+//===================================================================
 std::shared_ptr<GameObject> OmnomFactory::createObject(const std::string& line,
 	World& world,
 	const sf::Texture& texture)

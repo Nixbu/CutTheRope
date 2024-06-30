@@ -1,32 +1,27 @@
 #include "GameObjects/GravityButton.h"
 
-
+//===================================================================
+// Constructs a GravityButton object using provided data, initializing it as
+// a ClickableObject with a static body definition and sensor fixture.
+//===================================================================
 GravityButton::GravityButton(const Data& ObjectData, World& world, const sf::Texture& texture)
     : ClickableObject(ObjectData, texture), m_world(world.getWorld()), m_currentGravity(GRAVITY_WORLD),
         m_degree(ObjectData.m_angle)
 {
-
-    //TODO CHANGE SETTINGS IF NEEDED
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
 
-    bodyDef.type = b2_staticBody; // Set the body type to dynamic
-    bodyDef.position.Set(ObjectData.m_pos.x / SCALE, (WINDOW_MANAGER_HEIGHT - ObjectData.m_pos.y) / SCALE); // Set the initial position
+    bodyDef.type = b2_staticBody; 
+    bodyDef.position.Set(ObjectData.m_pos.x / SCALE, (WINDOW_MANAGER_HEIGHT - ObjectData.m_pos.y) / SCALE);
     bodyDef.angle = 0.0f; // Set the initial angle
-    bodyDef.linearVelocity.Set(0.0f, 0.0f); // Set the initial linear velocity
-    bodyDef.angularVelocity = 0.0f; // Set the initial angular velocity
-    bodyDef.linearDamping = 0.0f; // Set the linear damping
-    bodyDef.angularDamping = 0.0f; // Set the angular damping
+
 
     b2CircleShape circleShape;
-    circleShape.m_radius = texture.getSize().x / 2.0f / SCALE; // Set the radius (assuming square texture)
+    circleShape.m_radius = texture.getSize().x / 2.0f / SCALE; 
 
     // Define the fixture
 
     fixtureDef.shape = &circleShape;
-    fixtureDef.density = 1.0f; // Adjust density as needed
-    fixtureDef.friction = 0.3f; // Adjust friction as needed
-    fixtureDef.restitution = 0.5f; // Adjust restitution (bounciness) as needed
     fixtureDef.isSensor = true;
 
     this->initBody(world, bodyDef, fixtureDef);
@@ -40,7 +35,9 @@ GravityButton::GravityButton(const Data& ObjectData, World& world, const sf::Tex
 
 } 
 
-
+//===================================================================
+// Handles the click event for the gravity button.
+//===================================================================
 void GravityButton::handleClicked()
 {
     m_currentGravity = -m_currentGravity;
@@ -63,6 +60,8 @@ void GravityButton::handleClicked()
     this->setRotation(m_degree);
 }
 
-
+//===================================================================
+// for factory
+//===================================================================
 bool GravityButton::m_registerit = FactoryManager::registerit("GravityButton",
     &GravityButtonFactory::createObject);

@@ -1,14 +1,16 @@
 #include "GameObjects/Chair.h"
 
+//===================================================================
+// Constructs a Chair object using the provided data and texture.
+//===================================================================
 Chair::Chair(const Data& ObjectData, World& world, const sf::Texture& texture)
     : NonClickableObject(ObjectData, texture)
 {
-    //TODO CHANGE SETTINGS IF NEEDED
     b2BodyDef bodyDef;
 
-    bodyDef.type = b2_staticBody; // Set the body type to dynamic
+    bodyDef.type = b2_staticBody; 
     bodyDef.position.Set(ObjectData.m_pos.x / SCALE,
-        (WINDOW_MANAGER_HEIGHT - ObjectData.m_pos.y) / SCALE); // Set the initial position
+        (WINDOW_MANAGER_HEIGHT - ObjectData.m_pos.y) / SCALE); 
 
     b2PolygonShape shape;
     shape.SetAsBox(texture.getSize().x / SCALE, texture.getSize().y / SCALE);
@@ -16,9 +18,6 @@ Chair::Chair(const Data& ObjectData, World& world, const sf::Texture& texture)
     // Define the fixture
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &shape;
-    fixtureDef.density = 1.5f; // Adjust density as needed
-    fixtureDef.friction = 0.3f; // Adjust friction as needed
-    fixtureDef.restitution = 0.5f; // Adjust restitution (bounciness) as needed
     fixtureDef.isSensor = true;
 
 
@@ -26,6 +25,8 @@ Chair::Chair(const Data& ObjectData, World& world, const sf::Texture& texture)
 }
 
 
-
+//===================================================================
+// for the factory
+//===================================================================
 bool Chair::m_registerit = FactoryManager::registerit("Chair",
     &ChairFactory::createObject);

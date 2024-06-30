@@ -63,6 +63,7 @@ private:
         const std::string& name, const std::string& filename) {
         std::unique_ptr<sf::Music> music = std::make_unique<sf::Music>();
         music->openFromFile(filename);
+        music->setLoop(true);
         resourceMap[name] = std::move(music);
     }
 

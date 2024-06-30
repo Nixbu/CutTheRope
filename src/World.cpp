@@ -44,9 +44,9 @@ void World::addObject(std::string& line)
 //======================================================================
 // Adds a shared pointer to a GameObject to the game objects vector.
 //======================================================================
-void World::addToGameObjects(std::shared_ptr<GameObject> object)
+void World::addToGameObjects(std::unique_ptr<GameObject>&& object)
 {
-	this->m_gameObjects.emplace_back(object);
+	this->m_gameObjects.emplace_back(std::move(object));
 }
 //======================================================================
 // Draws all game objects in the world to the provided window.

@@ -46,11 +46,12 @@ void AirPillow::handleClicked()
     this->m_animation.setAnimationFlag(true);
     auto& resourceManager = ResourceManager::getInstance();
     const sf::Texture& texture = resourceManager.getImage("Air");
-    auto airBullet = std::make_shared<Air>(m_data, m_world, texture);
-    
+
+    //Add AirBullet
+    this->m_world.addToGameObjects(std::make_unique<Air>(m_data, m_world, texture));
+
     ResourceManager::getInstance().playSound("GhostPuff");
 
-    this->m_world.addToGameObjects(airBullet);
 }
 //===================================================================
 // Updates the AirPillow's position, rotation, and animation based on the 

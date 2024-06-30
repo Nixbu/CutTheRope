@@ -23,7 +23,7 @@ class World
 public:
 	World();
 	void addObject(std::string& line);
-	void addToGameObjects(std::shared_ptr<GameObject> object);
+	void addToGameObjects(std::unique_ptr<GameObject>&& object);
 	void draw(sf::RenderWindow& window) const;
 	void reset();
 	void update(float timeStep, sf::Time& deltaTime);
@@ -46,7 +46,7 @@ private:
 	levelStatus_t m_levelStatus;
 	b2World m_physicalWorld;
 	std::vector<std::unique_ptr<GameObject>> m_gameObjects;
-	sf::Clock m_clock;
+	sf::Clock m_animationClock;
 	std::unique_ptr<GameObject> m_candy;
 
 	bool checkCollision(GameObject& object1, GameObject& object2);

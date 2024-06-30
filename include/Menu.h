@@ -4,9 +4,11 @@
 #include <memory>
 #include <iostream>
 
-/**
- * Represents a menu containing buttons for user interaction.
- */
+/*
+   The Menu class represents a collection of buttons for user interaction.
+   It manages the lifecycle and behavior of these buttons, including adding new buttons,
+   drawing them to the window, handling user clicks, and updating their appearance based on user interaction.
+*/
 
 class Menu
 {

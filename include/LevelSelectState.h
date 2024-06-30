@@ -9,7 +9,12 @@
 class MainState;
 class Controller;
 
-
+/*
+   The LevelSelectState class represents the state where players can select levels to play.
+   It manages the UI for level selection, handles user input to choose levels, and updates
+   the display accordingly. This state also includes functionality to add buttons dynamically
+   based on the number of levels and their completion status.
+*/
 
 class LevelSelectState : public GameState {
 public:

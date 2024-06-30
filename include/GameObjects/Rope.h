@@ -9,6 +9,11 @@
 #include "Hook.h"
 #include "FactoryManager.h"
 
+/*
+   The Rope class represents a clickable rope object in the game.
+   It extends ClickableObject and manages its own update, drawing, and click handling behavior.
+*/
+
 class Rope : public ClickableObject
 {
 public:

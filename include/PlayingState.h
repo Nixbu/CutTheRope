@@ -15,6 +15,11 @@
 
 class Controller;
 
+/*
+   The PlayingState class represents the state of the game when actively playing a level.
+   It manages the current level, user interactions such as mouse clicks and movements,
+   updating the game state, and transitioning to other game states like the win state or interstitial state.
+*/
 
 class PlayingState : public GameState
 {

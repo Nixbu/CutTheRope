@@ -5,6 +5,11 @@
 #include "Settings.h"
 
 
+/*
+   The GameState class defines an abstract interface for different game states.
+   Subclasses must implement methods for drawing, handling mouse clicks, updating state,
+   and handling mouse floating events.
+*/
 
 class GameState {
 public:

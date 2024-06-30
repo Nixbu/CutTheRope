@@ -5,6 +5,11 @@
 #include "GameObjects/Rope.h"
 #include "World.h"
 
+/*
+   class RopeFactory
+   The RopeFactory class is responsible for creating Rope game objects.
+   It provides a static method to create a Rope object based on input parameters.
+*/
 
 class RopeFactory {
 public:

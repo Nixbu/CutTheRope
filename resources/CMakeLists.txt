@@ -54,6 +54,8 @@ configure_file ("LevelBackgrounds/LevelBackground5.png" ${CMAKE_BINARY_DIR} COPY
 configure_file ("GameObjectAssets/GravityButtonUp.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("GameObjectAssets/GravityButtonDown.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("GameObjectAssets/Candy.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("GameObjectAssets/DonutCandy.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("GameObjectAssets/IceCreamCandy.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("GameObjectAssets/Star.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("GameObjectAssets/RedHat.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("GameObjectAssets/GreenHat.png" ${CMAKE_BINARY_DIR} COPYONLY)
@@ -90,6 +92,8 @@ configure_file ("LevelFiles/Level2.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("LevelFiles/Level3.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("LevelFiles/Level4.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("LevelFiles/Level5.txt" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("LevelFiles/Level6.txt" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("LevelFiles/Level7.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 
 # Fonts
 

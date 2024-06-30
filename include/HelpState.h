@@ -7,6 +7,12 @@
 
 class Controller;
 
+/*
+   The HelpState class represents the state of the game when the player is viewing help or instructions.
+   It inherits from GameState and provides methods to draw the state, handle mouse clicks,
+   and add buttons specific to the help menu.
+*/
+
 class HelpState : public  GameState {
 public:
 	HelpState();

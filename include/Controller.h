@@ -10,9 +10,10 @@
 class GameState;
 
 
-/**
- * Represents a controller for managing game menus and buttons.
- */
+/*
+   The Controller class manages game menus and states, handling transitions
+   between different states and user input.
+*/
 
 class Controller
 {

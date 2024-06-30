@@ -4,6 +4,12 @@
 #include "box2d/box2d.h"
 #include "Settings.h"
 
+/*
+   ClickableObject
+   The ClickableObject class represents a clickable game object.
+   It extends GameObject and provides functionality for handling clicks.
+*/
+
 class ClickableObject : public GameObject
 {
 public:

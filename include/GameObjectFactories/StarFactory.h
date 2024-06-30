@@ -5,6 +5,12 @@
 #include "GameObjects/Star.h"
 #include "World.h"
 
+/*
+   class StarFactory
+   The StarFactory class is responsible for creating Star game objects.
+   It provides a static method to create a Star object based on input parameters.
+*/
+
 class StarFactory{
 public:
 

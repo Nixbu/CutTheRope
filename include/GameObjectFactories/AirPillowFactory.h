@@ -5,6 +5,12 @@
 #include "GameObjects/AirPillow.h"
 #include "World.h"
 
+/*
+	class AirPillowFactory
+	The AirPillowFactory class is responsible for creating AirPillow game objects.
+    It provides a static method to create an AirPillow object based on input parameters.
+*/
+
 class AirPillowFactory{
 public:
 

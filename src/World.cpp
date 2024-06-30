@@ -80,19 +80,23 @@ void World::update(float timeStep, sf::Time& deltaTime)
 
 void World::handleCollisions()
 {
+	
 	for (int index1 = 0; index1 < this->m_gameObjects.size(); index1++)
 	{
-		if(this->checkCollision(m_candy, m_gameObjects[index1]))
+		if (this->m_candy)
 		{
-			auto collisionsFunc = lookup(typeid(*m_candy), typeid(*m_gameObjects[index1]));
-
-			if (collisionsFunc != nullptr)
+			if (this->checkCollision(m_candy, m_gameObjects[index1]))
 			{
-				collisionsFunc(m_candy, m_gameObjects[index1], *this);
+				auto collisionsFunc = lookup(typeid(*m_candy), typeid(*m_gameObjects[index1]));
+
+				if (collisionsFunc != nullptr)
+				{
+					collisionsFunc(m_candy, m_gameObjects[index1], *this);
+				}
+
 			}
-		
 		}
-	}
+		}
 }
 
 void World::handleClicks(const std::pair<sf::Vector2f, sf::Vector2f>& mousePos)
@@ -208,22 +212,29 @@ void World::deleteWantedObjects()
 
 void World::validCandyPos()
 {
-	if (this->m_candy) {
-		sf::Vector2f candyPos = this->m_candy->getPosition();
+	if (this->m_status == OnGoing) {
+		if (this->m_candy) {
+			sf::Vector2f candyPos = this->m_candy->getPosition();
 
-		sf::FloatRect localBounds = this->m_candy->getSprite().getLocalBounds();
-		float candyWidth = localBounds.width;
-		float candyHeight = localBounds.height;
+			sf::FloatRect localBounds = this->m_candy->getSprite().getLocalBounds();
+			float candyWidth = localBounds.width;
+			float candyHeight = localBounds.height;
 
-		if (candyPos.y > WINDOW_MANAGER_HEIGHT + 100 || candyPos.x < 0 - candyWidth ||
-			candyPos.x > WINDOW_MANAGER_WIDTH + candyWidth ||
-			candyPos.y < 0 - candyHeight) {
+			if (candyPos.y > WINDOW_MANAGER_HEIGHT + 100 || candyPos.x < 0 - candyWidth ||
+				candyPos.x > WINDOW_MANAGER_WIDTH + candyWidth ||
+				candyPos.y < 0 - candyHeight) {
+				this->m_status = Lost;
+			}
+		}
+		else
+		{
 			this->m_status = Lost;
 		}
 	}
-	else
-	{
-		this->m_status = Lost;
-	}
 
+
+}
+void World::deleteCandy()
+{
+	m_candy = nullptr;
 }

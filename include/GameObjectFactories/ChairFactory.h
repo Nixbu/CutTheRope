@@ -5,6 +5,11 @@
 #include "GameObjects/Chair.h"
 #include "World.h"
 
+/*
+   ChairFactory
+   The ChairFactory class is responsible for creating Chair game objects.
+   It provides a static method to create a Chair object based on input parameters.
+*/ 
 
 class ChairFactory {
 public:

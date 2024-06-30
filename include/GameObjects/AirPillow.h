@@ -8,6 +8,12 @@
 #include <thread>
 #include <chrono>
 
+/*
+   class  AirPillow
+   The AirPillow class represents a pillow that can be clicked on to trigger specific actions in the game.
+   It extends ClickableObject and manages its own animation and interactions.
+*/
+
 class AirPillow : public ClickableObject
 {
 public:

@@ -4,6 +4,12 @@
 #include <fstream>
 #include "World.h"
 
+/*
+   The Level class represents a game level, managing its state, physics world, and interactions.
+   It provides methods for loading the level, updating its state, handling user input,
+   managing level status, and resetting various aspects of the level.
+*/
+
 class Level
 {
 public:

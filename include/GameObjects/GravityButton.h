@@ -5,6 +5,12 @@
 #include "GameObjects/ClickableObject.h"
 #include <thread> 
 #include <chrono> 
+
+/*
+   The GravityButton class represents a clickable button that changes the gravity in the game.
+   It extends ClickableObject and manages its own update and click handling.
+*/
+
 class GravityButton: public ClickableObject
 {
 public:

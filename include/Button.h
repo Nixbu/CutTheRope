@@ -8,6 +8,11 @@
 
 class GameState;
 
+/*
+   The Button class represents a clickable button in the game.
+   It encapsulates functionality for scaling, drawing, checking clicks,
+   and executing a command when clicked.
+*/
 
 class Button
 {

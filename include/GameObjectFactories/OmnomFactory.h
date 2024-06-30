@@ -5,6 +5,11 @@
 #include "GameObjects/Omnom.h"
 #include "World.h"
 
+/* class OmnomFactory
+   The OmnomFactory class is responsible for creating Omnom game objects.
+   It provides a static method to create an Omnom object based on input parameters.
+*/
+
 class OmnomFactory{
 public:
 

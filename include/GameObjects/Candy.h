@@ -4,6 +4,12 @@
 #include "GameObjectFactories/CandyFactory.h"
 #include "GameObjects/NonClickableObject.h"
 
+/*
+   class Candy
+   The Candy class represents a non-clickable candy object in the game.
+   It extends NonClickableObject and manages its own update behavior.
+*/
+
 class Candy : public NonClickableObject
 {
 public:

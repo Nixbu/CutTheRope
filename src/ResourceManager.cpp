@@ -125,44 +125,7 @@ void ResourceManager::playSound(const std::string& soundName)
 {
     this->m_sounds.at(soundName)->play();
 }
-template <typename Resource>
-void ResourceManager::loadResource(std::unordered_map<std::string, Resource>& resourceMap,
-    const std::string& name, const std::string& filename)
-{
-    Resource resource;
 
-    resource.loadFromFile(filename);
-    resourceMap[name] = std::move(resource);
-}
-
-template <>
-void ResourceManager::loadResource(std::unordered_map<std::string, std::shared_ptr<sf::Sound>>& resourceMap,
-    const std::string& name, const std::string& filename) {
-    sf::SoundBuffer buffer;
-    if (!buffer.loadFromFile(filename)) {
-        throw std::runtime_error("Failed to load sound buffer from " + filename);
-    }
-
-    m_soundBuffers[name] = buffer;
-    // Create a unique_ptr and allocate an sf::Sound object
-    std::shared_ptr<sf::Sound> sound = std::make_unique<sf::Sound>();
-    sound->setBuffer(m_soundBuffers[name]);
-    // Optionally, set other properties like volume if needed
-    sound->setVolume(100);
-
-    // Move the unique_ptr into the resourceMap
-    resourceMap[name] = sound;
-}
-template <>
-void ResourceManager::loadResource(std::unordered_map<std::string, std::shared_ptr<sf::Music>>& resourceMap,
-    const std::string& name, const std::string& filename) {
-    std::shared_ptr<sf::Music> music = std::make_shared<sf::Music>();
-    if (!music->openFromFile(filename)) 
-    {
-        throw std::runtime_error("Failed to load music from " + filename);
-    }
-    resourceMap[name] = music;
-}
 void ResourceManager::playMusic(const std::string& musicName)
 {
     this->m_musics.at(musicName)->play();

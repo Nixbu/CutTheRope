@@ -138,6 +138,7 @@ void PlayingState::changeToInterstital()
 void PlayingState::handleLevelPassing()
 {
 	if (this->m_level.getWorldTime() > ANIMATION_TIME) {
+		ResourceManager::getInstance().playSound("Win");
 		this->m_controller.getLevelSelectionState()->setLevelButtonImg(this->m_level.getStars(), this->m_levelNum);
 		this->m_level.resetLevel();
 

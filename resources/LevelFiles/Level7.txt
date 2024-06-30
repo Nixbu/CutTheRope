@@ -1,5 +1,5 @@
 3
-Omnom Omnom 125 240
+Omnom Omnom 125 255
 Candy Candy 1000 500 0
 Rope Rope shortRope 1000 370 0
 GravityButton GravityButtonUp 1065 210 0

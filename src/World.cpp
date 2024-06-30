@@ -229,7 +229,7 @@ void World::deleteWantedObjects()
 //======================================================================
 void World::validCandyPos()
 {
-	if (this->m_status == OnGoing) {
+	if (this->m_levelStatus == OnGoing) {
 		if (this->m_candy) {
 			sf::Vector2f candyPos = this->m_candy->getPosition();
 
@@ -240,12 +240,12 @@ void World::validCandyPos()
 			if (candyPos.y > WINDOW_MANAGER_HEIGHT + 100 || candyPos.x < 0 - candyWidth ||
 				candyPos.x > WINDOW_MANAGER_WIDTH + candyWidth ||
 				candyPos.y < 0 - candyHeight) {
-				this->m_status = Lost;
+				this->m_levelStatus = Lost;
 			}
 		}
 		else
 		{
-			this->m_status = Lost;
+			this->m_levelStatus = Lost;
 		}
 	}
 

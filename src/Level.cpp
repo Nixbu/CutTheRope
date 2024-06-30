@@ -1,6 +1,6 @@
 #include "Level.h"
 
-Level::Level() :  m_status(OnGoing) , m_stars(0), m_world(m_status , m_stars), m_accumulator(0),m_pressPos(-1.f,-1.f)
+Level::Level() :   m_world(), m_accumulator(0),m_pressPos(-1.f,-1.f)
 					,m_releasePos(-1.f,-1.f)
 {
 }

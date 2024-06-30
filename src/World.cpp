@@ -1,8 +1,8 @@
 #include "World.h"
 
 
-World::World(levelStatus_t& status, int& stars) :
-	m_physicalWorld(b2Vec2(GRAVITY_WORLD.x, GRAVITY_WORLD.y)), m_candy(nullptr), m_status(status), m_stars(stars)
+World::World() : m_levelStatus(OnGoing) , m_stars(0) ,
+	m_physicalWorld(b2Vec2(GRAVITY_WORLD.x, GRAVITY_WORLD.y)), m_candy(nullptr)
 {
 	m_gameObjects.reserve(MAX_SIZE);
 }
@@ -124,12 +124,14 @@ std::shared_ptr<GameObject> World::getCandy()const
 
 void World::setLevelStatus(const levelStatus_t& status)
 {
-	this->m_status = status;
+	this->m_levelStatus = status;
 }
 
 void World::addStar()
 {
-	this->m_stars++;
+	if (this->m_stars < 3) {
+		this->m_stars++;
+	}	
 }
 
 void World::resetGravity()
@@ -153,7 +155,7 @@ void World::setStarsToZero()
 
 levelStatus_t World::getLevelStatus() const
 {
-	return this->m_status;
+	return this->m_levelStatus;
 }
 
 void World::restartClock()
@@ -218,12 +220,12 @@ void World::validCandyPos()
 		if (candyPos.y > WINDOW_MANAGER_HEIGHT + 100 || candyPos.x < 0 - candyWidth ||
 			candyPos.x > WINDOW_MANAGER_WIDTH + candyWidth ||
 			candyPos.y < 0 - candyHeight) {
-			this->m_status = Lost;
+			this->m_levelStatus = Lost;
 		}
 	}
 	else
 	{
-		this->m_status = Lost;
+		this->m_levelStatus = Lost;
 	}
 
 }

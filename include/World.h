@@ -13,7 +13,7 @@
 class World
 {
 public:
-	World(levelStatus_t& status, int& stars);
+	World();
 	void addObject(std::string& line);
 	void addToGameObjects(std::shared_ptr<GameObject> object);
 	void draw(sf::RenderWindow& window) const;
@@ -32,8 +32,8 @@ public:
 	void restartClock();
 	double getTime()const;
 private:
-	int& m_stars;
-	levelStatus_t& m_status;
+	int m_stars;
+	levelStatus_t m_levelStatus;
 	b2World m_physicalWorld;
 	std::vector<std::shared_ptr<GameObject>> m_gameObjects;
 	sf::Clock m_clock;

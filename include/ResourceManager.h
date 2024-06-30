@@ -25,6 +25,7 @@ public:
     void playSound(const std::string& soundName);
     const sf::Font& getFont(const std::string& name) const;
     void playMusic(const std::string& musicName);
+    void setMusic(const std::string& musicName);
 
 
 

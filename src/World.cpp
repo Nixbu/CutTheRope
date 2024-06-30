@@ -19,15 +19,18 @@ void World::addObject(std::string& line)
 
 		const sf::Texture& texture = resourceManager.getImage(subtype);
 
-		std::shared_ptr<GameObject> object = FactoryManager::create(type, line,
+		std::unique_ptr<GameObject>&& object = FactoryManager::create(type, line,
 			*this, texture);
 
 		if (object != nullptr)
 		{
 			if (type == "Candy") {
-				this->m_candy = object;
+				this->m_candy = std::move(object);
 			}
-			this->m_gameObjects.push_back(object);
+			else
+			{
+				this->m_gameObjects.push_back(std::move(object));
+			}
 		}
 		else
 		{
@@ -117,7 +120,7 @@ b2World& World::getWorld()
 	return this->m_physicalWorld;
 }
 
-std::shared_ptr<GameObject> World::getCandy()const
+std::unique_ptr<GameObject> World::getCandy()const
 {
 	return this->m_candy;
 }
@@ -167,7 +170,7 @@ double World::getTime() const
 }
 
 
-bool World::checkCollision(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2)
+bool World::checkCollision(std::unique_ptr<GameObject> object1, std::unique_ptr<GameObject> object2)
 {
 	b2Body* bodyA = object1->getBody();
 	b2Body* bodyB = object2->getBody();

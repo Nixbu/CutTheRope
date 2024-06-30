@@ -24,7 +24,7 @@
 //    }
 //};
 
-using HitFunctionPtr = void (*)(std::shared_ptr<GameObject>, std::shared_ptr<GameObject>, World&);
+using HitFunctionPtr = void (*)(std::unique_ptr<GameObject>, std::unique_ptr<GameObject>, World&);
 // typedef void (*HitFunctionPtr)(GameObject&, GameObject&);
 using Key = std::pair<std::type_index, std::type_index>;
 // std::unordered_map is better, but it requires defining good hash function for pair
@@ -34,9 +34,9 @@ HitMap initializeCollisionMap();
 HitFunctionPtr lookup(const std::type_index& class1, const std::type_index& class2);
 
 
-void candyAir(std::shared_ptr<GameObject>object1, std::shared_ptr<GameObject> object2, World& world);
-void candyBubble(std::shared_ptr<GameObject>object1, std::shared_ptr<GameObject> object2, World& world);
-void candyOmnom(std::shared_ptr<GameObject>object1, std::shared_ptr<GameObject> object2, World& world);
-void candyStar(std::shared_ptr<GameObject>object1, std::shared_ptr<GameObject> object2, World& world);
-void candySpikes(std::shared_ptr<GameObject>object1, std::shared_ptr<GameObject> object2, World& world);
-void candyHat(std::shared_ptr<GameObject>object1, std::shared_ptr<GameObject> object2, World& world);
+void candyAir(std::unique_ptr<GameObject>object1, std::unique_ptr<GameObject> object2, World& world);
+void candyBubble(std::unique_ptr<GameObject>object1, std::unique_ptr<GameObject> object2, World& world);
+void candyOmnom(std::unique_ptr<GameObject>object1, std::unique_ptr<GameObject> object2, World& world);
+void candyStar(std::unique_ptr<GameObject>object1, std::unique_ptr<GameObject> object2, World& world);
+void candySpikes(std::unique_ptr<GameObject>object1, std::unique_ptr<GameObject> object2, World& world);
+void candyHat(std::unique_ptr<GameObject>object1, std::unique_ptr<GameObject> object2, World& world);

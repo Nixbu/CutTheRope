@@ -9,7 +9,7 @@
 class ChairFactory {
 public:
 
-	static std::shared_ptr<GameObject> createObject(const std::string& line, World& world, const sf::Texture& texture);
+	static std::unique_ptr<GameObject>&& createObject(const std::string& line, World& world, const sf::Texture& texture);
 
 private:
 

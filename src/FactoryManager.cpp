@@ -1,7 +1,7 @@
 #include "FactoryManager.h"
 #include "World.h"
 
-std::shared_ptr<GameObject> FactoryManager::create(const std::string& name,
+std::unique_ptr<GameObject> FactoryManager::create(const std::string& name,
     const std::string& line, World& world, const sf::Texture& texture)
 {
     auto it = getMap().find(name);
@@ -13,7 +13,7 @@ std::shared_ptr<GameObject> FactoryManager::create(const std::string& name,
 }
 
 bool FactoryManager::registerit(const std::string& name, 
-    std::shared_ptr<GameObject>(*f)(const std::string&,
+    std::unique_ptr<GameObject>&&(*f)(const std::string&,
                                    World&,
                                     const sf::Texture&))
 {

@@ -1,6 +1,7 @@
 #include "CollisionHandling.h"
 #include <thread>
 #include <chrono>
+#include <stdexcept>
 
 
 HitMap initializeCollisionMap()
@@ -27,10 +28,10 @@ HitFunctionPtr lookup(const std::type_index& class1, const std::type_index& clas
     return mapEntry->second;
 }
 
-void candyBubble(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, World& world)
+void candyBubble(std::unique_ptr<GameObject> object1, std::unique_ptr<GameObject> object2, World& world)
 {
-     std::shared_ptr<Candy> candy = std::dynamic_pointer_cast<Candy>(object1);
-     std::shared_ptr<Bubble> bubble = std::dynamic_pointer_cast<Bubble>(object2);
+     std::unique_ptr<Candy> candy = std::dynamic_pointer_cast<Candy>(object1);
+     std::unique_ptr<Bubble> bubble = std::dynamic_pointer_cast<Bubble>(object2);
      
      ResourceManager::getInstance().playSound("CandyToBubble");
      
@@ -51,7 +52,7 @@ void candyBubble(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject
     std::this_thread::sleep_for(std::chrono::milliseconds(FRAME_DELAY_MS));
 
 }
-void candyOmnom(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, World& world)
+void candyOmnom(std::unique_ptr<GameObject> object1, std::unique_ptr<GameObject> object2, World& world)
 {
     std::shared_ptr<Candy> candy = std::dynamic_pointer_cast<Candy>(object1);
     std::shared_ptr<Omnom> omnom = std::dynamic_pointer_cast<Omnom>(object2);
@@ -62,7 +63,7 @@ void candyOmnom(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject>
     world.setLevelStatus(Won);
 }
 
-void candyStar(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, World& world)
+void candyStar(std::unique_ptr<GameObject> object1, std::unique_ptr<GameObject> object2, World& world)
 {
     std::shared_ptr<Candy> candy = std::dynamic_pointer_cast<Candy>(object1);
     std::shared_ptr<Star> star = std::dynamic_pointer_cast<Star>(object2);
@@ -73,7 +74,7 @@ void candyStar(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> 
 
     star->setDelete();
 }
-void candySpikes(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, World& world)
+void candySpikes(std::unique_ptr<GameObject> object1, std::unique_ptr<GameObject> object2, World& world)
 {
     auto candy = std::dynamic_pointer_cast<Candy>(object1);
     auto Spike = std::dynamic_pointer_cast<Spikes>(object2);
@@ -84,7 +85,7 @@ void candySpikes(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject
     candy->setDelete();
 }
 
-void candyHat(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, World& world)
+void candyHat(std::unique_ptr<GameObject> object1, std::unique_ptr<GameObject> object2, World& world)
 {
     auto candy = std::dynamic_pointer_cast<Candy>(object1);
     auto doubleHat = std::dynamic_pointer_cast<DoubleHat>(object2);
@@ -118,12 +119,19 @@ void candyHat(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> o
 }
 
 
-void candyAir(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, World& world)
+void candyAir(std::unique_ptr<GameObject>& object1, std::unique_ptr<GameObject>& object2, World& world)
 {
-    auto candy = std::dynamic_pointer_cast<Candy>(object1);
+    // Attempt to cast to Candy and Air types using std::dynamic_pointer_cast
+    auto candy = std::move(std::dynamic_pointer_cast<Candy>(object1));
     auto air = std::dynamic_pointer_cast<Air>(object2);
 
-    candy->getBody()->ApplyForceToCenter(air->getForce(), true);
+    // Check if casting was successful and objects are valid
+    if (candy && air) {
+        candy->getBody()->ApplyForceToCenter(air->getForce(), true);
+    }
+    else {
+        // Handle invalid object types or null pointers
+        throw std::runtime_error("Invalid object types for candyAir function.");
+    }
 }
-
 

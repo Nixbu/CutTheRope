@@ -22,7 +22,7 @@ public:
 	void handleCollisions();
 	void handleClicks(const std::pair<sf::Vector2f, sf::Vector2f>& mousePos);
 	b2World& getWorld();
-	std::shared_ptr<GameObject> getCandy() const;
+	std::unique_ptr<GameObject> getCandy() const;
 	void setLevelStatus(const levelStatus_t& status );
 	void addStar();
 	void resetGravity();
@@ -35,13 +35,13 @@ private:
 	int& m_stars;
 	levelStatus_t& m_status;
 	b2World m_physicalWorld;
-	std::vector<std::shared_ptr<GameObject>> m_gameObjects;
+	std::vector<std::unique_ptr<GameObject>> m_gameObjects;
 	sf::Clock m_clock;
 
-	bool checkCollision(std::shared_ptr<GameObject> object1,
-		std::shared_ptr<GameObject> object2);
+	bool checkCollision(std::unique_ptr<GameObject> object1,
+		std::unique_ptr<GameObject> object2);
 	bool isContactBetween(b2Body* body1, b2Body* body2, b2Body* checkBodyA, b2Body* checkBodyB);
 	void deleteWantedObjects();
-	std::shared_ptr<GameObject> m_candy;
+	std::unique_ptr<GameObject> m_candy;
 	void validCandyPos();
 };

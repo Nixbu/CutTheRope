@@ -19,7 +19,7 @@ public:
 	bool isClicked(sf::Vector2f mousePosition) const;
 	void draw(sf::RenderWindow& window) const;
 	bool isFloatedOn(const sf::Vector2f& mousePosition) const;
-	virtual void action() const;
+	void action() const;
 	void Dscale();
 	void setSprite(const sf::Texture& texture);
 	

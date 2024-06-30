@@ -31,8 +31,8 @@ void MainState::addButtons(Controller& controller)
 		MENU_BUTTON_DEFA_SIZE,
 		std::make_unique<ChangeScreen>(controller, controller.getHelpState())));
 
-	this->m_menu.addButton(std::make_unique<Button>(sf::Vector2f(100, 800), manager.getImage("UnmuteMusicButton"),
-		MENU_BUTTON_DEFA_SIZE,
+	this->m_menu.addButton(std::make_unique<Button>(MUTE_BUTTON_POS, manager.getImage("UnmuteMusicButton"),
+		SMALL_MENU_BUTTON_DEFA_SIZE,
 		std::make_unique<MusicCommand>()));
 }
 

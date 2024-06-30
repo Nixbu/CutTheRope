@@ -24,12 +24,14 @@ const sf::Vector2f AIR_PILLOW_SIZE = { 119 , 127 },
 
 
 const sf::Vector2f MENU_BUTTON_DEFA_SIZE = { 1.0f, 1.0f },
+SMALL_MENU_BUTTON_DEFA_SIZE = {0.5f, 0.5f},
 PLAY_BTN_POS = { WINDOW_MANAGER_WIDTH / 2 - MENU_BUTTON_DEFA_SIZE.x / 2,
                             WINDOW_MANAGER_HEIGHT / 2 + 150 },
     BEWEEN_LEVEL_SCREEN_POS = { WINDOW_MANAGER_WIDTH / 2 - MENU_BUTTON_DEFA_SIZE.x / 2,
                                 WINDOW_MANAGER_HEIGHT / 2 + 300 },
     HELP_BUTTON_POS = { WINDOW_MANAGER_WIDTH / 2 - MENU_BUTTON_DEFA_SIZE.x / 2,
-                            WINDOW_MANAGER_HEIGHT / 2 + 250 };
+                            WINDOW_MANAGER_HEIGHT / 2 + 250 },
+    MUTE_BUTTON_POS = { 100, 800 };
 
 
 const unsigned int LEVEL_BUTTON_SHIFT_X = MENU_BUTTON_DEFA_SIZE.x + 125,

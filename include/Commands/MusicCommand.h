@@ -6,8 +6,6 @@
 #include "ResourceManager.h"
 #include <SFML/Graphics.hpp>
 
-class Button;
-
 class MusicCommand : public Command {
 public:
     MusicCommand();

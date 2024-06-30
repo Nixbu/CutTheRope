@@ -3,6 +3,7 @@
 #include "ResourceManager.h"
 #include "Menu.h"
 #include "Commands/changeScreen.h"
+#include "Commands/MusicCommand.h"
 
 class Controller;
 class HelpState;

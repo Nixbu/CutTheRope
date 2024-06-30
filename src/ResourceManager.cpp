@@ -55,6 +55,8 @@ ResourceManager::ResourceManager() {
     loadResource<sf::Texture>(m_textures, "ResetLevelButton", "ResetLevelButton.png");
     loadResource<sf::Texture>(m_textures, "HelpStateBG", "HelpStateBG.png");
     loadResource<sf::Texture>(m_textures, "HelpButton", "HelpButton.png");
+    loadResource<sf::Texture>(m_textures, "UnmuteMusicButton", "UnmuteMusicButton.png");
+
 
     loadResource<sf::Texture>(m_textures, "Icon", "Icon.png");
 

@@ -15,10 +15,7 @@ float angleToRadians(float angle);
 const unsigned int WINDOW_MANAGER_WIDTH = 1100,
 WINDOW_MANAGER_HEIGHT = 850,
 FRAME_DELAY_MS = 50,
-MAX_SIZE = 100,
-LEVELS = 3,
-LEVEL_SELECT_ROWS_LEVELS = 1,
-MAX_LEVELS_ROW_LEVEL_SELECT = 10;
+MAX_SIZE = 100;
 
 // Object Sizes
 const sf::Vector2f AIR_PILLOW_SIZE = { 119 , 127 },

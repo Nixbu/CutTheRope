@@ -32,15 +32,38 @@ private:
     ResourceManager();
 
     template <typename Resource>
-    void loadResource(std::unordered_map<std::string, Resource>& resourceMap, const std::string& name, 
-                      const std::string& filename);
+    void loadResource(std::unordered_map<std::string, Resource>& resourceMap,
+        const std::string& name, const std::string& filename)
+    {
+        Resource resource;
+
+        resource.loadFromFile(filename);
+        resourceMap[name] = std::move(resource);
+    }
+
     template <>
     void loadResource(std::unordered_map<std::string, std::unique_ptr<sf::Sound>>& resourceMap,
-        const std::string& name, const std::string& filename);
+        const std::string& name, const std::string& filename)
+    {
+        sf::SoundBuffer buffer;
+        if (!buffer.loadFromFile(filename)) {
+            throw std::runtime_error("Failed to load sound buffer from " + filename);
+        }
+
+        m_soundBuffers[name] = buffer;
+        std::unique_ptr<sf::Sound> sound = std::make_unique<sf::Sound>();
+        sound->setBuffer(m_soundBuffers[name]); // Assuming m_soundBuffers is defined elsewhere
+        sound->setVolume(100); // Optionally set other properties
+        resourceMap[name] = std::move(sound);
+    }
 
     template <>
     void loadResource(std::unordered_map<std::string, std::unique_ptr<sf::Music>>& resourceMap,
-        const std::string& name, const std::string& filename);
+        const std::string& name, const std::string& filename) {
+        std::unique_ptr<sf::Music> music = std::make_unique<sf::Music>();
+        music->openFromFile(filename);
+        resourceMap[name] = std::move(music);
+    }
 
     std::unordered_map<std::string, sf::Texture> m_textures;
     std::unordered_map<std::string, sf::Font> m_fonts;

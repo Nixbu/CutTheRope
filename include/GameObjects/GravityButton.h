@@ -16,5 +16,4 @@ private:
 	static bool m_registerit;
 	b2World& m_world;
 	sf::Vector2f m_currentGravity;
-	float m_degree;
 };

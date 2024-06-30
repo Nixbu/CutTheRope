@@ -9,6 +9,6 @@ Star Star 840 350 0
 Star Star 650 570 0
 Star Star 350 500 0
 DoubleHat RedHat 550 700 0 350 200 180
-GravityButton GravityButton 1000 350 0
+GravityButton GravityButtonUp 1000 350 0
 Spikes HorizonalLongSpikes 200 700 0
 Chair Chair6 150 230 0

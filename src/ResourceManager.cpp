@@ -25,7 +25,8 @@ ResourceManager::ResourceManager() {
     loadResource<sf::Texture>(m_textures, "ReplayButton", "ReplayButton.png");
     loadResource<sf::Texture>(m_textures, "ReturnToLevelsButton", "ReturnToLevelsButton.png");
     loadResource<sf::Texture>(m_textures, "NextLevelButton", "NextLevelButton.png");
-    loadResource<sf::Texture>(m_textures, "GravityButton", "GravityButton.png");
+    loadResource<sf::Texture>(m_textures, "GravityButtonUp", "GravityButtonUp.png");
+    loadResource<sf::Texture>(m_textures, "GravityButtonDown", "GravityButtonDown.png");
     loadResource<sf::Texture>(m_textures, "LockedLevel", "Locked.png");
     loadResource<sf::Texture>(m_textures, "0Stars", "ZeroStarsLevel.png");
     loadResource<sf::Texture>(m_textures, "1Stars", "OneStarLevel.png");

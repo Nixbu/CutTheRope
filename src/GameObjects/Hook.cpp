@@ -1,6 +1,9 @@
 #include "Gameobjects/Hook.h"
 #include "World.h"
-
+//===================================================================
+// Constructs a Hook object using provided data, initializing it as
+// a NonClickableObject with a static body definition and sensor fixture.
+//===================================================================
 Hook::Hook(const Data& data, World& world, const sf::Texture& texture) : NonClickableObject(data, texture)
 {
     b2Vec2 currentPosition = b2Vec2(data.m_pos.x / SCALE,
@@ -17,15 +20,15 @@ Hook::Hook(const Data& data, World& world, const sf::Texture& texture) : NonClic
 
     b2FixtureDef hookFixtureDef;
     hookFixtureDef.isSensor = true;
-    hookFixtureDef.density = 1.0f; // Adjust density as needed
-    hookFixtureDef.friction = 0.3f; // Adjust friction as needed
-    hookFixtureDef.restitution = 0.5f; // Adjust restitution (bounciness) as needed
     hookFixtureDef.shape = &hookShape;
 
     this->initBody(world, hookBodyDef, hookFixtureDef);
 
 }
-
+//===================================================================
+// Updates the position and rotation of the Hook object based on its
+// Box2D physics body.
+//===================================================================
 void Hook::update(sf::Time& deltaTime)
 {
     b2Vec2 position = this->getBody()->GetPosition();

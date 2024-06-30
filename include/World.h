@@ -44,7 +44,7 @@ private:
 	levelStatus_t m_levelStatus;
 	b2World m_physicalWorld;
 	std::vector<std::shared_ptr<GameObject>> m_gameObjects;
-	sf::Clock m_clock;
+	sf::Clock m_animationClock;
 
 	bool checkCollision(std::shared_ptr<GameObject> object1,
 		std::shared_ptr<GameObject> object2);

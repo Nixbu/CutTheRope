@@ -8,7 +8,7 @@ class RopeSegment : public ClickableObject
 public:
     RopeSegment(const Data& data, World& world, const sf::Texture& texture, const b2Vec2& position);
     virtual void update(sf::Time& deltaTime) override;
-    virtual void handleClicked() override;
+    virtual void handleClicked()  override {};
     virtual bool isClicked(const std::pair<sf::Vector2f, sf::Vector2f>& mousePos) override;
 
 private:

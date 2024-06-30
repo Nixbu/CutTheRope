@@ -169,12 +169,12 @@ levelStatus_t World::getLevelStatus() const
 //======================================================================
 void World::restartClock()
 {
-	this->m_clock.restart();
+	this->m_animationClock.restart();
 }
 //======================================================================
 double World::getTime() const
 {
-	return this->m_clock.getElapsedTime().asSeconds();
+	return this->m_animationClock.getElapsedTime().asSeconds();
 }
 
 //======================================================================

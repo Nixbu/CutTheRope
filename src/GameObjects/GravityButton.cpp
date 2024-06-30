@@ -53,6 +53,16 @@ void GravityButton::handleClicked()
     {
         m_degree -= 360.0f;
     }
+
+    if (m_currentGravity.y > 0.f )
+    {
+        ResourceManager::getInstance().playSound("GravityOn");
+    }
+    else
+    {
+        ResourceManager::getInstance().playSound("GravityOff");
+    }
+
     this->setRotation(m_degree);
 }
 

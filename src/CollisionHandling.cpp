@@ -31,7 +31,9 @@ void candyBubble(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject
 {
      std::shared_ptr<Candy> candy = std::dynamic_pointer_cast<Candy>(object1);
      std::shared_ptr<Bubble> bubble = std::dynamic_pointer_cast<Bubble>(object2);
-
+     
+     ResourceManager::getInstance().playSound("CandyToBubble");
+     
     bubble->changeToDynamic();
     candy->SetLinearVelocity(BUBBLE_VELOCITY);
 
@@ -53,18 +55,21 @@ void candyOmnom(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject>
 {
     std::shared_ptr<Candy> candy = std::dynamic_pointer_cast<Candy>(object1);
     std::shared_ptr<Omnom> omnom = std::dynamic_pointer_cast<Omnom>(object2);
-
+    ResourceManager::getInstance().playSound("MonsterChewing");
     omnom->setAnimationFlag(true);
     world.restartClock();
     candy->setDelete();
     world.setLevelStatus(Won);
-
+    ResourceManager::getInstance().playSound("Win");
 }
 
 void candyStar(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, World& world)
 {
     std::shared_ptr<Candy> candy = std::dynamic_pointer_cast<Candy>(object1);
     std::shared_ptr<Star> star = std::dynamic_pointer_cast<Star>(object2);
+
+    ResourceManager::getInstance().playSound("Star");
+
     world.addStar();
 
     star->setDelete();
@@ -74,6 +79,8 @@ void candySpikes(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject
     auto candy = std::dynamic_pointer_cast<Candy>(object1);
     auto Spike = std::dynamic_pointer_cast<Spikes>(object2);
 
+    ResourceManager::getInstance().playSound("CandyBreak");
+
     world.setLevelStatus(Lost);
     candy->setDelete();
 }
@@ -82,6 +89,8 @@ void candyHat(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> o
 {
     auto candy = std::dynamic_pointer_cast<Candy>(object1);
     auto doubleHat = std::dynamic_pointer_cast<DoubleHat>(object2);
+
+    ResourceManager::getInstance().playSound("Teleport");
 
     // Get the second body's position and angle
     auto hatBody = doubleHat->getBody();
@@ -116,8 +125,6 @@ void candyAir(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> o
     auto air = std::dynamic_pointer_cast<Air>(object2);
 
     candy->getBody()->ApplyForceToCenter(air->getForce(), true);
-
-
 }
 
 

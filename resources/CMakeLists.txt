@@ -82,7 +82,6 @@ configure_file ("CharacterChairs/Chair11.png" ${CMAKE_BINARY_DIR} COPYONLY)
 
 
 
-
 # Level files
 configure_file ("LevelFiles/levelPlaylist.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("LevelFiles/Level1.txt" ${CMAKE_BINARY_DIR} COPYONLY)
@@ -99,7 +98,21 @@ configure_file ("GOODDC__.TTF" ${CMAKE_BINARY_DIR} COPYONLY)
 
 configure_file ("Icon.png" ${CMAKE_BINARY_DIR} COPYONLY)
 
+# Sounds
 
+configure_file ("Sounds/BubbleBreak.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("Sounds/CandyBreak.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("Sounds/CandyToBubble.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("Sounds/GhostPuff.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("Sounds/MonsterChewing.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("Sounds/GravityOn.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("Sounds/GravityOff.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("Sounds/RopeCut.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("Sounds/Star.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("Sounds/Teleport.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("Sounds/Win.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 
+# Music
+configure_file ("Musics/CutTheRope.mp3" ${CMAKE_BINARY_DIR} COPYONLY)
 
 

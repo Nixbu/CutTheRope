@@ -60,8 +60,10 @@ void Bubble::update(sf::Time& deltaTime)
 
 void Bubble::handleClicked()
 {
-    if (this->getBody()->GetType() == b2_dynamicBody) {
-        this->setDelete();      
+    if (this->getBody()->GetType() == b2_dynamicBody) 
+    {
+        ResourceManager::getInstance().playSound("BubbleBreak");
+        this->setDelete();   
     }
 }
 

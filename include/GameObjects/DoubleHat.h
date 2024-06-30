@@ -5,6 +5,11 @@
 #include "GameObjects/NonClickableObject.h"
 #include "GameObjects/Hat.h"
 
+/*
+   The DoubleHat class represents a non-clickable object consisting of two hats.
+   It extends NonClickableObject and manages its own update and drawing behavior.
+*/
+
 class DoubleHat : public NonClickableObject
 {
 public:

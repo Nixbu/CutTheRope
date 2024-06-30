@@ -5,6 +5,10 @@
 #include "GameObjects/GravityButton.h"
 #include "World.h"
 
+/* class GravityButtonFactory
+   The GravityButtonFactory class is responsible for creating GravityButton game objects.
+   It provides a static method to create a GravityButton object based on input parameters.
+*/
 
 class GravityButtonFactory {
 public:

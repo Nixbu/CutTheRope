@@ -13,6 +13,10 @@
 #include "World.h"
 #include "GameObjects/DoubleHat.h"
 
+/*
+   The CollisionHandler manages collision functions between different types of GameObjects.
+   It uses a map of type pairs to function pointers for handling collisions.
+*/
 
 //TODO create this exception class
 // Sample struct for exception throwing

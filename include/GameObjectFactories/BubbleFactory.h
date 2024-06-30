@@ -5,6 +5,11 @@
 #include "GameObjects/Bubble.h"
 #include "World.h"
 
+/*
+   class BubbleFactory
+   The BubbleFactory class is responsible for creating Bubble game objects.
+   It provides a static method to create a Bubble object based on input parameters.
+*/
 
 class BubbleFactory {
 public:

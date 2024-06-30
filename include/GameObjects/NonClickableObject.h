@@ -4,6 +4,11 @@
 #include "Settings.h"
 
 
+/*
+   The NonClickableObject class represents a base class for non-clickable game objects.
+   It inherits from GameObject and provides basic functionality for non-interactive objects.
+*/
+
 class NonClickableObject : public GameObject
 {
 public:

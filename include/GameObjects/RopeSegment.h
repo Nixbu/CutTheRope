@@ -3,6 +3,11 @@
 #include "GameObjects/ClickableObject.h"
 #include <numbers>
 
+/*
+   The RopeSegment class represents a clickable segment of a rope in the game.
+   It extends ClickableObject and manages its own update and click handling behavior.
+*/
+
 class RopeSegment : public ClickableObject
 {
 public:

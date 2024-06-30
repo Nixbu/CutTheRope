@@ -7,6 +7,12 @@
 
 class Controller;
 
+/*
+   The InterstitalState class represents the state of the game between levels, showing interstitial information or options.
+   It inherits from GameState and provides methods to draw the state, handle mouse clicks,
+   and manage the transition to the next level or other actions.
+*/
+
 class InterstitalState : public GameState {
 public:
 	InterstitalState(const std::string& currentLevelName, const int& nextLevelNum , Controller& controller);

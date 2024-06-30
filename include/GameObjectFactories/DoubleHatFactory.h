@@ -6,6 +6,12 @@
 #include "World.h"
 
 
+/*
+   DoubleHatFactory
+   The DoubleHatFactory class is responsible for creating DoubleHat game objects.
+   It provides a static method to create a DoubleHat object based on input parameters.
+*/ 
+
 class DoubleHatFactory {
 public:
 

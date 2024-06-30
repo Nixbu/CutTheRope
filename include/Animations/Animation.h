@@ -5,6 +5,12 @@
 
 #include <SFML/Graphics.hpp>
 
+/* 
+ class Animation :
+ The Animation class manages a sequence of frames (sub-rectangles of a texture) and updates a sprite to animate it.
+ It supports looping animations and provides functions to update the animation based on elapsed time.
+ */
+
 using ListOfFrames = std::vector<sf::IntRect>;
 
 class Animation

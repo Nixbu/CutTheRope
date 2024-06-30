@@ -12,6 +12,10 @@
 
 class World;
 
+/*
+   The FactoryManager class manages object factories for creating GameObjects.
+   It provides methods to register and create objects based on factory functions.
+*/
 
 typedef std::unordered_map<std::string, std::shared_ptr<GameObject>(*)(const std::string&, World&, const sf::Texture&)> FactoryMap; //?
 // ================   class Factory   ============================

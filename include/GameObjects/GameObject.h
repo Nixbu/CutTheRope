@@ -7,6 +7,11 @@
 
 class World;
 
+/*
+   The GameObject class represents a base class for all game objects.
+   It manages properties such as position, rotation, physics body, and provides methods for drawing and updating.
+*/
+
 class GameObject
 {
 public:

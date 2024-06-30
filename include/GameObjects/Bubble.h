@@ -5,6 +5,12 @@
 #include "GameObjects/ClickableObject.h"
 #include "Animations/Animation.h"
 
+/*
+   class Bubble
+   The Bubble class represents a clickable bubble object in the game.
+   It extends ClickableObject and manages its own animation and state changes.
+*/
+
 class Bubble : public ClickableObject
 {
 public:

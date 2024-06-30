@@ -5,6 +5,11 @@
 #include "GameObjects/NonClickableObject.h"
 #include "Animations/Animation.h"
 
+/*
+   The Omnom class represents a non-clickable object named Omnom in the game.
+   It extends NonClickableObject and manages its own update behavior along with animations.
+*/
+
 class Omnom : public NonClickableObject
 {
 public:

@@ -6,6 +6,10 @@
 #include <thread>
 #include <chrono>
 
+/*
+   The Star class represents a non-clickable star object in the game.
+   It extends NonClickableObject and manages its own update behavior.
+*/
 
 class Star : public NonClickableObject
 {

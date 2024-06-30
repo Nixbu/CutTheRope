@@ -4,6 +4,12 @@
 #include "GameObjectFactories/AirFactory.h"
 #include "GameObjects/NonClickableObject.h"
 
+/*
+   class Air
+   The Air class represents an air object in the game, extending NonClickableObject.
+   It manages direction, force, and updates based on elapsed time.
+*/
+
 class Air : public NonClickableObject
 {
 public:

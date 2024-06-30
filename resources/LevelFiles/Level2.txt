@@ -1,8 +1,9 @@
 2
-Candy Candy 550 550 0
-Rope Rope shortRope 550 450 0
-Omnom Omnom 550 250
-Star Star 550 100 0
-Star Star 550 400 0
-Star Star 550 500 0
-Chair Chair6 550 250 0
+Candy Candy 550 450 0
+Rope Rope shortRope 550 350 0
+Omnom Omnom 550 100
+Star Star 550 250 0
+Star Star 550 315 0
+Star Star 550 650 0
+Bubble Bubble 550 750
+Chair Chair6 550 100 0

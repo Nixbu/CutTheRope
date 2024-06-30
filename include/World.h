@@ -30,7 +30,9 @@ public:
 	void setStarsToZero();
 	levelStatus_t getLevelStatus()const;
 	void restartClock();
-	double getTime()const;
+	double getTime() const;
+	void deleteCandy();
+
 private:
 	int& m_stars;
 	levelStatus_t& m_status;
@@ -44,4 +46,5 @@ private:
 	void deleteWantedObjects();
 	std::shared_ptr<GameObject> m_candy;
 	void validCandyPos();
+	
 };

@@ -10,6 +10,14 @@
 #include "CollisionHandling.h"
 #include <string>
 
+
+// class World
+/*======================================================================================
+The World class serves as the central manager for the game world in this "Cut the Rope" game 
+ It handles the overall object state and behavior of the game using box2d, 
+including managing game objects, updating the game physics, handling user input, and checking for collisions. 
+======================================================================================*/
+
 class World
 {
 public:

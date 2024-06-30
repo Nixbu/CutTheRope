@@ -1,6 +1,6 @@
 2
-Candy Candy 550 30 0
-Rope Rope shortRope 550 30 0
+Candy Candy 550 550 0
+Rope Rope shortRope 550 450 0
 Omnom Omnom 550 250
 Star Star 550 100 0
 Star Star 550 400 0

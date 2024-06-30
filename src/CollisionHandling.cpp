@@ -33,21 +33,21 @@ HitFunctionPtr lookup(const std::type_index& class1, const std::type_index& clas
 //======================================================
 // handles collision between candy and bubble 
 //======================================================
-void candyBubble(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, World& world)
+void candyBubble(GameObject& object1, GameObject& object2, World& world)
 {
-     std::shared_ptr<Candy> candy = std::dynamic_pointer_cast<Candy>(object1);
-     std::shared_ptr<Bubble> bubble = std::dynamic_pointer_cast<Bubble>(object2);
+     auto& candy = std::dynamic_cast<Candy&>(object1);
+     auto& bubble = std::dynamic_cast<Bubble&>(object2);
      
      ResourceManager::getInstance().playSound("CandyToBubble");
      
-    bubble->changeToDynamic();
-    candy->SetLinearVelocity(BUBBLE_VELOCITY);
+    bubble.changeToDynamic();
+    candy.SetLinearVelocity(BUBBLE_VELOCITY);
 
 
     // unite them as a joint
     b2WeldJointDef weldJointDef;
-    weldJointDef.bodyA = bubble->getBody();
-    weldJointDef.bodyB = candy->getBody();
+    weldJointDef.bodyA = bubble.getBody();
+    weldJointDef.bodyB = candy.getBody();
     weldJointDef.localAnchorA.Set(0, 0);
     weldJointDef.localAnchorB.Set(0, 0);
 
@@ -60,48 +60,48 @@ void candyBubble(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject
 //======================================================
 // handles collision between candy and omnom
 //======================================================
-void candyOmnom(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, World& world)
+void candyOmnom(GameObject& object1, GameObject& object2, World& world)
 {
-    std::shared_ptr<Candy> candy = std::dynamic_pointer_cast<Candy>(object1);
-    std::shared_ptr<Omnom> omnom = std::dynamic_pointer_cast<Omnom>(object2);
+    auto& candy = std::dynamic_cast<Candy&>(object1);
+    auto& omnom = std::dynamic_cast<Omnom&>(object2);
     ResourceManager::getInstance().playSound("MonsterChewing");
-    omnom->setAnimationFlag(true);
+    omnom.setAnimationFlag(true);
     world.restartClock();
-    candy->setDelete();
+    candy.setDelete();
     world.deleteCandy();
     world.setLevelStatus(Won);
 }
 //======================================================
 // handles collision between candy and star
 //======================================================
-void candyStar(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, World& world)
+void candyStar(GameObject& object1, GameObject& object2, World& world)
 {
-    std::shared_ptr<Candy> candy = std::dynamic_pointer_cast<Candy>(object1);
-    std::shared_ptr<Star> star = std::dynamic_pointer_cast<Star>(object2);
+    auto& candy = std::dynamic_cast<Candy&>(object1);
+    auto& star = std::dynamic_cast<Star&>(object2);
 
     ResourceManager::getInstance().playSound("Star");
 
     world.addStar();
 
-    star->setDelete();
+    star.setDelete();
 }
 //======================================================
 // handles collision between candy and spikes
 //======================================================
-void candySpikes(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, World& world)
+void candySpikes(GameObject& object1, GameObject& object2, World& world)
 {
-    auto candy = std::dynamic_pointer_cast<Candy>(object1);
-    auto Spike = std::dynamic_pointer_cast<Spikes>(object2);
+    auto candy = std::dynamic_cast<Candy&>(object1);
+    auto spike = std::dynamic_cast<Spikes&>(object2);
 
     ResourceManager::getInstance().playSound("CandyBreak");
 
     world.setLevelStatus(Lost);
-    candy->setDelete();
+    candy.setDelete();
 }
 //======================================================
 // handles collision between candy and hat
 //======================================================
-void candyHat(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, World& world)
+void candyHat(GameObject& object1, GameObject& object2, World& world)
 {
     auto candy = std::dynamic_pointer_cast<Candy>(object1);
     auto doubleHat = std::dynamic_pointer_cast<DoubleHat>(object2);
@@ -136,12 +136,19 @@ void candyHat(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> o
 //======================================================
 // handles collision between candy and air object (created from the pillow)
 //======================================================
-void candyAir(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, World& world)
+void candyAir(GameObject& object1, GameObject& object2, World& world)
 {
-    auto candy = std::dynamic_pointer_cast<Candy>(object1);
-    auto air = std::dynamic_pointer_cast<Air>(object2);
+    // Attempt to cast to Candy and Air types using std::dynamic_pointer_cast
+    auto& candy = std::dynamic_cast<Candy&>(object1));
+    auto& air = std::dynamic_cast<Air&>(object1));
 
-    candy->getBody()->ApplyForceToCenter(air->getForce(), true);
+    // Check if casting was successful and objects are valid
+    if (candy && air) {
+        candy.getBody()->ApplyForceToCenter(air.getForce(), true);
+    }
+    else {
+        // Handle invalid object types or null pointers
+        throw std::runtime_error("Invalid object types for candyAir function.");
+    }
 }
-
 

@@ -13,7 +13,7 @@
 class GravityButtonFactory {
 public:
 
-	static std::shared_ptr<GameObject> createObject(const std::string& line,
+	static std::unique_ptr<GameObject>&& createObject(const std::string& line,
 		World& world, const sf::Texture& texture);
 
 private:

@@ -49,17 +49,14 @@ void GravityButton::handleClicked()
     m_currentGravity = -m_currentGravity;
     m_world.SetGravity(b2Vec2(m_currentGravity.x, m_currentGravity.y));
     m_degree += 180;  //TODO FIX ROTATION
-    if (m_degree >= 360.0f)
-    {
-        m_degree -= 360.0f;
-    }
-
     if (m_currentGravity.y > 0.f )
     {
+        ResourceManager::getInstance().getImage("GravityButtonUp");
         ResourceManager::getInstance().playSound("GravityOn");
     }
     else
     {
+        ResourceManager::getInstance().getImage("GravityButtonDown");
         ResourceManager::getInstance().playSound("GravityOff");
     }
 

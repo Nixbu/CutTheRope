@@ -2,7 +2,7 @@
 Omnom Omnom 120 240
 Candy Candy 1000 500 0
 Rope Rope shortRope 1000 370 0
-GravityButton GravityButton 1065 210 0
+GravityButton GravityButtonUp 1065 210 0
 Star Star 1000 200 0
 DoubleHat RedHat 1000 100 180 800 100 180
 DoubleHat RedHat 800 750 0 600 750 0

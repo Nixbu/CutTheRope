@@ -148,4 +148,16 @@ void ResourceManager::playSound(const std::string& soundName)
 void ResourceManager::playMusic(const std::string& musicName)
 {
     this->m_musics.at(musicName)->play();
-}    
+}  
+//=============================================================
+void ResourceManager::setMusic(const std::string& musicName)
+{
+    if (this->m_musics[musicName]->getVolume() == 0)
+    {
+        this->m_musics[musicName]->setVolume(100);
+    }
+    else
+    {
+        this->m_musics[musicName]->setVolume(0);
+    }
+}

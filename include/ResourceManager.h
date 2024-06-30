@@ -45,6 +45,7 @@ private:
     std::unordered_map<std::string, sf::Texture> m_textures;
     std::unordered_map<std::string, sf::Font> m_fonts;
     std::unordered_map<std::string, ListOfFrames> m_animations;
+    std::unordered_map<std::string, sf::SoundBuffer> m_soundBuffers;
     std::unordered_map<std::string, std::unique_ptr<sf::Sound>> m_sounds;
     std::unordered_map<std::string, std::unique_ptr<sf::Music>> m_musics;
 };

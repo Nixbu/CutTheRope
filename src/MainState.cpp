@@ -8,7 +8,6 @@ MainState::MainState()
 {
 	ResourceManager& manager = ResourceManager::getInstance();
 	this->m_bgImage.setTexture(manager.getImage("MainWindowBG"));
-	ResourceManager::getInstance().playMusic("CutTheRope");
 }
 
 void MainState::handleFloating(const sf::Vector2f& mousePos)

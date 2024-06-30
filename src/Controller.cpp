@@ -27,6 +27,8 @@ void Controller::run() {
 		WINDOW_MANAGER_HEIGHT),
 		"Cut The Rope");
 
+	ResourceManager::getInstance().playMusic("CutTheRope");
+
 	window.setIcon(m_windowIconImage.getSize().x, m_windowIconImage.getSize().y, m_windowIconImage.getPixelsPtr());
 
 	window.setFramerateLimit(60);

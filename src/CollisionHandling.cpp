@@ -60,7 +60,7 @@ void candyOmnom(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject>
     world.restartClock();
     candy->setDelete();
     world.setLevelStatus(Won);
-    ResourceManager::getInstance().playSound("Win");
+   // ResourceManager::getInstance().playSound("Win");
 }
 
 void candyStar(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, World& world)

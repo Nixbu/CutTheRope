@@ -14,7 +14,7 @@ int main()
 		controller.run();
 	}
 	catch (const std::exception& e) {
-		std::cerr << "Standard exception: " << e.what() << std::endl;
+		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
 	
 }

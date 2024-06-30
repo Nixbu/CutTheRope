@@ -12,6 +12,7 @@ WinState::WinState(Controller& controller)
 }
 //=======================================================================
 // Draws the win state by drawing the background and menu onto the provided window.
+//======================================================================
 void WinState::draw(sf::RenderWindow& window)
 {	
 	window.draw(this->m_backGround);
@@ -19,12 +20,14 @@ void WinState::draw(sf::RenderWindow& window)
 }
 //=======================================================================
 // Handles mouse click events by passing the mouse position to the menu's click handler.
+//======================================================================
 void WinState::handleClicks(const sf::Vector2f& mousePos)
 {
 	this->m_menu.handleClicks(mousePos);
 }
 //=======================================================================
 // Handles mouse hover events by passing the mouse position to the menu's floating handler.
+//======================================================================
 void WinState::handleFloating(const sf::Vector2f& mousePos)
 {
 	this->m_menu.handleFloating(mousePos);
@@ -32,6 +35,7 @@ void WinState::handleFloating(const sf::Vector2f& mousePos)
 //=======================================================================
 // Adds buttons to the win state menu. 
 // This includes the return button that changes the screen back to the main state
+//======================================================================
 void WinState::addButtons(Controller& controller)
 {
 	auto& manager = ResourceManager::getInstance();

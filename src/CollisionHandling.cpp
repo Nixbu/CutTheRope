@@ -2,7 +2,9 @@
 #include <thread>
 #include <chrono>
 
-
+//======================================================
+// hit map that holds collision functions
+//======================================================
 HitMap initializeCollisionMap()
 {
     HitMap collisionMap;
@@ -15,7 +17,9 @@ HitMap initializeCollisionMap()
 
     return collisionMap;
 }
-
+//======================================================
+// function based on 2 classes returns a collision handle func
+//======================================================
 HitFunctionPtr lookup(const std::type_index& class1, const std::type_index& class2)
 {
     static HitMap collisionMap = initializeCollisionMap();
@@ -26,7 +30,9 @@ HitFunctionPtr lookup(const std::type_index& class1, const std::type_index& clas
     }
     return mapEntry->second;
 }
-
+//======================================================
+// handles collision between candy and bubble 
+//======================================================
 void candyBubble(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, World& world)
 {
      std::shared_ptr<Candy> candy = std::dynamic_pointer_cast<Candy>(object1);
@@ -38,7 +44,7 @@ void candyBubble(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject
     candy->SetLinearVelocity(BUBBLE_VELOCITY);
 
 
-
+    // unite them as a joint
     b2WeldJointDef weldJointDef;
     weldJointDef.bodyA = bubble->getBody();
     weldJointDef.bodyB = candy->getBody();
@@ -51,6 +57,9 @@ void candyBubble(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject
     std::this_thread::sleep_for(std::chrono::milliseconds(FRAME_DELAY_MS));
 
 }
+//======================================================
+// handles collision between candy and omnom
+//======================================================
 void candyOmnom(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, World& world)
 {
     std::shared_ptr<Candy> candy = std::dynamic_pointer_cast<Candy>(object1);
@@ -62,7 +71,9 @@ void candyOmnom(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject>
     world.setLevelStatus(Won);
     ResourceManager::getInstance().playSound("Win");
 }
-
+//======================================================
+// handles collision between candy and star
+//======================================================
 void candyStar(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, World& world)
 {
     std::shared_ptr<Candy> candy = std::dynamic_pointer_cast<Candy>(object1);
@@ -74,6 +85,9 @@ void candyStar(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> 
 
     star->setDelete();
 }
+//======================================================
+// handles collision between candy and spikes
+//======================================================
 void candySpikes(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, World& world)
 {
     auto candy = std::dynamic_pointer_cast<Candy>(object1);
@@ -84,7 +98,9 @@ void candySpikes(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject
     world.setLevelStatus(Lost);
     candy->setDelete();
 }
-
+//======================================================
+// handles collision between candy and hat
+//======================================================
 void candyHat(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, World& world)
 {
     auto candy = std::dynamic_pointer_cast<Candy>(object1);
@@ -92,33 +108,34 @@ void candyHat(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> o
 
     ResourceManager::getInstance().playSound("Teleport");
 
-    // Get the second body's position and angle
+    
     auto hatBody = doubleHat->getBody();
     auto position = hatBody->GetPosition();
     auto angle = hatBody->GetAngle();
 
     // Calculate a small offset in the direction the hat is facing
-    float offsetDistance = 5.0f; // Adjust this value as needed
+    float offsetDistance = 5.0f; 
     b2Vec2 offset(sin(angle) * offsetDistance, cos(angle) * offsetDistance);
 
-    // Set the new position slightly forward from the hat's current position
+    // Set the new position slightly forward from the hats current position
     b2Vec2 newPosition = position + offset;
     candy->getBody()->SetTransform(newPosition, angle);
 
-    // Get the current velocity of the candy
+
     b2Vec2 currentVelocity = candy->getBody()->GetLinearVelocity();
 
-    // Calculate the speed (magnitude) of the current velocity
+
     float speed = currentVelocity.Length();
 
-    // Calculate the new velocity components using the hat's angle
+    // Calculate the new velocity components using the hats angle
     b2Vec2 newVelocity(sin(angle) * speed / 2, cos(angle) * speed / 2 );
 
-    // Set the new velocity for the candy
+
     candy->getBody()->SetLinearVelocity(newVelocity);
 }
-
-
+//======================================================
+// handles collision between candy and air object (created from the pillow)
+//======================================================
 void candyAir(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2, World& world)
 {
     auto candy = std::dynamic_pointer_cast<Candy>(object1);

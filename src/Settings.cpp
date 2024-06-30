@@ -11,6 +11,7 @@ b2Vec2 angleToDirection(float angle)
 //=================================================================
 // Converts an angle in degrees to radians.
 // Returns the angle in radians.
+//======================================================================
 float angleToRadians(float angle) {
 	return angle * DEG2RAD;
 }

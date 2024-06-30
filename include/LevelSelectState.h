@@ -24,7 +24,7 @@ public:
 private:
 	Menu m_levelButtons;
 	Menu m_options;
-	std::string m_levelPlaylist;
 	sf::Sprite m_bgImage;
 	std::vector <sf::Text> m_textLevelSelect;
+	void setButtonFont( sf::Text& text, const sf::Vector2i& pos , const int & levelNum);
 };

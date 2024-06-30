@@ -11,6 +11,7 @@ World::World() : m_levelStatus(OnGoing) , m_stars(0) ,
 //======================================================================
 // Adds an object to the game world from a string line.
 // Throws an error if the object cannot be created.
+//======================================================================
 void World::addObject(std::string& line)
 {
 		auto& resourceManager = ResourceManager::getInstance();
@@ -39,12 +40,14 @@ void World::addObject(std::string& line)
 }
 //======================================================================
 // Adds a shared pointer to a GameObject to the game objects vector.
+//======================================================================
 void World::addToGameObjects(std::shared_ptr<GameObject> object)
 {
 	this->m_gameObjects.emplace_back(object);
 }
 //======================================================================
 // Draws all game objects in the world to the provided window.
+//======================================================================
 void World::draw(sf::RenderWindow& window) const 
 {
 	for (auto it = this->m_gameObjects.rbegin(); it != this->m_gameObjects.rend(); ++it)
@@ -55,6 +58,7 @@ void World::draw(sf::RenderWindow& window) const
 //======================================================================
 // Resets the game world by clearing the game objects vector and
 //  setting the candy pointer to null.
+//======================================================================
 void World::reset()
 {
 	this->m_gameObjects.clear();
@@ -62,6 +66,7 @@ void World::reset()
 }
 //======================================================================
 // Updates the game world by stepping the physics world and updating all game objects.
+//======================================================================
 void World::update(float timeStep, sf::Time& deltaTime)
 {
 	int32 velocityIterations = 6;
@@ -79,6 +84,7 @@ void World::update(float timeStep, sf::Time& deltaTime)
 }
 //======================================================================
 // Handles collisions between the candy and other game objects.
+//======================================================================
 void World::handleCollisions()
 {
 	for (int index1 = 0; index1 < this->m_gameObjects.size(); index1++)
@@ -97,6 +103,7 @@ void World::handleCollisions()
 }
 //======================================================================
 // Handles mouse clicks on clickable game objects.
+//======================================================================
 void World::handleClicks(const std::pair<sf::Vector2f, sf::Vector2f>& mousePos)
 {
 	for (auto& object : this->m_gameObjects)
@@ -172,6 +179,7 @@ double World::getTime() const
 
 //======================================================================
 // Checks if two game objects are colliding.
+//======================================================================
 bool World::checkCollision(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2)
 {
 	b2Body* bodyA = object1->getBody();
@@ -197,11 +205,13 @@ bool World::checkCollision(std::shared_ptr<GameObject> object1, std::shared_ptr<
 }
 //======================================================================
 // Checks if a contact is between two specified bodies.
+//======================================================================
 bool World::isContactBetween(b2Body* body1, b2Body* body2, b2Body* checkBodyA, b2Body* checkBodyB) {
 	return (body1 == checkBodyA && body2 == checkBodyB) || (body1 == checkBodyB && body2 == checkBodyA);
 }
 //======================================================================
 // Deletes game objects that are marked for deletion.
+//======================================================================
 void World::deleteWantedObjects()
 {
 	for (int i = 0; i < this->m_gameObjects.size(); i++) {
@@ -214,6 +224,7 @@ void World::deleteWantedObjects()
 //========================================================================
 // Validates the position of the candy object and sets the 
 // level status to Lost if it is out of bounds.
+//======================================================================
 void World::validCandyPos()
 {
 	if (this->m_candy) {

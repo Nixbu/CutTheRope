@@ -38,11 +38,8 @@ GravityButton::GravityButton(const Data& ObjectData, World& world, const sf::Tex
     this->setPosition(position.x * SCALE, WINDOW_MANAGER_HEIGHT - position.y * SCALE);
     this->setRotation(angle * 180.0f / b2_pi);
 
-}
-void GravityButton::update(sf::Time& deltaTime)
-{
-   
-}
+} 
+
 
 void GravityButton::handleClicked()
 {

@@ -9,7 +9,6 @@ class GravityButton: public ClickableObject
 {
 public:
 	GravityButton(const Data& ObjectData, World& world, const sf::Texture& texture);
-	virtual void update(sf::Time& deltaTime);
 	virtual void handleClicked();
 
 private:

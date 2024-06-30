@@ -25,20 +25,7 @@ RopeSegment::RopeSegment(const Data& data, World& world, const sf::Texture& text
 
     this->initBody(world, bodyDef, fixtureDef);
 }
-//===================================================================
-// Updates the position and rotation of the rope segment based on its
-// Box2D body's current state.
-//===================================================================
-void RopeSegment::update(sf::Time& deltaTime)
-{
-    b2Vec2 position = this->getBody()->GetPosition();
-    float angle = this->getBody()->GetAngle();
 
-    // Convert Box2D position (meters) to SFML position (pixels)
-    this->setPosition(position.x * SCALE, WINDOW_MANAGER_HEIGHT - position.y * SCALE);
-    this->setRotation(angle * 180.0f / b2_pi);
-
-}
 //===================================================================
 // Checks if a given mouse position intersects with the rope segment.
 // Uses mathematical intersection tests to determine click validity. (dragg mouse event)

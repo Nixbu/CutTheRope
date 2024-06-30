@@ -25,16 +25,4 @@ Hook::Hook(const Data& data, World& world, const sf::Texture& texture) : NonClic
     this->initBody(world, hookBodyDef, hookFixtureDef);
 
 }
-//===================================================================
-// Updates the position and rotation of the Hook object based on its
-// Box2D physics body.
-//===================================================================
-void Hook::update(sf::Time& deltaTime)
-{
-    b2Vec2 position = this->getBody()->GetPosition();
-    float angle = this->getBody()->GetAngle();
 
-    // Convert Box2D position (meters) to SFML position (pixels)
-    this->setPosition(position.x * SCALE, WINDOW_MANAGER_HEIGHT - position.y * SCALE);
-    this->setRotation(angle * 180.0f / b2_pi);
-}

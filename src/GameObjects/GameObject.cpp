@@ -60,6 +60,16 @@ void GameObject::draw(sf::RenderWindow& window) const
 	window.draw(m_sprite);
 }
 
+void GameObject::update(sf::Time& deltaTime)
+{
+	b2Vec2 position = this->getBody()->GetPosition();
+	float angle = this->getBody()->GetAngle();
+
+	// Convert Box2D position (meters) to SFML position (pixels)
+	this->setPosition(position.x * SCALE, WINDOW_MANAGER_HEIGHT - position.y * SCALE);
+	this->setRotation(angle * 180.0f / b2_pi);
+}
+
 void GameObject::initBody(World& world, const b2BodyDef& bodyDef, const b2FixtureDef& fixtureDef)
 {
 	m_body = world.getWorld().CreateBody(&bodyDef);

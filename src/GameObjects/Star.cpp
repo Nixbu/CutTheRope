@@ -29,19 +29,8 @@ Star::Star(const Data& ObjectData, World& world, const sf::Texture& texture) : N
 // register to the factory
 bool Star::m_registerit = FactoryManager::registerit("Star",
     &StarFactory::createObject);
-//===================================================================
-// Updates the position and rotation of the star based on its Box2D
-// body's current state.
-//===================================================================
-void Star::update(sf::Time& deltaTime)
-{
-    b2Vec2 position = this->getBody()->GetPosition();
-    float angle = this->getBody()->GetAngle();
 
-    // Convert Box2D position (meters) to SFML position (pixels)
-    this->setPosition(position.x * SCALE, WINDOW_MANAGER_HEIGHT - position.y * SCALE);
-    this->setRotation(angle * 180.0f / b2_pi);
-}
+
 
 
 

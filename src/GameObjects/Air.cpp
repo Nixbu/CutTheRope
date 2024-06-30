@@ -1,5 +1,9 @@
 #include "GameObjects/Air.h"
 
+//===================================================================
+// Constructs an Air object using the provided data and texture.
+// Inherits from the NonClickableObject class.
+//===================================================================
 Air::Air(const Data& ObjectData, World& world, const sf::Texture& texture) 
     : NonClickableObject(ObjectData, texture),
        m_direction(angleToDirection(ObjectData.m_angle)),
@@ -10,24 +14,26 @@ Air::Air(const Data& ObjectData, World& world, const sf::Texture& texture)
     b2FixtureDef fixtureDef;
     b2PolygonShape shape;
 
-
-    bodyDef.type = b2_dynamicBody; // Set the body type to dynamic
+    // define the bodydef
+    bodyDef.type = b2_dynamicBody; 
     bodyDef.position.Set(ObjectData.m_pos.x / SCALE,
-        (WINDOW_MANAGER_HEIGHT - ObjectData.m_pos.y) / SCALE); // Set the initial position
-    bodyDef.angle = angleToRadians(ObjectData.m_angle); // Set the initial angle
-    bodyDef.linearVelocity.Set(m_direction.x * 30, m_direction.y * 30); // Set the initial linear velocity
-    bodyDef.angularVelocity = 0.0f; // Set the initial angular velocity
-    bodyDef.linearDamping = 0.2f; // Set the linear damping
-    bodyDef.angularDamping = 0.0f; // Set the angular damping
+        (WINDOW_MANAGER_HEIGHT - ObjectData.m_pos.y) / SCALE); 
+    bodyDef.angle = angleToRadians(ObjectData.m_angle); 
+    bodyDef.linearVelocity.Set(m_direction.x * 30, m_direction.y * 30); 
+    bodyDef.angularVelocity = 0.0f; 
+    bodyDef.linearDamping = 0.2f; 
+    bodyDef.angularDamping = 0.0f; 
     
     shape.SetAsBox(0.5f, 0.5f);
 
     fixtureDef.shape = &shape;
-    fixtureDef.isSensor = true; // Set as sensor
+    fixtureDef.isSensor = true; // Set as sensor so that physick wont affect
 
     this->initBody(world, bodyDef, fixtureDef);
 }
-
+//===================================================================
+// Updates the Air's position, rotation, and checks its lifetime.
+//===================================================================
 void Air::update(sf::Time& deltaTime)
 {
     b2Vec2 position = this->getBody()->GetPosition();
@@ -40,12 +46,17 @@ void Air::update(sf::Time& deltaTime)
     this->checkTime();
 
 }
-
+//===================================================================
+// Returns the force applied by the Air object.
+//===================================================================
 const b2Vec2 Air::getForce() const
 {
     return m_force;
 }
-
+//===================================================================
+// Checks if the Air object has exceeded its lifetime and sets it for
+// deletion if it has.
+//===================================================================
 void Air::checkTime()
 {
     if (this->m_clock.getElapsedTime().asSeconds() >= LIVING_AIR_TIME)
@@ -54,5 +65,8 @@ void Air::checkTime()
     }
 }
 
+//===================================================================
+// for the factory
+//===================================================================
 bool Air::m_registerit = FactoryManager::registerit("Air",
     &AirFactory::createObject);

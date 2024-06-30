@@ -82,25 +82,35 @@ ResourceManager::ResourceManager() {
     loadResource< std::unique_ptr<sf::Music>>(m_musics, "CutTheRope", "CutTheRope.mp3");
     this->loadAnimations();
 }
-
+//=============================================================
+// Static method to get the singleton instance of ResourceManager
+//=============================================================
 ResourceManager& ResourceManager::getInstance() {
     static ResourceManager instance;
     return instance;
 }
-
+//=============================================================
+// Retrieve a loaded texture by name
+//=============================================================
 const sf::Texture& ResourceManager::getImage(const std::string& name) const {
     return m_textures.at(name);
 }
-
+//=============================================================
+// Retrieve a loaded font by name
+//=============================================================
 const sf::Font& ResourceManager::getFont(const std::string& name) const {
     return m_fonts.at(name);
 }
-
+//=============================================================
+// Retrieve a list of frames for an animation by name (for animations)
+//=============================================================
 const ListOfFrames& ResourceManager::getAnimation(const std::string& name) const
 {
     return m_animations.at(name);
 }
-
+//=============================================================
+// Load predefined animations during ResourceManager initialization
+//============================================================
 void ResourceManager::loadAnimations()
 {
     this->loadAnimation("AirPillow", 160, 6);
@@ -108,7 +118,9 @@ void ResourceManager::loadAnimations()
     this->loadAnimation("Bubble", 120, 14);
 
 }
-
+//=============================================================
+// Load an animation with specified parameters
+//=============================================================
 void ResourceManager::loadAnimation(const std::string& type, int pageGap, int framesCount)
 {
 
@@ -126,25 +138,14 @@ void ResourceManager::loadAnimation(const std::string& type, int pageGap, int fr
     }
 
 }
+//=============================================================
+// Play a loaded sound by name
+//=============================================================
 void ResourceManager::playSound(const std::string& soundName)
 {
     this->m_sounds.at(soundName)->play();
 }
-
 void ResourceManager::playMusic(const std::string& musicName)
 {
     this->m_musics.at(musicName)->play();
-}
-
-void ResourceManager::setMusic(const std::string& musicName)
-{
-    if (this->m_musics[musicName]->getVolume() == 0)
-    {
-        this->m_musics[musicName]->setVolume(100);
-    }
-    else
-    {
-        this->m_musics[musicName]->setVolume(0);
-    }
-}
-    
+}    

@@ -10,10 +10,18 @@
 #include "CollisionHandling.h"
 #include <string>
 
+
+// class World
+/*======================================================================================
+The World class serves as the central manager for the game world in this "Cut the Rope" game 
+ It handles the overall object state and behavior of the game using box2d, 
+including managing game objects, updating the game physics, handling user input, and checking for collisions. 
+======================================================================================*/
+
 class World
 {
 public:
-	World(levelStatus_t& status, int& stars);
+	World();
 	void addObject(std::string& line);
 	void addToGameObjects(std::shared_ptr<GameObject> object);
 	void draw(sf::RenderWindow& window) const;
@@ -34,11 +42,11 @@ public:
 	void deleteCandy();
 
 private:
-	int& m_stars;
-	levelStatus_t& m_status;
+	int m_stars;
+	levelStatus_t m_levelStatus;
 	b2World m_physicalWorld;
 	std::vector<std::shared_ptr<GameObject>> m_gameObjects;
-	sf::Clock m_clock;
+	sf::Clock m_animationClock;
 
 	bool checkCollision(std::shared_ptr<GameObject> object1,
 		std::shared_ptr<GameObject> object2);

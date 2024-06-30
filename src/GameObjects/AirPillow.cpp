@@ -1,5 +1,8 @@
 #include "GameObjects/AirPillow.h"
 
+//===================================================================
+//Constructs an AirPillow object using the provided data and texture
+//===================================================================
 AirPillow::AirPillow(const Data& ObjectData, 
 	World& world, const sf::Texture& texture) : 
     ClickableObject(ObjectData, texture),
@@ -11,25 +14,18 @@ AirPillow::AirPillow(const Data& ObjectData,
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
 
-    bodyDef.type = b2_staticBody; // Set the body type to dynamic
+    bodyDef.type = b2_staticBody; 
     bodyDef.position.Set(ObjectData.m_pos.x / SCALE,
-        (WINDOW_MANAGER_HEIGHT - ObjectData.m_pos.y) / SCALE); // Set the initial position
-    bodyDef.angle = angleToRadians(ObjectData.m_angle); // Set the initial angle
-    bodyDef.linearVelocity.Set(0.0f, 0.0f); // Set the initial linear velocity
-    bodyDef.angularVelocity = 0.0f; // Set the initial angular velocity
-    bodyDef.linearDamping = 0.0f; // Set the linear damping
-    bodyDef.angularDamping = 0.0f; // Set the angular damping
+        (WINDOW_MANAGER_HEIGHT - ObjectData.m_pos.y) / SCALE); 
+    bodyDef.angle = angleToRadians(ObjectData.m_angle); 
 
     b2PolygonShape shape;
     shape.SetAsBox(AIR_PILLOW_SIZE.x / SCALE, AIR_PILLOW_SIZE.y / SCALE);
 
 
+    
     // Define the fixture
-
     fixtureDef.shape = &shape;
-    fixtureDef.density = 1.5f; // Adjust density as needed
-    fixtureDef.friction = 0.3f; // Adjust friction as needed
-    fixtureDef.restitution = 0.5f; // Adjust restitution (bounciness) as needed
     fixtureDef.isSensor = true;
 
     this->initBody(world, bodyDef, fixtureDef);
@@ -40,7 +36,11 @@ AirPillow::AirPillow(const Data& ObjectData,
     this->getSprite().setOrigin(origin);
 
 }
-
+//===================================================================
+// Handles the click event for the AirPillow. Starts the animation,
+// creates an Air object, plays the "GhostPuff" sound, and adds the
+// Air object to the game world.
+//===================================================================
 void AirPillow::handleClicked()
 {
     this->m_animation.setAnimationFlag(true);
@@ -52,7 +52,10 @@ void AirPillow::handleClicked()
 
     this->m_world.addToGameObjects(airBullet);
 }
-
+//===================================================================
+// Updates the AirPillow's position, rotation, and animation based on the 
+// current Box2D state.
+//===================================================================
 void AirPillow::update(sf::Time& deltaTime)
 {
     b2Vec2 position = this->getBody()->GetPosition();
@@ -67,6 +70,8 @@ void AirPillow::update(sf::Time& deltaTime)
 }
 
 
-
+//===================================================================
+// for the factory
+//===================================================================
 bool AirPillow::m_registerit = FactoryManager::registerit("AirPillow",
 	&AirPillowFactory::createObject);

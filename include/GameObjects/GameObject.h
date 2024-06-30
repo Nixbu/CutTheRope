@@ -24,7 +24,7 @@ public:
 	void setPosition(float posX, float posY);
 	void setRotation(float angle);
 	virtual void draw(sf::RenderWindow& window) const;
-	virtual void update(sf::Time& deltaTime) = 0;
+	virtual void update(sf::Time& deltaTime);
 	void initBody(World& world,
 				const b2BodyDef& bodyDef,
 				const b2FixtureDef& fixtureDef);

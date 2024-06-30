@@ -6,6 +6,13 @@
 
 class Controller;
 
+
+// class WinState
+/*
+// WinState class represents the state of the game when the player passess the last level.
+// It handles the display of the win screen and the interaction with buttons on this screen.
+*/
+
 class WinState : public GameState {
 public:
 	WinState(Controller& controller);

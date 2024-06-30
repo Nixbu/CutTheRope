@@ -14,7 +14,7 @@ class Omnom : public NonClickableObject
 {
 public:
 	Omnom(const Data& ObjectData, World& world, const sf::Texture& texture);
-	virtual void update(sf::Time& deltaTime);
+	virtual void update(sf::Time& deltaTime) override;
 	void setAnimationFlag(const bool& flag);
 
 private:

@@ -41,6 +41,7 @@ private:
 	Level m_level;
 	Controller& m_controller;
 	void changeToInterstital();
+	void handleLevelPassing();
 	
 };
 

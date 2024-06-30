@@ -1,6 +1,10 @@
 #include "Controller.h"
 
-
+//======================================================
+// Constructor
+// Initializes all states (MainState, LevelSelectState, PlayingState, HelpState),
+// adds buttons to each state, sets the initial state to MainState, and loads the window icon.
+//======================================================
 Controller::Controller()
 {
 	m_mainState = std::make_shared<MainState>();
@@ -20,7 +24,10 @@ Controller::Controller()
 	m_windowIconImage = iconTexture.copyToImage();
 }
 
-
+//======================================================
+// run
+// Main game loop. Handles rendering, user input, and updates the current state.
+//======================================================
 void Controller::run() {
 
 	sf::RenderWindow window(sf::VideoMode(WINDOW_MANAGER_WIDTH,
@@ -41,32 +48,35 @@ void Controller::run() {
 		this->m_currentState->update();
 	}
 }
-
+//======================================================
 std::shared_ptr<MainState> Controller::getMainState()
 {
 	return this->m_mainState;
 }
-
+//======================================================
 std::shared_ptr<LevelSelectState> Controller::getLevelSelectionState()
 {
 	return this->m_levelSelectState;
 }
-
+//======================================================
 std::shared_ptr<PlayingState> Controller::getPlayingState()
 {
 	return this->m_playingState;
 }
-
+//======================================================
 void Controller::setCurrentState(std::shared_ptr<GameState> next)
 {
 	this->m_currentState = next;
 }
-
+//======================================================
 std::shared_ptr<HelpState> Controller::getHelpState()
 {
 	return this->m_helpState;
 }
-
+//======================================================
+// render
+// Clears the window, draws the current state, and displays the window.
+//======================================================
 void Controller::render(sf::RenderWindow& window)
 {
 	window.clear();
@@ -75,7 +85,11 @@ void Controller::render(sf::RenderWindow& window)
 
 	window.display();
 }
-
+//======================================================
+// handleInput
+// Handles user input events such as window close, mouse button press,
+// mouse button release, and mouse movement.
+//======================================================
 void Controller::handleInput(sf::RenderWindow& window)
 {
 	static sf::Vector2f mousePos;

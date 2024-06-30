@@ -16,7 +16,6 @@ class Star : public NonClickableObject
 public:
 	Star(const Data& ObjectData, World& world, const sf::Texture& texture);
 	virtual ~Star() = default;
-	virtual void update(sf::Time& deltaTime);
 
 
 private:

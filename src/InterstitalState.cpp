@@ -1,6 +1,13 @@
 #include "InterstitalState.h"
 #include "Controller.h"
-
+//======================================================
+// Constructor
+// Initializes an InterstitalState object with background and button setup between levels.
+// Parameters:
+// - currentLevelName: Name of the current level.
+// - nextLevelNum: Number of the next level.
+// - controller: Reference to the game's controller for state management.
+//======================================================
 InterstitalState::InterstitalState(const std::string& currentLevelName, const int& nextLevelNum, Controller& controller) :
 	m_currentLevel(currentLevelName) , m_menu()
 {
@@ -12,23 +19,32 @@ InterstitalState::InterstitalState(const std::string& currentLevelName, const in
 
 	this->addButtons(controller , nextLevelNum);
 }
-
+//======================================================
 void InterstitalState::draw(sf::RenderWindow& window)
 {
 	window.draw(this->m_backGround);
 	this->m_menu.draw(window);
 }
-
+//======================================================
+// Handle Clicks Function
+// Passes mouse click positions to the menu to handle button clicks.
+//======================================================
 void InterstitalState::handleClicks(const sf::Vector2f& mousePos)
 {
 	this->m_menu.handleClicks(mousePos);
 }
-
+//======================================================
 void InterstitalState::handleFloating(const sf::Vector2f& mousePos)
 {
 	this->m_menu.handleFloating(mousePos);
 }
-
+//======================================================
+// Add Buttons Function
+// Adds buttons for level selection, restart, and next level to the menu.
+// Parameters:
+// - controller: Reference to the game's controller for state management.
+// - nextLevelNum: Number of the next level to play.
+//======================================================
 void InterstitalState::addButtons(Controller& controller , const int& nextLevelNum)
 {
 	auto& manager = ResourceManager::getInstance();

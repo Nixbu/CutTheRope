@@ -1,8 +1,8 @@
 #include "GameObjects/DoubleHat.h"
 
-bool DoubleHat::m_registerit = FactoryManager::registerit("DoubleHat",
-	&DoubleHatFactory::createObject);
 
+//===================================================================
+//===================================================================
 DoubleHat::DoubleHat(const Data& ObjectData, World& world, const sf::Texture& texture) 
 	: NonClickableObject(ObjectData, texture), m_whichBody(false)
 {
@@ -20,13 +20,15 @@ DoubleHat::DoubleHat(const Data& ObjectData, World& world, const sf::Texture& te
 	m_hat1 = std::make_unique<Hat>(hat1Data, world, texture);
 	m_hat2 = std::make_unique<Hat>(hat2Data, world, texture);
 }
-
+//===================================================================
+// Updates both Hat objects associated with the DoubleHat.
+//===================================================================
 void DoubleHat::update(sf::Time& deltaTime)
 {
 	this->m_hat1->update(deltaTime);
 	this->m_hat2->update(deltaTime);
 }
-
+//===================================================================
 void DoubleHat::draw(sf::RenderWindow& window) const
 {
 	this->m_hat1->draw(window);
@@ -36,6 +38,7 @@ void DoubleHat::draw(sf::RenderWindow& window) const
 //============================================================
 // The function changes the body that is being returned for
 // the check collision to work on both hats
+//===================================================================
 b2Body* DoubleHat::getBody()
 {
 	if (m_whichBody)
@@ -50,4 +53,8 @@ b2Body* DoubleHat::getBody()
 	}
 }
 
-
+//===================================================================
+// for the factory
+//===================================================================
+bool DoubleHat::m_registerit = FactoryManager::registerit("DoubleHat",
+	&DoubleHatFactory::createObject);

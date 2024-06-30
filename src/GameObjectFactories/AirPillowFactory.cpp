@@ -1,6 +1,9 @@
 #include "GameObjectFactories/AirPillowFactory.h"
 #include "GameObjects/AirPillow.h"
 
+//===================================================================
+// creats Air pillow object
+//===================================================================
 std::shared_ptr<GameObject> AirPillowFactory::createObject(const std::string& line, World& world, const sf::Texture& texture)
 {
 	std::istringstream iss(line);

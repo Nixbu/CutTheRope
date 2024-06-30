@@ -1,7 +1,9 @@
 #include "GameObjectFactories/CandyFactory.h"
 #include "GameObjects/Candy.h"
 
-
+//===================================================================
+// creats candy object
+//===================================================================
 std::shared_ptr<GameObject> CandyFactory::createObject(const std::string& line, World& world,const sf::Texture& texture)
 {
 	std::istringstream iss(line);

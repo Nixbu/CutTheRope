@@ -3,12 +3,19 @@
 
 const auto AnimationTime = sf::seconds(0.08f);
 
+//===================================================================
+// Constructs an Animation object with the provided animation data,
+// sprite, and looping flag.
+//===================================================================
 Animation::Animation(const ListOfFrames& data, sf::Sprite& sprite, bool looping)
     : m_data(data), m_sprite(sprite), m_showAnimation(false), m_looping(looping)
 {
     update();
 }
-
+//===================================================================
+// Updates the animation based on elapsed time since the last update.
+// Advances to the next frame when appropriate and handles looping
+//===================================================================
 void Animation::update(sf::Time delta)
 {
     if(m_showAnimation)
@@ -33,12 +40,12 @@ void Animation::update(sf::Time delta)
 
 
 }
-
+//===================================================================
 void Animation::setAnimationFlag(const bool& flag)
 {
     this->m_showAnimation = flag;
 }
-
+//===================================================================
 void Animation::update()
 {
     m_sprite.setTextureRect(m_data[m_index]);

@@ -12,6 +12,6 @@ class Hat : public NonClickableObject
 {
 public:
 	Hat(const Data& ObjectData, World& world, const sf::Texture& texture);
-	virtual void update(sf::Time& deltaTime);
+	
 private:
 };

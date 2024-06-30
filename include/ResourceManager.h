@@ -10,6 +10,7 @@ using ListOfFrames = std::vector<sf::IntRect>;
 
 /**
  * Represents a manager for loading and retrieving images (textures) for the game.
+ * it also contains the game music , sounds , and animations.
  */
 
 class ResourceManager {
@@ -33,15 +34,8 @@ private:
     ResourceManager();
 
     template <typename Resource>
-    void loadResource(std::unordered_map<std::string, Resource>& resourceMap,
-        const std::string& name, const std::string& filename)
-    {
-        Resource resource;
-
-        resource.loadFromFile(filename);
-        resourceMap[name] = std::move(resource);
-    }
-
+    void loadResource(std::unordered_map<std::string, Resource>& resourceMap, const std::string& name, 
+                      const std::string& filename);
     template <>
     void loadResource(std::unordered_map<std::string, std::unique_ptr<sf::Sound>>& resourceMap,
         const std::string& name, const std::string& filename)

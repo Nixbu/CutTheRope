@@ -1,0 +1,13 @@
+4
+Candy Candy 850 130 0
+Rope Rope shortRope 830 100 0
+Omnom Omnom 640 780
+Rope Rope mediumRope 375 100 0
+Star Star 485 375 0
+Star Star 200 550 0
+Star Star 200 650 0
+Spikes HorizonalLongSpikes 535 560 0
+Spikes HorizonalShortSpikes 535 150 0
+Chair Chair6 640 780 0
+AirPillow AirPillow 125 720 90
+Bubble Bubble 225 820

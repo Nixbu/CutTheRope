@@ -57,6 +57,10 @@ void World::draw(sf::RenderWindow& window) const
 	{
 		(*it)->draw(window);
 	}
+	if(this->m_candy)
+	{
+		this->m_candy->draw(window);
+	}
 }
 //======================================================================
 // Resets the game world by clearing the game objects vector and
@@ -78,6 +82,8 @@ void World::update(float timeStep, sf::Time& deltaTime)
 	m_physicalWorld.Step(timeStep, velocityIterations, positionIterations);
 
 	// Update all game objects to match their physics bodies
+	if(this->m_candy)
+		this->m_candy->update(deltaTime);
 	for (auto& object : m_gameObjects) {
 		object->update(deltaTime);
 	}

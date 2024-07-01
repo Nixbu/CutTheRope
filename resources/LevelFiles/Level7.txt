@@ -1,15 +1,14 @@
-3
-Omnom Omnom 125 255
-Candy Candy 1000 500 0
-Rope Rope shortRope 1000 370 0
-GravityButton GravityButtonUp 1065 210 0
-Star Star 1000 200 0
-DoubleHat GreenHat 1000 100 180 800 100 180
-DoubleHat BlueHat 800 750 0 600 750 0
-DoubleHat RedHat 600 100 180 335 750 0
-AirPillow AirPillow 450 635 310
-AirPillow AirPillow 335 330 225
-Bubble Bubble 180 680 0
-Star Star 215 140 0
-Star Star 335 550 0
-Chair Chair5 120 225 0
+4
+Candy Candy 850 130 0
+Rope Rope shortRope 875 100 0
+Omnom Omnom 640 780
+AirPillow AirPillow 400 650 90
+Rope Rope shortRope 375 100 0
+Bubble Bubble 490 350 0
+Star Star 485 250 0
+Star Star 485 550 0
+Star Star 485 650 0
+Spikes HorizonalLongSpikes 215 460 0
+Spikes HorizonalLongSpikes 915 460 0
+Spikes HorizonalShortSpikes 660 460 0
+Chair Chair6 640 780 0

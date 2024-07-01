@@ -91,8 +91,14 @@ void GameObject::initBody(World& world, const b2BodyDef& bodyDef, const b2Fixtur
 }
 //===================================================================
 b2Body* GameObject::getBody()
-{	
-	return m_body;
+{
+	if (this->m_body) {
+		return m_body;
+	}
+	else {
+		return nullptr;
+	}
+	
 }
 //===================================================================
 void GameObject::SetLinearVelocity(const b2Vec2 linearVelocity)

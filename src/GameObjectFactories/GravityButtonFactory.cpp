@@ -4,7 +4,7 @@
 //===================================================================
 // creats gravity button object
 //===================================================================
-std::unique_ptr<GameObject>&& GravityButtonFactory::createObject(const std::string& line, World& world, const sf::Texture& texture)
+std::unique_ptr<GameObject> GravityButtonFactory::createObject(const std::string& line, World& world, const sf::Texture& texture)
 {
 
 	std::istringstream iss(line);

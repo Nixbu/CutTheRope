@@ -5,7 +5,7 @@
 //===================================================================
 // creats spikes object
 //===================================================================
-std::unique_ptr<GameObject>&& SpikesFactory::createObject(const std::string& line,
+std::unique_ptr<GameObject> SpikesFactory::createObject(const std::string& line,
 	World& world, const sf::Texture& texture)
 {
 	std::istringstream iss(line);

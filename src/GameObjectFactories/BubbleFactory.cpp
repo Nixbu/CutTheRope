@@ -5,7 +5,7 @@
 //===================================================================
 // creats bubble object
 //===================================================================
-std::unique_ptr<GameObject>&& BubbleFactory::createObject(const std::string& line, World& world, const sf::Texture& texture)
+std::unique_ptr<GameObject> BubbleFactory::createObject(const std::string& line, World& world, const sf::Texture& texture)
 {
 	std::istringstream iss(line);
 	Data objectData;

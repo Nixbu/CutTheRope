@@ -21,7 +21,7 @@ std::unique_ptr<GameObject> FactoryManager::create(const std::string& name,
 // Registers a factory function for creating GameObjects with a specific name.
 //======================================================
 bool FactoryManager::registerit(const std::string& name, 
-    std::unique_ptr<GameObject>&&(*f)(const std::string&,
+    std::unique_ptr<GameObject>(*f)(const std::string&,
                                    World&,
                                     const sf::Texture&))
 {

@@ -4,7 +4,7 @@
 //===================================================================
 // creats star object
 //===================================================================
-std::unique_ptr<GameObject>&& StarFactory::createObject(const std::string& line,
+std::unique_ptr<GameObject> StarFactory::createObject(const std::string& line,
 														World& world, 
 													const sf::Texture& texture)
 {

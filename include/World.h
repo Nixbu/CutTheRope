@@ -23,14 +23,14 @@ class World
 public:
 	World();
 	void addObject(std::string& line);
-	void addToGameObjects(std::unique_ptr<GameObject>&& object);
+	void addToGameObjects(std::unique_ptr<GameObject> object);
 	void draw(sf::RenderWindow& window) const;
 	void reset();
 	void update(float timeStep, sf::Time& deltaTime);
 	void handleCollisions();
 	void handleClicks(const std::pair<sf::Vector2f, sf::Vector2f>& mousePos);
 	b2World& getWorld();
-	std::unique_ptr<GameObject>& getCandy();
+	GameObject* getCandy();
 	void setLevelStatus(const levelStatus_t& status);
 	void addStar();
 	void resetGravity();

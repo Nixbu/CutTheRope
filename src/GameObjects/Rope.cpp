@@ -107,7 +107,16 @@ void Rope::connectToCandy(World& world )
     // Define a revolute joint to connect the last segment to the candy
     b2RevoluteJointDef jointDef;
     jointDef.bodyA = lastSegmentBody;
-    jointDef.bodyB = world.getCandy()->getBody();
+    auto candy = world.getCandy();
+    if(candy)
+    {
+        auto candyBody = candy->getBody();
+        jointDef.bodyB = candy->getBody();
+    }
+    else
+    {
+        
+    }
     jointDef.localAnchorA.Set(0.0f, -0.1f); 
     jointDef.localAnchorB.Set(0.0f, 0.1f);  
     jointDef.collideConnected = false;

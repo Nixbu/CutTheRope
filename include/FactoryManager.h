@@ -17,14 +17,14 @@ class World;
    It provides methods to register and create objects based on factory functions.
 */
 
-typedef std::unordered_map<std::string, std::unique_ptr<GameObject>&&(*)(const std::string&, World&, const sf::Texture&)> FactoryMap;
+typedef std::unordered_map<std::string, std::unique_ptr<GameObject>(*)(const std::string&, World&, const sf::Texture&)> FactoryMap;
 // ================   class Factory   ============================
 class FactoryManager {
 public:
 	static std::unique_ptr<GameObject> create(const std::string& name,
 		const std::string& line, World& world, const sf::Texture& texture);
 	static bool registerit(const std::string& name, 
-				std::unique_ptr<GameObject>&&(*f)(const std::string&,
+				std::unique_ptr<GameObject>(*f)(const std::string&,
 												World&,
 											const sf::Texture&));
 private:

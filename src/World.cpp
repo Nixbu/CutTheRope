@@ -23,7 +23,7 @@ void World::addObject(std::string& line)
 
 		const sf::Texture& texture = resourceManager.getImage(subtype);
 
-		std::unique_ptr<GameObject>&& object = FactoryManager::create(type, line,
+		std::unique_ptr<GameObject> object = FactoryManager::create(type, line,
 			*this, texture);
 
 		if (object != nullptr)
@@ -44,7 +44,7 @@ void World::addObject(std::string& line)
 //======================================================================
 // Adds a shared pointer to a GameObject to the game objects vector.
 //======================================================================
-void World::addToGameObjects(std::unique_ptr<GameObject>&& object)
+void World::addToGameObjects(std::unique_ptr<GameObject> object)
 {
 	this->m_gameObjects.emplace_back(std::move(object));
 }
@@ -133,9 +133,12 @@ b2World& World::getWorld()
 	return this->m_physicalWorld;
 }
 //======================================================================
-std::unique_ptr<GameObject>& World::getCandy()
+GameObject* World::getCandy()
 {
-	return this->m_candy;
+	if (this->m_candy) {
+		return this->m_candy.get();
+	}
+	return nullptr;
 }
 //======================================================================
 void World::setLevelStatus(const levelStatus_t& status)
@@ -189,8 +192,9 @@ double World::getTime() const
 //======================================================================
 bool World::checkCollision(GameObject& object1, GameObject& object2)
 {
-	b2Body* bodyA = object1.getBody();
 	b2Body* bodyB = object2.getBody();
+	b2Body* bodyA = object1.getBody();
+	
 
 	if (bodyA && bodyB)
 	{

@@ -53,7 +53,7 @@ LEVEL_BUTTON_FONT_SHIFT_X = 10,
 LEVEL_BUTTON_FONT_SHIFT_Y = 60;
 
 // the first level button position
-const sf::Vector2i FIRST_BUTTON_POSITION = { 100, 300 };
+const sf::Vector2i FIRST_BUTTON_POSITION = { 300, 300 };
 
 // gravity of the b2world
 const sf::Vector2f GRAVITY_WORLD(0.0f, -6.8f);

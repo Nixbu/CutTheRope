@@ -5,3 +5,6 @@ Level4.txt 0Stars
 Level5.txt 0Stars
 Level6.txt 0Stars
 Level7.txt 0Stars
+Level8.txt 0Stars
+Level9.txt 0Stars
+Level10.txt 0Stars

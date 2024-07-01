@@ -1,0 +1,13 @@
+3
+Candy DonutCandy 910 450 0
+Rope Rope shortRope 900 400 0
+Omnom Omnom 920 250
+AirPillow AirPillow 300 450 90
+Star Star 200 450 0
+Star Star 600 500 0
+Star Star 600 200 0
+Bubble Bubble 400 500 0
+DoubleHat RedHat 900 700 0 200 200 180
+DoubleHat GreenHat 425 700 0 200 700 0
+DoubleHat BlueHat 650 700 0 900 100 180
+Chair Chair4 900 200 0

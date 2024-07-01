@@ -59,6 +59,8 @@ ResourceManager::ResourceManager() {
     loadResource<sf::Texture>(m_textures, "DonutCandy", "DonutCandy.png");
     loadResource<sf::Texture>(m_textures, "IceCreamCandy", "IceCreamCandy.png");
     loadResource<sf::Texture>(m_textures, "UnmuteMusicButton", "UnmuteMusicButton.png");
+    loadResource<sf::Texture>(m_textures, "ExitButton", "ExitButton.png");
+
 
 
     loadResource<sf::Texture>(m_textures, "Icon", "Icon.png");

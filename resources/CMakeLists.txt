@@ -24,6 +24,8 @@ configure_file ("ButtonAssets/MenuButtons/ReturnHomeButton.png" ${CMAKE_BINARY_D
 configure_file ("ButtonAssets/MenuButtons/ResetLevelButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("ButtonAssets/MenuButtons/HelpButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("ButtonAssets/MenuButtons/UnmuteMusicButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("ButtonAssets/MenuButtons/ExitButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
+
 
 
 # Animations

@@ -45,6 +45,10 @@ void MainState::addButtons(Controller& controller)
 	this->m_menu.addButton(std::make_unique<Button>(MUTE_BUTTON_POS, manager.getImage("UnmuteMusicButton"),
 		SMALL_MENU_BUTTON_DEFA_SIZE,
 		std::make_unique<MusicCommand>()));
+
+	this->m_menu.addButton(std::make_unique<Button>(EXIT_BUTTON_POS, manager.getImage("ExitButton"),
+		MENU_BUTTON_DEFA_SIZE,
+		std::make_unique<ExitCommand>(controller)));
 }
 //======================================================
 // Draw Function

@@ -4,6 +4,8 @@
 #include "Menu.h"
 #include "Commands/changeScreen.h"
 #include "Commands/MusicCommand.h"
+#include "Commands/ExitCommand.h"
+
 
 class Controller;
 class HelpState;

@@ -6,6 +6,7 @@
 // adds buttons to each state, sets the initial state to MainState, and loads the window icon.
 //======================================================
 Controller::Controller()
+	: m_window(sf::VideoMode(WINDOW_MANAGER_WIDTH, WINDOW_MANAGER_HEIGHT), "Cut The Rope")
 {
 	m_mainState = std::make_shared<MainState>();
 	m_levelSelectState = std::make_shared<LevelSelectState>();
@@ -30,20 +31,17 @@ Controller::Controller()
 //======================================================
 void Controller::run() {
 
-	sf::RenderWindow window(sf::VideoMode(WINDOW_MANAGER_WIDTH,
-		WINDOW_MANAGER_HEIGHT),
-		"Cut The Rope");
-
+	
 	ResourceManager::getInstance().playMusic("CutTheRope");
 
-	window.setIcon(m_windowIconImage.getSize().x, m_windowIconImage.getSize().y, m_windowIconImage.getPixelsPtr());
+	m_window.setIcon(m_windowIconImage.getSize().x, m_windowIconImage.getSize().y, m_windowIconImage.getPixelsPtr());
 
-	window.setFramerateLimit(60);
-	while (window.isOpen())
+	m_window.setFramerateLimit(60);
+	while (m_window.isOpen())
 	{
-		this->render(window);
+		this->render(m_window);
 
-		this->handleInput(window);
+		this->handleInput(m_window);
 
 		this->m_currentState->update();
 	}
@@ -84,6 +82,14 @@ void Controller::render(sf::RenderWindow& window)
 	this->m_currentState->draw(window);
 
 	window.display();
+}
+//======================================================
+// closeWindow
+// Closes the window
+//======================================================
+void Controller::closeWindow()
+{
+	this->m_window.close();
 }
 //======================================================
 // handleInput

@@ -27,6 +27,9 @@ configure_file ("ButtonAssets/MenuButtons/UnmuteMusicButton.png" ${CMAKE_BINARY_
 configure_file ("ButtonAssets/MenuButtons/ExitButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
 
 
+# Mouse cursor
+configure_file ("MouseCursor.png" ${CMAKE_BINARY_DIR} COPYONLY)
+
 
 # Animations
 configure_file ("AnimationFiles/AirPillowAnimations.png" ${CMAKE_BINARY_DIR} COPYONLY)

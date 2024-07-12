@@ -1,8 +1,8 @@
 Project - Cut the Rope
 ***********************************************************************
-Written by: Nir Busheri 206502569
-			Itay Mijan 322295460
-			Sagi Seri 209389972
+Written by: Nir Busheri
+			Itay Mijan
+			Sagi Seri
 ***********************************************************************
 This project implements a Cut the Rope style game using SFML and Box2D physics.
 The player interacts with various objects to guide a piece of candy to Om Nom.
